@@ -18,4 +18,4 @@ Write something about yourself or your project here.
 
 ## Contact
 
-Feel free to reach out to me at [example@example.com](mailto:example@example.com).
+Feel free to reach out to me via [email](mailto:example@example.com).
