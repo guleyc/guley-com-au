@@ -4,12 +4,13 @@ description: A Mining Engineer
 # Important: Add your repository information
 repository: guleyc/blog
 
-remote_theme: pages-themes/minimal@v0.2.0
+theme: jekyll-chapterbook
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-github-metadata
-
+paginate: 5
+paginate_path: "/page:num/"
 # Optional settings
 show_downloads: false
 google_analytics: 
