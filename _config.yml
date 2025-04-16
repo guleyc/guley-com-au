@@ -5,8 +5,6 @@ author: Cagatay Guley
 # Important: Add your repository information
 repository: guleyc/blog
 
-remote_theme: poole/hyde
-
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
