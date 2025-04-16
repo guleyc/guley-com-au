@@ -3,7 +3,7 @@ id: 256
 title: 'Emerging 5 Trends and Technologies in Mining Engineering'
 date: '2025-01-16T15:16:27+00:00'
 author: 'Cagatay Guley'
-layout: post
+layout: default
 guid: 'https://guley.com.tr/?p=256'
 permalink: /emerging-5-trends-and-technologies-in-mining-engineering/
 image: /wp-content/uploads/2025/01/mining-engineer-1200x800.jpg
