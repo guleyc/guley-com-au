@@ -4,12 +4,18 @@ layout: default
 
 # Welcome to My Website
 
-This is the homepage of my website using the Minimal theme on GitHub Pages.
+This is my personal website using Jekyll with the Minimal theme.
 
-## About
+## About Me
 
-Here you can write information about yourself or your project.
+Write something about yourself or your project here.
+
+## Projects
+
+- **Project 1**: Description of project 1
+- **Project 2**: Description of project 2
+- **Project 3**: Description of project 3
 
 ## Contact
 
-You can reach me at example@example.com
+Feel free to reach out to me at [example@example.com](mailto:example@example.com).
