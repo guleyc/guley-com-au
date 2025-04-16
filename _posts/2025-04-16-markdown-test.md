@@ -1,5 +1,5 @@
 ---
-title: "Markdown Test"
+title: "Markdown Block Test"
 date: 2025-04-16 18:00:00 +0300
 layout: post
 ---
@@ -8,9 +8,9 @@ layout: post
 
 ## Heading 2
 
-**Bold text** and *italic text*
-
 - List item 1
 - List item 2
+
+**Bold text** and *italic text*
 
 [Link to Google](https://google.com)
