@@ -4,4 +4,7 @@ baseurl: "" # If your site is at the root, leave empty
 url: "https://guley.com.tr" # Your custom domain
 markdown: kramdown
 theme: null # No theme
-plugins: []
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
