@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-white dark:bg-gray-900">
+<html lang="{{ site.lang | default: 'en' }}">
   <head>
     {% include head.html %}
   </head>
-  <body class="min-h-screen flex flex-col text-gray-900 dark:text-gray-100 transition-colors">
-    <div class="flex flex-1 max-w-6xl mx-auto w-full">
-      {% include sidebar.html %}
-      <main class="flex-1 p-8 md:pl-16">
-        {% include navbar.html %}
-        {{ content }}
-      </main>
-    </div>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col font-sans transition-colors">
+    {% include header.html %}
+    <main class="flex-1 px-4 py-8 max-w-3xl mx-auto w-full">
+      {{ content }}
+    </main>
     {% include footer.html %}
     <script>
-      // Simple dark mode toggle
       document.querySelectorAll('.toggle-dark').forEach(btn => {
         btn.onclick = () => document.documentElement.classList.toggle('dark');
       });

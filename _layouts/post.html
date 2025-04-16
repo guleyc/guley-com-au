@@ -1,33 +1,8 @@
 ---
 layout: default
 ---
-
-<div class="post">
-  <h1>{{ page.title }}</h1>
-  
-  <p class="post-info">
-    <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
-    {% if page.categories.size > 0 %}
-    <span class="post-categories">
-      Categories: 
-      {% for category in page.categories %}
-        <span class="category">{{ category }}</span>
-        {% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-    </span>
-    {% endif %}
-  </p>
-  
-  <div class="post-content">
-    {{ content }}
-  </div>
-  
-  <div class="post-navigation">
-    {% if page.previous.url %}
-      <a class="prev" href="{{page.previous.url}}">&laquo; Previous Post</a>
-    {% endif %}
-    {% if page.next.url %}
-      <a class="next" href="{{page.next.url}}">Next Post &raquo;</a>
-    {% endif %}
-  </div>
-</div>
+<article class="prose dark:prose-invert lg:prose-xl mx-auto mt-8">
+  <h1 class="mb-2">{{ page.title }}</h1>
+  <p class="text-base text-gray-500 dark:text-gray-400 mb-8">{{ page.date | date: "%B %d, %Y" }}</p>
+  {{ content }}
+</article>
