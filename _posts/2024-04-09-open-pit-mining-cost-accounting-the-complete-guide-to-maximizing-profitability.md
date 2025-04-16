@@ -2,7 +2,7 @@
 title: 'Open Pit Mining Cost Accounting: The Complete Guide to Maximizing Profitability'
 date: '2024-04-09T17:22:39+00:00'
 author: 'Cagatay Guley'
-layout: post
+layout: default
 categories:
     - Mining
 tags:
