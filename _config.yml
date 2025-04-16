@@ -1,20 +1,19 @@
 # Dependencies
-markdown:         kramdown
-highlighter:      rouge
+markdown: kramdown
+highlighter: rouge
 
 # Permalinks
-permalink:        /:title
+permalink: /:title
 
-# Setup
+# Site setup
 title: Cagatay Guley
 description: A Mining Engineer
-tagline: 'A Mining Engineer'
-url: https://guley.com.tr
-baseurl: "/"
-# Author
+tagline: "A Mining Engineer"
+url: "https://guley.com.tr"
+baseurl: "" # If publishing at root domain
+
 author: Cagatay Guley
 
-# Important: Add your repository information
 repository: guleyc/blog
 
 plugins:
@@ -25,22 +24,13 @@ paginate: 5
 paginate_path: "/page:num/"
 
 # Optional settings
-show_downloads: false
-google_analytics: 
-# Social media links
 github_username: guleyc
 email: cagatay@guley.com.tr
 
-# Page defaults
 defaults:
   -
     scope:
       path: ""
       type: "posts"
     values:
-      layout: "default"
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
+      layout: "post"
