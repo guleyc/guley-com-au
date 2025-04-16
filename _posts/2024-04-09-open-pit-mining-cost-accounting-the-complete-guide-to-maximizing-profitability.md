@@ -305,89 +305,13 @@ Variable costs are directly related to production volume. Increasing production 
 
 To see the impact of production volume on profitability, let's analyze profitability at different production levels:
 
-Production (tons)
-
-Total Fixed Cost ($)
-
-Total Variable Cost ($)
-
-Total Cost ($)
-
-Total Revenue ($)
-
-Profit ($)
-
-Profit Margin (%)
-
-500,000
-
-10,000,000
-
-100,000,000
-
-110,000,000
-
-250,000,000
-
-140,000,000
-
-56.0
-
-750,000
-
-10,000,000
-
-150,000,000
-
-160,000,000
-
-375,000,000
-
-215,000,000
-
-57.3
-
-1,000,000
-
-10,000,000
-
-200,000,000
-
-210,000,000
-
-500,000,000
-
-290,000,000
-
-58.0
-
-1,250,000
-
-10,000,000
-
-250,000,000
-
-260,000,000
-
-625,000,000
-
-365,000,000
-
-58.4
-
-1,500,000
-
-10,000,000
-
-300,000,000
-
-310,000,000
-
-750,000,000
-
-440,000,000
-
-58.7
+| Production (tons) | Total Fixed Cost ($) | Total Variable Cost ($) | Total Cost ($) | Total Revenue ($) | Profit ($) | Profit Margin (%) |
+|--------------|----------------------------|-------------------------------|----------------------|---------------------|-----------|--------------|
+| 500,000      | 10,000,000                 | 100,000,000                   | 110,000,000          | 250,000,000         | 140,000,000 | 56.0        |
+| 750,000      | 10,000,000                 | 150,000,000                   | 160,000,000          | 375,000,000         | 215,000,000 | 57.3        |
+| 1,000,000    | 10,000,000                 | 200,000,000                   | 210,000,000          | 500,000,000         | 290,000,000 | 58.0        |
+| 1,250,000    | 10,000,000                 | 250,000,000                   | 260,000,000          | 625,000,000         | 365,000,000 | 58.4        |
+| 1,500,000    | 10,000,000                 | 300,000,000                   | 310,000,000          | 750,000,000         | 440,000,000 | 58.7        |
 
 As shown in this table, profit margin increases as production volume increases. This is because fixed costs are distributed over more production units.
 
