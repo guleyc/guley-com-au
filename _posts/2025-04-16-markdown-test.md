@@ -1,7 +1,7 @@
 ---
 title: "Markdown Block Test"
 date: 2025-04-16 18:00:00 +0300
-layout: minimal
+layout: default
 ---
 
 # Heading 1
