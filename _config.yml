@@ -9,8 +9,8 @@ permalink:        /:title
 title: Cagatay Guley
 description: A Mining Engineer
 tagline: 'A Mining Engineer'
-url: http://guley.com.tr
-baseurl: /
+url: https://guley.com.tr
+baseurl: ""
 # Author
 author: Cagatay Guley
 
