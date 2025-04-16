@@ -13,6 +13,7 @@ plugins:
 # Optional settings
 show_downloads: false
 google_analytics: 
+permalink: /:title
 
 # Social media links
 github_username: guleyc
