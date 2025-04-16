@@ -2,11 +2,224 @@
 layout: default
 ---
 
-<h1 class="mb-2">{{ page.title }}</h1>
-<div class="flex justify-between items-center mt-2 mb-8 text-sm">
-    <p class="text-sm text-neutral-600 dark:text-neutral-400">{{ page.date | date: "%B %d, %Y" }}</p>
-  </div>
+<section class="bg-light">
+    <div class="container">
+        <div class="row py-5">
 
-<article class="prose">
-  {{ content }}
-</article>
+            <!-- MAIN CONTENT POST -->
+            <div class="col-lg-9">
+                <div class="card border-0 pb-5">
+                    <div class="mb-5 card-header text-center border-0 bg-transparent">
+                        <h1>{{ page.title }}</h1>
+                        <div class="d-inline-flex">
+                            <span class="me-2">Posted {{ page.date | date: "%B %d, %Y" }}</span>
+                        </div>
+                        <div class="mb-5 ratio ratio-16x9">
+                            <img src="https://picsum.photos/800/600" alt="" class="card-img">
+                        </div>
+                        <div class="card-body">
+                        {{ content }}
+                        </div>
+                        <div class="row border-bottom mb-5 pb-5">
+                            <div class="col text-center pb-5">
+                                <h4 class="mb-3">Tags</h4>
+                                <div>
+                                    <a href="#none" class="btn btn-grey-light mx-1 mb-1">Lifestyle</a>
+                                    <a href="#none" class="btn btn-grey-light mx-1 mb-1">People</a>
+                                    <a href="#none" class="btn btn-grey-light mx-1 mb-1">Health</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row border-bottom mb-5 pb-5">
+                            <h4>Share this post</h4>
+                            <div class="d-flex">
+                                <a href="#none" class="button me-2 text-dark" target="_blank">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="#none" class="button me-2 text-dark" target="_blank">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#none" class="button me-2 text-dark" target="_blank">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="#none" class="button me-2 text-dark" target="_blank">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- POST NAVIGATION -->
+                        <div class="row">
+                            <div class="col">
+                                <h2>Related post</h2>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+
+                                <!-- PREV POST -->
+                                <div class="card text-center mb-5">
+                                    <a href="single.html" class="ratio ratio-16x9">
+                                        <img src="https://picsum.photos/id/1014/600/300" class="card-img-top" alt="">
+                                    </a>
+                                    <div class="card-body">
+                                        <h2 class="mb-1"><a href="single.html"
+                                                class="text-dark text-decoration-none">This
+                                                is a title post for
+                                                loop</a></h2>
+                                        <div class="mb-2">
+                                            <span>Posted 3 Months ago by</span> <a href="#none">Melyssa</a>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis eveniet nulla
+                                            ea
+                                            illum laborum quasi molestias atque voluptate suscipit natus!</p>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <a href="#none" class="btn btn-grey-light mx-1 mb-1">Lifestyle</a>
+                                                <a href="#none" class="btn btn-grey-light mx-1 mb-1">People</a>
+                                                <a href="#none" class="btn btn-grey-light mx-1 mb-1">Health</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <!-- NEXT POST -->
+                                <div class="card text-center mb-5">
+                                    <a href="single.html" class="ratio ratio-16x9">
+                                        <img src="https://picsum.photos/id/1049/600/300" class="card-img-top" alt="">
+                                    </a>
+                                    <div class="card-body">
+                                        <h2 class="mb-1"><a href="single.html"
+                                                class="text-dark text-decoration-none">This
+                                                is a title post for
+                                                loop</a></h2>
+                                        <div class="mb-2">
+                                            <span>Posted 3 Months ago by</span> <a href="#none">Melyssa</a>
+                                        </div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis eveniet nulla
+                                            ea
+                                            illum laborum quasi molestias atque voluptate suscipit natus!</p>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <a href="#none" class="btn btn-grey-light mx-1 mb-1">Lifestyle</a>
+                                                <a href="#none" class="btn btn-grey-light mx-1 mb-1">People</a>
+                                                <a href="#none" class="btn btn-grey-light mx-1 mb-1">Health</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="col-lg-3">
+
+
+
+                        <!-- RECENT POST WIDGET -->
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title bg-gray-100 p-2">Recent post</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Next generation of sneakers from Africa</a></li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">What is the best place to eat "tapas" at Barcelona?</a></li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">My favourite places at Spain</a></li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Tips for no procrastinate</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ARCHIVE WIDGET -->
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title bg-gray-100 p-2">Archive</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">September 2021</a></li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">August 2021</a></li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">July 2021</a></li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">June 2021</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- CATEGORIES WIDGET -->
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h5 class="card-title bg-gray-100 p-2">Categories</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Lifestyle</a>
+                                        <span class="badge bg-transparent text-dark">(14)</span>
+                                    </li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Minimalist</a>
+                                        <span class="badge bg-transparent text-dark">(25)</span>
+                                    </li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Films</a>
+                                        <span class="badge bg-transparent text-dark">(18)</span>
+                                    </li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Recipes</a>
+                                        <span class="badge bg-transparent text-dark">(56)</span>
+                                    </li>
+                                    <li class="list-group-item"><a class="text-decoration-none text-dark"
+                                            href="#none">Fashion</a>
+                                        <span class="badge bg-transparent text-dark">(8)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- STICKY SIDEBAR CONTENT -->
+                        <div class="sticky-md-top py-3">
+
+                            <!-- AUTHOR WIDGET -->
+                            <div class="card text-center p-4 mb-3">
+                                <img src="assets/images/people-2.jpg"
+                                    class="card-img-top rounded-circle w-50 mx-auto" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">Melissa Parker</h5>
+                                    <p class="card-text">Hi my name Melissa. I'm fashion designer live in Denpasar,
+                                        Bali.
+                                        This is my dailly blog, hopefully you enjoy read my article.</p>
+                                    <a href="#none" class="mx-1 ">Twitter</a>
+                                    <a href="#none" class="mx-1">Instagram</a>
+                                </div>
+                            </div>
+
+                            <!-- BANNER -->
+                            <div class="card text-center mb-3 border-0">
+                                <img src="assets/images/banner.jpg" class="card-img-top" alt="">
+                            </div>
+
+
+                            <!-- SEARCH WIDGET -->
+                            <div class="card text-center border-0">
+                                <div class="card-body px-0">
+                                    <form action="#none">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control p-2" placeholder="Search..."
+                                                aria-label="Search" aria-describedby="button-search">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                id="button-search"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </aside>
+                </div>
+            </div>
+        </section>
