@@ -2,18 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>{{ page.title }} | {{ site.title }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    {% seo %}
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#1d4ed8" />
+
+    <!-- OpenGraph fallback -->
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html | default: site.description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | default: site.description }}">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    <!-- Tailwind 4.1 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body class="bg-gray-50 text-gray-900">
     <div class="flex min-h-screen">
       <!-- Sidebar -->
-      <aside class="w-64 bg-white shadow-lg flex flex-col p-6 fixed h-full">
+      <aside class="hidden md:flex w-64 bg-white shadow-lg flex-col p-6 fixed h-full z-20">
         <div class="mb-10">
           <a href="/" class="text-2xl font-bold text-blue-600">{{ site.title }}</a>
         </div>
-        <nav class="flex-1">
+        <nav class="flex-1" aria-label="Sidebar menu">
           <ul class="space-y-4">
             <li>
               <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
@@ -25,10 +49,15 @@
           © {{ site.time | date: "%Y" }} {{ site.title }}
         </div>
       </aside>
+      <!-- Mobile Sidebar -->
+      <aside class="md:hidden fixed top-0 left-0 w-full bg-white border-b shadow z-30 flex items-center px-4 h-16">
+        <a href="/" class="text-xl font-bold text-blue-600">{{ site.title }}</a>
+      </aside>
       <!-- Main Content -->
-      <main class="flex-1 ml-64 p-8">
+      <main class="flex-1 md:ml-64 w-full pt-20 md:pt-0 px-4 sm:px-8 pb-8 max-w-full"
+        style="min-height: 100svh; box-sizing: border-box;">
         <!-- Introduction -->
-        <section class="mb-8">
+        <section class="mb-8 mt-4 md:mt-0">
           <h1 class="text-3xl font-semibold mb-2">Introduction</h1>
           <p class="text-lg text-gray-700">
             As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons.
