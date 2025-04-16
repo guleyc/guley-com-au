@@ -3,7 +3,8 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Permalinks
-permalink:        pretty
+permalink:        /:title
+relative_permalinks: true
 
 # Setup
 title: Cagatay Guley
@@ -27,7 +28,6 @@ paginate_path: "/page:num/"
 # Optional settings
 show_downloads: false
 google_analytics: 
-
 # Social media links
 github_username: guleyc
 email: cagatay@guley.com.tr
