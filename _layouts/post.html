@@ -12,10 +12,12 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="theme-color" content="#1d4ed8" />
 
-    <!-- Tailwind 4.1 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Tailwind Typography Plugin CDN (correct!) -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        plugins: [tailwindcss.typography]
+      }
+    </script>
   </head>
   <body class="bg-gray-50 text-gray-900">
     <div class="flex min-h-screen">
