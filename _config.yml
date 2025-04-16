@@ -1,9 +1,9 @@
 title: Cagatay Guley
 description: A Mining Engineer
-baseurl: "" # If your site is at the root, leave empty
-url: "https://guley.com.tr" # Your custom domain
+baseurl: "" 
+url: "https://guley.com.tr"
 markdown: kramdown
-theme: null # No theme
+theme: null
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
