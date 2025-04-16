@@ -1,0 +1,14 @@
+<aside class="hidden md:flex flex-col fixed h-screen w-52 py-8 px-4 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 z-10">
+    <a href="{{ '/' | relative_url }}" class="mb-6 text-2xl font-bold tracking-tight">
+      {{ site.title }}
+    </a>
+    <nav class="flex flex-col gap-4">
+      <a href="/" class="hover:underline">Home</a>
+      <a href="/about/" class="hover:underline">About</a>
+      <a href="/blog/" class="hover:underline">Blog</a>
+      <a href="/categories/" class="hover:underline">Categories</a>
+    </nav>
+    <button class="mt-auto toggle-dark py-2 px-4 rounded bg-gray-100 dark:bg-gray-800 text-sm">
+      Toggle Dark Mode
+    </button>
+  </aside>
