@@ -1,20 +1,33 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        /:title
+relative_permalinks: true
+
+# Setup
 title: Cagatay Guley
 description: A Mining Engineer
+tagline: 'A Mining Engineer'
+url: http://guley.com.tr
+baseurl: /
+# Author
 author: Cagatay Guley
 
 # Important: Add your repository information
 repository: guleyc/blog
 
 plugins:
-  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-github-metadata
+
 paginate: 5
 paginate_path: "/page:num/"
+
 # Optional settings
 show_downloads: false
 google_analytics: 
-permalink: /:title
 
 # Social media links
 github_username: guleyc
