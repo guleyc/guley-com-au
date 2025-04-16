@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white shadow-lg flex flex-col p-6 fixed h-full">
+        <div class="mb-10">
+          <a href="/" class="text-2xl font-bold text-blue-600">{{ site.title }}</a>
+        </div>
+        <nav class="flex-1">
+          <ul class="space-y-4">
+            <li>
+              <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+            </li>
+            <!-- Add more menu items here -->
+          </ul>
+        </nav>
+        <div class="mt-10 text-xs text-gray-400">
+          © {{ site.time | date: "%Y" }} {{ site.title }}
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main class="flex-1 ml-64 p-8">
+        <!-- Introduction -->
+        <section class="mb-8">
+          <h1 class="text-3xl font-semibold mb-2">Introduction</h1>
+          <p class="text-lg text-gray-700">
+            As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons.
+          </p>
+        </section>
+        <!-- Blog Posts List -->
+        <section>
+          <h2 class="text-xl font-semibold mb-4">Blog Posts</h2>
+          <ul class="space-y-4">
+            {% for post in site.posts %}
+              <li>
+                <a href="{{ post.url }}" class="block p-4 bg-white shadow rounded hover:bg-blue-50 transition">
+                  <div class="text-lg font-bold text-blue-700">{{ post.title }}</div>
+                  <div class="text-sm text-gray-500">{{ post.date | date: "%B %d, %Y" }}</div>
+                  <div class="text-gray-600 mt-2">{{ post.excerpt | strip_html | truncate: 120 }}</div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
