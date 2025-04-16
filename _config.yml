@@ -4,7 +4,8 @@ description: A Mining Engineer
 # Important: Add your repository information
 repository: guleyc/blog
 
-theme: jekyll-chapterbook
+remote_theme: jasongrimes/jekyll-chapterbook
+
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
