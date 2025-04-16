@@ -17,6 +17,7 @@ author: Cagatay Guley
 repository: guleyc/blog
 
 plugins:
+  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-github-metadata
 
