@@ -2,27 +2,28 @@
 layout: default
 ---
 
-As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons.
+<section class="blog-index">
+  <h1>Blog</h1>
+  <ul class="post-list">
+    {%- for post in paginator.posts %}
+      <li>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+        <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+        <a href="{{ post.url | relative_url }}">Read more…</a>
+      </li>
+    {%- endfor %}
+  </ul>
 
-<div class="container">
-    <div class="row grid-masonry">  
-  {% for post in site.posts %}
-
-<div class="col-sm-6 col-md-4 mb-3 grid-item">
-    <article class="card card-post text-center">
-        <a href="{{ post.url }}">
-            <img src="https://picsum.photos/id/101/400/600" class="card-img-top" alt="..." />
-        </a>
-        <div class="card-body">
-        <p class="h6"><a href="#none">Lifestyle</a></p>
-        <h4 class="mb-3">
-        <a href="{{ post.url }}" class="text-dark">{{ post.title }}</a>
-        </h4>
-        </div>
-        <div class="card-meta">
-        <p class="card-meta-tag">{{ post.date | date: "%Y-%m-%d" }}</p>
-        </div>
-    </article>
-</div>
-  {% endfor %}
-</div>
+  {%- if paginator.total_pages > 1 -%}
+    <nav class="pagination">
+      {%- if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+      {%- endif %}
+      <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {%- if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+      {%- endif %}
+    </nav>
+  {%- endif -%}
+</section>
