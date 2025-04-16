@@ -2,7 +2,7 @@
 layout: default
 ---
 
-I'm a developer, designer, and writer passionate about creating meaningful digital experiences.
+As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons.
 
 <div class="post-list-container">
   {% for post in site.posts %}
