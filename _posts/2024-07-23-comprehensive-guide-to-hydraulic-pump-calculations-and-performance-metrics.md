@@ -1,12 +1,8 @@
 ---
-id: 167
 title: 'Comprehensive Guide to Hydraulic Pump Calculations and Performance Metrics'
 date: '2024-07-23T08:41:56+00:00'
 author: 'Cagatay Guley'
-layout: post
-guid: 'https://guley.com.tr/?p=167'
-permalink: /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics/
-image: /wp-content/uploads/2024/07/HydraulicPumps.png
+layout: default
 categories:
     - Energy
 tags:
