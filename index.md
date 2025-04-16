@@ -2,20 +2,26 @@
 layout: default
 ---
 
-# Welcome to My Website
+# Welcome to My Personal Website
 
-This is my personal website using Jekyll with the Minimal theme.
+I'm a developer, designer, and writer passionate about creating meaningful digital experiences.
 
-## About Me
+## Recent Projects
 
-Write something about yourself or your project here.
+- **Project Alpha**: A machine learning app that predicts user preferences
+- **Project Beta**: Interactive data visualization dashboard
+- **Project Gamma**: Mobile-first responsive web application
 
-## Projects
+## Latest Blog Posts
 
-- **Project 1**: Description of project 1
-- **Project 2**: Description of project 2
-- **Project 3**: Description of project 3
+<ul class="post-list">
+  {% for post in site.posts limit:3 %}
+    <li>
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt }}</p>
+      <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+    </li>
+  {% endfor %}
+</ul>
 
-## Contact
-
-Feel free to reach out to me via [email](mailto:example@example.com).
+[See all posts](/blog.html)
