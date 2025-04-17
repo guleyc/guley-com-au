@@ -3,6 +3,9 @@ title: 'Solar Power Plants'
 date: '2023-08-23T06:29:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /solar-power-plants/
+redirect_from:
+  - /solar-power-plants
 categories: [energy]
 ---
 
