@@ -1,17 +1,13 @@
 ---
-id: 61
 title: 'Solution Mining: Well and Cavern Design'
 date: '2023-09-12T07:06:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=61'
-permalink: /solution-mining-well-and-cavern-design/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/solution-mining-well-and-cavern-design/"},"headline":"Solution Mining: Well and Cavern Design","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/solution_mining.jpg","width":750,"height":745},"datePublished":"2023-09-12T07:06:00","dateModified":"2024-03-14T08:24:25","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/solution_mining.jpg
-categories:
-    - Mining
+categories: [mining]
 ---
+
+Solution Mining: Well and Cavern Design
+====================================================================================
 
 A salt solution well’s design involves the use of two or more steel pipe columns (casing strings) nested within each other. To initiate the solution process within a expanding salt cavern, fresh water or undersaturated brine (known as the feed solvent) is pumped into the well, creating a void within the targeted salt formation. The resulting brine is then extracted to the surface for processing and recovery.
 

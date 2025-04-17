@@ -1,28 +1,17 @@
 ---
-id: 49
 title: 'Darcy’s Law'
 date: '2023-06-07T06:27:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=49'
-permalink: /darcys-law/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/darcys-law/"},"headline":"Darcy’s Law","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/darcylaw-1.png","width":1182,"height":706},"datePublished":"2023-06-07T06:27:00","dateModified":"2024-03-14T18:53:28","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/darcylaw-1.png
-categories:
-    - Engineering
+categories: [engineering]
 ---
+
+Darcy’s Law
+====================================================================================
 
 Darcy’s Law, which is based on a hydraulic principle, relates the seepage velocity of water in a porous medium (such as sand, gravel, or rock) to the permeability of the medium and the hydraulic gradient (pressure difference).
 
-<figure class="wp-block-image size-full">![](https://guley.com.tr/wp-content/uploads/2024/03/hydraulic-gradient-300x252-1.png)</figure><div class="ez-toc-v2_0_73 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container"><div class="ez-toc-title-container">Table of Contents
-
-<span class="ez-toc-title-toggle">[<span class="ez-toc-js-icon-con"><span class=""><span class="eztoc-hide" style="display:none;">Toggle</span><span class="ez-toc-icon-toggle-span"><svg class="list-377408" fill="none" height="20px" style="fill: #999;color:#999" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z" fill="currentColor"></path></svg><svg baseprofile="tiny" class="arrow-unsorted-368013" height="10px" style="fill: #999;color:#999" version="1.2" viewbox="0 0 24 24" width="10px" xmlns="http://www.w3.org/2000/svg"><path d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z"></path></svg></span></span></span>](#)</span></div><nav>- [Darcy’s Law Expression (Q)](https://guley.com.tr/darcys-law/#Darcys_Law_Expression_Q "Darcy’s Law Expression (Q)")
-- [Hydraulic Gradient (dh/dL)](https://guley.com.tr/darcys-law/#Hydraulic_Gradient_dhdL "Hydraulic Gradient (dh/dL)")
-- [Example 1](https://guley.com.tr/darcys-law/#Example_1 "Example 1")
-- [Example 2](https://guley.com.tr/darcys-law/#Example_2 "Example 2")
-
-</nav></div>### <span class="ez-toc-section" id="Darcys_Law_Expression_Q"></span>Darcy’s Law Expression (Q)<span class="ez-toc-section-end"></span>
+### <span class="ez-toc-section" id="Darcys_Law_Expression_Q"></span>Darcy’s Law Expression (Q)<span class="ez-toc-section-end"></span>
 
 <div class="wp-block-katex-display-block katex-eq" data-katex-display="true">```
 Q=-k*A*(dh/dL)

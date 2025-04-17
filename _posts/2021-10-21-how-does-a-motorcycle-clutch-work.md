@@ -1,17 +1,13 @@
 ---
-id: 13
 title: 'How Does A Motorcycle Clutch Work'
 date: '2021-10-21T13:56:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=13'
-permalink: /how-does-a-motorcycle-clutch-work/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/how-does-a-motorcycle-clutch-work/"},"headline":"How Does A Motorcycle Clutch Work","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/motorcylce-on-road-jpg.webp","width":1024,"height":1024},"datePublished":"2021-10-21T13:56:00","dateModified":"2024-03-14T09:32:56","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/motorcylce-on-road-jpg.webp
-categories:
-    - Motorcycle
+categories: [motorcycle]
 ---
+
+How Does A Motorcycle Clutch Work
+====================================================================================
 
 The clutch, an often overlooked device, is an integral part of motorcycles. While its concept is simple, allowing the rider to disengage power from the rear wheel while the engine spins, early motorcycles did not always feature clutches. Riding such motorcycles, which lacked clutches, offered a unique experience. Every start required a bump start, and stopping meant either stalling or lifting one’s weight off the saddle to allow the rear tire to gently spin, as tire traction was not a priority in those days. Furthermore, without a clutch, motorcycles couldn’t have gears.
 
@@ -30,5 +26,3 @@ Dry clutches experience less power loss and provide greater friction than wet cl
 However, it’s worth noting that dry clutches are becoming less common in road bikes. They are less durable, noisier, and can be more finicky to use when they become hot. As a result, their usage is declining in favor of wet clutches.
 
 In conclusion, the clutch is a crucial component of motorcycles that allows the rider to disengage power from the rear wheel. Most motorcycle clutches are manual, wet, and multi-plate. The friction between the plates transmits power to the rear wheel, and the number of plates depends on factors such as power requirements and friction material characteristics. Wet clutches operate in oil, offering durability and smooth operation, while dry clutches provide higher friction but are less common in road bikes due to their drawbacks. Understanding the function and characteristics of clutches enhances our appreciation of these essential devices in motorcycle mechanics.
-
-<figure class="wp-block-embed"><div class="wp-block-embed__wrapper">https://www.youtube-nocookie.com/embed/qP48YRhebv0?controls=0&amp;mute=1 </div></figure>

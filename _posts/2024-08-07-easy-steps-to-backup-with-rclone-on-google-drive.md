@@ -3,19 +3,11 @@ title: 'Easy Steps to Backup with Rclone on Google Drive'
 date: '2024-08-07T15:45:53+00:00'
 author: 'Cagatay Guley'
 layout: default
-categories:
-    - Web
-tags:
-    - 'Cloud Backup'
-    - 'Data Backup'
-    - 'Google Drive Backup'
-    - Rclone
-    - 'Rclone Configuration'
-    - 'sFTP Usage'
-    - 'Step-by-Step Guide'
-    - 'Technology Guide'
-    - 'Windows Backup'
+categories: [web]
 ---
+
+Easy Steps to Backup with Rclone on Google Drive
+====================================================================================
 
 ### Introduction
 

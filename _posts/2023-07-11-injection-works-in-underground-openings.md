@@ -1,16 +1,13 @@
 ---
-id: 125
 title: 'Injection Works in Underground Openings'
 date: '2023-07-11T06:26:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=125'
-permalink: /injection-works-in-underground-openings/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/injection-works-in-underground-openings/"},"headline":"Injection Works in Underground Openings","datePublished":"2023-07-11T06:26:00","dateModified":"2024-03-19T06:45:11","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-categories:
-    - Mining
+categories: [mining]
 ---
+
+Injection Works in Underground Openings
+====================================================================================
 
 Underground injection plays a pivotal role in enhancing the durability of tunnels and preventing water leakage. Polyurethane and acrylic injections serve as powerful tools that aid engineers in overcoming challenges encountered during tunnel construction. Therefore, the correct application of these techniques is of vital importance for the long-term resilience of tunnels.
 

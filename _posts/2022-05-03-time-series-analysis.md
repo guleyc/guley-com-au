@@ -1,17 +1,13 @@
 ---
-id: 15
 title: 'Time Series Analysis'
 date: '2022-05-03T13:58:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=15'
-permalink: /time-series-analysis/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/time-series-analysis/"},"headline":"Time Series Analysis","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/time-series.png","width":1302,"height":732},"datePublished":"2022-05-03T13:58:00","dateModified":"2024-03-14T09:32:03","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/time-series-1200x675.png
-categories:
-    - Engineering
+categories: [engineering]
 ---
+
+Time Series Analysis
+====================================================================================
 
 Time series analysis is a statistical method employed to forecast future values based on historical data. It aims to predict the values of a variable that changes over time, such as stock prices, weather patterns, or economic indicators, by utilizing past observations. To construct a time series forecasting model, the first step involves examining the dataset. The dataset consists of measurements of the variable at regular intervals over time, such as daily closing prices of a stock or monthly average temperature. The initial step is to analyze the statistical characteristics of the time series data, which may include trend, seasonality, and periodic variations. Trend refers to the long-term increasing or decreasing pattern observed in the data. Seasonality captures the regular, recurring patterns at specific intervals, such as the surge in retail sales during the holiday season. Periodic variations represent regular repeating patterns observed in the data.
 
@@ -25,26 +21,7 @@ In the above equation, Y is dependent on the average of its two preceding values
 
 It is imperative to acknowledge that while this basic model showcases the essence of univariate time series forecasting, real-world applications often demand more intricate and sophisticated models. These models might encompass additional features, incorporate external factors, or integrate more extensive historical data to enhance predictive capabilities. Furthermore, the selection of the optimal window size is not a trivial task and might necessitate empirical experimentation to determine the configuration that optimally captures the underlying patterns in the data.
 
-<div class="ez-toc-v2_0_73 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container"><div class="ez-toc-title-container">Table of Contents
-
-<span class="ez-toc-title-toggle">[<span class="ez-toc-js-icon-con"><span class=""><span class="eztoc-hide" style="display:none;">Toggle</span><span class="ez-toc-icon-toggle-span"><svg class="list-377408" fill="none" height="20px" style="fill: #999;color:#999" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z" fill="currentColor"></path></svg><svg baseprofile="tiny" class="arrow-unsorted-368013" height="10px" style="fill: #999;color:#999" version="1.2" viewbox="0 0 24 24" width="10px" xmlns="http://www.w3.org/2000/svg"><path d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z"></path></svg></span></span></span>](#)</span></div><nav>- [Key Concepts to be Acquainted With](https://guley.com.tr/time-series-analysis/#Key_Concepts_to_be_Acquainted_With "Key Concepts to be Acquainted With")
-- [Smoothing Techniques](https://guley.com.tr/time-series-analysis/#Smoothing_Techniques "Smoothing Techniques")
-- [Autoregression (AR) Models](https://guley.com.tr/time-series-analysis/#Autoregression_AR_Models "Autoregression (AR) Models")
-- [Stationary Data](https://guley.com.tr/time-series-analysis/#Stationary_Data "Stationary Data")
-- [Moving Average (MA)](https://guley.com.tr/time-series-analysis/#Moving_Average_MA "Moving Average (MA)")
-- [Autoregressive Moving Average (ARMA)](https://guley.com.tr/time-series-analysis/#Autoregressive_Moving_Average_ARMA "Autoregressive Moving Average (ARMA)")
-- [Autoregressive Integrated Moving Average (ARIMA)](https://guley.com.tr/time-series-analysis/#Autoregressive_Integrated_Moving_Average_ARIMA "Autoregressive Integrated Moving Average (ARIMA)")
-- [Seasonal Autoregressive Integrated Moving Average (SARIMA)](https://guley.com.tr/time-series-analysis/#Seasonal_Autoregressive_Integrated_Moving_Average_SARIMA "Seasonal Autoregressive Integrated Moving Average (SARIMA)")
-- [Seasonal Autoregressive Integrated Moving Average with Exogenous Regressors (SARIMAX)](https://guley.com.tr/time-series-analysis/#Seasonal_Autoregressive_Integrated_Moving_Average_with_Exogenous_Regressors_SARIMAX "Seasonal Autoregressive Integrated Moving Average with Exogenous Regressors (SARIMAX)")
-- [Vector Autoregression Moving Average (VARMA)](https://guley.com.tr/time-series-analysis/#Vector_Autoregression_Moving_Average_VARMA "Vector Autoregression Moving Average (VARMA)")
-- [Vector Autoregression Moving Average with Exogenous Regressors (VARMAX)](https://guley.com.tr/time-series-analysis/#Vector_Autoregression_Moving_Average_with_Exogenous_Regressors_VARMAX "Vector Autoregression Moving Average with Exogenous Regressors (VARMAX)")
-- [Example of an ARIMA Model in python](https://guley.com.tr/time-series-analysis/#Example_of_an_ARIMA_Model_in_python "Example of an ARIMA Model in python")
-- [Example of a SARIMA Model](https://guley.com.tr/time-series-analysis/#Example_of_a_SARIMA_Model "Example of a SARIMA Model")
-- [Example of a ETS Model](https://guley.com.tr/time-series-analysis/#Example_of_a_ETS_Model "Example of a ETS Model")
-- [Example of a GARCH Model](https://guley.com.tr/time-series-analysis/#Example_of_a_GARCH_Model "Example of a GARCH Model")
-- [data.csv Example](https://guley.com.tr/time-series-analysis/#datacsv_Example "data.csv Example")
-
-</nav></div>#### <span class="ez-toc-section" id="Key_Concepts_to_be_Acquainted_With"></span>Key Concepts to be Acquainted With<span class="ez-toc-section-end"></span>
+#### <span class="ez-toc-section" id="Key_Concepts_to_be_Acquainted_With"></span>Key Concepts to be Acquainted With<span class="ez-toc-section-end"></span>
 
 **Trend** — The linearly increasing or decreasing behavior of a series over time. A trend can be upward, downward, or flat (horizontal).
 

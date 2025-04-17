@@ -4,10 +4,10 @@ date: '2020-06-01T13:53:00+00:00'
 author: 'Cagatay Guley'
 layout: default
 categories: [web]
-tags:
-    - plesk
-    - yandex
 ---
+
+How to Resolve SMTP Error in Plesk Panel with Yandex Mail
+====================================================================================
 
 If you’re using Plesk Panel for managing your web hosting and Yandex Mail for your email services, you might encounter SMTP (Simple Mail Transfer Protocol) errors when trying to send emails. This issue can often be resolved by making adjustments to the “msmtprc” file. In this guide, we’ll walk you through the steps to resolve this problem.
 

@@ -1,36 +1,19 @@
 ---
-id: 47
 title: 'Types of Support Systems in Underground Mines'
 date: '2023-06-06T06:27:00+00:00'
 author: 'Cagatay Guley'
 layout: post
 guid: 'https://guley.com.tr/?p=47'
-permalink: /types-of-support-systems-in-underground-mines/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/types-of-support-systems-in-underground-mines/"},"headline":"Types of Support Systems in Underground Mines","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/Support-Systems-in-Underground-Mining.png","width":1024,"height":1024},"datePublished":"2023-06-06T06:27:00","dateModified":"2024-03-14T08:30:36","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/Support-Systems-in-Underground-Mining.png
-categories:
-    - Mining
+categories: [mining]
 ---
+
+Types of Support Systems in Underground Mines
+====================================================================================
+
 
 Underground mining operations present unique challenges that require robust support systems to ensure the safety of miners and the stability of the mine workings. I have conducted extensive research and practical studies on various support systems used in underground mines. In this article, I will discuss different types of support systems commonly employed in the mining industry, providing explanations and examples to enhance understanding.
 
-<div class="ez-toc-v2_0_73 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container"><div class="ez-toc-title-container">Table of Contents
-
-<span class="ez-toc-title-toggle">[<span class="ez-toc-js-icon-con"><span class=""><span class="eztoc-hide" style="display:none;">Toggle</span><span class="ez-toc-icon-toggle-span"><svg class="list-377408" fill="none" height="20px" style="fill: #999;color:#999" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z" fill="currentColor"></path></svg><svg baseprofile="tiny" class="arrow-unsorted-368013" height="10px" style="fill: #999;color:#999" version="1.2" viewbox="0 0 24 24" width="10px" xmlns="http://www.w3.org/2000/svg"><path d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z"></path></svg></span></span></span>](#)</span></div><nav>- [Wood Support Systems](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Wood_Support_Systems "Wood Support Systems")
-    - [Advantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Advantages "Advantages:")
-    - [Disadvantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Disadvantages "Disadvantages:")
-- [Steel Support Systems](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Steel_Support_Systems "Steel Support Systems")
-    - [Advantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Advantages-2 "Advantages:")
-    - [Disadvantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Disadvantages-2 "Disadvantages:")
-- [Concrete Support Systems](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Concrete_Support_Systems "Concrete Support Systems")
-    - [Advantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Advantages-3 "Advantages:")
-    - [Disadvantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Disadvantages-3 "Disadvantages:")
-- [Resin Support Systems](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Resin_Support_Systems "Resin Support Systems")
-    - [Advantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Advantages-4 "Advantages:")
-    - [Disadvantages:](https://guley.com.tr/types-of-support-systems-in-underground-mines/#Disadvantages-4 "Disadvantages:")
-
-</nav></div>### <span class="ez-toc-section" id="Wood_Support_Systems"></span>Wood Support Systems<span class="ez-toc-section-end"></span>
+### <span class="ez-toc-section" id="Wood_Support_Systems"></span>Wood Support Systems<span class="ez-toc-section-end"></span>
 
 Wood support systems have a long-standing history in the mining industry and continue to be widely used. The versatility, accessibility, and processing ease of wood make it a preferred material for support applications. Typically, wood support systems involve the use of timber posts, beams, and lagging. These components are strategically installed to reinforce the mine openings and provide structural stability. Wood support systems are particularly prevalent in small-scale and shallow mines.
 

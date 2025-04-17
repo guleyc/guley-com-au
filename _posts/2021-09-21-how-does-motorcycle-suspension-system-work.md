@@ -1,16 +1,13 @@
 ---
-id: 11
 title: 'How Does Motorcycle Suspension System Work'
 date: '2021-09-21T13:55:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=11'
-permalink: /how-does-motorcycle-suspension-system-work/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/how-do-motorcycle-suspensions-systems-work/"},"headline":"How Do Motorcycle Suspensions Systems Work","datePublished":"2021-09-21T13:55:00","dateModified":"2024-03-13T07:20:39","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-categories:
-    - Motorcycle
+categories: [motorcycle]
 ---
+
+How Does Motorcycle Suspension System Work
+====================================================================================
 
 Motorcycle suspension is essential for maintaining tire contact with the ground and ensuring stability and control. Without proper suspension, tires can lose traction, leading to unsafe riding conditions. Suspension systems use a combination of springs and dampers to absorb road imperfections and isolate the rider and chassis from them.
 

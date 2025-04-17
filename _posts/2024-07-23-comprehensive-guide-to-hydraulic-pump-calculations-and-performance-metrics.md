@@ -5,6 +5,8 @@ author: 'Cagatay Guley'
 layout: default
 categories: [energy]
 ---
+Comprehensive Guide to Hydraulic Pump Calculations and Performance Metrics
+====================================================================================
 
 Hydraulic pumps are used in hydraulic drive systems. A hydraulic pump is a mechanical source of power that converts mechanical power into hydraulic energy. It generates flow with enough power to overcome the pressure induced by the load at the pump outlet. When a hydraulic pump operates, it creates a vacuum at the pump inlet, which forces liquid from the reservoir into the inlet line to the pump and, by mechanical action, delivers this liquid to the pump outlet and forces it into the hydraulic system;
 

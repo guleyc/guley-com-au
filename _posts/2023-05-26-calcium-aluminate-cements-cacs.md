@@ -1,17 +1,13 @@
 ---
-id: 43
 title: 'Calcium Aluminate Cements (CACs)'
 date: '2023-05-26T06:25:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=43'
-permalink: /calcium-aluminate-cements-cacs/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/calcium-aluminate-cements-cacs/"},"headline":"Calcium Aluminate Cements (CACs)","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/CAC.jpg","width":971,"height":662},"datePublished":"2023-05-26T06:25:00","dateModified":"2024-03-14T09:27:21","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/CAC.jpg
-categories:
-    - Mining
+categories: [mining]
 ---
+
+Calcium Aluminate Cements (CACs)
+====================================================================================
 
 Calcium aluminate cements (CACs) are a type of hydraulic cement that is primarily composed of calcium aluminates. These cements are known for their rapid hardening and high-temperature resistance properties, making them suitable for various applications in the construction industry. The manufacturing process of CACs involves the use of raw materials, and one key ingredient is bauxite.
 

@@ -1,17 +1,12 @@
 ---
-id: 53
 title: 'Solar Power Plants'
 date: '2023-08-23T06:29:00+00:00'
 author: 'Cagatay Guley'
 layout: post
-guid: 'https://guley.com.tr/?p=53'
-permalink: /solar-power-plants/
-wp_schema_pro_optimized_structured_data:
-    - '<!-- Schema optimized by Schema Pro --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://guley.com.tr/solar-power-plants/"},"headline":"Solar Power Plants","image":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/solar-panels.jpeg","width":1024,"height":1024},"datePublished":"2023-08-23T06:29:00","dateModified":"2024-03-14T08:27:15","author":{"@type":"Person","name":"Cagatay Guley","url":"https://guley.com.tr/author/guleyc"},"publisher":{"@type":"Organization","name":"Cagatay Guley","logo":{"@type":"ImageObject","url":"https://guley.com.tr/wp-content/uploads/2024/03/logoc-60x60.png"}},"description":null}</script><!-- / Schema optimized by Schema Pro -->'
-image: /wp-content/uploads/2024/03/solar-panels.jpeg
-categories:
-    - Energy
+categories: [energy]
 ---
+Solar Power Plants
+====================================================================================
 
 - **Solar Panels (Photovoltaic Modules):** Solar panels consist of photovoltaic cells that directly convert sunlight into electrical energy. These panels generate energy by converting sunlight into electricity.
 - **Mounting Structure (Racking System):** A metal structure used to place the panels and provide them with the optimal angle towards the sun. Ground-mounted and rooftop-mounted options are available.
@@ -25,29 +20,7 @@ categories:
 - **Security Equipment and Environmental Protection:** Measures such as security cameras, fences, fire suppression systems for ensuring the security of the solar power plant. Additionally, environmental protection measures need to be taken.
 - **Operation and Maintenance Equipment:** Tools, equipment, and personnel necessary for regular maintenance of the plant.
 
-<div class="ez-toc-v2_0_73 counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction" id="ez-toc-container"><div class="ez-toc-title-container">Table of Contents
-
-<span class="ez-toc-title-toggle">[<span class="ez-toc-js-icon-con"><span class=""><span class="eztoc-hide" style="display:none;">Toggle</span><span class="ez-toc-icon-toggle-span"><svg class="list-377408" fill="none" height="20px" style="fill: #999;color:#999" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z" fill="currentColor"></path></svg><svg baseprofile="tiny" class="arrow-unsorted-368013" height="10px" style="fill: #999;color:#999" version="1.2" viewbox="0 0 24 24" width="10px" xmlns="http://www.w3.org/2000/svg"><path d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z"></path></svg></span></span></span>](#)</span></div><nav>- [Solar Panels](https://guley.com.tr/solar-power-plants/#Solar_Panels "Solar Panels")
-    - - [Monocrystalline Panels](https://guley.com.tr/solar-power-plants/#Monocrystalline_Panels "Monocrystalline Panels")
-        - [Polycrystalline Panels](https://guley.com.tr/solar-power-plants/#Polycrystalline_Panels "Polycrystalline Panels")
-        - [Thin-Film Panels](https://guley.com.tr/solar-power-plants/#Thin-Film_Panels "Thin-Film Panels")
-        - [Concentrated Solar Panels](https://guley.com.tr/solar-power-plants/#Concentrated_Solar_Panels "Concentrated Solar Panels")
-        - [Bifacial Panels](https://guley.com.tr/solar-power-plants/#Bifacial_Panels "Bifacial Panels")
-        - [Compare](https://guley.com.tr/solar-power-plants/#Compare "Compare")
-    - [Inverters](https://guley.com.tr/solar-power-plants/#Inverters "Inverters")
-        - [String Inverters](https://guley.com.tr/solar-power-plants/#String_Inverters "String Inverters")
-        - [Microinverters](https://guley.com.tr/solar-power-plants/#Microinverters "Microinverters")
-        - [Central Inverters](https://guley.com.tr/solar-power-plants/#Central_Inverters "Central Inverters")
-        - [Power Optimizers](https://guley.com.tr/solar-power-plants/#Power_Optimizers "Power Optimizers")
-    - [Transformers](https://guley.com.tr/solar-power-plants/#Transformers "Transformers")
-        - [Step-Up Transformers](https://guley.com.tr/solar-power-plants/#Step-Up_Transformers "Step-Up Transformers")
-        - [Step-Down Transformers](https://guley.com.tr/solar-power-plants/#Step-Down_Transformers "Step-Down Transformers")
-    - [Well-Known Brands](https://guley.com.tr/solar-power-plants/#Well-Known_Brands "Well-Known Brands")
-        - [Solar Panels](https://guley.com.tr/solar-power-plants/#Solar_Panels-2 "Solar Panels")
-        - [Inverters](https://guley.com.tr/solar-power-plants/#Inverters-2 "Inverters")
-        - [Transformers](https://guley.com.tr/solar-power-plants/#Transformers-2 "Transformers")
-
-</nav></div>## <span class="ez-toc-section" id="Solar_Panels"></span>Solar Panels<span class="ez-toc-section-end"></span>
+## <span class="ez-toc-section" id="Solar_Panels"></span>Solar Panels<span class="ez-toc-section-end"></span>
 
 #### <span class="ez-toc-section" id="Monocrystalline_Panels"></span>Monocrystalline Panels<span class="ez-toc-section-end"></span>
 
