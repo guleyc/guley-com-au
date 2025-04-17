@@ -234,7 +234,15 @@ tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
 }
-
+/* Responsive tables: horizontal scroll on small screens */
+@media (max-width: 600px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 
 /*
  * Custom type
