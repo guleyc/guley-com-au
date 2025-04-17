@@ -3,6 +3,9 @@ title: Sitemap
 date: '2024-10-02T09:18:32+00:00'
 author: 'Cagatay Guley'
 layout: page
+permalink: /sitemap/
+redirect_from:
+  - /sitemap
 ---
 
 ## Pages
