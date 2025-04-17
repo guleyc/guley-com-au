@@ -434,7 +434,12 @@ a.pagination-item:hover {
   flex: 1 1 auto;
 }
 
-.post-date {
+.post-title-home {
+  font-size: 1.3rem;
+  margin: 0;
+  flex: 1 1 auto;
+}
+.post-date-home {
   flex-shrink: 0;
   margin-left: 1rem;
   color: #9a9a9a;
