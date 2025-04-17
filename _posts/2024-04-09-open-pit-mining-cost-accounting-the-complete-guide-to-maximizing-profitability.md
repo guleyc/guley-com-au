@@ -968,5 +968,3 @@ Emerging trends such as big data analytics and artificial intelligence have the 
 5\. O'Hara, T. A., & Suboleski, S. C. (2019). "Chapter 6.3 COSTS AND COST ESTIMATION." Nube Minera. [https://nubeminera.cl/wp-content/uploads/2019/05/Nube-Minera-OHara-Subolewsky.pdf](https://nubeminera.cl/wp-content/uploads/2019/05/Nube-Minera-OHara-Subolewsky.pdf)
 
 6\. PwC. (2012). "Basics of US Mining Accounting." [https://www.pwc.com/gx/en/mining/school-of-mines/2012/pwc-basics-of-mining-accounting-us.pdf](https://www.pwc.com/gx/en/mining/school-of-mines/2012/pwc-basics-of-mining-accounting-us.pdf)
-
-7\. Hacettepe University. (2025). "OPEN PIT FUNDAMENTALS." [http://yunus.hacettepe.edu.tr/~hmali/notlar/surface/MAD455\_MainText.pdf](http://yunus.hacettepe.edu.tr/~hmali/notlar/surface/MAD455_MainText.pdf)
