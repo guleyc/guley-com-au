@@ -507,18 +507,60 @@
   }
   .sidebar-social {
     margin: 1.5em 0 1em 0;
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
   }
+  
   .sidebar-social a {
-    margin: 0 0.4em;
-    color: #555;
-    font-size: 1.4em;
-    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f4f4f4;
+    color: #232323;
+    font-size: 1.6em;
+    margin: 0 0.2em;
+    box-shadow: 0 2px 8px rgba(44,44,44,0.07);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    border: 2px solid transparent;
   }
+  
   .sidebar-social a:hover {
-    color: #1da1f2; /* Twitter blue as example, or your theme color */
+    background: #232323;
+    color: #FCEA00;
+    transform: translateY(-4px) scale(1.1);
+    border-color: #FCEA00;
   }
-  /* Content area */
+  
+  .sidebar-social i {
+    pointer-events: none;
+  }  }
+  .sidebar-social a[title="Twitter"]:hover {
+    background: #1da1f2;
+    color: #fff;
+    border-color: #1da1f2;
+  }
+  .sidebar-social a[title="GitHub"]:hover {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+  .sidebar-social a[title="LinkedIn"]:hover {
+    background: #0077b5;
+    color: #fff;
+    border-color: #0077b5;
+  }
+  .sidebar-social a[title="E-mail"]:hover {
+    background: #ea4335;
+    color: #fff;
+    border-color: #ea4335;
+  }
+    /* Content area */
   .content {
     padding-top: 4rem;
     padding-bottom: 4rem;
