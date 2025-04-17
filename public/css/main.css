@@ -28,7 +28,7 @@
   
   /* Links */
   a {
-    color: #268bd2;
+    color: #333333;
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -36,7 +36,7 @@
     color: inherit;
   }
   a:hover, a:focus {
-    text-decoration: underline;
+    font-weight: bold;
   }
   
   /* Headings */
