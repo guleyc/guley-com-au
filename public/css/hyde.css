@@ -363,7 +363,7 @@ a.sidebar-nav-item:focus {
 }
 
 .mobile-header-title a {
-  font-family: "Abril Fatface", serif;
+  font-family: "Oswald", serif;
   font-size: 1.5rem;
   font-weight: bold;
   color: #232323;
@@ -428,7 +428,6 @@ a.sidebar-nav-item:focus {
   display: flex;
 }
 
-/* Desktop görünümünde header menü gizlenir, klasik sidebar kullanılır */
 @media (min-width: 48em) {
   .mobile-sticky-header {
     display: none;
