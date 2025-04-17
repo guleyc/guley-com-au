@@ -20,6 +20,10 @@ plugins:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-github-metadata
+  - jekyll-sitemap
+  - jekyll-archives
+  - jekyll-redirect-from
+  - jekyll-relative-links
 
 paginate: 5
 paginate_path: "/page:num/"
