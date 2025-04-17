@@ -6,11 +6,11 @@
       <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
       <label for="mobile-menu-toggle" class="mobile-menu-icon">&#9776;</label>
       <nav class="mobile-header-nav">
-        <a class="mobile-header-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/energy">Energy</a>
-        <a class="mobile-header-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/engineering">Engineering</a>
-        <a class="mobile-header-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/mining">Mining</a>
-        <a class="mobile-header-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/motorcycle">Motorcycle</a>
-        <a class="mobile-header-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/web">Web</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/energy' %} active{% endif %}" href="{{ site.url }}/category/energy">Energy</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/engineering' %} active{% endif %}" href="{{ site.url }}/category/engineering">Engineering</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/mining' %} active{% endif %}" href="{{ site.url }}/category/mining">Mining</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/motorcycle' %} active{% endif %}" href="{{ site.url }}/category/motorcycle">Motorcycle</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/web' %} active{% endif %}" href="{{ site.url }}/category/web">Web</a>
       </nav>
     </div>
   </header>

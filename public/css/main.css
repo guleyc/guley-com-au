@@ -505,7 +505,19 @@
       left: 1rem;
     }
   }
-  
+  .sidebar-social {
+    margin: 1.5em 0 1em 0;
+    text-align: center;
+  }
+  .sidebar-social a {
+    margin: 0 0.4em;
+    color: #555;
+    font-size: 1.4em;
+    transition: color 0.2s;
+  }
+  .sidebar-social a:hover {
+    color: #1da1f2; /* Twitter blue as example, or your theme color */
+  }
   /* Content area */
   .content {
     padding-top: 4rem;
