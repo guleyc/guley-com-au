@@ -492,6 +492,7 @@
   a.sidebar-nav-item:hover,
   a.sidebar-nav-item:focus {
     font-weight: bold;
+    color: #000;
   }
   .sidebar-nav-item.active {
     font-weight: bold;
