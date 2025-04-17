@@ -641,10 +641,13 @@
     user-select: none;
     padding: 0.2em 0.5em;
     border-radius: 4px;
+    -webkit-transition: background .15s;
+    -moz-transition: background .15s;
+    -o-transition: background .15s;
     transition: background .15s;
   }
   .mobile-menu-icon:hover {
-    background: #fffbe2;
+    background: #FCEA00;
   }
   .mobile-menu-toggle {
     display: none;
@@ -670,8 +673,8 @@
     display: block;
   }
   .mobile-header-nav-item.active, .mobile-header-nav-item:hover {
-    background: #fffbe2;
-    color: #268bd2;
+    background: #000;
+    color: #FCEA00;
   }
   .mobile-menu-toggle:checked ~ .mobile-header-nav {
     display: flex;
