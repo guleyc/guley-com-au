@@ -7,7 +7,8 @@ permalink: /:title
 
 # Site setup
 title: Cagatay Guley
-description: A Mining Engineer
+description: As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons.
+title_separator: " - "
 tagline: "A Mining Engineer"
 url: "https://guley.com.tr"
 baseurl: "" # If publishing at root domain
