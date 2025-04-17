@@ -10,13 +10,37 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/energy">Energy</a>
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/engineering">Engineering</a>
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/mining">Mining</a>
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.url }}/category/motorcycle">Motorcycle</a>
-      <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ site.url }}/category/web">Web</a>
+      <a class="sidebar-nav-item{% if page.url contains '/category/energy' %} active{% endif %}" href="{{ site.url }}/category/energy">Energy</a>
+      <a class="sidebar-nav-item{% if page.url contains '/category/engineering' %} active{% endif %}" href="{{ site.url }}/category/engineering">Engineering</a>
+      <a class="sidebar-nav-item{% if page.url contains '/category/mining' %} active{% endif %}" href="{{ site.url }}/category/mining">Mining</a>
+      <a class="sidebar-nav-item{% if page.url contains '/category/motorcycle' %} active{% endif %}" href="{{ site.url }}/category/motorcycle">Motorcycle</a>
+      <a class="sidebar-nav-item{% if page.url contains '/category/web' %} active{% endif %}" href="{{ site.url }}/category/web">Web</a>
     </nav>
 
+    <div class="sidebar-social">
+      {% if site.social.email %}
+        <a href="mailto:{{ site.social.email }}" title="E-mail" target="_blank" rel="noopener">
+          <i class="fas fa-envelope"></i>
+        </a>
+      {% endif %}
+      {% if site.social.twitter %}
+        <a href="{{ site.social.twitter }}" title="Twitter" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      {% endif %}
+      {% if site.social.github %}
+        <a href="{{ site.social.github }}" title="GitHub" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      {% endif %}
+      {% if site.social.linkedin %}
+        <a href="{{ site.social.linkedin }}" title="LinkedIn" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      {% endif %}
+      <!-- Add more if needed -->
+    </div>
+    
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>

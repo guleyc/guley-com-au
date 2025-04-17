@@ -32,6 +32,10 @@ paginate_path: "/page:num/"
 # Optional settings
 github_username: guleyc
 email: cagatay@guley.com.tr
+social:
+  email: "cagatay@guley.com.tr"
+  github: "https://github.com/guleyc"
+  linkedin: "https://linkedin.com/in/guleyc"
 
 defaults:
   -
