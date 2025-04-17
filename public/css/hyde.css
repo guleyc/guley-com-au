@@ -239,6 +239,11 @@ body.sidebar-open::before {
   color: #000;
 }
 
+.sidebar a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
 /* About section */
 .sidebar-about h1 {
   color: #000;
