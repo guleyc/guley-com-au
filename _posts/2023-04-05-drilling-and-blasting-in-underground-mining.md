@@ -6,9 +6,6 @@ layout: post
 categories: [mining]
 ---
 
-Drilling and Blasting in Underground Mining
-====================================================================================
-
 ### <span class="ez-toc-section" id="The_Purpose_of_Drilling_and_Blasting"></span>The Purpose of Drilling and Blasting<span class="ez-toc-section-end"></span>
 
 Drilling and blasting is a fundamental technique employed in underground mining to break down rock and extract valuable minerals or ores. The process involves drilling holes into the rock mass, strategically placing explosives within these holes, and initiating controlled detonations. The resulting fragmentation allows for easier extraction and transportation of the desired materials.

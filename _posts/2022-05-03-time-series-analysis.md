@@ -6,9 +6,6 @@ layout: post
 categories: [engineering]
 ---
 
-Time Series Analysis
-====================================================================================
-
 Time series analysis is a statistical method employed to forecast future values based on historical data. It aims to predict the values of a variable that changes over time, such as stock prices, weather patterns, or economic indicators, by utilizing past observations. To construct a time series forecasting model, the first step involves examining the dataset. The dataset consists of measurements of the variable at regular intervals over time, such as daily closing prices of a stock or monthly average temperature. The initial step is to analyze the statistical characteristics of the time series data, which may include trend, seasonality, and periodic variations. Trend refers to the long-term increasing or decreasing pattern observed in the data. Seasonality captures the regular, recurring patterns at specific intervals, such as the surge in retail sales during the holiday season. Periodic variations represent regular repeating patterns observed in the data.
 
 Time series data refers to a sequence of data points or observations recorded at various or regular intervals of time. These recorded data points can be collected at frequencies such as hourly, daily, weekly, monthly, quarterly, or annually.

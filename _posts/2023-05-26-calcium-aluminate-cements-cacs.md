@@ -6,9 +6,6 @@ layout: post
 categories: [mining]
 ---
 
-Calcium Aluminate Cements (CACs)
-====================================================================================
-
 Calcium aluminate cements (CACs) are a type of hydraulic cement that is primarily composed of calcium aluminates. These cements are known for their rapid hardening and high-temperature resistance properties, making them suitable for various applications in the construction industry. The manufacturing process of CACs involves the use of raw materials, and one key ingredient is bauxite.
 
 Calcium aluminate cements are mainly composed of calcium aluminates, which are compounds formed by the reaction of calcium oxide (lime) and aluminum oxide (alumina). The most common calcium aluminate compound found in these cements is monocalcium aluminate (CaAl₂O₄). Other compounds, such as dicalcium aluminate (Ca₂Al₂O₇) and tricalcium aluminate (Ca₃Al₂O₆), may also be present in smaller amounts. These different compounds contribute to the specific properties of calcium aluminate cements.

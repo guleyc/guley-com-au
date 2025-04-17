@@ -6,9 +6,6 @@ layout: post
 categories: [mining]
 ---
 
-Solution Mining: Well and Cavern Design
-====================================================================================
-
 A salt solution well’s design involves the use of two or more steel pipe columns (casing strings) nested within each other. To initiate the solution process within a expanding salt cavern, fresh water or undersaturated brine (known as the feed solvent) is pumped into the well, creating a void within the targeted salt formation. The resulting brine is then extracted to the surface for processing and recovery.
 
 The initial step in salt solution mining is to drill a borehole with a diameter large enough to accommodate all the required pipes (casing). As a result, solution wells are wider than most oil, gas, or water wells. Near the surface, the borehole widens further to facilitate the installation of multiple concentric layers of pipe casing. The outermost layer, referred to as the surface casing, is cemented in place to prevent any leakage and contamination of nearby groundwater. Typically, the surface casing does not extend all the way down to the cavern roof. The final casing string, also cemented in place, is set at a depth below the top of the target salt to ensure a sufficient salt roof remains intact as the cavity expands. In modern wells, there is an additional inner casing string that controls the thickness of the fluid blanket.

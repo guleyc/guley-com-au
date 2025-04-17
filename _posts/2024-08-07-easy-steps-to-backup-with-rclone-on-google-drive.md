@@ -2,12 +2,9 @@
 title: 'Easy Steps to Backup with Rclone on Google Drive'
 date: '2024-08-07T15:45:53+00:00'
 author: 'Cagatay Guley'
-layout: default
+layout: post
 categories: [web]
 ---
-
-Easy Steps to Backup with Rclone on Google Drive
-====================================================================================
 
 ### Introduction
 

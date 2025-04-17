@@ -6,9 +6,6 @@ layout: post
 categories: [engineering]
 ---
 
-Data Analysis with Python
-====================================================================================
-
 Python is a powerful programming language used for data analysis and processing. It offers a range of libraries and tools to perform data analysis processes. Here are the fundamental libraries and steps you can use for data analysis in Python:
 
 1. **NumPy:** NumPy is a foundational library for scientific computations. It helps in creating and manipulating multidimensional data structures like arrays and matrices.

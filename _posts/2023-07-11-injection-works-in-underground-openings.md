@@ -6,9 +6,6 @@ layout: post
 categories: [mining]
 ---
 
-Injection Works in Underground Openings
-====================================================================================
-
 Underground injection plays a pivotal role in enhancing the durability of tunnels and preventing water leakage. Polyurethane and acrylic injections serve as powerful tools that aid engineers in overcoming challenges encountered during tunnel construction. Therefore, the correct application of these techniques is of vital importance for the long-term resilience of tunnels.
 
 Each type of application utilizes cement injection for different purposes during tunnel construction or maintenance, contributing significantly to the safety, durability, and longevity of the tunnel. Proper planning and implementation of these stages facilitate the successful completion of tunnel engineering projects.

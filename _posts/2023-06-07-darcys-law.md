@@ -6,9 +6,6 @@ layout: post
 categories: [engineering]
 ---
 
-Darcy’s Law
-====================================================================================
-
 Darcy’s Law, which is based on a hydraulic principle, relates the seepage velocity of water in a porous medium (such as sand, gravel, or rock) to the permeability of the medium and the hydraulic gradient (pressure difference).
 
 ### <span class="ez-toc-section" id="Darcys_Law_Expression_Q"></span>Darcy’s Law Expression (Q)<span class="ez-toc-section-end"></span>

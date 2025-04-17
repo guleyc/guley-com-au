@@ -6,9 +6,6 @@ layout: post
 categories: [motorcycle]
 ---
 
-How Does A Motorcycle Clutch Work
-====================================================================================
-
 The clutch, an often overlooked device, is an integral part of motorcycles. While its concept is simple, allowing the rider to disengage power from the rear wheel while the engine spins, early motorcycles did not always feature clutches. Riding such motorcycles, which lacked clutches, offered a unique experience. Every start required a bump start, and stopping meant either stalling or lifting one’s weight off the saddle to allow the rear tire to gently spin, as tire traction was not a priority in those days. Furthermore, without a clutch, motorcycles couldn’t have gears.
 
 Most motorcycle clutches are manual, found outside of automatic gearboxes, and they are typically wet clutches, operating in oil. These clutches are multi-plate, utilizing multiple friction surfaces. To understand the mechanism, imagine a disc-shaped plate resembling a large washer with a central hole. This is a clutch plate. When the rider wants to transfer power to the back wheel, they release the clutch lever. This action allows springs to push the clutch plate onto another plate connected to the rear wheel via the gearbox and chain. As friction between the two plates increases, more power is transmitted to the rear wheel until the plates lock, delivering maximum power from the engine to the tire.

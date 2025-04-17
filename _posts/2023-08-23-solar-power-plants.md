@@ -5,8 +5,6 @@ author: 'Cagatay Guley'
 layout: post
 categories: [energy]
 ---
-Solar Power Plants
-====================================================================================
 
 - **Solar Panels (Photovoltaic Modules):** Solar panels consist of photovoltaic cells that directly convert sunlight into electrical energy. These panels generate energy by converting sunlight into electricity.
 - **Mounting Structure (Racking System):** A metal structure used to place the panels and provide them with the optimal angle towards the sun. Ground-mounted and rooftop-mounted options are available.

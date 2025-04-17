@@ -6,9 +6,6 @@ layout: post
 categories: [motorcycle]
 ---
 
-How Does Motorcycle Suspension System Work
-====================================================================================
-
 Motorcycle suspension is essential for maintaining tire contact with the ground and ensuring stability and control. Without proper suspension, tires can lose traction, leading to unsafe riding conditions. Suspension systems use a combination of springs and dampers to absorb road imperfections and isolate the rider and chassis from them.
 
 On-road suspension systems are designed to minimize the impact of potholes, bumps, cornering, and acceleration/deceleration forces. Off-road suspension systems, on the other hand, are built to handle rough terrains, including roots, rocks, jumps, and ledges.

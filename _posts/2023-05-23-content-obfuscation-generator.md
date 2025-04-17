@@ -6,9 +6,6 @@ layout: post
 categories: [web]
 ---
 
-Content Obfuscation Generator
-====================================================================================
-
 This powerful tool helps safeguard your website’s content by generating obfuscated JavaScript code. By disguising important information, you can prevent search engine bots from indexing or accessing sensitive data. With customizable options and easy implementation, protect your content’s confidentiality and maintain control over what is visible to the public. Safeguard your website and enhance security with Content Obfuscation Generator.
 
 ```
