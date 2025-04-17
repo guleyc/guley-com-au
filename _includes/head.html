@@ -14,7 +14,10 @@
   <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
   <meta name="copyright" content="Cagatay Guley, {{ site.time | date: '%Y' }}">
 
-    {% seo title=false %}  
+    {% seo 
+		title=false 
+		generator: false 
+	%}  
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} - {{ site.tagline }}
