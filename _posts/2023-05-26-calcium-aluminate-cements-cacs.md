@@ -3,6 +3,10 @@ title: 'Calcium Aluminate Cements (CACs)'
 date: '2023-05-26T06:25:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /calcium-aluminate-cements-cacs/
+redirect_from:
+  - /calcium-aluminate-cements-cacs
+
 categories: [mining]
 ---
 

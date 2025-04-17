@@ -3,6 +3,10 @@ title: 'Motorcycle Maintenance Basics'
 date: '2023-06-10T06:28:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /motorcycle-maintenance-basics/
+redirect_from:
+  - /motorcycle-maintenance-basics
+
 categories: [motorcycle]
 ---
 

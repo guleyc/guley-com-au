@@ -3,6 +3,9 @@ title: 'How Does A Motorcycle Clutch Work'
 date: '2021-10-21T13:56:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /how-does-a-motorcycle-clutch-work/
+redirect_from:
+  - /how-does-a-motorcycle-clutch-work
 categories: [motorcycle]
 ---
 

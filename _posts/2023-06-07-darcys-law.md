@@ -3,6 +3,10 @@ title: 'Darcy’s Law'
 date: '2023-06-07T06:27:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /darcys-law/
+redirect_from:
+  - /darcys-law
+
 categories: [engineering]
 ---
 

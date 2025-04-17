@@ -3,6 +3,9 @@ title: 'How Does Motorcycle Suspension System Work'
 date: '2021-09-21T13:55:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /how-does-motorcycle-suspension-system-work/
+redirect_from:
+  - /how-does-motorcycle-suspension-system-work
 categories: [motorcycle]
 ---
 

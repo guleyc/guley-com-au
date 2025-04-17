@@ -3,6 +3,9 @@ title: 'How to Resolve SMTP Error in Plesk Panel with Yandex Mail'
 date: '2020-06-01T13:53:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail/
+redirect_from:
+  - /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail
 categories: [web]
 ---
 

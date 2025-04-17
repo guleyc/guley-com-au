@@ -3,6 +3,9 @@ title: 'Injection Works in Underground Openings'
 date: '2023-07-11T06:26:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /injection-works-in-underground-openings/
+redirect_from:
+  - /injection-works-in-underground-openings
 categories: [mining]
 ---
 

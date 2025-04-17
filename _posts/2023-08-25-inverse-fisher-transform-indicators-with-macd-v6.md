@@ -3,6 +3,9 @@ title: 'Inverse Fisher Transform Indicators with MACD v6'
 date: '2023-08-25T06:30:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /inverse-fisher-transform-indicators-with-macd-v6/
+redirect_from:
+  - /inverse-fisher-transform-indicators-with-macd-v6
 categories: [engineering]
 ---
 

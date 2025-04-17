@@ -3,6 +3,9 @@ title: 'Assessment of Hydroelectric Power Plant Reservoir Data for Energy Produc
 date: '2023-12-06T07:06:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /assessment-of-hydroelectric-power-plant-reservoir-data-for-energy-production-purposes/
+redirect_from:
+  - /assessment-of-hydroelectric-power-plant-reservoir-data-for-energy-production-purposes
 categories: [energy]
 ---
 

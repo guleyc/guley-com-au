@@ -3,6 +3,9 @@ title: 'Carbon Credits and Carbon Footprints Guide'
 date: '2023-08-30T06:31:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /carbon-credits-and-carbon-footprints-guide/
+redirect_from:
+  - /carbon-credits-and-carbon-footprints-guide
 categories: [energy]
 ---
 

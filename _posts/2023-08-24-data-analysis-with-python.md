@@ -3,6 +3,9 @@ title: 'Data Analysis with Python'
 date: '2023-08-24T06:29:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /data-analysis-with-python/
+redirect_from:
+  - /data-analysis-with-python
 categories: [engineering]
 ---
 

@@ -3,6 +3,10 @@ title: 'The Significance of Support Systems in Underground Mining Applications'
 date: '2023-05-23T06:24:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /the-significance-of-support-systems-in-underground-mining-applications/
+redirect_from:
+  - /the-significance-of-support-systems-in-underground-mining-applications
+
 categories: [mining]
 ---
 

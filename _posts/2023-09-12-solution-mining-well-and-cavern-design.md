@@ -3,6 +3,9 @@ title: 'Solution Mining: Well and Cavern Design'
 date: '2023-09-12T07:06:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /solution-mining-well-and-cavern-design/
+redirect_from:
+  - /solution-mining-well-and-cavern-design
 categories: [mining]
 ---
 

@@ -3,6 +3,9 @@ title: 'Open Pit Mining Cost Accounting: The Complete Guide to Maximizing Profit
 date: '2024-04-09T17:22:39+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /open-pit-mining-cost-accounting-the-complete-guide-to-maximizing-profitability/
+redirect_from:
+  - /open-pit-mining-cost-accounting-the-complete-guide-to-maximizing-profitability
 categories: [mining]
 ---
 

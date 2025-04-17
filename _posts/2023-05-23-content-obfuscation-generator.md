@@ -3,6 +3,10 @@ title: 'Content Obfuscation Generator'
 date: '2023-05-23T06:24:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /content-obfuscation-generator/
+redirect_from:
+  - /content-obfuscation-generator
+
 categories: [web]
 ---
 

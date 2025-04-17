@@ -3,6 +3,10 @@ title: 'Types of Support Systems in Underground Mines'
 date: '2023-06-06T06:27:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /types-of-support-systems-in-underground-mines/
+redirect_from:
+  - /types-of-support-systems-in-underground-mines
+
 categories: [mining]
 ---
 

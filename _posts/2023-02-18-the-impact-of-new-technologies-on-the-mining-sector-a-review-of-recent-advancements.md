@@ -3,6 +3,9 @@ title: 'The Impact of New Technologies on the Mining Sector: A Review of Recent 
 date: '2023-02-18T06:22:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /the-impact-of-new-technologies-on-the-mining-sector-a-review-of-recent-advancements/
+redirect_from:
+  - /the-impact-of-new-technologies-on-the-mining-sector-a-review-of-recent-advancements
 categories: [mining]
 ---
 

@@ -3,6 +3,10 @@ title: 'Applications of Data Analytics and Artificial Intelligence in the Mining
 date: '2023-06-01T06:26:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /applications-of-data-analytics-and-artificial-intelligence-in-the-mining-sector/
+redirect_from:
+  - /applications-of-data-analytics-and-artificial-intelligence-in-the-mining-sector
+
 categories: [mining]
 ---
 

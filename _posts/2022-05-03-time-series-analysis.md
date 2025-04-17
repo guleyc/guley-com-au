@@ -3,6 +3,10 @@ title: 'Time Series Analysis'
 date: '2022-05-03T13:58:00+00:00'
 author: 'Cagatay Guley'
 layout: post
+permalink: /time-series-analysis/
+redirect_from:
+  - /time-series-analysis
+
 categories: [engineering]
 ---
 
