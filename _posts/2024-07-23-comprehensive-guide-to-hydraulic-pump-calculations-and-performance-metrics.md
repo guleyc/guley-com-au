@@ -3,29 +3,7 @@ title: 'Comprehensive Guide to Hydraulic Pump Calculations and Performance Metri
 date: '2024-07-23T08:41:56+00:00'
 author: 'Cagatay Guley'
 layout: default
-categories:
-    - Energy
-tags:
-    - 'Axial Piston Pump Efficiency'
-    - 'Bent Axis Pump Power'
-    - 'Flow Rate and Pressure Difference'
-    - 'Gear Pump Displacement'
-    - 'Hydraulic Formulas'
-    - 'Hydraulic Power Calculation'
-    - 'Hydraulic Pump Calculations'
-    - 'Hydraulic Pump Equations'
-    - 'Hydraulic Pump Formulas'
-    - 'Hydraulic Pump Performance Metrics'
-    - 'Hydraulic Pump Types and Functions'
-    - 'Hydraulic System Design'
-    - 'Inline Axial Piston Pump Calculations'
-    - 'Mechanical Efficiency in Pumps'
-    - 'Pump Speed and Flow Rate'
-    - 'Radial Piston Pump Efficiency'
-    - 'Radial Piston Pump Flow Rate'
-    - 'Screw Pump Pressure'
-    - 'Vane Pump Performance'
-    - 'Volumetric Efficiency of Pumps'
+categories: [energy]
 ---
 
 Hydraulic pumps are used in hydraulic drive systems. A hydraulic pump is a mechanical source of power that converts mechanical power into hydraulic energy. It generates flow with enough power to overcome the pressure induced by the load at the pump outlet. When a hydraulic pump operates, it creates a vacuum at the pump inlet, which forces liquid from the reservoir into the inlet line to the pump and, by mechanical action, delivers this liquid to the pump outlet and forces it into the hydraulic system;

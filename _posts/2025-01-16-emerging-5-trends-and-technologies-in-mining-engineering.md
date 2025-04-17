@@ -3,12 +3,7 @@ title: 'Emerging 5 Trends and Technologies in Mining Engineering'
 date: '2025-01-16T15:16:27+00:00'
 author: 'Cagatay Guley'
 layout: default
-categories:
-    - Mining
-tags:
-    - 'Mining Engineering'
-    - Technologies
-    - Trends
+categories: [mining]
 ---
 
 The mining industry has always been at the forefront of technological innovation, driven by the need for efficiency, safety, and sustainability. Today, these innovations are more important than ever, as companies navigate increasingly complex challenges such as resource depletion, stricter environmental regulations, and the demand for decarbonization. This article explores the transformative trends shaping the industry, backed by academic research and real-world applications.
