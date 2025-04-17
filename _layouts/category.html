@@ -3,16 +3,71 @@ layout: default
 ---
 
 <h1>Posts in "{{ page.category }}" Category</h1>
-<ul>
+<div class="category-list">
   {% assign category_posts = site.categories[page.category] %}
   {% if category_posts %}
     {% for post in category_posts %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
-      </li>
+      <article class="category-post">
+        <header>
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="meta">
+            <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
+            {% if post.categories %}
+              <span class="categories">
+                {% for cat in post.categories %}
+                  <a href="/category/{{ cat | slugify }}/" class="category-link">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        </header>
+        {% if post.excerpt %}
+          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% endif %}
+      </article>
     {% endfor %}
   {% else %}
-    <li>No posts found in this category.</li>
+    <p>No posts found in this category.</p>
   {% endif %}
-</ul>
+</div>
+
+<style>
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.category-post {
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafbfc;
+  transition: box-shadow 0.2s;
+}
+.category-post:hover {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.category-post h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+.category-post .meta {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.category-post .categories .category-link {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 0.95em;
+}
+.category-post .categories .category-link:hover {
+  text-decoration: underline;
+}
+.category-post .excerpt {
+  margin: 0.5rem 0 0 0;
+  color: #333;
+  font-size: 1.07rem;
+}
+</style>
