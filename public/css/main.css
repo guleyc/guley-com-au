@@ -510,7 +510,7 @@
     text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     gap: 1em;
   }
   
@@ -521,11 +521,10 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #f4f4f4;
+    background: #FCEA00;
     color: #232323;
     font-size: 1.6em;
     margin: 0 0.2em;
-    box-shadow: 0 2px 8px rgba(44,44,44,0.07);
     transition: background 0.2s, color 0.2s, transform 0.2s;
     border: 2px solid transparent;
   }
