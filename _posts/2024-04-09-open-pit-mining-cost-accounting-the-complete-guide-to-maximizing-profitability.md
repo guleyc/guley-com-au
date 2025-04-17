@@ -3,24 +3,7 @@ title: 'Open Pit Mining Cost Accounting: The Complete Guide to Maximizing Profit
 date: '2024-04-09T17:22:39+00:00'
 author: 'Cagatay Guley'
 layout: default
-categories:
-    - Mining
-tags:
-    - 'artificial intelligence'
-    - 'big data analytics'
-    - 'case studies'
-    - 'cost accounting'
-    - 'cost analysis'
-    - 'cost reduction'
-    - 'emerging trends'
-    - 'industry benchmarks'
-    - 'maintenance programs'
-    - 'open pit mining'
-    - 'production planning'
-    - profitability
-    - 'supply chain management'
-    - sustainability
-    - 'technology adoption'
+categories: [mining]
 ---
 Open Pit Mining Cost Accounting: The Comprehensive Guide to Maximizing Profitability
 ====================================================================================
