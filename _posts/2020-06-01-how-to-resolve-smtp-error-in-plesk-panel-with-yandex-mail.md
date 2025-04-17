@@ -11,7 +11,7 @@ tags:
 
 If you’re using Plesk Panel for managing your web hosting and Yandex Mail for your email services, you might encounter SMTP (Simple Mail Transfer Protocol) errors when trying to send emails. This issue can often be resolved by making adjustments to the “msmtprc” file. In this guide, we’ll walk you through the steps to resolve this problem.
 
-</div>### <span class="ez-toc-section" id="Step_1_Accessing_the_%E2%80%9Cmsmtprc%E2%80%9D_File"></span>**Step 1: Accessing the “msmtprc” File**<span class="ez-toc-section-end"></span>
+### <span class="ez-toc-section" id="Step_1_Accessing_the_%E2%80%9Cmsmtprc%E2%80%9D_File"></span>**Step 1: Accessing the “msmtprc” File**<span class="ez-toc-section-end"></span>
 
 1. Log in to your server where Plesk Panel is installed using SSH or your preferred terminal application.
 2. Navigate to the directory where the “msmtprc” file is located. Typically, it can be found at `/etc/msmtprc`.
