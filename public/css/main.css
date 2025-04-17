@@ -343,9 +343,6 @@
   }
   .home-post-item {
     padding: 1rem 1.2rem;
-    border: 1px solid #eaeaea;
-    border-radius: 7px;
-    background: #fafbfc;
     transition: box-shadow .15s;
   }
   .home-post-item:hover {
@@ -372,7 +369,7 @@
     transition: color 0.15s;
   }
   .home-post-title a:hover {
-    color: #268bd2;
+    color: #1f1c0c;
   }
   .home-post-date {
     color: #8a8a8a;
