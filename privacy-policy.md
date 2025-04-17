@@ -4,8 +4,6 @@ title: Privacy Policy
 permalink: /privacy-policy
 ---
 
-# Privacy Policy
-
 Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.
 
 ## Information We Collect
