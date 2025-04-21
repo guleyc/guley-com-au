@@ -838,19 +838,35 @@
     color: #333;
     font-size: 1.07rem;
   }
-  /* Code block container styles */
+/* Code block container styles */
 .code-block-container {
   position: relative;
-  padding-top: 2.5rem !important; /* Make space for the copy button */
+  margin-bottom: 1.5rem;
   border-radius: 5px;
   background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* Language indicator */
+.code-language {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: #fff;
+  background-color: #232323;
+  border-bottom-right-radius: 5px;
+  user-select: none;
 }
 
 /* Copy button styles */
 .copy-code-button {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  right: 0;
   padding: 0.25rem 0.5rem;
   font-size: 0.8rem;
   font-family: inherit;
@@ -858,16 +874,87 @@
   color: #232323;
   background-color: #FCEA00;
   border: none;
-  border-radius: 4px;
+  border-bottom-left-radius: 5px;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s, background-color 0.2s;
-}
-
-.code-block-container:hover .copy-code-button {
-  opacity: 1;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .copy-code-button:hover {
   background-color: #ffd700;
+}
+
+.copy-code-button i {
+  font-size: 0.9em;
+}
+
+/* Line numbers and code content layout */
+.formatted-code {
+  display: flex;
+  padding-top: 2rem;
+  overflow: auto;
+}
+
+.line-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  background-color: rgba(0,0,0,0.03);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.line-number {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.45;
+  min-width: 1.5rem;
+  text-align: right;
+}
+
+.code-content {
+  flex-grow: 1;
+  padding: 1rem;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  overflow: visible;
+}
+
+/* Make sure code spans keep their styles */
+.code-content .c, .code-content .c1 { color: #999; } /* comments */
+.code-content .k, .code-content .kd { color: #069; } /* keywords */
+.code-content .s, .code-content .s1, .code-content .s2 { color: #d44950; } /* strings */
+.code-content .n, .code-content .nb { color: #366; } /* built-in names */
+.code-content .mi, .code-content .mf { color: #f60; } /* numbers */
+.code-content .nf { color: #c0f; } /* function names */
+.code-content .nt { color: #2f6f9f; } /* tags */
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+  .formatted-code {
+    font-size: 0.75rem;
+  }
+  
+  .line-number {
+    font-size: 0.75rem;
+    min-width: 1.2rem;
+  }
+  
+  .code-language {
+    font-size: 0.7rem;
+  }
+  
+  .copy-code-button {
+    font-size: 0.7rem;
+  }
+}
+
+/* Optional: highlight the current line on hover */
+.code-content > span:hover {
+  background-color: rgba(255, 235, 0, 0.1);
 }
