@@ -886,37 +886,6 @@
   vertical-align: middle;
 }
 
-/* Line numbers */
-.line-numbers {
-  position: absolute;
-  top: 38px; /* height of header */
-  left: 0;
-  bottom: 0;
-  width: 3rem; /* Default width, JS will adjust based on digit count */
-  padding: 1rem 0;
-  background: #f1f1f1;
-  border-right: 1px solid #e1e4e8;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: #6a737d;
-  overflow: hidden;
-  user-select: none;
-}
-
-.line-numbers span {
-  display: block;
-  text-align: right; /* Important: Right-align the numbers */
-  padding: 0 0.5rem;
-  width: 100%;
-}
-
-/* Code block with line numbers */
-.has-line-numbers {
-  margin: 0 !important;
-  /* padding-left is set dynamically in JS */
-}
-
 /* Ensure the code block itself is properly styled */
 pre {
   margin: 0;
@@ -935,10 +904,6 @@ pre {
   }
   
   .code-language {
-    font-size: 0.7rem;
-  }
-  
-  .line-numbers {
     font-size: 0.7rem;
   }
   
@@ -968,18 +933,4 @@ pre::-webkit-scrollbar-thumb {
 
 pre::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
-}
-
-/* Fixed-width line numbers based on the maximum number of digits */
-.line-number {
-  font-variant-numeric: tabular-nums; /* Use monospaced digits for better alignment */
-  min-width: 1.5em;  /* Ensure minimum width for single digits */
-  display: inline-block;
-}
-
-/* Improve line number alignment with code */
-.line-numbers {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align line numbers to the right */
 }

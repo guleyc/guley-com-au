@@ -2,7 +2,6 @@
  * Lightweight Code Block Enhancement Script
  * - No dependencies required
  * - Adds copy button to code blocks
- * - Shows line numbers with proper alignment
  * - Maintains language indicator
  * - Prevents line wrapping
  */
@@ -70,37 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
       code.style.wordBreak = 'keep-all';
     }
     
-    // Add line numbers
+    // Get code text for copy operation
     const codeText = codeEl.textContent;
     const codeLines = codeText.split('\n');
-    const lineCount = codeLines.length - (codeLines[codeLines.length - 1].trim() === '' ? 1 : 0);
-    
-    if (lineCount > 1) {
-      // Create line numbers container
-      const lineNumbers = document.createElement('div');
-      lineNumbers.className = 'line-numbers';
-      
-      // Calculate width needed for line numbers
-      const maxDigits = String(lineCount).length;
-      lineNumbers.style.width = (maxDigits * 0.6 + 1.5) + 'rem';
-      
-      // Create line number elements
-      for (let i = 0; i < lineCount; i++) {
-        const lineNumber = document.createElement('span');
-        lineNumber.className = 'line-number';
-        lineNumber.textContent = (i + 1).toString();
-        lineNumbers.appendChild(lineNumber);
-      }
-      
-      // Insert line numbers
-      wrapper.insertBefore(lineNumbers, pre);
-      
-      // Calculate left padding for code based on line numbers width
-      pre.style.paddingLeft = (maxDigits * 0.6 + 2) + 'rem';
-      
-      // Add class to indicate line numbers are present
-      pre.classList.add('has-line-numbers');
-    }
     
     // Copy button click handler
     copyBtn.addEventListener('click', function() {
