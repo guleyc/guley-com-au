@@ -35,6 +35,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-toc
 
 paginate: 10
 paginate_path: "/page:num/"
