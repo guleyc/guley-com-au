@@ -404,6 +404,7 @@
     text-align: center;
     padding: 2rem 1rem;
     color: #000;
+    font-family: "Oswald", serif;
     background-color: #FCEA00;
     overflow-y: auto;
     box-shadow: 2px 0 16px rgba(0,0,0,0.16);
@@ -472,13 +473,11 @@
   .sidebar-about h1 {
     color: #000;
     margin-top: 0;
-    font-family: "Oswald", serif;
     font-size: 2rem;
   }
   .sidebar-about h2 {
     color: #000;
     margin-top: 0;
-    font-family: "Oswald", serif;
     font-size: 1.5rem;
   }
   /* Sidebar nav */
