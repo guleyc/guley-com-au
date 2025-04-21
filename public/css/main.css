@@ -935,12 +935,16 @@ pre::-webkit-scrollbar-thumb:hover {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: #FCEA00;
+  color: black;
   border: none;
-  border-radius: 50%;
+  font-weight: bold;
   padding: 10px 15px;
-  font-size: 20px;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 20px;
   cursor: pointer;
   display: none;
   z-index: 1000;
@@ -948,5 +952,9 @@ pre::-webkit-scrollbar-thumb:hover {
 }
 
 .scroll-to-top:hover {
-  background-color: #0056b3;
+  background-color: #FFD700;
+}
+
+.scroll-to-top:active {
+  background-color: #F7C800;
 }
