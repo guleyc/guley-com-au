@@ -40,6 +40,14 @@ plugins:
 paginate: 10
 paginate_path: "/page:num/"
 
+toc:
+  min_level: 2
+  max_level: 3
+  no_toc_section_class: no_toc
+  list_class: toc
+  list_id: toc
+  item_class: toc-entry
+
 # Optional settings
 github_username: guleyc
 email: cagatay@guley.com.tr
