@@ -561,8 +561,8 @@
   }
     /* Content area */
   .content {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
   }
   @media (min-width: 48em) {
     .content {
