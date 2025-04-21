@@ -930,31 +930,38 @@ pre::-webkit-scrollbar-thumb:hover {
   padding: 20px;
   width: auto;
 }
-/* Scroll to Top */
+/* Yukarı çıkma butonu */
 .scroll-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #FCEA00;
-  color: black;
+  background-color: #FCEA00; /* Arkaplan rengi */
+  color: black; /* Buton metni rengi */
   border: none;
-  font-weight: bold;
-  padding: 10px 15px;
-  font-size: 16px;
-  width: 40px;
-  height: 40px;
+  font-weight: bold; /* Kalın yazı tipi */
+  padding: 10px; /* Butonun iç padding'i */
+  font-size: 16px; /* Yazı boyutu */
+  width: 50px; /* Kare şeklinde buton */
+  height: 50px; /* Kare şeklinde buton */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* SVG'yi ortalamak için */
   text-align: center;
-  line-height: 20px;
   cursor: pointer;
-  display: none;
   z-index: 1000;
   transition: opacity 0.3s ease;
 }
 
+.scroll-to-top svg {
+  width: 24px; /* SVG boyutu */
+  height: 24px; /* SVG boyutu */
+  stroke: black; /* Ok simgesi rengi */
+}
+
 .scroll-to-top:hover {
-  background-color: #FFD700;
+  background-color: #FFD700; /* Hover rengi */
 }
 
 .scroll-to-top:active {
-  background-color: #F7C800;
+  background-color: #F7C800; /* Butona tıklanınca renk değişimi */
 }
