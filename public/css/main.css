@@ -9,11 +9,11 @@
     padding: 0;
   }
   html {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
   }
-  @media (min-width: 38em) {
+    @media (min-width: 38em) {
     html {
       font-size: 20px;
     }
@@ -538,7 +538,7 @@
   
   .sidebar-social i {
     pointer-events: none;
-  }  }
+  }
   .sidebar-social a[title="Twitter"]:hover {
     background: #1da1f2;
     color: #fff;
@@ -702,7 +702,7 @@
   .highlight .gi { background-color: #cfc; border: 1px solid #0c0 }
   .highlight .go { color: #aaa }
   .highlight .gp { color: #009; }
-  .highlight .gs { }
+  .highlight .gs { font-weight: bold; }
   .highlight .gu { color: #030; }
   .highlight .gt { color: #9c6 }
   .highlight .kc { color: #069; }
