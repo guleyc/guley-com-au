@@ -104,33 +104,20 @@
     display: block;
     margin-top: 0;
     margin-bottom: 1rem;
+    padding: 1rem;
     font-size: .8rem;
     line-height: 1.4;
     white-space: pre;
     white-space: pre-wrap;
     word-break: break-all;
-    word-wrap: normal !important;
-    overflow-x: auto;
-    padding: 1rem !important;
-    border-radius: 5px;
-    border: 1px solid #eee;
-    margin-bottom: 1rem;  
+    word-wrap: break-word;
     background-color: #f9f9f9;
-
   }
   pre code {
     padding: 0;
     font-size: 100%;
     color: inherit;
     background-color: transparent;
-  }
-  pre::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  pre::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 4px;
   }
   
   /* Blockquotes */
@@ -851,115 +838,64 @@
     color: #333;
     font-size: 1.07rem;
   }
-/* Code Block Styling */
-.code-block-wrapper {
-  position: relative;
+  /* CodeBlock.js customizations */
+.codeblock-wrapper {
   margin: 1.5rem 0;
+}
+
+.inkdrop-codeblock {
   border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-}
-.code-wrapper {
-  position: relative;
-  margin: 1.5rem 0;
-}
-.code-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #1e1e1e;
-  color: #e0e0e0;
-  padding: 0.5rem 1rem;
   font-size: 0.9rem;
 }
 
-.copy-button {
-  background: transparent;
-  border: none;
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.copy-button:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-.copy-code-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  background: #FCEA00;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.copy-code-btn:hover {
-  opacity: 1;
-}
-.code-language {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 0.8rem;
-  color: #FCEA00;
-}
-
-.highlight {
-  margin-bottom: 0 !important;
-}
-
-.highlight pre {
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.has-line-numbers {
-  padding-left: 0 !important;
-}
-
-.line-numbers {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 1rem 0.5rem;
-  background: rgba(0,0,0,0.1);
-  border-right: 1px solid rgba(255,255,255,0.1);
-  user-select: none;
-}
-
-.line-number {
-  color: #666;
-  font-size: 0.7rem;
-  line-height: 1.45;
-  min-width: 1.5rem;
-  text-align: right;
-}
-
-.highlight code {
-  padding: 1rem !important;
+.inkdrop-codeblock pre {
+  white-space: pre !important;
+  word-wrap: normal !important;
   overflow-x: auto;
-  flex-grow: 1;
-  background: transparent !important;
 }
 
-/* Line highlight on hover */
-.highlight pre:hover .line-number:hover {
+.inkdrop-codeblock header {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.inkdrop-codeblock header .file-name {
   color: #FCEA00;
-  font-weight: bold;
 }
 
-/* Pine Script syntax */
-.language-pinescript .k, 
-.language-pinescript .kd { color: #569CD6; } /* keywords */
-.language-pinescript .mi { color: #B5CEA8; } /* numbers */
-.language-pinescript .s, 
-.language-pinescript .s1 { color: #CE9178; } /* strings */
-.language-pinescript .c, 
-.language-pinescript .c1 { color: #6A9955; } /* comments */
-.language-pinescript .nf { color: #DCDCAA; } /* functions */
+.inkdrop-codeblock .copy-button {
+  background: transparent;
+  color: #ffffff;
+}
+
+.inkdrop-codeblock .copy-button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.inkdrop-codeblock .line-numbers {
+  background: rgba(0,0,0,0.05);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  color: #666;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .inkdrop-codeblock {
+    font-size: 0.8rem;
+  }
+  
+  .inkdrop-codeblock header {
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .inkdrop-codeblock .file-name {
+    font-size: 0.7rem;
+  }
+}
+
+/* Hide original code blocks that are replaced by CodeBlock.js */
+.codeblock-wrapper > pre {
+  display: none;
+}
