@@ -124,6 +124,14 @@
     color: inherit;
     background-color: transparent;
   }
+  pre::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  pre::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
   
   /* Blockquotes */
   blockquote {
@@ -879,7 +887,22 @@
 .copy-button:hover {
   background-color: rgba(255,255,255,0.1);
 }
+.copy-code-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: #FCEA00;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
 
+.copy-code-btn:hover {
+  opacity: 1;
+}
 .code-language {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.8rem;
