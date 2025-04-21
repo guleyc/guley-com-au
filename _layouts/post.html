@@ -7,7 +7,7 @@ layout: default
   <span class="post-date">{{ page.date | date_to_string }}</span>
   {% if page.toc %}
   <nav class="table-of-contents">
-    {{ content | toc_only }}
+    {% include toc.html html=content %}
   </nav>
 {% endif %}
   <div class="post-content">
