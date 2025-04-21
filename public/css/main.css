@@ -842,7 +842,7 @@ pre::-webkit-scrollbar-thumb:hover {
     margin: 2rem 0;
   }
   .category-post {
-    padding: 1.5rem;
+    padding: 1rem;
     border: 1px solid #eee;
     border-radius: 8px;
     background: #fafbfc;
@@ -853,7 +853,7 @@ pre::-webkit-scrollbar-thumb:hover {
   }
   .category-post h2 {
     margin: 0 0 0.5rem 0;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
   }
   .category-post .meta {
     color: #888;
@@ -871,7 +871,7 @@ pre::-webkit-scrollbar-thumb:hover {
   .category-post .excerpt {
     margin: 0.5rem 0 0 0;
     color: #333;
-    font-size: 1.07rem;
+    font-size: 0.95rem;
   }
   /* Lightweight Code Block Styles */
 
