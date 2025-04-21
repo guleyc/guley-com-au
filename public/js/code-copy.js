@@ -35,7 +35,18 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add line numbers
       const pre = codeBlock.querySelector('pre');
       if (pre) {
+        // Ensure pre element doesn't wrap text
+        pre.style.whiteSpace = 'pre';
+        pre.style.wordWrap = 'normal';
+        pre.style.overflowX = 'auto';
+        
         const code = pre.querySelector('code') || pre;
+        // Ensure code element doesn't wrap text
+        if (code) {
+          code.style.whiteSpace = 'pre';
+          code.style.wordWrap = 'normal';
+        }
+        
         const codeText = code.textContent;
         const lines = codeText.split('\n');
         

@@ -104,14 +104,19 @@
     display: block;
     margin-top: 0;
     margin-bottom: 1rem;
-    padding: 1rem;
     font-size: .8rem;
     line-height: 1.4;
     white-space: pre;
     white-space: pre-wrap;
     word-break: break-all;
-    word-wrap: break-word;
+    word-wrap: normal !important;
+    overflow-x: auto;
+    padding: 1rem !important;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-bottom: 1rem;  
     background-color: #f9f9f9;
+
   }
   pre code {
     padding: 0;
@@ -847,7 +852,10 @@
   overflow: hidden;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
-
+.code-wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
 .code-header {
   display: flex;
   align-items: center;
