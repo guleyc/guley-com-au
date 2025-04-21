@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="page">
-<h1>Posts in "{{ page.category }}" Category</h1>
+<h1 class="page-title">Posts in "{{ page.category }}" Category</h1>
 <div class="category-list">
   {% assign category_posts = site.categories[page.category] %}
   {% if category_posts %}
