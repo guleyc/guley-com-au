@@ -259,7 +259,7 @@
   }
   .page-title,
   .post-title {
-    margin-top: 0;
+    margin-top: 2rem;
   }
   /* Meta data below post title */
   .post-date {
