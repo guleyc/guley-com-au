@@ -7,6 +7,7 @@ permalink: /open-pit-mining-cost-accounting-the-complete-guide-to-maximizing-pro
 redirect_from:
   - /open-pit-mining-cost-accounting-the-complete-guide-to-maximizing-profitability
 categories: [mining]
+toc: true
 ---
 
 Open pit mining is a widely used method for extracting minerals and raw materials. While it offers lower production costs compared to underground mining, it still involves a significant cost structure. Effective cost accounting in open pit mining operations is critical for optimizing profitability and ensuring sustainability.
