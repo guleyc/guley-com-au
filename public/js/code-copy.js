@@ -1,73 +1,68 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const codeBlocks = document.querySelectorAll('pre');
+    const codeBlocks = document.querySelectorAll('div.highlight');
     
     codeBlocks.forEach((codeBlock) => {
-      const codeElement = codeBlock.querySelector('code');
-      if (codeElement) {
-        // Get code content
-        const code = codeElement.textContent;
-  
-        // Create the copy button
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-code-button';
-        copyButton.type = 'button';
-        copyButton.innerHTML = '<i class="fa fa-copy"></i> Copy';
+      // Get language class if available
+      const languageClass = Array.from(codeBlock.classList).find(cls => cls.startsWith('language-'));
+      const language = languageClass ? languageClass.replace('language-', '') : '';
+      
+      // Create code block wrapper
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+      
+      // Create header with language and copy button
+      const header = document.createElement('div');
+      header.className = 'code-header';
+      
+      // Language label
+      const languageLabel = document.createElement('span');
+      languageLabel.className = 'code-language';
+      languageLabel.textContent = language || 'code';
+      header.appendChild(languageLabel);
+      
+      // Copy button
+      const copyButton = document.createElement('button');
+      copyButton.className = 'copy-button';
+      copyButton.innerHTML = '<i class="fa fa-copy"></i>';
+      copyButton.title = 'Copy code to clipboard';
+      header.appendChild(copyButton);
+      
+      // Add header before code block
+      wrapper.insertBefore(header, codeBlock);
+      
+      // Add line numbers
+      const pre = codeBlock.querySelector('pre');
+      if (pre) {
+        const code = pre.querySelector('code') || pre;
+        const codeText = code.textContent;
+        const lines = codeText.split('\n');
         
-        // Identify the language if available
-        const highlightClass = Array.from(codeBlock.classList).find(cls => cls.startsWith('language-'));
-        const language = highlightClass ? highlightClass.replace('language-', '') : 'code';
-        
-        // Add language indicator
-        const languageIndicator = document.createElement('div');
-        languageIndicator.className = 'code-language';
-        languageIndicator.textContent = language;
-        
-        // Add line numbers
-        const lines = code.trim().split('\n');
+        // Create line number container
         const lineNumbers = document.createElement('div');
         lineNumbers.className = 'line-numbers';
         
-        // Create line number elements
-        for (let i = 0; i < lines.length; i++) {
-          const lineNumber = document.createElement('span');
-          lineNumber.className = 'line-number';
-          lineNumber.textContent = i + 1;
-          lineNumbers.appendChild(lineNumber);
-        }
+        // Add each line number
+        lines.forEach((line, i) => {
+          if (i < lines.length - 1 || lines[lines.length - 1].trim() !== '') {
+            const lineNumber = document.createElement('span');
+            lineNumber.className = 'line-number';
+            lineNumber.textContent = i + 1;
+            lineNumbers.appendChild(lineNumber);
+          }
+        });
         
-        // Format the code with line numbers
-        const formattedCode = document.createElement('div');
-        formattedCode.className = 'formatted-code';
+        // Add line numbers before code
+        pre.classList.add('has-line-numbers');
+        pre.insertBefore(lineNumbers, code);
         
-        const codeContent = document.createElement('div');
-        codeContent.className = 'code-content';
-        codeContent.innerHTML = codeElement.innerHTML;
-        
-        formattedCode.appendChild(lineNumbers);
-        formattedCode.appendChild(codeContent);
-        
-        // Add the elements to the code block
-        codeBlock.classList.add('code-block-container');
-        codeBlock.innerHTML = '';
-        codeBlock.appendChild(languageIndicator);
-        codeBlock.appendChild(copyButton);
-        codeBlock.appendChild(formattedCode);
-        
-        // Add copy event
+        // Copy event
         copyButton.addEventListener('click', () => {
-          // Only copy the code text, not the line numbers
-          const textToCopy = lines.join('\n');
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            // Visual feedback for copying
-            copyButton.innerHTML = '<i class="fa fa-check"></i> Copied!';
+          navigator.clipboard.writeText(codeText.trim()).then(() => {
+            copyButton.innerHTML = '<i class="fa fa-check"></i>';
             setTimeout(() => {
-              copyButton.innerHTML = '<i class="fa fa-copy"></i> Copy';
-            }, 2000);
-          }).catch(err => {
-            console.error('Could not copy text: ', err);
-            copyButton.innerHTML = '<i class="fa fa-times"></i> Error!';
-            setTimeout(() => {
-              copyButton.innerHTML = '<i class="fa fa-copy"></i> Copy';
+              copyButton.innerHTML = '<i class="fa fa-copy"></i>';
             }, 2000);
           });
         });
