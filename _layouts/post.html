@@ -31,16 +31,6 @@ layout: default
   </ul>
 </div>
 
-{% for tag in site.tags %}
-<div class="tags">
-  <h3>{{ tag[0] }}</h3>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
-{% endfor %}
 <a href="#" class="scroll-to-top" title="Up">
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 490 490" xml:space="preserve">
