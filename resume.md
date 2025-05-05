@@ -90,7 +90,7 @@ I'm a mining engineer with a strong background in both the mine site and technic
 **MSc in Mining Engineering** _(coursework completed, thesis not submitted)_  
 _Istanbul Technical University_ | 2018–2020
 
-**Bachelor of Science in Mining Engineering**
+**Bachelor of Science in Mining Engineering**  
 _Istanbul Technical University_ | 2013–2018
 
 ## Key Skills
