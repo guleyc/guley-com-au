@@ -5,7 +5,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    css_class: 'highlight'
+    css_class: "highlight"
     span:
       line_numbers: false
     block:
@@ -57,9 +57,12 @@ social:
   linkedin: "https://linkedin.com/in/guleyc"
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+
+navbar-links:
+  About Me: "aboutme"
+avatar: "/assets/img/svg-favicon.svg"
