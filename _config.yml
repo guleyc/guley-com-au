@@ -36,6 +36,8 @@ plugins:
   - jekyll-redirect-from
   - jekyll-relative-links
   - jekyll-toc
+  - jekyll-minifier
+  - jekyll-timeago
 
 paginate: 10
 paginate_path: "/page:num/"
