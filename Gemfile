@@ -11,5 +11,6 @@ group :jekyll_plugins do
   gem "jekyll-redirect-from"
   gem "jekyll-paginate"
   gem "jekyll-relative-links"
-  gem 'jekyll-toc'
+  gem "jekyll-toc"
+  gem "jekyll-timeago", "~> 0.13.1"
 end
