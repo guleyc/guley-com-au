@@ -56,6 +56,12 @@ social:
   github: "https://github.com/guleyc"
   linkedin: "https://linkedin.com/in/guleyc"
 
+social-network-links:
+  email: "cagatay@guley.com.tr"
+  rss: true
+  github: guleyc
+  linkedin: in/guleyc
+
 defaults:
   - scope:
       path: ""
@@ -66,3 +72,4 @@ defaults:
 navbar-links:
   About Me: "aboutme"
 avatar: "/assets/img/svg-favicon.svg"
+round-avatar: true
