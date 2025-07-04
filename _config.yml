@@ -102,3 +102,12 @@ footer-link-col: "#404040"
 footer-hover-col: "#0085a1"
 
 date_format: "%B %-d, %Y"
+
+jekyll_admin:
+  hidden_links:
+    - posts
+    - pages
+    - staticfiles
+    - datafiles
+    - configuration
+  homepage: "pages"
