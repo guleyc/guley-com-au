@@ -1,17 +1,14 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.4.1"
-gem "webrick", "~> 1.8"
+gemspec
 
-group :jekyll_plugins do
-  gem "jekyll-github-metadata"
-  gem "jekyll-minifier"
-  gem "jekyll-seo-tag"
-  gem "jekyll-sitemap"
-  gem "jekyll-feed"
-  gem "jekyll-redirect-from"
-  gem "jekyll-paginate"
-  gem "jekyll-relative-links"
-  gem "jekyll-toc"
-  gem "jekyll-timeago"
+gem "html-proofer", "~> 5.0", group: :test
+
+platforms :mingw, :x64_mingw, :mswin, :jruby do
+  gem "tzinfo", ">= 1", "< 3"
+  gem "tzinfo-data"
 end
+
+gem "wdm", "~> 0.2.0", :platforms => [:mingw, :x64_mingw, :mswin]
