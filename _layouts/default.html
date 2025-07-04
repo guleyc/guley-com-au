@@ -3,49 +3,14 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
   {% include head.html %}  
   <body>
-    <main>
-	    
-	    {% include navigation.html %}
-	    
-        {{ content }}
-        	    
+    {% include navigation.html %}
+    
+    <main id="main-content" role="main" aria-label="Main content">
+      {{ content }}
     </main>
-        <script>
-      $(document).ready(function() {
-        // Sadece desktop'ta sticky sidebar aktif et
-        if ($(window).width() > 768) {
-          $('.sidebar-wrapper').stickySidebar({
-            topSpacing: 20,
-            bottomSpacing: 20,
-            containerSelector: 'main',
-            innerWrapperSelector: '.sidebar-sticky',
-            resizeSensor: true,
-            stickyClass: 'is-affixed',
-            minWidth: 768
-          });
-        }
-        
-        // Pencere boyutu değiştiğinde yeniden başlat
-        $(window).resize(function() {
-          if ($(window).width() > 768) {
-            $('.sidebar-wrapper').stickySidebar({
-              topSpacing: 20,
-              bottomSpacing: 20,
-              containerSelector: 'main',
-              innerWrapperSelector: '.sidebar-sticky',
-              resizeSensor: true,
-              stickyClass: 'is-affixed',
-              minWidth: 768
-            });
-          } else {
-            $('.sidebar-wrapper').stickySidebar('destroy');
-          }
-        });
-      });
-    </script>
-        
+    
   </body>
 </html>

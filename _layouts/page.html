@@ -2,10 +2,18 @@
 layout: default
 ---
 
-<section class="post">
-  <h2>{{ page.title }}</h2>
-  {{ content }}
-</section>
+<article class="page" itemscope itemtype="http://schema.org/WebPage">
+  <header class="page-header">
+    <h1 class="page-title" itemprop="headline">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="page-subtitle" itemprop="description">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+  
+  <div class="page-content" itemprop="mainContentOfPage">
+    {{ content }}
+  </div>
+</article>
 
 
 

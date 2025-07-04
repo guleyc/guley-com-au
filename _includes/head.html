@@ -22,7 +22,7 @@
       {% endunless %}
     </title>
   
-  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/img/svg-favicon.svg">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/img/svg-favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
   <link rel="alternate" type="application/json" title="{{ site.title }}" href="{{ "/feed.json" | prepend: site.baseurl | prepend: site.url }}" />
   <link rel="sitemap" type="application/xml" title="sitemap" href="{{ site.baseurl }}/sitemap.xml" />
@@ -33,11 +33,5 @@
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-  <!-- Sticky Sidebar Plugin -->
-  <script src="https://cdn.jsdelivr.net/npm/sticky-sidebar@3.3.1/dist/sticky-sidebar.min.js"></script>
 
 </head>
