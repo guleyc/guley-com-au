@@ -208,3 +208,32 @@ figcaption {
         display: none !important;
     }
 }
+/* Logo Only Styling */
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.logo-svg {
+    width: 3rem;
+    height: 3rem;
+    background: var(--pico-primary);
+    border-radius: 50%;
+    padding: 0.6rem;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+}
+
+.logo-link:hover .logo-svg {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo-svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+    }
+}
