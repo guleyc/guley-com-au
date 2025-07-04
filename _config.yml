@@ -1,49 +1,65 @@
-title: Cagatay Guley
-email: cagatay@guley.com.tr
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-permalink: ':title/'
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://guley.com.tr" # the base hostname & protocol for your site, e.g. http://example.com
-
-# Author settings
-author: Cagatay Guley
-author-pic: adam-face.jpg
-about-author: My name is Cagatay Guley. I’m a full-time adventure travel blogger and photographer who’s been exploring the world for over 2 years.
-
-# Contact links
-email: cagatay@guley.com.tr
-phone: # Add your Phone number
-website: # Add your website, do not add http://
-linkedin: # Add your Linkedin handle
-github: guleyc # Add your Github handle
-twitter: '@guleyc' # Add your Twitter handle
-facebook: # Add your Facebook handle
-instagram: # Add your Instagram handle
-pinterest: # Add your Pinterest handle
-
-# Newsletter
-mailchimp: # Add your MailChimp form identifier.
-
-# Disqus
-discus_identifier: # Add your discus identifier
-
-# Tracker
-analytics: # Google Analytics
-
-# Paginate
-paginate: 6
-paginate_path: /page:num/
-
-# Build settings
+# Dependencies
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+# Permalinks
+permalink: /:title/
+
+# Site setup
+title: Cagatay Guley
+description: As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons.
+title_separator: " - "
+tagline: "A Mining Engineer"
+url: "https://guley.com.tr"
+baseurl: "" # If publishing at root domain
+
+author: Cagatay Guley
+
+repository: guleyc/blog
 
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-github-metadata
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-toc
 
-include: [_pages]
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/"]
+paginate: 10
+paginate_path: "/page:num/"
+
+toc:
+  min_level: 2
+  max_level: 3
+  no_toc_section_class: no_toc
+  list_class: toc
+  list_id: toc
+  item_class: toc-entry
+
+# Optional settings
+github_username: guleyc
+email: cagatay@guley.com.tr
+social:
+  email: "cagatay@guley.com.tr"
+  github: "https://github.com/guleyc"
+  linkedin: "https://linkedin.com/in/guleyc"
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

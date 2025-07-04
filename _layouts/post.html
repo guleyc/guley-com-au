@@ -1,40 +1,42 @@
 ---
 layout: default
 ---
-<div class="flex-container">
-  {% include header.html %}
-  <article class="article-page">
-    <div class="page-image">
-      <div class="cover-image" style="background: url({{"/assets/img/" | prepend: site.baseurl | append : page.img}}) center no-repeat; background-size: cover;"></div>
-    </div>
-    <div class="wrapper">
-      <div class="page-content">
-        <div class="header-page">
-          <h1 class="page-title">{{page.title}}</h1>
-          <div class="page-date"><time datetime="{{page.date}}">{{page.date | date: '%Y, %b %d'}}</time></div>
-        </div>
-        {{page.content | markdownify}}
-        <div class="page-footer">
-          <div class="page-tag">
-            <span>Tags:</span>
-            {% for tag in page.tags %}
-            <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">| {{ tag }}</a>
-            {% endfor %}
-          </div><!-- End Tags -->
-          <div class="page-share">
-            <span>Share:</span>
-            <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
-          </div><!-- End Share -->
-        </div>
-        {% include author-box.html %}
-        {% include recent-post.html %}
-        {% include newsletter.html %}
-        {% include disqus.html %}
-      </div>
-    </div> <!-- End Wrapper -->
-  </article>
-  {% include search.html %}
-  {% include footer.html %}
+
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  {% if page.toc %}
+  <nav class="table-of-contents">
+    {% include toc.html html=content %}
+  </nav>
+  {% endif %}
+  <div class="post-content">
+    {{ content }}
+  </div>
 </div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date: "%d %b %Y" }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<a href="#" class="scroll-to-top" title="Up">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 490 490" xml:space="preserve">
+<g>
+	<polygon points="8.081,242.227 82.05,314.593 199.145,194.882 199.145,490 306.14,490 306.14,210.504 407.949,314.593 
+		481.919,242.227 245.004,0 	"/>
+</g>
+</svg>
+</a>

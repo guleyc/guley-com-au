@@ -1,20 +1,16 @@
-<header class="main-header">
-  <div class="wrapper">
-    <div class="header-flex">
-      <div class="menu-icon-container">
-        <span class="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+<header class="mobile-sticky-header">
+    <div class="mobile-header-container">
+      <div class="mobile-header-title">
+        <a href="{{ site.url }}">{{ site.title }}</a>
       </div>
-      <nav class="main-nav">
-        <span class="menu-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
-        <ul>
-          <li><a href="{{site.baseurl}}/">Blog</a></li>
-          <li><a href="{{site.baseurl}}/about">About</a></li>
-        </ul>
+      <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
+      <label for="mobile-menu-toggle" class="mobile-menu-icon">&#9776;</label>
+      <nav class="mobile-header-nav">
+        <a class="mobile-header-nav-item{% if page.url contains '/category/energy' %} active{% endif %}" href="{{ site.url }}/category/energy/">Energy</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/engineering' %} active{% endif %}" href="{{ site.url }}/category/engineering/">Engineering</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/mining' %} active{% endif %}" href="{{ site.url }}/category/mining/">Mining</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/motorcycle' %} active{% endif %}" href="{{ site.url }}/category/motorcycle/">Motorcycle</a>
+        <a class="mobile-header-nav-item{% if page.url contains '/category/web' %} active{% endif %}" href="{{ site.url }}/category/web/">Web</a>
       </nav>
-      <p class="logo"><a href="{{site.baseurl}}/">{{ site.author }}</a></p>
-      <div class="search-icon-container">
-        <span class="search-icon"><a><i class="fa fa-search" aria-hidden="true"></i></a></span>
-      </div>
     </div>
-  </div>
-</header> <!-- End Header -->
+  </header>
