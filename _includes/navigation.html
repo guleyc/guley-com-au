@@ -3,10 +3,10 @@
         <img src="{{ '/assets/img/svg-favicon.svg' | relative_url }}" alt="{{ site.title }}" class="logo-svg">
       </a>
       <nav role="navigation" aria-hidden="true">
-        <ul>
-           {% for item in site.data.navigation.links %}
-              <li><a href="{{ item.url }}" {% if item.url == page.url %} class="active"{% endif %}>{{ item.title }}</a></li>
-           {% endfor %}
-        </ul>
-      </nav>
+<ul>
+   {% for item in site.data.navigation.links %}
+      <li><a href="{{ item.url }}" {% if item.url == page.url %} class="active"{% endif %}>{{ item.title }}</a></li>
+   {% endfor %}
+</ul>
+</nav>
 </header>
