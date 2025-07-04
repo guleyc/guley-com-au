@@ -51,7 +51,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: {{ site.hover-col | default: "#0085A1" }};
+  color: {{ site.hover-col | default: "#FCEA00" }};
 }
 blockquote {
   color: #808080;
@@ -81,21 +81,21 @@ hr.small {
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: #000;
   text-shadow: none;
-  background-color: {{ site.hover-col | default: "#0085A1" }};
+  background-color: {{ site.hover-col | default: "#FCEA00" }};
 }
 ::selection {
-  color: #fff;
+  color: #000;
   text-shadow: none;
-  background-color: {{ site.hover-col | default: "#0085A1" }};
+  background-color: {{ site.hover-col | default: "#FCEA00" }};
 }
 img::selection {
-  color: #fff;
+  color: #000;
   background: transparent;
 }
 img::-moz-selection {
-  color: #fff;
+  color: #000;
   background: transparent;
 }
 
@@ -315,7 +315,7 @@ img {
 .navbar-custom .navbar-nav .nav-link:focus,
 .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover,
 .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:focus {
-  color: {{ site.hover-col | default: "#0085A1" }};
+  color: {{ site.hover-col | default: "#FCEA00" }};
 }
 
 .navbar-custom .avatar-container {
@@ -401,7 +401,7 @@ footer a {
 
 footer a:hover,
 footer a:focus {
-  color: {{ site.footer-hover-col | default: "#0085A1" }};
+  color: {{ site.footer-hover-col | default: "#FCEA00" }};
 }
 
 footer .list-inline {
@@ -471,7 +471,7 @@ footer .footer-custom-content {
 .post-preview a:focus,
 .post-preview a:hover {
   text-decoration: none;
-  color: {{ site.hover-col | default: "#0085A1" }};
+  color: {{ site.hover-col | default: "#FCEA00" }};
 }
 
 .post-preview .post-title {
@@ -822,8 +822,8 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
 .pagination .page-item .page-link:hover,
 .pagination .page-item .page-link:focus {
   color: #FFF;
-  border: 1px solid {{ site.hover-col | default: "#0085A1" }};
-  background-color: {{ site.hover-col | default: "#0085A1" }};
+  border: 1px solid {{ site.hover-col | default: "#FCEA00" }};
+  background-color: {{ site.hover-col | default: "#FCEA00" }};
 }
 
 /* --- Tables --- */
