@@ -1,150 +1,245 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    {% seo %}
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#FCEA00',
+                        'brand-gray': '#404040',
+                        'text-primary': '#1a1a1a',
+                        'text-secondary': '#666666',
+                        'bg-light': '#fafafa',
+                    },
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                maxWidth: 'none',
+                                color: '#1a1a1a',
+                                lineHeight: '1.7',
+                                h1: { color: '#1a1a1a' },
+                                h2: { color: '#1a1a1a' },
+                                h3: { color: '#1a1a1a' },
+                                h4: { color: '#1a1a1a' },
+                                strong: { color: '#1a1a1a' },
+                                code: { 
+                                    color: '#1a1a1a',
+                                    backgroundColor: '#f5f5f5',
+                                    padding: '0.25rem 0.5rem',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500',
+                                },
+                                pre: {
+                                    backgroundColor: '#1a1a1a',
+                                    color: '#f5f5f5',
+                                },
+                                blockquote: {
+                                    borderLeftColor: '#FCEA00',
+                                    color: '#666666',
+                                },
+                                a: {
+                                    color: '#404040',
+                                    textDecoration: 'none',
+                                    fontWeight: '500',
+                                    '&:hover': {
+                                        color: '#FCEA00',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: light;
+            }
+        }
         
-        <!-- SEO -->
-        {% seo %}
+        .code-highlight {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
         
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
-        <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
-        <noscript><link rel="stylesheet" href="{{ '/assets/css/noscript.css' | relative_url }}" /></noscript>
+        .gradient-text {
+            background: linear-gradient(135deg, #404040 0%, #FCEA00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    </head>
-    <body class="is-preload">
-
-        <!-- Wrapper-->
-            <div id="wrapper">
-
-                <!-- Nav -->
-                    <nav id="nav">
-                        <a href="#home" class="icon solid fa-home"><span>Home</span></a>
-                        <a href="#blog" class="icon solid fa-folder"><span>Blog</span></a>
-                        <a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
-                        {% if site.social.twitter %}
-                        <a href="https://twitter.com/{{ site.social.twitter }}" class="icon brands fa-twitter"><span>Twitter</span></a>
-                        {% endif %}
-                        {% if site.social.github %}
-                        <a href="https://github.com/{{ site.social.github }}" class="icon brands fa-github"><span>GitHub</span></a>
-                        {% endif %}
-                    </nav>
-
-                <!-- Main -->
-                    <div id="main">
-
-                        <!-- Me -->
-<article id="home" class="panel intro">
-    <header>
-        <h1>{{ site.author.name }}</h1>
-        <p>{{ site.author.title }}</p>
-    </header>
-    <a href="#blog" class="jumplink pic">
-        <span class="arrow icon solid fa-chevron-right"><span>See my blog</span></span>
-        <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" />
-    </a>
-</article>
-
-<!-- Blog -->
-<article id="blog" class="panel">
-    <header>
-        <h2>Blog</h2>
-    </header>
-    <p>
-        Welcome to my blog where I share my thoughts, experiences, and insights. 
-        Click on any post below to read the full article.
-    </p>
-    <section>
-        <div class="row">
-            {% for post in site.posts limit: 12 %}
-            <div class="col-4 col-6-medium col-12-small">
-                <a href="#" class="image fit blog-post-link" data-post-id="{{ post.id | slugify }}" data-post-title="{{ post.title | escape }}" data-post-date="{{ post.date | date: '%B %d, %Y' }}" data-post-content="{{ post.content | escape }}">
-                    {% if post.image %}
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" />
-                    {% else %}
-                    <img src="{{ '/assets/images/default-post.jpg' | relative_url }}" alt="{{ post.title }}" />
-                    {% endif %}
-                    <div class="post-overlay">
-                        <h3>{{ post.title }}</h3>
-                        <p>{{ post.date | date: "%B %d, %Y" }}</p>
-                        {% if post.tags.size > 0 %}
-                        <div class="post-tags">
-                            {% for tag in post.tags limit: 3 %}
-                            <span class="tag">{{ tag }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+    
+    <!-- Favicon -->
+    {% if site.favicon.enabled %}
+        <link rel="icon" type="image/svg+xml" href="{{ site.favicon.svg | relative_url }}">
+        <link rel="apple-touch-icon" href="{{ site.favicon.apple_touch_icon | relative_url }}">
+        <meta name="theme-color" content="{{ site.favicon.theme_color }}">
+    {% endif %}
+</head>
+<body class="bg-white text-text-primary font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="{{ '/' | relative_url }}" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                    <div class="w-10 h-10 bg-brand-yellow rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10 9 10s9-4.45 9-10V7l-10-5zM12 4.44L19.2 8L12 11.56L4.8 8L12 4.44zM4 9.78l7 3.22v7.56c-3.22-0.78-7-3.74-7-7.78V9.78zM20 12.78c0 4.04-3.78 7-7 7.78V13l7-3.22v2.99z"/>
+                        </svg>
+                    </div>
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-bold text-brand-gray">{{ site.title }}</div>
+                        <div class="text-sm text-text-secondary">{{ site.tagline }}</div>
                     </div>
                 </a>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-</article>
-
-<!-- Contact -->
-<article id="contact" class="panel">
-    <header>
-        <h2>Contact Me</h2>
-    </header>
-    <form action="https://formspree.io/f/{{ site.formspree_id }}" method="post">
-        <div>
-            <div class="row">
-                <div class="col-6 col-12-medium">
-                    <input type="text" name="name" placeholder="Name" required />
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{{ '/' | relative_url }}" class="text-text-secondary hover:text-brand-gray transition-colors font-medium">Blog</a>
+                    <a href="{{ '/resume/' | relative_url }}" class="text-text-secondary hover:text-brand-gray transition-colors font-medium">Resume</a>
+                    <a href="{{ '/contact/' | relative_url }}" class="text-text-secondary hover:text-brand-gray transition-colors font-medium">Contact</a>
                 </div>
-                <div class="col-6 col-12-medium">
-                    <input type="email" name="email" placeholder="Email" required />
-                </div>
-                <div class="col-12">
-                    <input type="text" name="subject" placeholder="Subject" required />
-                </div>
-                <div class="col-12">
-                    <textarea name="message" placeholder="Message" rows="6" required></textarea>
-                </div>
-                <div class="col-12">
-                    <input type="submit" value="Send Message" />
-                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i data-feather="menu" class="w-5 h-5"></i>
+                </button>
             </div>
         </div>
-    </form>
-</article>
-
-<!-- Blog Post Modal -->
-<article id="blog-post" class="panel" style="display: none;">
-    <header>
-        <h2 id="post-title"></h2>
-        <p id="post-date"></p>
-        <a href="#blog" class="back-to-blog">← Back to Blog</a>
-    </header>
-    <div id="post-content" class="post-content">
-        <!-- Post content will be inserted here -->
-    </div>
-</article>
-
-                    </div>
-
-                <!-- Footer -->
-                    <div id="footer">
-                        <ul class="copyright">
-                            <li>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}.</li>
-                            <li>Design: <a href="https://webc.com.tr">webc.</a></li>
-                        </ul>
-                    </div>
-
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-2 space-y-1">
+                <a href="{{ '/' | relative_url }}" class="block px-3 py-2 text-text-secondary hover:text-brand-gray transition-colors">Blog</a>
+                <a href="{{ '/resume/' | relative_url }}" class="block px-3 py-2 text-text-secondary hover:text-brand-gray transition-colors">Resume</a>
+                <a href="{{ '/contact/' | relative_url }}" class="block px-3 py-2 text-text-secondary hover:text-brand-gray transition-colors">Contact</a>
             </div>
+        </div>
+    </nav>
 
-        <!-- Scripts -->
-            <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
-            <script src="{{ '/assets/js/browser.min.js' | relative_url }}"></script>
-            <script src="{{ '/assets/js/breakpoints.min.js' | relative_url }}"></script>
-            <script src="{{ '/assets/js/util.js' | relative_url }}"></script>
-            <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-            <script src="{{ '/assets/js/blog.js' | relative_url }}"></script>            
-    </body>
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- About -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-brand-gray">{{ site.title }}</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">
+                        {{ site.description }}
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-brand-gray">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="{{ '/' | relative_url }}" class="block text-text-secondary hover:text-brand-gray transition-colors text-sm">Blog</a>
+                        <a href="{{ '/resume/' | relative_url }}" class="block text-text-secondary hover:text-brand-gray transition-colors text-sm">Resume</a>
+                        <a href="{{ '/tags/' | relative_url }}" class="block text-text-secondary hover:text-brand-gray transition-colors text-sm">Tags</a>
+                    </div>
+                </div>
+                
+                <!-- Social -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-brand-gray">Connect</h3>
+                    <div class="flex space-x-4">
+                        {% if site.social.github %}
+                        <a href="{{ site.social.github }}" target="_blank" class="text-text-secondary hover:text-brand-gray transition-colors">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
+                        {% endif %}
+                        {% if site.social.linkedin %}
+                        <a href="{{ site.social.linkedin }}" target="_blank" class="text-text-secondary hover:text-brand-gray transition-colors">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        {% endif %}
+                        {% if site.social.email %}
+                        <a href="mailto:{{ site.social.email }}" class="text-text-secondary hover:text-brand-gray transition-colors">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-text-secondary text-sm">
+                        © {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.
+                    </p>
+                    <p class="text-text-secondary text-sm">
+                        Built with <span class="text-red-500">♥</span> using Jekyll & Tailwind CSS
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>
