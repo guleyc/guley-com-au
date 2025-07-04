@@ -70,6 +70,6 @@ defaults:
       layout: "post"
 
 navbar-links:
-  About Me: "aboutme"
+  About Me: "resume"
 avatar: "/assets/img/svg-favicon.svg"
 round-avatar: true
