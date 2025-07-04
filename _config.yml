@@ -1,4 +1,5 @@
 # Setup
+site:                Cagatay Guley
 title:               Cagatay Guley
 tagline:             "A Mining Engineer"
 description:         "As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons."
@@ -6,17 +7,64 @@ url:                 https://guley.com.tr
 baseurl:             ""
 paginate:            5
 permalink:           pretty
-
+highlighter:         none
 # About/contact
 author:
   name:              Cagatay Guley
   url:               https://webc.com.tr
   email:             cagatay@guley.com.tr
 
+author:
+  twitter: #yourusername
+  name: Cagatay Guley
+  avatar:
+  email: cagatay@guley.com.tr
+  url: https://webc.com.tr
+
 # Gems
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap  
 
 # Custom vars
 version:             1.1.0
 google_analytics_id: #UA-XXXX-Y
+
+exclude:
+  - .jekyll-cache
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:slug
+  
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
