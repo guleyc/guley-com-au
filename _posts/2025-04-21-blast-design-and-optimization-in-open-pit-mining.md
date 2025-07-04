@@ -8,6 +8,7 @@ redirect_from:
   - /blast-design-and-optimization-in-open-pit-mining
 categories: [mining]
 tags: [blast, design, open-pit, mining]
+img: blast.jpg
 ---
 
 Open-pit mining represents one of the most prevalent methods for extracting valuable minerals from the earth's surface. This approach involves removing overburden material to access underlying ore deposits, with blasting serving as a critical operation in the process. Effective blast design significantly influences the efficiency of subsequent mining operations, including loading, hauling, and processing. The optimization of blast design parameters not only enhances fragmentation quality but also improves safety, reduces costs, and minimizes environmental impacts. This article examines the fundamentals of blast design in open-pit mining, explores optimization techniques, and presents real-world case studies demonstrating successful implementation strategies.
