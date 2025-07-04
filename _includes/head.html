@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   {% capture title %}
     {%- if page.share-title -%}
@@ -45,37 +45,16 @@
 
   {% include gtag.html %}
   {% include gtm_head.html %}
-  {% include google_analytics.html %}
-  {% include cloudflare_analytics.html %}
-  {% assign version = site.asset_version | default: site.time | date: '%d%m%Y' %}
-
-  {% if layout.common-ext-css %}
-    {% for css in layout.common-ext-css %}
-      {% include ext-css.html css=css %}
-    {% endfor %}
-  {% endif %}
-
-  {% if layout.common-css %}
-    {% for css in layout.common-css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}?v={{ version }}">
-    {% endfor %}
-  {% endif %}
-
-  {% if site.site-css %}
-    {% for css in site.site-css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}?v={{ version }}">
-    {% endfor %}
-  {% endif %}
-
-  {% if page.ext-css %}
-    {% for css in page.ext-css %}
-      {% include ext-css.html css=css %}
-    {% endfor %}
-  {% endif %}
-  
+ 
   {% if page.css %}
-    {% for css in page.css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}?v={{ version }}">
+    {% for css in main.css %}
+      <link rel="stylesheet" href="{{ css | relative_url }}">
+    {% endfor %}
+  {% endif %}
+
+  {% if page.css %}
+    {% for css in noscript.css %}
+      <link rel="stylesheet" href="{{ css | relative_url }}">
     {% endfor %}
   {% endif %}
 
@@ -138,52 +117,10 @@
   <meta name="twitter:image" content="{{ img | absolute_url }}">
   {% endif %}
 
-  {% include matomo.html %}
-
-  {% if page.comments and site.staticman.repository and site.staticman.branch %}
-  <link rel="stylesheet" href="{{ "/assets/css/staticman.css" | relative_url }}">
-  {% endif %}
-
   {% if page.head-extra %}
     {% for file in page.head-extra %}
       {% include {{ file }} %}
     {% endfor %}
-  {% endif %}
-
-  <!-- Favicon -->
-  {% if site.favicon.enabled %}
-    {% if site.favicon.ico %}
-    <link rel="shortcut icon" href="{{ site.favicon.ico | relative_url }}">
-    <link rel="icon" type="image/x-icon" href="{{ site.favicon.ico | relative_url }}">
-    {% endif %}
-    
-    {% if site.favicon.png %}
-    <link rel="icon" type="image/png" href="{{ site.favicon.png | relative_url }}">
-    {% endif %}
-    
-    {% if site.favicon.svg %}
-    <link rel="icon" type="image/svg+xml" href="{{ site.favicon.svg | relative_url }}">
-    {% endif %}
-    
-    {% if site.favicon.apple_touch_icon %}
-    <link rel="apple-touch-icon" href="{{ site.favicon.apple_touch_icon | relative_url }}">
-    {% endif %}
-    
-    {% if site.favicon.apple_touch_icon_144 %}
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.favicon.apple_touch_icon_144 | relative_url }}">
-    {% endif %}
-    
-    {% if site.favicon.mask_icon %}
-    <link rel="mask-icon" href="{{ site.favicon.mask_icon | relative_url }}" color="{{ site.favicon.mask_icon_color | default: '#000000' }}">
-    {% endif %}
-    
-    {% if site.favicon.theme_color %}
-    <meta name="theme-color" content="{{ site.favicon.theme_color }}">
-    {% endif %}
-    
-    {% if site.favicon.ms_tile_color %}
-    <meta name="msapplication-TileColor" content="{{ site.favicon.ms_tile_color }}">
-    {% endif %}
   {% endif %}
 
 </head>
