@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<!-- Blog Post -->
+<article id="blog-post" class="panel">
+    <header>
+        <h2>{{ page.title }}</h2>
+        <p>{{ page.date | date: "%B %d, %Y" }}</p>
+        <a href="/#blog" class="back-to-blog">← Back to Blog</a>
+    </header>
+    <div class="post-content">
+        {% if page.image %}
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-image" />
+        {% endif %}
+        
+        {{ content }}
+        
+        {% if page.tags.size > 0 %}
+        <div class="post-tags">
+            <strong>Tags:</strong>
+            {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</article>

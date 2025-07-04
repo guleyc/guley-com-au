@@ -1,0 +1,129 @@
+/* Blog Post Overlay Styles */
+.image.fit {
+    position: relative;
+    overflow: hidden;
+}
+
+.post-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.image.fit:hover .post-overlay {
+    transform: translateY(0);
+}
+
+.post-overlay h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.post-overlay p {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.tag {
+    background: rgba(255,255,255,0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+}
+
+/* Blog Post Content Styles */
+.post-content {
+    max-width: 100%;
+    line-height: 1.6;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.back-to-blog {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #4acaa8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-to-blog:hover {
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    .post-overlay {
+        transform: translateY(0);
+        position: static;
+        background: rgba(0,0,0,0.8);
+        margin-top: -50px;
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+    
+    .image.fit {
+        margin-bottom: 0;
+    }
+}
+
+/* Code syntax highlighting */
+pre {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+code {
+    background: #2a2a2a;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #4acaa8;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #cccccc;
+}
+
+/* Lists */
+.post-content ul, .post-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
