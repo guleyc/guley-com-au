@@ -3,40 +3,61 @@ layout: default
 ---
 
 <div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {% if page.toc %}
-  <nav class="table-of-contents">
-    {% include toc.html html=content %}
-  </nav>
-  {% endif %}
-  <div class="post-content">
-    {{ content }}
+
+  <div class="post-info">
+    {% if page.date %}
+      <time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% endif %}
   </div>
+  <h1 class="post-title">
+    <div>{{ page.title }}</div>
+  </h1>
+
+  {{ content }}
+
 </div>
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date: "%d %b %Y" }}</small>
-          </a>
-        </h3>
-      </li>
+<div class="relatedPosts">
+
+  {% if site.related_posts_section %}
+    {% assign maxRelated = site.related_posts_section.max_count %}
+    {% assign minCommonTags =  site.related_posts_section.min_common_tags %}
+    {% assign maxRelatedCounter = 0 %}
+    {% assign relatedPostsExist = false %}
+
+    {% for post in site.posts %}
+
+      {% assign sameTagCount = 0 %}
+      {% assign commonTags = '' %}
+
+      {% for tag in post.tags %}
+        {% if post.url != page.url %}
+          {% if page.tags contains tag %}
+            {% assign sameTagCount = sameTagCount | plus: 1 %}
+            {% capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+            {% assign commonTags = commonTags | append: tagmarkup %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if sameTagCount >= minCommonTags %}
+        {% if relatedPostsExist == false %}
+          <h3>Related posts:</h3>
+          <ul>
+        {% endif %}
+        {% assign relatedPostsExist = true %}
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+        {% if maxRelatedCounter >= maxRelated %}
+          {% break %}
+        {% endif %}
+      {% endif %}
+
     {% endfor %}
-  </ul>
-</div>
 
-<a href="#" class="scroll-to-top" title="Up">
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 490 490" xml:space="preserve">
-<g>
-	<polygon points="8.081,242.227 82.05,314.593 199.145,194.882 199.145,490 306.14,490 306.14,210.504 407.949,314.593 
-		481.919,242.227 245.004,0 	"/>
-</g>
-</svg>
-</a>
+    {% if relatedPostsExist == true %}
+      </ul>
+    {% endif %}
+  {% endif %}
+
+</div>

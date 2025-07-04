@@ -1,49 +1,39 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
   {% include head.html %}
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T863VL7J"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-    {% include header.html %}
-    {% include sidebar.html %}
-
-    <div class="content container">
-      {{ content }}
-    </div>
-
-    <div id="cookie-consent" class="cookie-consent" style="display:none">
-      <div class="cookie-message">
-        This website uses cookies to ensure you get the best experience on our website.
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="{{ site.baseurl }}/">
+          <h2 class="nav-title">{{ site.title }}</h2>
+        </a>
+        <ul class="nav-social-icons">
+          {% if site.social.email %}
+            <li><a target="_blank" href="mailto:{{ site.social.email }}"><i class="fas fa-envelope"></i></a></li>
+          {% endif %}
+          {% if site.social.github %}
+            <li><a target="_blank" href="{{ site.social.github }}"><i class="fab fa-github"></i></a></li>
+          {% endif %}
+          {% if site.social.twitter %}
+            <li><a target="_blank" href="{{ site.social.twitter }}"><i class="fab fa-twitter"></i></a></li>
+          {% endif %}
+          {% if site.social.linkedin %}
+            <li><a target="_blank" href="{{ site.social.linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+          {% endif %}
+        </ul>
       </div>
-      <button id="cookie-accept" class="cookie-btn">Got it!</button>
-    </div>
-    <script>
-      (function() {
-        var consentKey = 'cookie_consent_accepted';
-        var el = document.getElementById('cookie-consent');
-        function hideConsent() {
-          if (el) el.style.display = 'none';
-        }
-        function showConsent() {
-          if (el) el.style.display = 'flex';
-        }
-        if (localStorage.getItem(consentKey) === 'yes') {
-          hideConsent();
-        } else {
-          showConsent();
-        }
-        var btn = document.getElementById('cookie-accept');
-        if (btn) {
-          btn.onclick = function() {
-            localStorage.setItem(consentKey, 'yes');
-            hideConsent();
-          };
-        }
-      })();
-      </script>
+    </nav>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <span>
+        &copy; <time datetime="{{ site.time }}">{{ site.time | date: '%Y' }}</time> {{ site.author.name }}. Powered by Jekyll and <a href="#">Rain</a> theme.
+      </span>
+    </footer>
   </body>
 </html>
