@@ -3,21 +3,58 @@ layout: default
 ---
 
 <article>
-    <a href="{{ '/' | relative_url }}" class="back-link">← Back</a>
+    <a href="{{ '/' | relative_url }}" class="back-link">Back to blog</a>
     
-    <div class="post-meta">
-        {{ page.date | date: "%B %d, %Y" }}
-        {% if page.tags.size > 0 %}
-        <span style="margin: 0 8px;">•</span>
-        {% for tag in page.tags %}
-        {{ tag }}{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-        {% endif %}
+    <div class="post-header">
+        <div class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: site.date_format }}
+            </time>
+            <span class="separator">•</span>
+            <span>{{ content | number_of_words | divided_by: 200 }} min read</span>
+            {% if page.tags.size > 0 %}
+            <span class="separator">•</span>
+            <span>
+                {% for tag in page.tags %}
+                {{ tag }}{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+            </span>
+            {% endif %}
+        </div>
+        
+        <h1 class="post-title">{{ page.title }}</h1>
     </div>
     
-    <h1 class="post-title">{{ page.title }}</h1>
-    
-    <div class="prose">
+    <div class="post-content">
         {{ content }}
     </div>
+    
+    {% if page.tags.size > 0 %}
+    <div class="post-tags">
+        {% for tag in page.tags %}
+        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
 </article>
+
+<!-- Social Share -->
+{% if site.share-links-active %}
+<div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--pico-muted-border-color);">
+    <p style="color: var(--pico-muted-color); font-size: 0.9rem; margin-bottom: 1rem;">Share this article:</p>
+    <div style="display: flex; gap: 1rem;">
+        {% if site.share-links-active.twitter %}
+        <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | uri_escape }}" 
+           target="_blank" style="color: var(--pico-muted-color); text-decoration: none;">Twitter</a>
+        {% endif %}
+        {% if site.share-links-active.linkedin %}
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" 
+           target="_blank" style="color: var(--pico-muted-color); text-decoration: none;">LinkedIn</a>
+        {% endif %}
+        {% if site.share-links-active.facebook %}
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" 
+           target="_blank" style="color: var(--pico-muted-color); text-decoration: none;">Facebook</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
