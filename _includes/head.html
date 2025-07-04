@@ -150,4 +150,40 @@
     {% endfor %}
   {% endif %}
 
+  <!-- Favicon -->
+  {% if site.favicon.enabled %}
+    {% if site.favicon.ico %}
+    <link rel="shortcut icon" href="{{ site.favicon.ico | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ site.favicon.ico | relative_url }}">
+    {% endif %}
+    
+    {% if site.favicon.png %}
+    <link rel="icon" type="image/png" href="{{ site.favicon.png | relative_url }}">
+    {% endif %}
+    
+    {% if site.favicon.svg %}
+    <link rel="icon" type="image/svg+xml" href="{{ site.favicon.svg | relative_url }}">
+    {% endif %}
+    
+    {% if site.favicon.apple_touch_icon %}
+    <link rel="apple-touch-icon" href="{{ site.favicon.apple_touch_icon | relative_url }}">
+    {% endif %}
+    
+    {% if site.favicon.apple_touch_icon_144 %}
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.favicon.apple_touch_icon_144 | relative_url }}">
+    {% endif %}
+    
+    {% if site.favicon.mask_icon %}
+    <link rel="mask-icon" href="{{ site.favicon.mask_icon | relative_url }}" color="{{ site.favicon.mask_icon_color | default: '#000000' }}">
+    {% endif %}
+    
+    {% if site.favicon.theme_color %}
+    <meta name="theme-color" content="{{ site.favicon.theme_color }}">
+    {% endif %}
+    
+    {% if site.favicon.ms_tile_color %}
+    <meta name="msapplication-TileColor" content="{{ site.favicon.ms_tile_color }}">
+    {% endif %}
+  {% endif %}
+
 </head>

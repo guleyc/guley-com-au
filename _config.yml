@@ -106,3 +106,15 @@ footer-hover-col: "#FCEA00"
 date_format: "%B %-d, %Y"
 gtm: "GTM-T863VL7J"
 asset_version: "1.0.2"
+
+favicon:
+  enabled: true
+  ico: "/assets/img/favicon.ico"
+  png: "/assets/img/favicon.png"
+  svg: "/assets/img/svg-favicon.svg"
+  apple_touch_icon: "/assets/img/apple-touch-icon.png"
+  apple_touch_icon_144: "/assets/img/apple-touch-icon-144-precomposed.png"
+  mask_icon: "/assets/img/mask-icon.svg"
+  mask_icon_color: "#404040"
+  theme_color: "#404040"
+  ms_tile_color: "#404040"
