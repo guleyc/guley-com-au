@@ -91,8 +91,8 @@ post_search: true
 edit_page_button: true
 navbar-var-length: false
 
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
+navbar-col: "#404040"
+navbar-text-col: "#FFF"
 navbar-border-col: "#DDDDDD"
 page-col: "#FFFFFF"
 text-col: "#404040"
