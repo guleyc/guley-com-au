@@ -76,9 +76,13 @@ hr {
 header {
 	flex-basis:10rem;
 	flex-grow:1;
-	position:fixed;
+	position:relative;
 }
-
+.sticky {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
 header a {
 	text-decoration: none;
 }
