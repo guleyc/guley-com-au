@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{site.lang}}" data-theme="light">
+<html lang="{{site.lang}}">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            })();
+        </script>
+
 		<title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
 		<meta name="description" content="{% if page.description %}{{page.description}}{% else %}{{site.description}}{% endif %}">
 		<meta name="keywords" content="{% if page.tags %}{{page.tags}}{% else %}{{site.keywords}}{% endif %}">
