@@ -15,7 +15,6 @@
 # in the templates via {{ site.myvariable }}.
 # theme: jekyll-theme-so-simple
 # remote_theme: mmistakes/so-simple-theme
-skin: "/assets/css/skins/default.scss"
 locale: en-US
 title: "Cagatay Guley"
 description: "As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons."
