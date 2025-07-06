@@ -1,49 +1,22 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}" class="no-js">
   {% include head.html %}
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T863VL7J"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-    {% include header.html %}
-    {% include sidebar.html %}
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {% if page.entries_layout == 'grid' %}page--wide{% endif %} {{ page.title | slugify }}">
+    {% include skip-links.html %}
+    {% include navigation.html %}
+    {% include masthead.html %}
 
-    <div class="content container">
-      {{ content }}
-    </div>
+    {{ content }}
 
-    <div id="cookie-consent" class="cookie-consent" style="display:none">
-      <div class="cookie-message">
-        This website uses cookies to ensure you get the best experience on our website.
-      </div>
-      <button id="cookie-accept" class="cookie-btn">Got it!</button>
-    </div>
-    <script>
-      (function() {
-        var consentKey = 'cookie_consent_accepted';
-        var el = document.getElementById('cookie-consent');
-        function hideConsent() {
-          if (el) el.style.display = 'none';
-        }
-        function showConsent() {
-          if (el) el.style.display = 'flex';
-        }
-        if (localStorage.getItem(consentKey) === 'yes') {
-          hideConsent();
-        } else {
-          showConsent();
-        }
-        var btn = document.getElementById('cookie-accept');
-        if (btn) {
-          btn.onclick = function() {
-            localStorage.setItem(consentKey, 'yes');
-            hideConsent();
-          };
-        }
-      })();
-      </script>
+    {% include footer.html %}
+    {% include scripts.html %}
   </body>
+
 </html>
