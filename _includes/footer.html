@@ -1,15 +1,4 @@
 <script src="assets/js/custom.js"></script>
-<script type="text/javascript">
-    // Sayfa yüklendiğinde toggle button'u doğru duruma getir
-    document.addEventListener('DOMContentLoaded', function() {
-        var theme = document.documentElement.getAttribute('data-theme');
-        var switcher = document.getElementById('mode-switcher');
-        
-        if (theme === 'dark' && switcher) {
-            switcher.classList.add('active');
-        }
-    });
-</script>
 
 {% if site.google_analytics %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{site.google_analytics}}"></script>

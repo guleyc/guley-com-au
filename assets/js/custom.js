@@ -1,21 +1,29 @@
+// Tema toggle fonksiyonu
 function toggleNightMode() {
-    var html = document.documentElement;
-    var currentTheme = html.getAttribute('data-theme');
-    var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    // Temayı uygula
-    html.setAttribute('data-theme', newTheme);
+    // Global setTheme fonksiyonunu kullan
+    setTheme(newTheme);
     
-    // Kaydet
-    localStorage.setItem('theme', newTheme);
-    
-    // Toggle button'u güncelle
-    var switcher = document.getElementById('mode-switcher');
+    // Toggle button durumunu güncelle
+    updateToggleButton(newTheme);
+}
+
+// Toggle button durumunu güncelle
+function updateToggleButton(theme) {
+    const switcher = document.getElementById('mode-switcher');
     if (switcher) {
-        if (newTheme === 'dark') {
+        if (theme === 'dark') {
             switcher.classList.add('active');
         } else {
             switcher.classList.remove('active');
         }
     }
 }
+
+// Sayfa yüklendiğinde button durumunu ayarla
+document.addEventListener('DOMContentLoaded', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    updateToggleButton(currentTheme);
+});
