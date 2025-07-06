@@ -60,12 +60,9 @@ tag_archive_path: "/tags/#"
 plugins:
   - jekyll-paginate
   - jekyll-seo-tag
-  - jekyll-github-metadata
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-redirect-from
-  - jekyll-relative-links
-  - jekyll-toc
 
 # Front Matter Defaults
 defaults:

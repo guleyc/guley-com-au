@@ -1,7 +1,3 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-
 @charset "utf-8";
 
 // Custom Variables
@@ -63,3 +59,6 @@ $base0f: #d33682 !default;
 
 // Utility Classes
 @import "theme/utilities";
+
+// Import existing inline styles
+@import "main";
