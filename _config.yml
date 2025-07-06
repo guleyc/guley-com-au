@@ -1,19 +1,83 @@
-# Site Build Settings
+# Site settings
+site: Ephesus
+title: Ephesus - Minimalist Jekyll Theme
+keywords: ephesus, blog
+description: >-
+  Ephesus - Minimalist Jekyll Theme
+lang: en-US
+timezone:  Europe/Istanbul
+repo: https://github.com/onepase/Ephesus # site repo [optional]
+google_verify:      XXX # Put your Google Verification here
+google_analytics:   UA-XXXXXXXX-00 # Put your Google Analytics code
+discus-identifier:  XXX
 
-# jekyll-paginate configuration
-paginate:            5
+# Author settings
+author:
+  name: Hakan Torun
+  bio: Computer Engineer @pardinus <br> Founder @zaqa <br> Open Source /#linux
+  picture: assets/images/profile.jpg 
+  github: onepase # github username
+  twitter: onepase # twitter username
+  facebook: onepase # facebook username
+  instagram: onepase # instagram username
+  youtube: https://www.youtube.com/channel/UCMmAto-wxBootXN91AzBiDg # youtube username
+  linkedin: hakantorun # linkedin username
+  email: your-email@email.com # email adress
 
-# Build settings
-markdown:            kramdown
-highlighter:         rouge
-permalink:           /:title
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Millennial"
-description:	       "a minimalist Jekyll theme for running a blog or publication"
-author:              "Paul Le"
+# URL settings
+url: "https://guley.com.tr" # Domain Name of host. [username].github.io for github pages
+permalink: pretty
 
-# RSS 2.0 can be used instead of Atom by uncommenting following two lines
-#feed:
-#  path: rss-feed.xml
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+
+exclude:
+  - .jekyll-cache
+  - .obsidian
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - CONTRIBUTING.md
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-relative-links
+paginate: 20
+paginate_path: "/page/:num"
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:slug
+  
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+relative_links:
+  enabled:     true
+  collections: false
