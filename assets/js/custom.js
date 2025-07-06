@@ -7,13 +7,14 @@ if (typeof setTheme === 'undefined') {
     }
 }
 
-// Tema toggle fonksiyonu
+// Tema değiştirme fonksiyonu
 function toggleNightMode() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    // Global setTheme fonksiyonunu kullan
-    setTheme(newTheme);
+    // Temayı değiştir
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
     
     // Toggle button durumunu güncelle
     updateToggleButton(newTheme);

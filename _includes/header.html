@@ -6,12 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
 		<script>
-			const setTheme = (theme) => {
-				theme = theme || localStorage.getItem('theme') || 'light';
-				document.documentElement.setAttribute('data-theme', theme);
-				localStorage.setItem('theme', theme);
-			};
-			setTheme();
+			const theme = localStorage.getItem("theme") || "light";
+			document.documentElement.setAttribute("data-theme", theme);
 		</script>
 
         <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
