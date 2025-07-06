@@ -1,24 +1,62 @@
-## Introduction
-This template utilizes Jekyll, an open source static website generator, as well as a theme based largely off of the Minimal Mistakes theme by Michael Rose. The purpose of this template is to provide you with a simple, well designed website that is optimized for hosting on Github pages. We aim to reduce the technological know-how and time that is usually required for maintaining a personal or professional website.
+# Ephesus
 
-#### Why Should I Use This?
-By using this template you will have a website that is well designed, easy to maintain, free to host and easy to update. While there are many options out there for personal and professional websites, most are dependant on the platform on which they were built, and cannot be easily migrated. This template, while built for Github Pages integration, provides flexibility should you choose to host it elsewhere.
+Ephesus Jekyll Theme - Simple and Minimal Jekyll Blog Theme
 
-## [Getting Started Guide](https://ncsu-libraries.github.io/jekyll-academic-docs/)
-Complete documentation for getting started as well as advanced features of Jekyll Academic can be found at [https://ncsu-libraries.github.io/jekyll-academic-docs/](https://ncsu-libraries.github.io/jekyll-academic-docs/).
+Author [Hakan Torun](https://hakan.io).
 
-## Upgrade Notes for June 2021 release
-If you are running a fork of Jekyll Academic before June 2021, we made some breaking changes to upgrade the underlying Jekyll version and to address the constant github/dependabot security notices mentioned in issue #4.
+- **Demo:** https://pardin.us/ephesus/
 
-We have updated Jekyll to version 4 and removed reveal.js as an included library. We still want to support reveal.js presentations, so we have taken the suggestion from issue #4 and made the reveal.js directory a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). If you are running Jekyll Academic as a Github Page, this should hopefully be a minor change.
+### Features
 
-If, however, you are running Jekyll Academic locally or on a custom server, after merging this repo's commits in to your fork, you will need to go to the command line in your local or custom instance and perform the following command:
+- [x] Tiny CSS & No Dependency
+- [x] Responsive Design
+- [x] Dark/Light Theme
+- [x] Custom 404 Page
+- [x] About Page
+- [x] Tags Page
+- [x] Code Highlighter
+- [x] Social Share
+- [x] Atom & Json feeds
+- [x] Robots.txt
+- [x] Sitemap
+- [x] Next & Previous Post
+- [x] Pagination
+- [x] Disqus
+- [x] Mathjax Support
+- [x] Google Analytics
 
-  `$ git submodule update --init`
+## Screenshots
 
-If you have any reveal.js presentations posted, you may need to make some updates for them to display properly using reveal.js version 4.  See [Jekyll's documentation](https://revealjs.com/upgrading/) for details.
+#### Light
+![light-theme](https://github.com/onepase/Ephesus/blob/master/light.png)
 
-## Keeping reveal.js up to date
-Moving forward, if you'd like to update reveal.js you will need to run the following commands:
+#### Dark
+![dark-theme](https://github.com/onepase/Ephesus/blob/master/dark.png)
 
-  `$ git submodule update --remote`
+## Installation
+
+Run local server:
+
+```bash
+$ git clone https://github.com/onepase/Ephesus.git
+$ cd Ephesus
+$ bundle install
+$ bundle exec jekyll build
+$ bundle exec jekyll serve
+```
+
+Navigate to `127.0.0.1:4000`.
+
+Tags are created automatically under the /tags page.
+
+To use a math formula in a post, use the mathjax:true tag in the post.
+
+## Contributing
+
+Feel free to open a pull request for contributing.
+
+Please feel free to contribute. Do not hesitate to open a pull request and fix it, please read [contributing](./CONTRIBUTING.md) before PR.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE.md).
