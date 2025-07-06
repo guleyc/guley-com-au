@@ -1,3 +1,12 @@
+// setTheme fonksiyonu yoksa ekleyin
+if (typeof setTheme === 'undefined') {
+    function setTheme(theme) {
+        theme = theme || localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+}
+
 // Tema toggle fonksiyonu
 function toggleNightMode() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
