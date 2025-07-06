@@ -26,7 +26,8 @@ author:
 
 
 # URL settings
-url: "https://guley.com.tr" # Domain Name of host. [username].github.io for github pages
+url: "https://guleyc.github.io" # Domain Name of host. [username].github.io for github pages
+baseurl: "/blog" # Base URL of the site, leave empty if not using a subdirectory
 permalink: pretty
 
 markdown: kramdown
