@@ -1,552 +1,186 @@
-/* ==========================================================================
-   Base elements
-   ========================================================================== */
+// Theme skin styles
+@import "functions";
+@import "variables";
 
+// Colors
+$primary-color: $primary-color !default;
+$success-color: $success-color !default;
+$warning-color: $warning-color !default;
+$danger-color: $danger-color !default;
+$info-color: $info-color !default;
+
+// Base colors
+$base-color: $base-color !default;
+$text-color: $text-color !default;
+$accent-color: $accent-color !default;
+$nav-color: $nav-color !default;
+$background-color: $background-color !default;
+$nav-background-color: $nav-background-color !default;
+$code-background-color: $code-background-color !default;
+$border-color: $border-color !default;
+
+// Apply colors to elements
 body {
   color: $text-color;
-  background: $background-color;
-  border-top-color: $nav-background-color;
+  background-color: $background-color;
 }
 
-a {
-  color: $accent-color;
-
-  &:hover {
-    color: shade($accent-color, 25%);
-  }
-}
-
-blockquote {
-  background-color: mix($background-color, $accent-color, 90%);
-  border-left-color: $accent-color;
-}
+// Navigation
+.site-nav {
+  background-color: $nav-background-color;
   
-/* ==========================================================================
-   Site-wide
-   ========================================================================== */
-
-.site-title {
   a {
-    color: $text-color;
-  }
-}
-  
-.copyright {
-  color: lighten($text-color, 35%);
-  a {
-    color: lighten($text-color, 35%);
-  }
-}
-
-.taxonomy-title {
-  color: lighten($text-color, 60%);
-}
-
-.taxonomy-count {
-  color: lighten($text-color, 50%);
-}
-
-.taxonomy-index {
-  a {
-    border-bottom-color: $border-color;
-
+    color: $nav-color;
+    
     &:hover {
       color: $accent-color;
     }
   }
 }
 
-.taxonomy-section {
-  &:not(:last-child) {
-    border-bottom-color: $border-color;
+// Links
+a {
+  color: $accent-color;
+  
+  &:hover {
+    color: darken($accent-color, 15%);
   }
 }
 
-.back-to-top {
-  color: lighten($text-color, 50%);
+// Code blocks
+pre,
+code {
+  background-color: $code-background-color;
 }
 
-.site-nav {
-  ul {
-    color: $nav-color;
-    background-color: $nav-background-color;
-  }
-
-  a {
-    color: $nav-color;
-    border-color: $nav-background-color;
-
-    &:hover {
-      border-color: $nav-color;
-    }
-  }
-}
-
-.site-footer {
-  border-top-color: $border-color;
-}
-
-.footnotes {
-  border-top-color: $border-color;
-}
-
-.site-logo-img {
-  border-color: $background-color;
-}
-
-.toc-wrapper {
-  border-color: mix(#fff, $border-color, 25%);
-
-  h2 {
-    color: $base05;
-    background-color: $base00;
-  }
-
-  li {
-    ol {
-      background-color: $background-color;
-    }
-
-    a {
-      &:hover,
-      &:focus {
-        border-bottom: 1px dotted $border-color;
-      }
-    }
-  }
-}
-
-#menu-toggle {
-  color: $nav-color;
-}
-
-#menu-toggle {
-  background-color: $nav-background-color;
-}
-
-#markdown-toc {
-  color: $base05;
-}
-
-.pagination {
-  li {
-    a {
-      color: mix(#000, $border-color, 25%);
-      border-color: $border-color;
-
-      &.current,
-      &.current.disabled {
-        @include yiq-contrasted(mix(#000, $border-color, 25%));
-      }
-
-      &.disabled {
-        color: $border-color;
-      }
-    }
-  }
-}
-
-.search-input {
+// Borders
+hr,
+.page-header,
+.entry {
   border-color: $border-color;
 }
 
-/* ==========================================================================
-   Page
-   ========================================================================== */
-
-.page-previous,
-.page-next {
-  color: $text-color;
-}
-
-/* ==========================================================================
-   Entries (Posts, collection documents, etc.)
-   ========================================================================== */
-
-.entry {
-  a {
-    &:hover {
-      color: $accent-color;
-    }
-  }
-}
-
-/* ==========================================================================
-   Tables
-   ========================================================================== */
-
-th,
-td {
-  border-bottom-color: $border-color;
-}
-
-  
-/* ==========================================================================
-   NOTICE TEXT BLOCKS
-   ========================================================================== */
-  
-/* Default notice */
-.notice {
-  @include notice(lighten($base-color, 90%));
-}
-
-/* Accent notice */
-.notice--accent {
-  @include notice(mix(#fff, $accent-color, 70%));
-}
-
-/* Primary notice */
-.notice--primary {
-  @include notice(mix(#fff, $primary-color, 70%));
-}
-
-/* Warning notice */
-.notice--warning {
-  @include notice(mix(#fff, $warning-color, 70%));
-}
-
-/* Success notice */
-.notice--success {
-  @include notice(mix(#fff, $success-color, 70%));
-}
-
-/* Danger notice */
-.notice--danger {
-  @include notice(mix(#fff, $danger-color, 70%));
-}
-
-/* Info notice */
-.notice--info {
-  @include notice(mix(#fff, $info-color, 70%));
-}
-  
-/* ==========================================================================
-   Accessibility Modules
-   ========================================================================== */
-
-/* Text meant only for screen readers */
-.screen-reader-text,
-.screen-reader-text span,
-.screen-reader-shortcut {
-  background-color: $base-color;
-}
-
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
-
+// Buttons
 .btn {
-  /* button colors */
-  $buttoncolors: (primary, $primary-color), (accent, $accent-color), (inverse, #fff),
-  (light-outline, transparent),  (success, $success-color),
-  (warning, $warning-color),  (danger, $danger-color),  (info, $info-color),
-  (facebook, $facebook-color),  (twitter, $twitter-color),
-  (google-plus, $google-plus-color),  (linkedin, $linkedin-color),
-  (reddit, $reddit-color);
-
-  @each $buttoncolor, $color in $buttoncolors {
-    &--#{$buttoncolor} {
-      @include yiq-contrasted($color);
-      @if ($buttoncolor == inverse) {
-        border: 1px solid $border-color;
-      }
-      @if ($buttoncolor == light-outline) {
-        border: 1px solid #fff;
-      }
-
-      &:hover {
-        @include yiq-contrasted(mix(#000, $color, 20%));
-      }
-
-      &:visited {
-        @include yiq-contrasted($color);
-      }
-    }
+  &.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+  
+  &.btn-success {
+    background-color: $success-color;
+    border-color: $success-color;
+  }
+  
+  &.btn-warning {
+    background-color: $warning-color;
+    border-color: $warning-color;
+  }
+  
+  &.btn-danger {
+    background-color: $danger-color;
+    border-color: $danger-color;
+  }
+  
+  &.btn-info {
+    background-color: $info-color;
+    border-color: $info-color;
   }
 }
 
-/* ==========================================================================
-   Syntax highlighting
-   ========================================================================== */
-
-code.highlighter-rouge {
-  color: $base05;
-  background-color: $base00;
-}
-
-div.highlighter-rouge,
-figure.highlight {
-  color: $base05;
-  background-color: $base00;
-}
-
-.highlight table {
-  td {
-    &.gutter {
-      color: $base04;
-      border-right-color: $base04;
-    }
+// Notices
+.notice {
+  &.notice-primary {
+    background-color: rgba($primary-color, 0.1);
+    border-color: $primary-color;
+  }
+  
+  &.notice-success {
+    background-color: rgba($success-color, 0.1);
+    border-color: $success-color;
+  }
+  
+  &.notice-warning {
+    background-color: rgba($warning-color, 0.1);
+    border-color: $warning-color;
+  }
+  
+  &.notice-danger {
+    background-color: rgba($danger-color, 0.1);
+    border-color: $danger-color;
+  }
+  
+  &.notice-info {
+    background-color: rgba($info-color, 0.1);
+    border-color: $info-color;
   }
 }
 
-.highlight .hll {
-  background-color: $base06;
-}
-
+// Syntax highlighting
 .highlight {
-  .c {
-    /* Comment */
-    color: $base04;
-  }
-  .err {
-    /* Error */
-    color: $base08;
-  }
-  .k {
-    /* Keyword */
-    color: $base0e;
-  }
-  .l {
-    /* Literal */
-    color: $base09;
-  }
-  .n {
-    /* Name */
-    color: $base05;
-  }
-  .o {
-    /* Operator */
-    color: $base0c;
-  }
-  .p {
-    /* Punctuation */
-    color: $base05;
-  }
-  .cm {
-    /* Comment.Multiline */
-    color: $base04;
-  }
-  .cp {
-    /* Comment.Preproc */
-    color: $base04;
-  }
-  .c1 {
-    /* Comment.Single */
-    color: $base04;
-  }
-  .cs {
-    /* Comment.Special */
-    color: $base04;
-  }
-  .gd {
-    /* Generic.Deleted */
-    color: $base08;
-  }
-  .ge {
-    /* Generic.Emph */
-    font-style: italic;
-  }
-  .gh {
-    /* Generic.Heading */
-    color: $base05;
-    font-weight: bold;
-  }
-  .gi {
-    /* Generic.Inserted */
-    color: $base0b;
-  }
-  .gp {
-    /* Generic.Prompt */
-    color: $base04;
-    font-weight: bold;
-  }
-  .gs {
-    /* Generic.Strong */
-    font-weight: bold;
-  }
-  .gu {
-    /* Generic.Subheading */
-    color: $base0c;
-    font-weight: bold;
-  }
-  .kc {
-    /* Keyword.Constant */
-    color: $base0e;
-  }
-  .kd {
-    /* Keyword.Declaration */
-    color: $base0e;
-  }
-  .kn {
-    /* Keyword.Namespace */
-    color: $base0c;
-  }
-  .kp {
-    /* Keyword.Pseudo */
-    color: $base0e;
-  }
-  .kr {
-    /* Keyword.Reserved */
-    color: $base0e;
-  }
-  .kt {
-    /* Keyword.Type */
-    color: $base0a;
-  }
-  .ld {
-    /* Literal.Date */
-    color: $base0b;
-  }
-  .m {
-    /* Literal.Number */
-    color: $base09;
-  }
-  .s {
-    /* Literal.String */
-    color: $base0b;
-  }
-  .na {
-    /* Name.Attribute */
-    color: $base0d;
-  }
-  .nb {
-    /* Name.Builtin */
-    color: $base05;
-  }
-  .nc {
-    /* Name.Class */
-    color: $base0a;
-  }
-  .no {
-    /* Name.Constant */
-    color: $base08;
-  }
-  .nd {
-    /* Name.Decorator */
-    color: $base0c;
-  }
-  .ni {
-    /* Name.Entity */
-    color: $base05;
-  }
-  .ne {
-    /* Name.Exception */
-    color: $base08;
-  }
-  .nf {
-    /* Name.Function */
-    color: $base0d;
-  }
-  .nl {
-    /* Name.Label */
-    color: $base05;
-  }
-  .nn {
-    /* Name.Namespace */
-    color: $base0a;
-  }
-  .nx {
-    /* Name.Other */
-    color: $base0d;
-  }
-  .py {
-    /* Name.Property */
-    color: $base05;
-  }
-  .nt {
-    /* Name.Tag */
-    color: $base0c;
-  }
-  .nv {
-    /* Name.Variable */
-    color: $base08;
-  }
-  .ow {
-    /* Operator.Word */
-    color: $base0c;
-  }
-  .w {
-    /* Text.Whitespace */
-    color: $base05;
-  }
-  .mf {
-    /* Literal.Number.Float */
-    color: $base09;
-  }
-  .mh {
-    /* Literal.Number.Hex */
-    color: $base09;
-  }
-  .mi {
-    /* Literal.Number.Integer */
-    color: $base09;
-  }
-  .mo {
-    /* Literal.Number.Oct */
-    color: $base09;
-  }
-  .sb {
-    /* Literal.String.Backtick */
-    color: $base0b;
-  }
-  .sc {
-    /* Literal.String.Char */
-    color: $base05;
-  }
-  .sd {
-    /* Literal.String.Doc */
-    color: $base04;
-  }
-  .s2 {
-    /* Literal.String.Double */
-    color: $base0b;
-  }
-  .se {
-    /* Literal.String.Escape */
-    color: $base09;
-  }
-  .sh {
-    /* Literal.String.Heredoc */
-    color: $base0b;
-  }
-  .si {
-    /* Literal.String.Interpol */
-    color: $base09;
-  }
-  .sx {
-    /* Literal.String.Other */
-    color: $base0b;
-  }
-  .sr {
-    /* Literal.String.Regex */
-    color: $base0b;
-  }
-  .s1 {
-    /* Literal.String.Single */
-    color: $base0b;
-  }
-  .ss {
-    /* Literal.String.Symbol */
-    color: $base0b;
-  }
-  .bp {
-    /* Name.Builtin.Pseudo */
-    color: $base05;
-  }
-  .vc {
-    /* Name.Variable.Class */
-    color: $base08;
-  }
-  .vg {
-    /* Name.Variable.Global */
-    color: $base08;
-  }
-  .vi {
-    /* Name.Variable.Instance */
-    color: $base08;
-  }
-  .il {
-    /* Literal.Number.Integer.Long */
-    color: $base09;
-  }
+  background-color: $base00;
+  
+  .c { color: $base03; } // Comment
+  .err { color: $base08; } // Error
+  .k { color: $base0e; } // Keyword
+  .l { color: $base09; } // Literal
+  .n { color: $base05; } // Name
+  .o { color: $base0c; } // Operator
+  .p { color: $base05; } // Punctuation
+  .cm { color: $base03; } // Comment.Multiline
+  .cp { color: $base03; } // Comment.Preproc
+  .c1 { color: $base03; } // Comment.Single
+  .cs { color: $base03; } // Comment.Special
+  .gd { color: $base08; } // Generic.Deleted
+  .ge { font-style: italic; } // Generic.Emph
+  .gh { color: $base05; font-weight: bold; } // Generic.Heading
+  .gi { color: $base0b; } // Generic.Inserted
+  .gp { color: $base03; font-weight: bold; } // Generic.Prompt
+  .gs { font-weight: bold; } // Generic.Strong
+  .gu { color: $base0c; font-weight: bold; } // Generic.Subheading
+  .kc { color: $base0e; } // Keyword.Constant
+  .kd { color: $base0e; } // Keyword.Declaration
+  .kn { color: $base0c; } // Keyword.Namespace
+  .kp { color: $base0e; } // Keyword.Pseudo
+  .kr { color: $base0e; } // Keyword.Reserved
+  .kt { color: $base0a; } // Keyword.Type
+  .ld { color: $base0b; } // Literal.Date
+  .m { color: $base09; } // Literal.Number
+  .s { color: $base0b; } // Literal.String
+  .na { color: $base0d; } // Name.Attribute
+  .nb { color: $base05; } // Name.Builtin
+  .nc { color: $base0a; } // Name.Class
+  .no { color: $base08; } // Name.Constant
+  .nd { color: $base0c; } // Name.Decorator
+  .ni { color: $base05; } // Name.Entity
+  .ne { color: $base08; } // Name.Exception
+  .nf { color: $base0d; } // Name.Function
+  .nl { color: $base05; } // Name.Label
+  .nn { color: $base0a; } // Name.Namespace
+  .nx { color: $base0d; } // Name.Other
+  .py { color: $base05; } // Name.Property
+  .nt { color: $base0c; } // Name.Tag
+  .nv { color: $base08; } // Name.Variable
+  .ow { color: $base0c; } // Operator.Word
+  .w { color: $base05; } // Text.Whitespace
+  .mf { color: $base09; } // Literal.Number.Float
+  .mh { color: $base09; } // Literal.Number.Hex
+  .mi { color: $base09; } // Literal.Number.Integer
+  .mo { color: $base09; } // Literal.Number.Oct
+  .sb { color: $base0b; } // Literal.String.Backtick
+  .sc { color: $base05; } // Literal.String.Char
+  .sd { color: $base03; } // Literal.String.Doc
+  .s2 { color: $base0b; } // Literal.String.Double
+  .se { color: $base09; } // Literal.String.Escape
+  .sh { color: $base0b; } // Literal.String.Heredoc
+  .si { color: $base09; } // Literal.String.Interpol
+  .sx { color: $base0b; } // Literal.String.Other
+  .sr { color: $base0b; } // Literal.String.Regex
+  .s1 { color: $base0b; } // Literal.String.Single
+  .ss { color: $base0b; } // Literal.String.Symbol
+  .bp { color: $base05; } // Name.Builtin.Pseudo
+  .vc { color: $base08; } // Name.Variable.Class
+  .vg { color: $base08; } // Name.Variable.Global
+  .vi { color: $base08; } // Name.Variable.Instance
+  .il { color: $base09; } // Literal.Number.Integer.Long
 }

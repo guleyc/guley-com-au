@@ -1,8 +1,65 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
-sitemap: false
 ---
 
 @charset "utf-8";
 
-@import "so-simple";
+// Custom Variables
+$base-color: #000 !default;
+$text-color: #000 !default;
+$accent-color: #34374C !default;
+$nav-color: #fff !default;
+$background-color: #fff !default;
+$nav-background-color: #000 !default;
+$code-background-color: #f5f5f5 !default;
+$border-color: #cccccc !default;
+
+$primary-color: #000 !default;
+$success-color: #62c462 !default;
+$warning-color: #f89406 !default;
+$danger-color: #ee5f5b !default;
+$info-color: #52adc8 !default;
+
+// Syntax highlighting (base16) colors
+$base00: #fafafa !default;
+$base01: #073642 !default;
+$base02: #586e75 !default;
+$base03: #657b83 !default;
+$base04: #839496 !default;
+$base05: #586e75 !default;
+$base06: #eee8d5 !default;
+$base07: #fdf6e3 !default;
+$base08: #dc322f !default;
+$base09: #cb4b16 !default;
+$base0a: #b58900 !default;
+$base0b: #859900 !default;
+$base0c: #2aa198 !default;
+$base0d: #268bd2 !default;
+$base0e: #6c71c4 !default;
+$base0f: #d33682 !default;
+
+// Import theme styles
+@import "theme/functions";
+@import "theme/variables";
+@import "theme/mixins";
+@import "theme/vendor/breakpoint/breakpoint";
+@include breakpoint-set("to ems", true);
+@import "theme/vendor/lity/lity";
+
+// Core Styles
+@import "theme/reset";
+@import "theme/base";
+@import "theme/tables";
+
+// Components
+@import "theme/global";
+@import "theme/page";
+@import "theme/author";
+@import "theme/entries";
+@import "theme/buttons";
+@import "theme/icons";
+@import "theme/notices";
+@import "theme/syntax-highlighting";
+
+// Utility Classes
+@import "theme/utilities";
