@@ -23,7 +23,7 @@
 		<meta property="twitter:description" content="{% if page.description %}{{page.description}} {% else %}{{site.description}}{% endif %}" />
 		<meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}" />
 		<link rel="stylesheet" href="assets/css/highlight.css">
-		<link rel="stylesheet" href="assets/css/style.css?{{ site.github.build_revision | default: site.github.build_ref | default: site.github.commitish | default: site.github.branch | default: site.time | date: '%Y%m%d%H%M%S' }}">
+		<link rel="stylesheet" href="assets/css/style.css?v={{ site.time | date: '%Y%m%d' }}">
 		<link rel="shortcut icon" href="assets/images/favicon.png" />
 		<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/atom.xml">
 		<link rel="alternate" type="application/json" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.json" />
