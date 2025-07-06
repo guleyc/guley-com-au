@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600,700&subset=latin-ext'); 
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700&subset=latin-ext'); 
+
+html, body, * {
+    transition: none !important;
+}
+
+.profile-image { transition: transform .2s !important; }
+.mode:after { transition: all 0.3s ease !important; }
+.mode span { transition: all 0.4s ease !important; }
+
 :root {
     --bg-color: #fafafa;
     --bg-hover-color: #ececec;
@@ -199,6 +208,7 @@ th {
 .social-icon{height: 24px;}
 
 .highlight{line-height: 1;}
+
 
 @media (min-width: 1200px){
   .container, .container-lg, .container-md, .container-sm, .container-xl {
