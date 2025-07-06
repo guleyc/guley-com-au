@@ -1,28 +1,28 @@
 # Site settings
-site: Ephesus
-title: Ephesus - Minimalist Jekyll Theme
-keywords: ephesus, blog
+site: Cagatay Guley
+title: Cagatay Guley - A Mining Engineer
+keywords: mining, engineer, cagatay guley, cagatay, guley, mining engineer, mining engineering, mining industry, mining technology
 description: >-
-  Ephesus - Minimalist Jekyll Theme
+  Cagatay Guley - A Mining Engineer
 lang: en-US
 timezone:  Europe/Istanbul
-repo: https://github.com/onepase/Ephesus # site repo [optional]
+repo: https://github.com/guleyc # site repo [optional]
 google_verify:      XXX # Put your Google Verification here
 google_analytics:   UA-XXXXXXXX-00 # Put your Google Analytics code
 discus-identifier:  XXX
 
 # Author settings
 author:
-  name: Hakan Torun
-  bio: Computer Engineer @pardinus <br> Founder @zaqa <br> Open Source /#linux
+  name: Cagatay Guley
+  bio: Mining Engineer <br> Founder @ore2b
   picture: assets/images/profile.jpg 
-  github: onepase # github username
-  twitter: onepase # twitter username
-  facebook: onepase # facebook username
-  instagram: onepase # instagram username
-  youtube: https://www.youtube.com/channel/UCMmAto-wxBootXN91AzBiDg # youtube username
-  linkedin: hakantorun # linkedin username
-  email: your-email@email.com # email adress
+  github: guleyc # github username
+  # twitter:  # twitter username
+  # facebook:  # facebook username
+  # instagram:  # instagram username
+  # youtube:  # youtube username
+  linkedin: guleyc # linkedin username
+  email: cagatay@guley.com.tr # email adress
 
 
 # URL settings
