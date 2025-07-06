@@ -13,17 +13,19 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
+theme: jekyll-theme-so-simple
+# remote_theme: mmistakes/so-simple-theme
+skin: "/assets/css/skins/default.css"
 locale: en-US
-title: "Cagatay Guley"
-description: "As a passionate mining engineer, I'll unveil mineral riches and innovative solutions, taking us towards new horizons."
+title: "My Awesome Site"
+description: "It really is the best."
 baseurl: # the subpath of your site, e.g. "/blog"
 url: "https://guley.com.tr"
-logo: "/assets/img/svg-favicon.svg"
+logo: # path of site logo, e.g. "/images/logo.png"
 date_format: "%B %-d, %Y"
-read_time: true
-words_per_minute: 200
-mathjax: true
+read_time: # reading time estimates, e.g. true
+words_per_minute: # 200
+mathjax: # MathJax equations, e.g. true
 google_fonts:
   - name: "Source Sans Pro"
     weights: "400,400i,700,700i"
@@ -46,23 +48,33 @@ feed:
   path: atom.xml
 
 # Pagination - https://jekyllrb.com/docs/pagination/
-paginate: 10
-paginate_path: /page:num/
+# paginate: 10
+# paginate_path: /page:num/
 
 # Search
 search_full_content: false # can have performance implications for large sites
 
 # Taxonomy pages
-category_archive_path: "/categories/#"
-tag_archive_path: "/tags/#"
+# category_archive_path: "/categories/#"
+# tag_archive_path: "/tags/#"
 
-# Plugins
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
 plugins:
-  - jekyll-paginate
   - jekyll-seo-tag
-  - jekyll-feed
   - jekyll-sitemap
-  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-paginate
 
 # Front Matter Defaults
 defaults:
@@ -73,66 +85,20 @@ defaults:
     values:
       layout: post
       share: true
-      read_time: true
 
 # Site Author
 author:
-  name: "Cagatay Guley"
-  bio: "A passionate mining engineer, dedicated to unveiling mineral riches and innovative solutions, guiding us towards new horizons."
-  location: "Istanbul, Turkey"
-  website: "https://guley.com.tr"
-  github: "https://github.com/guleyc"
-  linkedin: "https://linkedin.com/in/guleyc"
-  twitter: "https://twitter.com/guleyc"
-  picture: "/assets/img/author-photo.jpg"
-  email: "cagatay@guley.com.tr"
+  name:
+  picture:
+  email:
+  twitter:
   links:
-    - title: "Email"
-      url: "mailto:cagatay@guley.com.tr"
-      icon: "fas fa-envelope"
-    - title: "GitHub"
-      url: "https://github.com/guleyc"
-      icon: "fab fa-github"
-    - title: "LinkedIn"
-      url: "https://linkedin.com/in/guleyc"
-      icon: "fab fa-linkedin"
-    - title: "Twitter"
-      url: "https://twitter.com/guleyc"
-      icon: "fab fa-twitter"
+    - title:
+      url:
+      icon:
 
 # Footer Links
 footer_links:
-  - title: "Feed"
-    url: "/atom.xml"
-    icon: "fas fa-rss-square"
-  - title: "GitHub"
-    url: "https://github.com/guleyc"
-    icon: "fab fa-github"
-  - title: "LinkedIn"
-    url: "https://linkedin.com/in/guleyc"
-    icon: "fab fa-linkedin"
-
-# Exclude from processing.
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - banner.js
-  - package.json
-  - package-lock.json
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .sass-cache
-  - .jekyll-cache
-  - gemfiles
-  - _screenshots
-  - test
-  - tmp
-  - README.md
-  - LICENSE
-  - CHANGELOG.md
-  - docs
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square
