@@ -4,118 +4,246 @@ title: Tag Wall
 permalink: /tags/
 ---
 
-{%- comment -%}
-Bu sayfadaki ana mantık şudur:
-1. Sitedeki TÜM gönderileri (`site.posts`) tek tek geziyoruz.
-2. Her gönderinin içindeki etiketleri (`post.tags`) tek tek geziyoruz.
-3. Bu sayede her bir etiket, ait olduğu gönderiyle birlikte bir eleman haline geliyor.
-4. Etiketin genel popülerliğine göre boyut atıyoruz.
-5. Her blok, etiketin ait olduğu gönderiye link veriyor.
-{%- endcomment -%}
 <style>
-	/* Etiket Duvarı (Tag Wall) Stilleri */
-
+/* Mevcut stilleriniz aynı kalır */
 .tag-wall-container {
-    display: flex; /* Ana konteyneri flex yapıyoruz */
-    flex-wrap: wrap; /* Bloklar sığmazsa alt satıra geçsin */
-    justify-content: center; /* Blokları yatayda ortala */
-    align-items: stretch; /* Blokların yüksekliklerini eşitlemeye yardımcı olur */
-    gap: 10px; /* Bloklar arası boşluk */
-    padding: 20px 10px; /* Sayfa kenarlarından boşluk */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    padding: 20px 10px;
     width: 100%;
 }
 
 .tag-block {
-    display: flex; /* İçindeki metni ortalamak için */
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #ffffff; /* Tüm metinler beyaz olacak */
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     border-radius: 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    flex-grow: 1; /* Esnek büyüme */
+    flex-grow: 1;
+    cursor: pointer;
 }
 
 .tag-block:hover {
-    transform: scale(1.05); /* Üzerine gelince hafifçe büyüsün */
+    transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    z-index: 2; /* Diğerlerinin üzerine çıksın */
+    z-index: 2;
 }
 
-/* 1. Popülerliğe Göre Boyutlandırma */
-
-.tag-block.level-1 {
-    min-height: 30px;
-    padding: 10px;
-    font-size: 1rem;
-    flex-basis: 120px; /* Minimum genişlik */
+.tag-block.active {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    border: 3px solid #fff;
 }
 
-.tag-block.level-2 {
-    min-height: 100px;
-    padding: 15px;
+/* Boyutlar aynı kalır */
+.tag-block.level-1 { min-height: 30px; padding: 10px; font-size: 1rem; flex-basis: 120px; }
+.tag-block.level-2 { min-height: 100px; padding: 15px; font-size: 1.2rem; flex-basis: 160px; }
+.tag-block.level-3 { min-height: 120px; padding: 20px; font-size: 1.5rem; flex-basis: 220px; }
+.tag-block.level-4 { min-height: 140px; padding: 25px; font-size: 1.8rem; font-weight: 700; flex-basis: 280px; }
+
+/* Renkler aynı kalır */
+.tag-block:nth-child(7n+1) { background-color: #1abc9c; }
+.tag-block:nth-child(7n+2) { background-color: #3498db; }
+.tag-block:nth-child(7n+3) { background-color: #9b59b6; }
+.tag-block:nth-child(7n+4) { background-color: #e67e22; }
+.tag-block:nth-child(7n+5) { background-color: #f1c40f; color: #333; }
+.tag-block:nth-child(7n+6) { background-color: #e74c3c; }
+.tag-block:nth-child(7n+7) { background-color: #34495e; }
+
+/* Yazı listesi stilleri */
+.posts-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: none;
+}
+
+.posts-container.active {
+    display: block;
+}
+
+.post-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.post-item:hover {
+    background: var(--bg-hover-color);
+    border-color: var(--primary-font-color);
+}
+
+.post-title {
     font-size: 1.2rem;
-    flex-basis: 160px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-.tag-block.level-3 {
-    min-height: 120px;
-    padding: 20px;
-    font-size: 1.5rem;
-    flex-basis: 220px;
+.post-title a {
+    color: var(--primary-font-color);
+    text-decoration: none;
 }
 
-.tag-block.level-4 {
-    min-height: 140px;
-    padding: 25px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    flex-basis: 280px;
+.post-title a:hover {
+    color: #007acc;
 }
 
+.post-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
 
-/* 2. "Rastgele" Renk Ataması */
-/* nth-child kullanarak 7'li bir renk paletini sürekli döndürüyoruz. */
-/* Bu, tam bir rastgelelik olmasa da görsel olarak öyle bir his verir ve çok daha performanslıdır. */
+.post-excerpt {
+    color: var(--primary-font-color);
+    line-height: 1.6;
+}
 
-.tag-block:nth-child(7n+1) { background-color: #1abc9c; } /* Turkuaz */
-.tag-block:nth-child(7n+2) { background-color: #3498db; } /* Mavi */
-.tag-block:nth-child(7n+3) { background-color: #9b59b6; } /* Mor */
-.tag-block:nth-child(7n+4) { background-color: #e67e22; } /* Turuncu */
-.tag-block:nth-child(7n+5) { background-color: #f1c40f; } /* Sarı (Metin rengini siyah yapabiliriz) */
-.tag-block:nth-child(7n+6) { background-color: #e74c3c; } /* Kırmızı */
-.tag-block:nth-child(7n+7) { background-color: #34495e; } /* Koyu Mavi */
+.reset-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
 
-/* Sarı gibi açık renkler için metin rengini koyu yapalım */
-.tag-block:nth-child(7n+5) {
-    color: #333;
+.reset-btn.active {
+    display: block;
 }
 </style>
+
 <div class="tag-wall-container">
-    {% for post in site.posts %}
-        {% for tag_name in post.tags %}
-            
-            {%- comment -%} Etiketin genel boyutunu (kaç yazıda geçtiğini) bulalım {%- endcomment -%}
-            {%- assign tag_size = site.tags[tag_name].size -%}
+    {% assign unique_tags = site.tags | sort %}
+    {% for tag in unique_tags %}
+        {% assign tag_name = tag[0] %}
+        {% assign tag_posts = tag[1] %}
+        {% assign tag_size = tag_posts.size %}
 
-            {%- comment -%} Popülerliğe göre bir boyut seviyesi atayalım {%- endcomment -%}
-            {%- if tag_size <= 2 -%}
-                {%- assign tag_level = "level-1" -%}
-            {%- elsif tag_size <= 5 -%}
-                {%- assign tag_level = "level-2" -%}
-            {%- elsif tag_size <= 10 -%}
-                {%- assign tag_level = "level-3" -%}
-            {%- else -%}
-                {%- assign tag_level = "level-4" -%}
-            {%- endif -%}
+        {%- if tag_size <= 2 -%}
+            {%- assign tag_level = "level-1" -%}
+        {%- elsif tag_size <= 5 -%}
+            {%- assign tag_level = "level-2" -%}
+        {%- elsif tag_size <= 10 -%}
+            {%- assign tag_level = "level-3" -%}
+        {%- else -%}
+            {%- assign tag_level = "level-4" -%}
+        {%- endif -%}
 
-            {%- comment -%} Her etiketi, ait olduğu posta link veren bir blok olarak oluşturalım {%- endcomment -%}
-            <a href="{{ post.url | relative_url }}" class="tag-block {{ tag_level }}">
-                <span>{{ tag_name }}</span>
-            </a>
-
-        {% endfor %}
+        <div class="tag-block {{ tag_level }}" data-tag="{{ tag_name | slugify }}" onclick="filterByTag('{{ tag_name | slugify }}', '{{ tag_name }}')">
+            <span>{{ tag_name }} ({{ tag_size }})</span>
+        </div>
     {% endfor %}
 </div>
+
+<button class="reset-btn" onclick="resetFilter()">✕ Show All Tags</button>
+
+<div class="posts-container" id="posts-container">
+    <h2 id="selected-tag-title"></h2>
+    <div id="posts-list"></div>
+</div>
+
+<script>
+// Tag verileri
+const tagData = {
+    {% for tag in site.tags %}
+    "{{ tag[0] | slugify }}": {
+        name: "{{ tag[0] }}",
+        posts: [
+            {% for post in tag[1] %}
+            {
+                title: "{{ post.title | escape }}",
+                url: "{{ post.url | relative_url }}",
+                date: "{{ post.date | date: '%d.%m.%Y' }}",
+                excerpt: "{{ post.excerpt | strip_html | truncate: 150 | escape }}"
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+        ]
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+};
+
+function filterByTag(tagSlug, tagName) {
+    // Tüm tag'leri deaktif et
+    document.querySelectorAll('.tag-block').forEach(block => {
+        block.classList.remove('active');
+    });
+    
+    // Seçili tag'i aktif et
+    document.querySelector(`[data-tag="${tagSlug}"]`).classList.add('active');
+    
+    // Posts container'ı göster
+    const postsContainer = document.getElementById('posts-container');
+    const postsList = document.getElementById('posts-list');
+    const titleElement = document.getElementById('selected-tag-title');
+    const resetBtn = document.querySelector('.reset-btn');
+    
+    postsContainer.classList.add('active');
+    resetBtn.classList.add('active');
+    
+    titleElement.textContent = `Posts tagged with "${tagName}"`;
+    
+    // Posts'ları listele
+    const posts = tagData[tagSlug].posts;
+    let postsHTML = '';
+    
+    posts.forEach(post => {
+        postsHTML += `
+            <div class="post-item">
+                <div class="post-title">
+                    <a href="${post.url}">${post.title}</a>
+                </div>
+                <div class="post-meta">Published: ${post.date}</div>
+                <div class="post-excerpt">${post.excerpt}</div>
+            </div>
+        `;
+    });
+    
+    postsList.innerHTML = postsHTML;
+    
+    // Smooth scroll to posts
+    postsContainer.scrollIntoView({ behavior: 'smooth' });
+    
+    // URL'yi güncelle
+    window.history.pushState(null, null, `#${tagSlug}`);
+}
+
+function resetFilter() {
+    // Tüm aktif durumları temizle
+    document.querySelectorAll('.tag-block').forEach(block => {
+        block.classList.remove('active');
+    });
+    
+    document.getElementById('posts-container').classList.remove('active');
+    document.querySelector('.reset-btn').classList.remove('active');
+    
+    // URL'yi temizle
+    window.history.pushState(null, null, '/tags/');
+    
+    // Tag wall'a scroll
+    document.querySelector('.tag-wall-container').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Page load'da URL hash kontrol et
+document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.substr(1);
+    if (hash && tagData[hash]) {
+        filterByTag(hash, tagData[hash].name);
+    }
+});
+</script>
