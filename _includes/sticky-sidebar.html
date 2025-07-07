@@ -417,7 +417,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
-    // === ELEMENT SELECTIONS ===
     const sidebar = document.querySelector('.post-sidebar');
     if (!sidebar) return;
 
@@ -426,119 +425,72 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileButtons = document.querySelectorAll('.mobile-btn');
     const mobileContent = document.querySelector('.mobile-content');
     const tocNav = document.querySelector('.toc-nav');
-    const mainContent = document.querySelector('.post-content') || 
-                       document.querySelector('.post__content') || 
-                       document.querySelector('article') ||
-                       document.querySelector('main .content');
+    const mainContent = document.querySelector('.post-content') || document.querySelector('.post__content') || document.querySelector('article');
 
-    // === STATE VARIABLES ===
     let isExpanded = false;
     let currentSection = null;
     let tocObserver = null;
     let touchStartY = 0;
-    let touchMoveY = 0;
-    let isDragging = false;
 
-    // === CORE FUNCTIONS ===
     const openSidebar = () => {
         if (isExpanded) return;
-        
         isExpanded = true;
         sidebar.classList.add('expanded');
         sidebar.setAttribute('aria-hidden', 'false');
-        
-        // Prevent body scroll on mobile
         if (window.innerWidth <= 768) {
-            document.body.style.overflow = 'hidden';
+            // İYİLEŞTİRME 3: Güvenli scroll engelleme
+            document.body.classList.add('sidebar-open-no-scroll');
         }
     };
 
     const closeSidebar = () => {
         if (!isExpanded) return;
-        
         isExpanded = false;
         sidebar.classList.remove('expanded');
-        
-        // Reset button states
         mobileButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Reset accessibility and body scroll
-        if (window.innerWidth <= 768) {
-            sidebar.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        } else {
-            sidebar.setAttribute('aria-hidden', 'false');
-        }
-        
+        sidebar.setAttribute('aria-hidden', 'true');
+        // İYİLEŞTİRME 3: Güvenli scroll engellemeyi kaldırma
+        document.body.classList.remove('sidebar-open-no-scroll');
         currentSection = null;
     };
 
     const showSection = (section) => {
         const sections = mobileContent?.querySelectorAll('[data-section]');
-        if (!sections) return;
-        
-        sections.forEach(s => {
-            const isVisible = s.dataset.section === section;
-            s.style.display = isVisible ? 'block' : 'none';
+        sections?.forEach(s => {
+            s.style.display = s.dataset.section === section ? 'block' : 'none';
         });
-        
         currentSection = section;
     };
-
+    
     const showAllSections = () => {
         const sections = mobileContent?.querySelectorAll('[data-section]');
-        sections?.forEach(s => {
-            s.style.display = 'block';
-        });
+        sections?.forEach(s => { s.style.display = 'block'; });
     };
 
     const handleMobileButtonClick = (e) => {
-        const button = e.currentTarget;
-        const section = button.dataset.section;
-        
-        // If clicking same section while expanded, close
+        const section = e.currentTarget.dataset.section;
         if (isExpanded && currentSection === section) {
             closeSidebar();
             return;
         }
-        
-        // Open and show section
         openSidebar();
         showSection(section);
-        
-        // Update button states
-        mobileButtons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        button.classList.add('active');
+        mobileButtons.forEach(btn => btn.classList.remove('active'));
+        e.currentTarget.classList.add('active');
     };
-
-    // === AUTO SCROLL TO ACTIVE TOC ITEM ===
+    
     const scrollToActiveTocItem = (activeLink) => {
-        if (!activeLink || !tocNav) return;
-        
-        // Only on desktop
-        if (window.innerWidth <= 768) return;
-        
+        if (!activeLink || !tocNav || window.innerWidth <= 768) return;
         const tocNavRect = tocNav.getBoundingClientRect();
         const activeLinkRect = activeLink.getBoundingClientRect();
-        
-        // Calculate if the active item is outside the visible area
-        const isAbove = activeLinkRect.top < tocNavRect.top;
-        const isBelow = activeLinkRect.bottom > tocNavRect.bottom;
-        
-        if (isAbove || isBelow) {
-            // Calculate scroll position to center the active item
-            const scrollTop = activeLink.offsetTop - (tocNav.clientHeight / 2) + (activeLink.clientHeight / 2);
-            
+        if (activeLinkRect.top < tocNavRect.top || activeLinkRect.bottom > tocNavRect.bottom) {
             tocNav.scrollTo({
-                top: scrollTop,
+                top: activeLink.offsetTop - (tocNav.clientHeight / 2) + (activeLink.clientHeight / 2),
                 behavior: 'smooth'
             });
         }
     };
 
-    // === TABLE OF CONTENTS ===
     const destroyTocObserver = () => {
         if (tocObserver) {
             tocObserver.disconnect();
@@ -548,195 +500,123 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const initTocObserver = () => {
         destroyTocObserver();
-        
-        // Skip if no content
         if (!mainContent) return;
-
-        const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
+        const headings = Array.from(mainContent.querySelectorAll('h2, h3, h4, h5, h6'));
         if (!headings.length) return;
 
-        tocObserver = new IntersectionObserver((entries) => {
-            let mostVisibleEntry = null;
-            let maxVisibilityRatio = 0;
-            
-            // Find the most visible heading
+        tocObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio > maxVisibilityRatio) {
-                    maxVisibilityRatio = entry.intersectionRatio;
-                    mostVisibleEntry = entry;
+                const id = entry.target.id;
+                const link = tocNav?.querySelector(`a[href="#${id}"]`);
+                if (link) {
+                    if (entry.isIntersecting) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
                 }
             });
-            
-            // If we have a most visible entry, update active state
-            if (mostVisibleEntry) {
-                const id = mostVisibleEntry.target.id;
-                const navLink = tocNav?.querySelector(`a[href="#${id}"]`);
-                
-                if (navLink) {
-                    // Remove all active states
-                    tocNav.querySelectorAll('a').forEach(a => {
-                        a.classList.remove('active');
-                        a.setAttribute('aria-current', 'false');
-                    });
-                    
-                    // Set new active state
-                    navLink.classList.add('active');
-                    navLink.setAttribute('aria-current', 'location');
-                    
-                    // Auto scroll to active item on desktop
-                    scrollToActiveTocItem(navLink);
-                }
+
+            // Yalnızca en üstteki görünür olanı aktif yap ve kaydır
+            const visibleLinks = tocNav?.querySelectorAll('a.active');
+            if (visibleLinks && visibleLinks.length > 0) {
+                tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                const topVisibleLink = visibleLinks[0];
+                topVisibleLink.classList.add('active');
+                scrollToActiveTocItem(topVisibleLink);
             }
+
         }, {
-            rootMargin: '-10% 0px -60% 0px',
-            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+            // İYİLEŞTİRME 2: Performans için basitleştirilmiş ayarlar
+            rootMargin: '0px 0px -80% 0px',
+            threshold: 0
         });
-        
+
         headings.forEach(heading => tocObserver.observe(heading));
     };
 
     const generateToc = () => {
         const tocSidebar = document.querySelector('.toc-sidebar');
         if (!mainContent || !tocNav) {
-            if (tocSidebar) {
-                tocSidebar.style.display = 'none';
-            }
+            tocSidebar?.style.setProperty('display', 'none', 'important');
             return;
         }
-        
         const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
-        if (!headings.length) {
-            if (tocSidebar) {
-                tocSidebar.style.display = 'none';
-            }
+        if (headings.length === 0) {
+            tocSidebar?.style.setProperty('display', 'none', 'important');
             return;
         }
-
         let tocHTML = '';
         headings.forEach((heading, index) => {
-            // Ensure heading has ID
-            if (!heading.id) {
-                heading.id = `toc-heading-${index}`;
-            }
-            
-            const id = heading.id;
-            const level = parseInt(heading.tagName.charAt(1));
-            const indent = Math.max(0, level - 2) * 1;
-            const text = heading.textContent.trim();
-            
-            tocHTML += `<a href="#${id}" 
-                           style="padding-left: ${indent + 0.6}rem" 
-                           class="toc-link"
-                           title="Go to ${text}">${text}</a>`;
+            if (!heading.id) heading.id = `toc-heading-${index}`;
+            const indent = Math.max(0, parseInt(heading.tagName.charAt(1)) - 2);
+            tocHTML += `<a href="#${heading.id}" style="padding-left: ${indent + 0.6}rem" class="toc-link">${heading.textContent.trim()}</a>`;
         });
-        
         tocNav.innerHTML = tocHTML;
     };
-    
-    // === TOUCH HANDLERS ===
+
     const handleTouchStart = (e) => {
         if (!isExpanded || mobileContent.scrollTop > 0) return;
-        
         touchStartY = e.touches[0].clientY;
-        isDragging = true;
-        sidebar.style.transition = 'none';
     };
-    
+
     const handleTouchMove = (e) => {
-        if (!isDragging) return;
-        
-        touchMoveY = e.touches[0].clientY;
-        const diff = touchMoveY - touchStartY;
-        
+        if (touchStartY === 0) return;
+        const currentY = e.touches[0].clientY;
+        const diff = currentY - touchStartY;
         if (diff > 0) {
-            if (e.cancelable) e.preventDefault();
+            sidebar.style.transition = 'none';
             sidebar.style.transform = `translateY(${diff}px)`;
         }
     };
 
-    const handleTouchEnd = () => {
-        if (!isDragging) return;
-        
-        isDragging = false;
+    const handleTouchEnd = (e) => {
+        if (touchStartY === 0) return;
+        const diff = e.changedTouches[0].clientY - touchStartY;
         sidebar.style.transition = '';
         sidebar.style.transform = '';
-        
-        const diff = touchMoveY - touchStartY;
         if (diff > 100) {
             closeSidebar();
         }
+        touchStartY = 0;
     };
-    
-    // === KEYBOARD HANDLERS ===
+
     const handleKeydown = (e) => {
-        if (e.key === 'Escape' && isExpanded) {
-            closeSidebar();
-        }
+        if (e.key === 'Escape' && isExpanded) closeSidebar();
     };
-    
-    // === RESIZE HANDLER ===
+
     const handleResize = () => {
         if (window.innerWidth > 768) {
-            // Desktop mode
             if (isExpanded) closeSidebar();
             showAllSections();
             sidebar.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = '';
+            document.body.classList.remove('sidebar-open-no-scroll');
         } else {
-            // Mobile mode
             sidebar.setAttribute('aria-hidden', !isExpanded);
         }
-        
-        // Always init TOC observer (works on both mobile and desktop)
-        setTimeout(initTocObserver, 100);
+        // İYİLEŞTİRME 4: Gecikmesiz çalıştırma
+        initTocObserver();
     };
 
-    // === EVENT LISTENERS ===
-    
-    // Mobile buttons
-    mobileButtons.forEach(btn => {
-        btn.addEventListener('click', handleMobileButtonClick);
-    });
-
-    // Close handlers
-    mobileCloseBtn?.addEventListener('click', closeSidebar);
-    mobileBackdrop?.addEventListener('click', closeSidebar);
-
-    // Keyboard
+    // --- EVENT LISTENERS ---
+    mobileButtons.forEach(btn => btn.addEventListener('click', handleMobileButtonClick));
+    [mobileCloseBtn, mobileBackdrop].forEach(el => el?.addEventListener('click', closeSidebar));
     document.addEventListener('keydown', handleKeydown);
-    
-    // Touch events
     mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
     mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
     mobileContent?.addEventListener('touchend', handleTouchEnd);
-    
-    // TOC clicks
     tocNav?.addEventListener('click', (e) => {
         if (!e.target.classList.contains('toc-link')) return;
-        
         e.preventDefault();
         const targetId = e.target.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (!targetElement) return;
-        
-        // Smooth scroll
-        targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-        
-        // Close on mobile
-        if (isExpanded && window.innerWidth <= 768) {
-            setTimeout(closeSidebar, 300);
-        }
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (isExpanded && window.innerWidth <= 768) setTimeout(closeSidebar, 300);
     });
-
-    // Resize
     window.addEventListener('resize', handleResize);
 
-    // === INITIALIZATION ===
+    // --- INITIALIZATION ---
     generateToc();
+    initTocObserver();
     handleResize();
 });
 </script>
