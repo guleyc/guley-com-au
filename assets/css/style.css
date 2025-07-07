@@ -133,7 +133,7 @@ body{
   padding: 5px 10px;
   margin-bottom: 5px;
   background:var(--bg-color);
-  border:1px dashed var(--border-color);
+  border:1px var(--border-color);
 }
 
 .post-header .post-share{font-weight: 600; color: var(--primary-font-color); display: flex; justify-content: flex-end; align-items: center;}
