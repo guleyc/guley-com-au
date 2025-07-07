@@ -1,52 +1,30 @@
----
-layout: default
-title: Tags
-permalink: /tags/
----
+<div class="tags-list tag-cloud">
+    {% for tag in sorted_tags %}
+        {%- assign tag_name = tag[0] -%}
+        {%- assign tag_size = tag[1].size -%}
 
-{%- comment -%}
-    Jekyll'in 'site.tags' nesnesini anahtara (yani etiketin kendisine) göre
-    alfabetik olarak sıralıyoruz. Bu, karmaşık 'capture' ve 'split'
-    işlemlerinin yerini alır.
-{%- endcomment -%}
-{%- assign sorted_tags = site.tags | sort -%}
+        {%- comment -%}
+            Etiketin yazı sayısına göre bir "seviye" belirliyoruz.
+            Bu seviyeler, CSS'te farklı boyutları temsil edecek.
+            Sayıları kendi sitenizdeki etiket yoğunluğuna göre ayarlayabilirsiniz.
+        {%- endcomment -%}
+        {%- if tag_size <= 2 -%}
+            {%- assign tag_level = "level-1" -%}
+        {%- elsif tag_size <= 5 -%}
+            {%- assign tag_level = "level-2" -%}
+        {%- elsif tag_size <= 10 -%}
+            {%- assign tag_level = "level-3" -%}
+        {%- else -%}
+            {%- assign tag_level = "level-4" -%}
+        {%- endif -%}
 
-<div class="tags-page-container">
-    <h1>Tüm Etiketler</h1>
-
-    <div class="tags-list">
-        {% for tag in sorted_tags %}
-            {%- assign tag_name = tag[0] -%}
-            {%- assign tag_size = tag[1].size -%}
-            <a href="#{{ tag_name | cgi_escape }}" class="tag">
-                {{ tag_name }} ({{ tag_size }})
-            </a>
-        {% endfor %}
-    </div>
-
-    <hr class="tags-separator">
-
-    <div class="posts-by-tag">
-        {% for tag in sorted_tags %}
-            {%- assign tag_name = tag[0] -%}
-            {%- assign posts = tag[1] -%}
-            
-            <h2 id="{{ tag_name | cgi_escape }}">{{ tag_name }}</h2>
-
-            <div class="post-container">
-                {% for post in posts %}
-                    {%- comment -%}
-                        Daha önce ana sayfada kullandığımız post listesi görünümünü
-                        burada yeniden kullanıyoruz. Bu, tutarlı bir tasarım sağlar.
-                    {%- endcomment -%}
-                    <a class="post-card-link" href="{{ post.url | relative_url }}">
-                        <div class="post-list" {% if post.image %} style="background-image: url('{{ post.image | relative_url }}');" {% endif %}>
-                            <span class="post-title">{{ post.title }}</span>
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
-
+        {%- comment -%}
+            Etiketin linkini oluştururken, atadığımız seviyeyi bir CSS sınıfı
+            olarak ekliyoruz. Artık yazı sayısını göstermeye gerek yok,
+            çünkü boyut zaten bu bilgiyi görsel olarak veriyor.
+        {%- endcomment -%}
+        <a href="#{{ tag_name | cgi_escape }}" class="tag {{ tag_level }}">
+            {{ tag_name }}
+        </a>
+    {% endfor %}
 </div>
