@@ -8,7 +8,7 @@ layout: default
 {%- else -%}
   {%- assign reading_time = words | divided_by: 180 | round -%}
 {%- endif -%}
-
+<div class="post-layout">
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
 	{% if page.mathjax %}
 	<script type="text/javascript"
@@ -48,3 +48,4 @@ layout: default
 	</div>
 </article>
 {% include sticky-sidebar.html %}
+</div>
