@@ -50,7 +50,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-relative-links
   - jekyll-github-metadata
-  - jekyll-seo-tag
 paginate: 3
 paginate_path: "/page/:num"
 
