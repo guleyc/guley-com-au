@@ -192,6 +192,13 @@ body{
   text-align: justify;
 }
 
+.blog-post-title{
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
 .post-tag{background: var(--bg-color); color:var(--primary-font-color); padding: 5px 10px;}
 
 .profile{
