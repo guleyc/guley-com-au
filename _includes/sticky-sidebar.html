@@ -15,7 +15,86 @@
     margin: 0;
 }
 
-/* Sidebar Core */
+/* === LEFT TOC SIDEBAR === */
+.toc-left-sidebar {
+    position: fixed;
+    top: 20%;
+    left: 2rem;
+    width: 250px;
+    max-height: 60vh;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.toc-left-sidebar.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.toc-left-sidebar h4 {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-font-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.toc-left-nav {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    max-height: calc(60vh - 80px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.toc-left-nav::-webkit-scrollbar { width: 3px; }
+.toc-left-nav::-webkit-scrollbar-track { background: transparent; }
+.toc-left-nav::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
+
+.toc-left-nav a {
+    display: block;
+    padding: 0.4rem 0.6rem;
+    color: var(--primary-font-color);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    margin-bottom: 0.1rem;
+    font-size: 0.75rem;
+}
+
+.toc-left-nav a:hover {
+    background: var(--bg-hover-color);
+    border-left-color: #007acc;
+}
+
+.toc-left-nav a.active {
+    border-left-color: #007acc;
+    background: var(--bg-hover-color);
+    font-weight: 600;
+    color: #007acc;
+}
+
+/* Hide on tablet and mobile */
+@media (max-width: 1200px) {
+    .toc-left-sidebar {
+        display: none;
+    }
+}
+
+/* Right Sidebar Core */
 .post-sidebar {
     --sidebar-bg: var(--bg-color);
     --sidebar-border: var(--border-color);
@@ -107,38 +186,13 @@
     border-color: var(--primary-font-color); 
 }
 
-/* Table of Contents */
+/* Table of Contents - Right Sidebar (Mobile only) */
 .toc-nav { 
     font-size: 0.8rem; 
     line-height: 1.5; 
-    scrollbar-width: thin; 
-    scrollbar-color: var(--border-color) transparent; 
+    max-height: none;
+    overflow-y: visible;
 }
-
-/* Desktop TOC - Full height, auto scroll */
-@media (min-width: 769px) {
-    .toc-nav {
-        max-height: 400px;
-        overflow-y: auto;
-    }
-}
-
-/* Mobile TOC - No height limit, full expansion */
-@media (max-width: 768px) {
-    .toc-nav {
-        max-height: none;
-        overflow-y: visible;
-    }
-    
-    .mobile-content .toc-sidebar {
-        /* Remove height constraints on mobile */
-        max-height: none;
-    }
-}
-
-.toc-nav::-webkit-scrollbar { width: 3px; }
-.toc-nav::-webkit-scrollbar-track { background: transparent; }
-.toc-nav::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
 
 .toc-nav a { 
     display: block; 
@@ -337,6 +391,13 @@
         }
     }
     
+    /* Hide TOC from right sidebar on desktop */
+    @media (min-width: 1201px) {
+        .toc-sidebar {
+            display: none;
+        }
+    }
+    
     .mobile-content {
         display: block;
     }
@@ -345,11 +406,23 @@
 /* Dark Mode */
 [data-theme="dark"] .meta-value { color: #ccc; }
 [data-theme="dark"] .mobile-backdrop { background: rgba(0, 0, 0, 0.7); }
+[data-theme="dark"] .toc-left-sidebar {
+    background: var(--bg-color);
+    border-color: var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
 </style>
 
+<!-- LEFT TOC SIDEBAR - Desktop Only -->
+<aside class="toc-left-sidebar" id="toc-left-sidebar">
+    <h4>📑 Table of Contents</h4>
+    <nav class="toc-left-nav" id="toc-left-nav"></nav>
+</aside>
+
+<!-- RIGHT SIDEBAR -->
 <aside class="post-sidebar">
     <div class="sidebar-content">
-        <!-- Mobile Button Bar - All butonu kaldırıldı -->
+        <!-- Mobile Button Bar -->
         <div class="mobile-button-bar">
             <button class="mobile-btn" data-section="info">
                 <span class="icon">📖</span>
@@ -403,6 +476,7 @@
             </div>
             {% endif %}
 
+            <!-- TOC in mobile sidebar -->
             <div class="toc-sidebar" data-section="toc">
                 <h4>📑 Table of Contents</h4>
                 <nav class="toc-nav"></nav>
@@ -417,80 +491,114 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
+    // === ELEMENT SELECTIONS ===
     const sidebar = document.querySelector('.post-sidebar');
-    if (!sidebar) return;
-
+    const tocLeftSidebar = document.querySelector('.toc-left-sidebar');
+    const tocLeftNav = document.querySelector('.toc-left-nav');
     const mobileBackdrop = document.querySelector('.mobile-backdrop');
     const mobileCloseBtn = document.querySelector('.mobile-close');
     const mobileButtons = document.querySelectorAll('.mobile-btn');
     const mobileContent = document.querySelector('.mobile-content');
     const tocNav = document.querySelector('.toc-nav');
-    const mainContent = document.querySelector('.post-content') || document.querySelector('.post__content') || document.querySelector('article');
+    const mainContent = document.querySelector('.post-content') || 
+                       document.querySelector('.post__content') || 
+                       document.querySelector('article') ||
+                       document.querySelector('main .content');
 
+    // === STATE VARIABLES ===
     let isExpanded = false;
     let currentSection = null;
     let tocObserver = null;
     let touchStartY = 0;
+    let firstH1Position = null;
 
+    // === CORE FUNCTIONS ===
     const openSidebar = () => {
-        if (isExpanded) return;
+        if (!sidebar || isExpanded) return;
+        
         isExpanded = true;
         sidebar.classList.add('expanded');
         sidebar.setAttribute('aria-hidden', 'false');
+        
         if (window.innerWidth <= 768) {
-            // İYİLEŞTİRME 3: Güvenli scroll engelleme
-            document.body.classList.add('sidebar-open-no-scroll');
+            document.body.style.overflow = 'hidden';
         }
     };
 
     const closeSidebar = () => {
-        if (!isExpanded) return;
+        if (!sidebar || !isExpanded) return;
+        
         isExpanded = false;
         sidebar.classList.remove('expanded');
+        
         mobileButtons.forEach(btn => btn.classList.remove('active'));
-        sidebar.setAttribute('aria-hidden', 'true');
-        // İYİLEŞTİRME 3: Güvenli scroll engellemeyi kaldırma
-        document.body.classList.remove('sidebar-open-no-scroll');
+        
+        if (window.innerWidth <= 768) {
+            sidebar.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        } else {
+            sidebar.setAttribute('aria-hidden', 'false');
+        }
+        
         currentSection = null;
     };
 
     const showSection = (section) => {
         const sections = mobileContent?.querySelectorAll('[data-section]');
-        sections?.forEach(s => {
-            s.style.display = s.dataset.section === section ? 'block' : 'none';
+        if (!sections) return;
+        
+        sections.forEach(s => {
+            const isVisible = s.dataset.section === section;
+            s.style.display = isVisible ? 'block' : 'none';
         });
+        
         currentSection = section;
     };
-    
+
     const showAllSections = () => {
         const sections = mobileContent?.querySelectorAll('[data-section]');
-        sections?.forEach(s => { s.style.display = 'block'; });
+        sections?.forEach(s => {
+            s.style.display = 'block';
+        });
     };
 
     const handleMobileButtonClick = (e) => {
-        const section = e.currentTarget.dataset.section;
+        const button = e.currentTarget;
+        const section = button.dataset.section;
+        
         if (isExpanded && currentSection === section) {
             closeSidebar();
             return;
         }
+        
         openSidebar();
         showSection(section);
+        
         mobileButtons.forEach(btn => btn.classList.remove('active'));
-        e.currentTarget.classList.add('active');
+        button.classList.add('active');
     };
-    
-    const scrollToActiveTocItem = (activeLink) => {
-        if (!activeLink || !tocNav || window.innerWidth <= 768) return;
-        const tocNavRect = tocNav.getBoundingClientRect();
-        const activeLinkRect = activeLink.getBoundingClientRect();
-        if (activeLinkRect.top < tocNavRect.top || activeLinkRect.bottom > tocNavRect.bottom) {
-            tocNav.scrollTo({
-                top: activeLink.offsetTop - (tocNav.clientHeight / 2) + (activeLink.clientHeight / 2),
+
+    // === AUTO SCROLL TO ACTIVE TOC ITEM ===
+    const scrollToActiveTocItem = (activeLink, navContainer) => {
+        if (!activeLink || !navContainer) return;
+        
+        const navRect = navContainer.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        
+        const isAbove = linkRect.top < navRect.top;
+        const isBelow = linkRect.bottom > navRect.bottom;
+        
+        if (isAbove || isBelow) {
+            const scrollTop = activeLink.offsetTop - (navContainer.clientHeight / 2) + (activeLink.clientHeight / 2);
+            
+            navContainer.scrollTo({
+                top: scrollTop,
                 behavior: 'smooth'
             });
         }
     };
 
+    // === TABLE OF CONTENTS ===
     const destroyTocObserver = () => {
         if (tocObserver) {
             tocObserver.disconnect();
@@ -500,61 +608,118 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const initTocObserver = () => {
         destroyTocObserver();
+        
         if (!mainContent) return;
-        const headings = Array.from(mainContent.querySelectorAll('h2, h3, h4, h5, h6'));
+
+        const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
         if (!headings.length) return;
 
-        tocObserver = new IntersectionObserver(entries => {
+        // Find first H1 position for left sidebar visibility
+        const firstH1 = mainContent.querySelector('h1');
+        if (firstH1) {
+            firstH1Position = firstH1.offsetTop;
+        }
+
+        tocObserver = new IntersectionObserver((entries) => {
+            let mostVisibleEntry = null;
+            let maxVisibilityRatio = 0;
+            
             entries.forEach(entry => {
-                const id = entry.target.id;
-                const link = tocNav?.querySelector(`a[href="#${id}"]`);
-                if (link) {
-                    if (entry.isIntersecting) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
+                if (entry.isIntersecting && entry.intersectionRatio > maxVisibilityRatio) {
+                    maxVisibilityRatio = entry.intersectionRatio;
+                    mostVisibleEntry = entry;
                 }
             });
-
-            // Yalnızca en üstteki görünür olanı aktif yap ve kaydır
-            const visibleLinks = tocNav?.querySelectorAll('a.active');
-            if (visibleLinks && visibleLinks.length > 0) {
-                tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-                const topVisibleLink = visibleLinks[0];
-                topVisibleLink.classList.add('active');
-                scrollToActiveTocItem(topVisibleLink);
+            
+            if (mostVisibleEntry) {
+                const id = mostVisibleEntry.target.id;
+                
+                // Update left sidebar (desktop)
+                if (tocLeftNav && window.innerWidth > 1200) {
+                    const leftNavLink = tocLeftNav.querySelector(`a[href="#${id}"]`);
+                    if (leftNavLink) {
+                        tocLeftNav.querySelectorAll('a').forEach(a => {
+                            a.classList.remove('active');
+                            a.setAttribute('aria-current', 'false');
+                        });
+                        leftNavLink.classList.add('active');
+                        leftNavLink.setAttribute('aria-current', 'location');
+                        scrollToActiveTocItem(leftNavLink, tocLeftNav);
+                    }
+                }
+                
+                // Update right sidebar (mobile)
+                if (tocNav) {
+                    const rightNavLink = tocNav.querySelector(`a[href="#${id}"]`);
+                    if (rightNavLink) {
+                        tocNav.querySelectorAll('a').forEach(a => {
+                            a.classList.remove('active');
+                            a.setAttribute('aria-current', 'false');
+                        });
+                        rightNavLink.classList.add('active');
+                        rightNavLink.setAttribute('aria-current', 'location');
+                    }
+                }
             }
-
         }, {
-            // İYİLEŞTİRME 2: Performans için basitleştirilmiş ayarlar
-            rootMargin: '0px 0px -80% 0px',
-            threshold: 0
+            rootMargin: '-10% 0px -60% 0px',
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
         });
-
+        
         headings.forEach(heading => tocObserver.observe(heading));
     };
 
     const generateToc = () => {
-        const tocSidebar = document.querySelector('.toc-sidebar');
-        if (!mainContent || !tocNav) {
-            tocSidebar?.style.setProperty('display', 'none', 'important');
+        if (!mainContent) return;
+        
+        const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        if (!headings.length) {
+            // Hide both TOC sections if no headings
+            document.querySelector('.toc-sidebar')?.style.setProperty('display', 'none', 'important');
+            tocLeftSidebar?.style.setProperty('display', 'none', 'important');
             return;
         }
-        const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
-        if (headings.length === 0) {
-            tocSidebar?.style.setProperty('display', 'none', 'important');
-            return;
-        }
+
         let tocHTML = '';
         headings.forEach((heading, index) => {
-            if (!heading.id) heading.id = `toc-heading-${index}`;
-            const indent = Math.max(0, parseInt(heading.tagName.charAt(1)) - 2);
-            tocHTML += `<a href="#${heading.id}" style="padding-left: ${indent + 0.6}rem" class="toc-link">${heading.textContent.trim()}</a>`;
+            if (!heading.id) {
+                heading.id = `toc-heading-${index}`;
+            }
+            
+            const id = heading.id;
+            const level = parseInt(heading.tagName.charAt(1));
+            const indent = Math.max(0, level - 1) * 0.8; // Start from H1
+            const text = heading.textContent.trim();
+            
+            tocHTML += `<a href="#${id}" 
+                           style="padding-left: ${indent + 0.6}rem" 
+                           class="toc-link"
+                           title="Go to ${text}">${text}</a>`;
         });
-        tocNav.innerHTML = tocHTML;
+        
+        // Populate both TOC navigations
+        if (tocLeftNav) {
+            tocLeftNav.innerHTML = tocHTML;
+        }
+        if (tocNav) {
+            tocNav.innerHTML = tocHTML;
+        }
     };
 
+    // === LEFT SIDEBAR VISIBILITY ===
+    const updateLeftSidebarVisibility = () => {
+        if (!tocLeftSidebar || window.innerWidth <= 1200) return;
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (firstH1Position && scrollTop >= firstH1Position - 100) {
+            tocLeftSidebar.classList.add('visible');
+        } else {
+            tocLeftSidebar.classList.remove('visible');
+        }
+    };
+    
+    // === TOUCH HANDLERS ===
     const handleTouchStart = (e) => {
         if (!isExpanded || mobileContent.scrollTop > 0) return;
         touchStartY = e.touches[0].clientY;
@@ -589,34 +754,65 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 768) {
             if (isExpanded) closeSidebar();
             showAllSections();
-            sidebar.setAttribute('aria-hidden', 'false');
-            document.body.classList.remove('sidebar-open-no-scroll');
+            if (sidebar) sidebar.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = '';
         } else {
-            sidebar.setAttribute('aria-hidden', !isExpanded);
+            if (sidebar) sidebar.setAttribute('aria-hidden', !isExpanded);
         }
-        // İYİLEŞTİRME 4: Gecikmesiz çalıştırma
+        
         initTocObserver();
+        updateLeftSidebarVisibility();
     };
 
-    // --- EVENT LISTENERS ---
-    mobileButtons.forEach(btn => btn.addEventListener('click', handleMobileButtonClick));
-    [mobileCloseBtn, mobileBackdrop].forEach(el => el?.addEventListener('click', closeSidebar));
+    // === EVENT LISTENERS ===
+    
+    // Mobile buttons
+    mobileButtons.forEach(btn => {
+        btn.addEventListener('click', handleMobileButtonClick);
+    });
+
+    // Close handlers
+    mobileCloseBtn?.addEventListener('click', closeSidebar);
+    mobileBackdrop?.addEventListener('click', closeSidebar);
+
+    // Keyboard
     document.addEventListener('keydown', handleKeydown);
+    
+    // Touch events
     mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
     mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
     mobileContent?.addEventListener('touchend', handleTouchEnd);
-    tocNav?.addEventListener('click', (e) => {
+    
+    // TOC clicks - Both sidebars
+    const handleTocClick = (e) => {
         if (!e.target.classList.contains('toc-link')) return;
+        
         e.preventDefault();
         const targetId = e.target.getAttribute('href').substring(1);
-        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (isExpanded && window.innerWidth <= 768) setTimeout(closeSidebar, 300);
-    });
+        const targetElement = document.getElementById(targetId);
+        
+        if (!targetElement) return;
+        
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        if (isExpanded && window.innerWidth <= 768) {
+            setTimeout(closeSidebar, 300);
+        }
+    };
+
+    tocNav?.addEventListener('click', handleTocClick);
+    tocLeftNav?.addEventListener('click', handleTocClick);
+
+    // Scroll event for left sidebar visibility
+    window.addEventListener('scroll', updateLeftSidebarVisibility);
     window.addEventListener('resize', handleResize);
 
-    // --- INITIALIZATION ---
+    // === INITIALIZATION ===
     generateToc();
-    initTocObserver();
     handleResize();
+    updateLeftSidebarVisibility();
 });
 </script>
