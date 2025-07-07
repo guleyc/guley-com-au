@@ -9,7 +9,11 @@
             const theme = localStorage.getItem("theme") || "light";
             document.documentElement.setAttribute("data-theme", theme);
         </script>
-
+		{%- assign page_title = page.title | default: site.title -%}
+		{%- assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 -%}
+		{%- assign page_url = page.url | absolute_url -%}
+		{%- comment -%} HATA DÜZELTMESİ: site.logo _config.yml'de tanımlı olmalıdır. {%- endcomment -%}
+		{%- assign page_image = page.image | default: site.logo | absolute_url -%}
         <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
         <meta name="description" content="{% if page.description %}{{page.description}}{% else %}{{site.description}}{% endif %}">
         <meta name="keywords" content="{% if page.tags %}{{page.tags}}{% else %}{{site.keywords}}{% endif %}">
@@ -24,7 +28,7 @@
         <meta property="og:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
         <meta property="og:description" content="{% if page.description %}{{page.description}} {% else %}{{site.description}}{% endif %}" />
         <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}"/>
-        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
         <meta property="twitter:description" content="{% if page.description %}{{page.description}} {% else %}{{site.description}}{% endif %}" />
         <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}" />
