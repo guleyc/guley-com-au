@@ -1,6 +1,13 @@
 ---
 layout: default
 ---
+{%- comment -%} Reading Time {%- endcomment -%}
+{%- assign words = content | number_of_words -%}
+{%- if words < 360 -%}
+  {%- assign reading_time = "1" -%}
+{%- else -%}
+  {%- assign reading_time = words | divided_by: 180 | round -%}
+{%- endif -%}
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 {% if page.mathjax %}
