@@ -1,4 +1,80 @@
-<!-- Sticky Sidebar Component -->
+<style>
+/* Inline styles for immediate effect */
+.post-layout {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.post-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0;
+}
+
+.post-sidebar {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 280px;
+    height: fit-content;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+@media (min-width: 1400px) {
+    .post-container {
+        margin-right: 320px;
+    }
+}
+
+@media (max-width: 968px) {
+    .post-sidebar {
+        position: fixed;
+        bottom: 2rem;
+        right: 1rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .post-sidebar:hover {
+        width: 280px;
+        height: auto;
+        border-radius: 8px;
+        max-height: 70vh;
+    }
+    
+    .sidebar-content {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .post-sidebar:hover .sidebar-content {
+        opacity: 1;
+    }
+    
+    .post-sidebar::before {
+        content: "📋";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        z-index: 1;
+    }
+    
+    .post-sidebar:hover::before {
+        display: none;
+    }
+}
+</style>
+
 <aside class="post-sidebar">
     <div class="sidebar-content">
         <!-- Meta Bilgiler -->
