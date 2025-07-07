@@ -19,6 +19,7 @@ layout: default
 	<div class="post-header">
 		<div class="left">
 			<span>Reading time: {{ reading_time }} minutes</span>
+			{% include breadcrumbs.html %}
 		</div>
 
 		<div class="post-date" itemprop="datePublished">{{ page.date | date: "%d.%m.%Y" }}</div>
