@@ -3,6 +3,7 @@
 
 :root {
     --bg-color: #fafafa;
+    --s-bg-color: #bfbebe;
     --bg-hover-color: #ececec;
     --body-bg: #fff;
     --primary-font-color: #000;
@@ -11,6 +12,7 @@
 
 [data-theme="dark"] {
   --bg-color: #161f29;
+  --s-bg-color: #161f29;
   --bg-hover-color:#36404c;
   --body-bg: #10171e;
   --primary-font-color: #bfbfbf;
