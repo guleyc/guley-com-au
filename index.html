@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="post-container">
 	{% for post in paginator.posts %}
-        <div class="post-list" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop');">
+        <div class="post-list" style="background-image: url('{{ site.github.url }}/assets/img/{{ page.image }}');">
             <a class="post-title" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
         </div>
     {% endfor %}
