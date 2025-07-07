@@ -7,6 +7,8 @@ permalink: /multi-timeframe-price-predictor/
 redirect_from:
   - /multi-timeframe-price-predictor
 categories: [engineering]
+tags: [price, prediction, indicator, binance, crypto]
+image: crypto-asset.png
 ---
 
 A powerful, multi-timeframe price prediction indicator that adapts to any market and price range.
