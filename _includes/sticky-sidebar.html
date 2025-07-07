@@ -226,6 +226,11 @@
 
 /* === MOBILE STYLES === */
 @media (max-width: 768px) {
+    /* BODY PADDING - Footer için boşluk */
+    body {
+        padding-bottom: 80px; /* Sidebar yüksekliği + margin */
+    }
+    
     .post-sidebar {
         position: fixed;
         top: auto;
@@ -242,21 +247,33 @@
         border: none;
         border-top: 1px solid var(--border-color);
         box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        /* Z-INDEX AYARI */
+        z-index: 1000;
     }
     
     .post-sidebar.expanded {
-        height: 90vh;
-        max-height: 90vh;
+        height: 85vh; /* 90vh → 85vh (biraz küçülttük) */
+        max-height: 85vh;
         border-radius: 16px 16px 0 0;
         box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
     }
     
-    .sidebar-content { 
-        padding: 0; 
-        border: none; 
-        box-shadow: none; 
-        backdrop-filter: none; 
-        background: transparent; 
+    /* FOOTER VISIBLE - Önemli! */
+    footer,
+    .footer,
+    .site-footer {
+        margin-bottom: 80px !important;
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* MAIN CONTENT PADDING */
+    main,
+    .main-content,
+    .post-content,
+    article {
+        padding-bottom: 100px; /* Extra space for footer */
     }
     
     /* Mobile Button Bar - Sadece 3 buton */
@@ -361,6 +378,26 @@
     
     .post-sidebar.expanded .mobile-close { 
         opacity: 1; 
+    }
+}
+
+/* DESKTOP'ta body padding'i kaldır */
+@media (min-width: 769px) {
+    body {
+        padding-bottom: 0 !important;
+    }
+    
+    footer,
+    .footer,
+    .site-footer {
+        margin-bottom: 0 !important;
+    }
+    
+    main,
+    .main-content,
+    .post-content,
+    article {
+        padding-bottom: 0;
     }
 }
 
@@ -769,8 +806,16 @@ document.addEventListener('DOMContentLoaded', function() {
             showAllSections();
             if (sidebar) sidebar.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = '';
+            
+            // DESKTOP: Remove mobile padding
+            document.body.style.paddingBottom = '';
         } else {
             if (sidebar) sidebar.setAttribute('aria-hidden', !isExpanded);
+            
+            // MOBILE: Ensure proper spacing
+            if (!document.body.style.paddingBottom) {
+                document.body.style.paddingBottom = '80px';
+            }
         }
         
         // TOC GÖRÜNÜRLÜğÜ KONTROL ET
