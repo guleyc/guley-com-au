@@ -4,7 +4,7 @@ layout: default
 <div class="post-container">
 	{% for post in paginator.posts %}
         <a class="post-card-link" href="{{ site.url }}{{ post.url }}">
-            <div class="post-list" style="background-image: url('{{ site.github.url }}/assets/images/{{ page.image }}');">
+            <div class="post-list" style="background-image: url('{{ site.github.url }}/assets/images/{{ post.image }}');">
                 <span class="post-title">{{ post.title }}</span>
             </div>
         </a>
