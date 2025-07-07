@@ -139,6 +139,11 @@ body{
 .post-header .post-date{font-weight: 600;}
 .post-header .post-share a{display: flex;}
 
+.post-header .right{font-weight: 600; color: var(--primary-font-color); display: flex; justify-content: flex-end; align-items: center;}
+.post-header .left{font-weight: 600;}
+.post-header .right a{display: flex;}
+
+
 .tags-container{
   width: 100%; 
   display: flex; 
