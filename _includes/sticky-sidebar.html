@@ -229,16 +229,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // --- Element Seçimleri ---
     const sidebar = document.querySelector('.post-sidebar');
-    if (!sidebar) return; // Sidebar yoksa scripti tamamen durdur.
+    if (!sidebar) return;
 
     const mobileBackdrop = document.querySelector('.mobile-backdrop');
     const mobileCloseBtn = document.querySelector('.mobile-close');
     const mobileButtons = document.querySelectorAll('.mobile-btn');
     const mobileContent = document.querySelector('.mobile-content');
     const tocNav = document.querySelector('.toc-nav');
-    
-    // NOT: Bu script, yazı içeriğinizin .post-content veya .post__content gibi bir 
-    // sarmalayıcı içinde olduğunu varsayar. Kendi temanıza göre bu seçiciyi güncelleyin.
     const mainContent = document.querySelector('.post-content') || document.querySelector('.post__content') || document.querySelector('article');
 
     // --- Değişkenler ---
@@ -248,26 +245,81 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchMoveY = 0;
     let isDragging = false;
 
+    // --- Accessibility Helper Functions ---
+    const setFocusableState = (element, isDisabled) => {
+        const focusableElements = element.querySelectorAll('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        
+        focusableElements.forEach(el => {
+            if (isDisabled) {
+                // Disable for accessibility
+                el.setAttribute('tabindex', '-1');
+                el.setAttribute('aria-hidden', 'true');
+                if (el.tagName === 'BUTTON') {
+                    el.setAttribute('disabled', 'true');
+                }
+            } else {
+                // Enable for accessibility
+                el.removeAttribute('tabindex');
+                el.removeAttribute('aria-hidden');
+                if (el.tagName === 'BUTTON') {
+                    el.removeAttribute('disabled');
+                }
+            }
+        });
+    };
+
     // --- Fonksiyonlar ---
     const openSidebar = () => {
         if (isExpanded) return;
         isExpanded = true;
         sidebar.classList.add('expanded');
+        
+        // Accessibility: Enable focusable elements
         sidebar.setAttribute('aria-hidden', 'false');
+        setFocusableState(sidebar, false);
+        
+        // Focus management for mobile
+        if (window.innerWidth <= 768) {
+            // Focus first interactive element when opened
+            setTimeout(() => {
+                const firstFocusable = sidebar.querySelector('button:not([disabled])');
+                firstFocusable?.focus();
+            }, 300);
+        }
     };
 
     const closeSidebar = () => {
         if (!isExpanded) return;
         isExpanded = false;
         sidebar.classList.remove('expanded');
-        sidebar.setAttribute('aria-hidden', 'true');
+        
+        // Accessibility: Hide and disable focusable elements
+        if (window.innerWidth <= 768) {
+            sidebar.setAttribute('aria-hidden', 'true');
+            setFocusableState(sidebar, true);
+        } else {
+            // Desktop'ta sidebar her zaman erişilebilir olmalı
+            sidebar.setAttribute('aria-hidden', 'false');
+            setFocusableState(sidebar, false);
+        }
+        
         mobileButtons.forEach(b => b.classList.remove('active'));
+        
+        // Return focus to main content
+        if (window.innerWidth <= 768) {
+            const mainContent = document.querySelector('main, article, .post-content');
+            mainContent?.focus();
+        }
     };
 
     const showSection = (section) => {
         const sections = mobileContent?.querySelectorAll('[data-section]');
         sections?.forEach(s => {
-            s.style.display = (s.dataset.section === section || section === 'all') ? 'block' : 'none';
+            const isVisible = (s.dataset.section === section || section === 'all');
+            s.style.display = isVisible ? 'block' : 'none';
+            
+            // Accessibility: Update aria-hidden for sections
+            s.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
         });
     };
 
@@ -278,6 +330,29 @@ document.addEventListener('DOMContentLoaded', function() {
         showSection(section);
         mobileButtons.forEach(b => b.classList.remove('active'));
         button.classList.add('active');
+        
+        // Announce to screen readers
+        const announcement = `Showing ${section === 'all' ? 'all sections' : section + ' section'}`;
+        announceToScreenReader(announcement);
+    };
+
+    // --- Screen Reader Announcements ---
+    const announceToScreenReader = (message) => {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.setAttribute('aria-atomic', 'true');
+        announcement.style.position = 'absolute';
+        announcement.style.left = '-10000px';
+        announcement.style.width = '1px';
+        announcement.style.height = '1px';
+        announcement.style.overflow = 'hidden';
+        
+        document.body.appendChild(announcement);
+        announcement.textContent = message;
+        
+        setTimeout(() => {
+            document.body.removeChild(announcement);
+        }, 1000);
     };
 
     // --- TOC & Scroll Spy ---
@@ -292,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
         destroyTocObserver();
         if (window.innerWidth <= 768 || !mainContent) return;
 
-        const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6'); // Genellikle H1 ToC'de olmaz
+        const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
         if (!headings || headings.length === 0) return;
 
         tocObserver = new IntersectionObserver((entries) => {
@@ -301,12 +376,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 const navLink = tocNav?.querySelector(`a[href="#${id}"]`);
                 if (navLink) {
                     if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-                        tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                        tocNav.querySelectorAll('a').forEach(a => {
+                            a.classList.remove('active');
+                            a.setAttribute('aria-current', 'false');
+                        });
                         navLink.classList.add('active');
+                        navLink.setAttribute('aria-current', 'location');
                     }
                 }
             });
         }, { rootMargin: '-20% 0px -70% 0px' });
+        
         headings.forEach(heading => tocObserver.observe(heading));
     };
 
@@ -317,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6'); // H1 hariç
+        const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
         if (headings.length === 0) {
             tocSidebar?.style.setProperty('display', 'none', 'important');
             return;
@@ -325,19 +405,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let tocHTML = '';
         headings.forEach((heading, index) => {
-            // Eğer başlığın ID'si yoksa oluştur
             if (!heading.id) {
                 heading.id = `toc-heading-${index}`;
             }
             const id = heading.id;
             const level = parseInt(heading.tagName.charAt(1));
-            const indent = Math.max(0, level - 2) * 1; // H2 için 0rem, H3 için 1rem...
-            tocHTML += `<a href="#${id}" style="padding-left: ${indent + 0.6}rem" class="toc-link">${heading.textContent}</a>`;
+            const indent = Math.max(0, level - 2) * 1;
+            
+            tocHTML += `<a href="#${id}" 
+                           style="padding-left: ${indent + 0.6}rem" 
+                           class="toc-link"
+                           aria-current="false"
+                           title="Go to ${heading.textContent}">${heading.textContent}</a>`;
         });
         tocNav.innerHTML = tocHTML;
+        
+        // Add ARIA label to TOC nav
+        tocNav.setAttribute('aria-label', 'Table of Contents Navigation');
     };
     
-    // --- Touch Event Handlers (Swipe to Close) ---
+    // --- Touch Event Handlers ---
     const handleTouchStart = (e) => {
         if (!isExpanded || mobileContent.scrollTop !== 0) return;
         touchStartY = e.touches[0].clientY;
@@ -363,26 +450,65 @@ document.addEventListener('DOMContentLoaded', function() {
         const diff = touchMoveY - touchStartY;
         if (diff > 100) {
             closeSidebar();
+            announceToScreenReader('Sidebar closed');
         }
     };
     
-    // --- Genel Event Listeners ---
+    // --- Keyboard Support ---
+    const handleKeydown = (e) => {
+        if (e.key === 'Escape' && isExpanded) {
+            closeSidebar();
+            announceToScreenReader('Sidebar closed');
+        }
+        
+        // Tab trapping for mobile when expanded
+        if (window.innerWidth <= 768 && isExpanded && e.key === 'Tab') {
+            const focusableElements = sidebar.querySelectorAll('button:not([disabled]), a:not([aria-hidden="true"])');
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+            
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusable) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                }
+            } else {
+                if (document.activeElement === lastFocusable) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+        }
+    };
+    
+    // --- Resize Handler ---
     const handleResize = () => {
         if (window.innerWidth > 768) {
+            // Desktop: Sidebar always accessible
             if (isExpanded) closeSidebar();
             showSection('all');
             sidebar.setAttribute('aria-hidden', 'false');
+            setFocusableState(sidebar, false);
         } else {
+            // Mobile: Conditional accessibility
             sidebar.setAttribute('aria-hidden', !isExpanded);
+            setFocusableState(sidebar, !isExpanded);
         }
         initTocObserver();
     };
 
-    // --- Olay Atamaları ---
+    // --- Event Listeners ---
     mobileButtons.forEach(btn => btn.addEventListener('click', handleMobileButtonClick));
-    mobileCloseBtn?.addEventListener('click', closeSidebar);
-    mobileBackdrop?.addEventListener('click', closeSidebar);
-    document.addEventListener('keydown', (e) => e.key === 'Escape' && isExpanded && closeSidebar());
+    mobileCloseBtn?.addEventListener('click', () => {
+        closeSidebar();
+        announceToScreenReader('Sidebar closed');
+    });
+    mobileBackdrop?.addEventListener('click', () => {
+        closeSidebar();
+        announceToScreenReader('Sidebar closed');
+    });
+    
+    document.addEventListener('keydown', handleKeydown);
     
     mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
     mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
@@ -390,19 +516,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     tocNav?.addEventListener('click', (e) => {
         if (e.target.classList.contains('toc-link')) {
-            // Smooth scroll'u Jekyll temanız zaten sağlıyorsa bu kısmı silebilirsiniz.
             e.preventDefault();
             const targetId = e.target.getAttribute('href').substring(1);
-            document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            if (isExpanded) closeSidebar();
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Set focus to target heading for screen readers
+                targetElement.setAttribute('tabindex', '-1');
+                targetElement.focus();
+                
+                if (isExpanded && window.innerWidth <= 768) {
+                    closeSidebar();
+                }
+                
+                announceToScreenReader(`Navigated to ${targetElement.textContent}`);
+            }
         }
     });
 
     window.addEventListener('resize', handleResize);
 
-    // --- Başlangıç Fonksiyonları ---
+    // --- Initialize ---
     generateToc();
     handleResize();
+    
+    // Initial state setup
+    showSection('all');
 });
 </script>
