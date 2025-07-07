@@ -391,15 +391,15 @@
         }
     }
     
-    /* Hide TOC from right sidebar on desktop */
-    @media (min-width: 1201px) {
-        .toc-sidebar {
-            display: none;
-        }
-    }
-    
     .mobile-content {
         display: block;
+    }
+}
+
+/* Hide TOC from right sidebar on desktop - DÜZELTME */
+@media (min-width: 1201px) {
+    .toc-sidebar {
+        display: none !important;
     }
 }
 
@@ -673,10 +673,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!mainContent) return;
         
         const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const tocSidebarElement = document.querySelector('.toc-sidebar');
+        
         if (!headings.length) {
             // Hide both TOC sections if no headings
-            document.querySelector('.toc-sidebar')?.style.setProperty('display', 'none', 'important');
-            tocLeftSidebar?.style.setProperty('display', 'none', 'important');
+            if (tocSidebarElement) {
+                tocSidebarElement.style.setProperty('display', 'none', 'important');
+            }
+            if (tocLeftSidebar) {
+                tocLeftSidebar.style.setProperty('display', 'none', 'important');
+            }
             return;
         }
 
@@ -703,6 +709,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (tocNav) {
             tocNav.innerHTML = tocHTML;
+        }
+        
+        // DESKTOP'TA SAĞ TOC'U GİZLE
+        if (window.innerWidth > 1200 && tocSidebarElement) {
+            tocSidebarElement.style.setProperty('display', 'none', 'important');
+        } else if (tocSidebarElement) {
+            tocSidebarElement.style.removeProperty('display');
         }
     };
 
@@ -758,6 +771,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         } else {
             if (sidebar) sidebar.setAttribute('aria-hidden', !isExpanded);
+        }
+        
+        // TOC GÖRÜNÜRLÜğÜ KONTROL ET
+        const tocSidebarElement = document.querySelector('.toc-sidebar');
+        if (window.innerWidth > 1200 && tocSidebarElement) {
+            tocSidebarElement.style.setProperty('display', 'none', 'important');
+        } else if (tocSidebarElement) {
+            tocSidebarElement.style.removeProperty('display');
         }
         
         initTocObserver();
