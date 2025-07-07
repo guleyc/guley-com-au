@@ -64,20 +64,26 @@ body{
   justify-content: flex-start; /* Başlığı sola yaslamak için */
   padding: 15px 25px; /* İç boşlukları artırdık */
   margin-bottom: 15px; /* Postlar arası boşluk */
+  
+  /* Arka Plan Fotoğrafı Ayarları */
   background-size: cover; /* Fotoğrafı kutuya tam sığdırır, boşluk bırakmaz */
   background-position: center; /* Fotoğrafı ortalar */
   border-radius: 8px; /* Modern görünüm için kenarları yumuşatma */
   overflow: hidden; /* Taşan öğeleri gizler (özellikle border-radius için) */
+  
+  /* Konumlandırma ve Geçişler */
   position: relative; /* İçine ekleyeceğimiz overlay'i konumlandırmak için gerekli */
   transition: transform 0.3s ease; /* Üzerine gelince animasyon efekti için */
   border: none; /* Eski kesikli çizgiyi kaldırdık */
 }
 
-.post-list:hover{
-  transform: scale(1.02);
+/* Üzerine gelince (hover) kutuyu hafifçe büyütme efekti */
+.post-list:hover {
+    transform: scale(1.02);
 }
 
- Avustralya Numarası Araştırması Planı
+ Tailwind 4'e Geçiş Planı
+Avustralya Numarası Araştırması Planı
 PHP Markdown Blog Script Creation
 En İyi SEO Blog Scriptleri Rehberi
 Avustralya'da Maden Mühendisi Çalışma İzni
@@ -255,23 +261,6 @@ CSS
 .post-list .post-title:hover {
     color: #DDDDDD; /* Hafif soluk bir beyaza döner */
 }
-
-.post-list::before {
-  content: ''; /* Pseudo-element için zorunlu */
-  position: absolute; /* Ana kutuya göre konumlanır */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  /* Siyastan şeffafa doğru giden gradyan kaplama */
-  /* Bu, metnin olduğu sol tarafı karartarak okunurluğu artırır */
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 100%);
-  
-  z-index: 1; /* Kaplamanın, arka plan fotoğrafının üstünde olmasını sağlar */
-}
-
-
 .post-header{
   width: 100%; 
   display: flex;
