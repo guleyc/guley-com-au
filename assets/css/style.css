@@ -60,6 +60,7 @@ body{
   text-decoration: none; /* Linkin altındaki çizgiyi kaldırır */
   color: inherit; /* Rengi üst elementten miras almasını sağlar */
   margin-bottom: 15px; /* Postlar arası boşluğu artık bu sarmalayıcıya veriyoruz */
+  width: 100%;
 }
 .post-list {
   display: flex; /* İçeriği dikey ve yatayda ortalamak için flex kullanıyoruz */
@@ -67,7 +68,6 @@ body{
   justify-content: flex-start; /* Başlığı sola yaslamak için */
   padding: 15px 25px; /* İç boşlukları artırdık */
   margin-bottom: 0; /* Postlar arası boşluk */
-  width: 100%;
   height: 120px; /* Yüksekliği biraz artırmak daha iyi bir görünüm sağlayabilir */
 
   /* Arka Plan Fotoğrafı Ayarları */
