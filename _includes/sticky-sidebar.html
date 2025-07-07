@@ -22,9 +22,10 @@
     height: fit-content;
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
-    z-index: 100;
+    z-index: 1000;
     scrollbar-width: thin;
     scrollbar-color: var(--border-color) transparent;
+    transition: all 0.3s ease;
 }
 
 .post-sidebar::-webkit-scrollbar {
@@ -43,9 +44,10 @@
 .sidebar-content {
     background: var(--bg-color);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 /* Sidebar Sections */
@@ -73,7 +75,7 @@
 /* ARTICLE INFO - Minimal */
 .post-meta-sidebar {
     background: var(--bg-hover-color);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 1rem;
     border: 1px solid var(--border-color);
 }
@@ -97,7 +99,7 @@
     font-weight: 400;
     background: var(--bg-color);
     padding: 0.2rem 0.5rem;
-    border-radius: 3px;
+    border-radius: 4px;
     font-size: 0.8rem;
     border: 1px solid var(--border-color);
 }
@@ -105,7 +107,7 @@
 /* TAGS - Minimal Tasarım */
 .tags-sidebar {
     background: var(--bg-hover-color);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 1rem;
     border: 1px solid var(--border-color);
 }
@@ -120,7 +122,7 @@
 .sidebar-tag {
     display: inline-block;
     padding: 0.3rem 0.6rem;
-    border-radius: 3px;
+    border-radius: 4px;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 500;
@@ -139,7 +141,7 @@
 /* TABLE OF CONTENTS - Minimal ve Şık */
 .toc-sidebar {
     background: var(--bg-hover-color);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 1rem;
     border: 1px solid var(--border-color);
 }
@@ -173,7 +175,7 @@
     color: var(--primary-font-color);
     text-decoration: none;
     border-left: 2px solid transparent;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.2s ease;
     background: var(--bg-color);
 }
@@ -190,74 +192,132 @@
     color: #007acc;
 }
 
-/* Büyük ekranlarda margin ekle */
-@media (min-width: 1400px) {
-    .post-container {
-        margin-right: 320px;
-    }
-}
-
-/* Orta ekranlarda sidebar overlay */
-@media (min-width: 969px) and (max-width: 1399px) {
-    .post-sidebar {
-        position: fixed;
-        right: 1rem;
-        width: 260px;
-    }
-}
-
-/* Küçük ekranlarda minimize */
-@media (max-width: 968px) {
+/* MOBILE BOTTOM BAR - Mobil Menü Tarzı */
+@media (max-width: 768px) {
     .post-sidebar {
         position: fixed;
         top: auto;
-        bottom: 2rem;
-        right: 1rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 4px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 60px;
+        max-height: 60px;
+        border-radius: 0;
+        background: var(--bg-color);
+        border: none;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        transform: none;
         overflow: hidden;
         transition: all 0.3s ease;
-        cursor: pointer;
-        transform: none;
     }
     
-    .post-sidebar:hover {
-        width: 280px;
-        height: auto;
-        border-radius: 6px;
-        max-height: 70vh;
+    .post-sidebar.expanded {
+        height: 80vh;
+        max-height: 80vh;
+        overflow-y: auto;
     }
     
     .sidebar-content {
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        padding: 1rem;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        height: 100%;
     }
     
-    .post-sidebar:hover .sidebar-content {
-        opacity: 1;
-    }
-    
-    .post-sidebar::before {
-        content: "📋";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.2rem;
-        z-index: 1;
-        background: var(--bg-color);
-        border-radius: 4px;
-        width: 50px;
-        height: 50px;
+    /* Mobile Toggle Button */
+    .sidebar-toggle {
         display: flex;
-        align-items: center;
         justify-content: center;
-        border: 1px solid var(--border-color);
+        align-items: center;
+        height: 60px;
+        cursor: pointer;
+        background: var(--bg-color);
+        border-top: 1px solid var(--border-color);
+        transition: all 0.3s ease;
     }
     
-    .post-sidebar:hover::before {
+    .sidebar-toggle:hover {
+        background: var(--bg-hover-color);
+    }
+    
+    .sidebar-toggle::before {
+        content: "📋 Menu";
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--primary-font-color);
+    }
+    
+    .post-sidebar.expanded .sidebar-toggle::before {
+        content: "✕ Close";
+    }
+    
+    /* Mobile Content */
+    .mobile-content {
         display: none;
+        padding: 1rem;
+        height: calc(100% - 60px);
+        overflow-y: auto;
+    }
+    
+    .post-sidebar.expanded .mobile-content {
+        display: block;
+    }
+    
+    /* Mobile Sections */
+    .post-meta-sidebar,
+    .tags-sidebar,
+    .toc-sidebar {
+        margin-bottom: 1.5rem;
+        padding: 0.8rem;
+    }
+    
+    .tags-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* TABLET - Floating Button */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .post-sidebar {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1rem;
+        width: 260px;
+        z-index: 1000;
+    }
+    
+    .sidebar-toggle {
+        display: none;
+    }
+    
+    .mobile-content {
+        display: block;
+    }
+}
+
+/* DESKTOP - Normal Position */
+@media (min-width: 1025px) {
+    .post-sidebar {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2rem;
+        width: 280px;
+        z-index: 1000;
+    }
+    
+    .sidebar-toggle {
+        display: none;
+    }
+    
+    .mobile-content {
+        display: block;
     }
 }
 
@@ -265,7 +325,7 @@
 [data-theme="dark"] .sidebar-content {
     background: var(--bg-color);
     border-color: var(--border-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .meta-value {
@@ -301,55 +361,99 @@
     background: var(--primary-font-color);
     color: var(--bg-color);
 }
+
+[data-theme="dark"] .sidebar-toggle {
+    background: var(--bg-color);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .sidebar-toggle:hover {
+    background: var(--bg-hover-color);
+}
 </style>
 
 <aside class="post-sidebar">
     <div class="sidebar-content">
-        <!-- Meta Bilgiler -->
-        <div class="post-meta-sidebar">
-            <h4>📖 Article Info</h4>
-            <div class="meta-item">
-                <span class="meta-label">Published:</span>
-                <span class="meta-value">{{ page.date | date: "%d.%m.%Y" }}</span>
+        <!-- Mobile Toggle Button -->
+        <div class="sidebar-toggle"></div>
+        
+        <!-- Mobile Content Wrapper -->
+        <div class="mobile-content">
+            <!-- Meta Bilgiler -->
+            <div class="post-meta-sidebar">
+                <h4>📖 Article Info</h4>
+                <div class="meta-item">
+                    <span class="meta-label">Published:</span>
+                    <span class="meta-value">{{ page.date | date: "%d.%m.%Y" }}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Reading Time:</span>
+                    <span class="meta-value">{{ include.reading_time | default: "1" }} min</span>
+                </div>
+                {% if page.category %}
+                <div class="meta-item">
+                    <span class="meta-label">Category:</span>
+                    <span class="meta-value">{{ page.category }}</span>
+                </div>
+                {% endif %}
             </div>
-            <div class="meta-item">
-                <span class="meta-label">Reading Time:</span>
-                <span class="meta-value">{{ include.reading_time | default: "1" }} min</span>
-            </div>
-            {% if page.category %}
-            <div class="meta-item">
-                <span class="meta-label">Category:</span>
-                <span class="meta-value">{{ page.category }}</span>
+
+            <!-- Tags -->
+            {% if page.tags and page.tags.size > 0 %}
+            <div class="tags-sidebar">
+                <h4>🏷️ Tags</h4>
+                <div class="tags-list">
+                    {% for tag in page.tags %}
+                        <a href="{{ site.url }}/tags/#{{tag | cgi_escape}}" class="sidebar-tag">{{tag}}</a>
+                    {% endfor %}
+                </div>
             </div>
             {% endif %}
-        </div>
 
-        <!-- Tags -->
-        {% if page.tags and page.tags.size > 0 %}
-        <div class="tags-sidebar">
-            <h4>🏷️ Tags</h4>
-            <div class="tags-list">
-                {% for tag in page.tags %}
-                    <a href="{{ site.url }}/tags/#{{tag | cgi_escape}}" class="sidebar-tag">{{tag}}</a>
-                {% endfor %}
+            <!-- Table of Contents -->
+            <div class="toc-sidebar">
+                <h4>📑 Table of Contents</h4>
+                <nav class="toc-nav"></nav>
             </div>
-        </div>
-        {% endif %}
-
-        <!-- Table of Contents -->
-        <div class="toc-sidebar">
-            <h4>📑 Table of Contents</h4>
-            <nav class="toc-nav"></nav>
         </div>
     </div>
 </aside>
 
 <script>
-// Table of Contents Generator - Fixed Version
+// Responsive Sticky Sidebar - Full JavaScript Solution
 document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector('.post-sidebar');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const mobileContent = document.querySelector('.mobile-content');
     const content = document.querySelector('.blog-post-content');
     const tocNav = document.querySelector('.toc-nav');
     
+    // Mobile Toggle Functionality
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('expanded');
+        });
+    }
+    
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            if (!sidebar.contains(e.target) && sidebar.classList.contains('expanded')) {
+                sidebar.classList.remove('expanded');
+            }
+        }
+    });
+    
+    // Responsive behavior
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            sidebar.classList.remove('expanded');
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Table of Contents Generator
     if (content && tocNav) {
         const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
         
@@ -360,14 +464,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 heading.id = id;
                 
                 const level = parseInt(heading.tagName.charAt(1));
-                const indent = (level - 2) * 1;
+                const indent = Math.max(0, level - 2) * 1; // H2'den başlat
                 
                 tocHTML += `<a href="#${id}" style="margin-left: ${indent}rem" class="toc-link">${heading.textContent}</a>`;
             });
             
             tocNav.innerHTML = tocHTML;
             
-            // Smooth scroll için event listener
+            // Smooth scroll ve mobile close
             tocNav.addEventListener('click', function(e) {
                 if (e.target.classList.contains('toc-link')) {
                     e.preventDefault();
@@ -383,13 +487,73 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Active state güncelle
                         tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
                         e.target.classList.add('active');
+                        
+                        // Mobile'da sidebar'ı kapat
+                        if (window.innerWidth <= 768) {
+                            sidebar.classList.remove('expanded');
+                        }
                     }
                 }
             });
             
+            // Scroll spy - sadece desktop'ta
+            if (window.innerWidth > 768) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const id = entry.target.id;
+                        const navLink = tocNav.querySelector(`a[href="#${id}"]`);
+                        if (navLink) {
+                            if (entry.isIntersecting) {
+                                tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                                navLink.classList.add('active');
+                            }
+                        }
+                    });
+                }, {
+                    rootMargin: '-20% 0px -70% 0px'
+                });
+                
+                headings.forEach(heading => {
+                    observer.observe(heading);
+                });
+            }
+            
         } else {
             document.querySelector('.toc-sidebar').style.display = 'none';
         }
+    }
+    
+    // Auto-adjust sidebar position on scroll (desktop only)
+    if (window.innerWidth > 768) {
+        let ticking = false;
+        
+        function updateSidebarPosition() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Sidebar'ın pozisyonunu ayarla
+            if (scrollTop + windowHeight >= documentHeight - 100) {
+                sidebar.style.top = 'auto';
+                sidebar.style.bottom = '2rem';
+                sidebar.style.transform = 'none';
+            } else {
+                sidebar.style.top = '50%';
+                sidebar.style.bottom = 'auto';
+                sidebar.style.transform = 'translateY(-50%)';
+            }
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateSidebarPosition);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
     }
 });
 </script>
