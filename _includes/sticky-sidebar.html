@@ -353,7 +353,7 @@
 </aside>
 
 <script>
-// Table of Contents Generator
+// Table of Contents Generator - Fixed Version
 document.addEventListener('DOMContentLoaded', function() {
     const content = document.querySelector('.blog-post-content');
     const tocNav = document.querySelector('.toc-nav');
@@ -368,32 +368,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 heading.id = id;
                 
                 const level = parseInt(heading.tagName.charAt(1));
-                const indent = (level - 2) * 1; // H2'den başlat
+                const indent = (level - 2) * 1;
                 
-                tocHTML += `<a href="#${id}" style="margin-left: ${indent}rem">${heading.textContent}</a>`;
+                tocHTML += `<a href="#${id}" style="margin-left: ${indent}rem" class="toc-link">${heading.textContent}</a>`;
             });
             
             tocNav.innerHTML = tocHTML;
             
-            // Scroll spy functionality
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.id;
-                    const navLink = tocNav.querySelector(`a[href="#${id}"]`);
-                    if (navLink) {
-                        if (entry.isIntersecting) {
-                            tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-                            navLink.classList.add('active');
-                        }
+            // Smooth scroll için event listener
+            tocNav.addEventListener('click', function(e) {
+                if (e.target.classList.contains('toc-link')) {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Active state güncelle
+                        tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                        e.target.classList.add('active');
                     }
-                });
-            }, {
-                rootMargin: '-20% 0px -70% 0px'
+                }
             });
             
-            headings.forEach(heading => {
-                observer.observe(heading);
-            });
         } else {
             document.querySelector('.toc-sidebar').style.display = 'none';
         }
