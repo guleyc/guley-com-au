@@ -68,7 +68,7 @@ body{
   justify-content: flex-start; /* Başlığı sola yaslamak için */
   padding: 15px 25px; /* İç boşlukları artırdık */
   margin-bottom: 0; /* Postlar arası boşluk */
-  height: 120px; /* Yüksekliği biraz artırmak daha iyi bir görünüm sağlayabilir */
+  height: 100px; /* Yüksekliği biraz artırmak daha iyi bir görünüm sağlayabilir */
 
   /* Arka Plan Fotoğrafı Ayarları */
   background-size: cover; /* Fotoğrafı kutuya tam sığdırır, boşluk bırakmaz */
