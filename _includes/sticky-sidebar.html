@@ -192,7 +192,7 @@
     color: #007acc;
 }
 
-/* MOBILE BOTTOM BAR - Mobil Menü Tarzı */
+/* MOBILE BOTTOM SHEET - Modern Tasarım */
 @media (max-width: 768px) {
     .post-sidebar {
         position: fixed;
@@ -201,70 +201,105 @@
         left: 0;
         right: 0;
         width: 100%;
-        height: 60px;
-        max-height: 60px;
+        height: 70px;
+        max-height: 70px;
         border-radius: 0;
         background: var(--bg-color);
         border: none;
         border-top: 1px solid var(--border-color);
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
         transform: none;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 1000;
     }
     
     .post-sidebar.expanded {
-        height: 80vh;
-        max-height: 80vh;
+        height: 85vh;
+        max-height: 85vh;
         overflow-y: auto;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
     }
     
     .sidebar-content {
-        padding: 1rem;
+        padding: 0;
         border: none;
         border-radius: 0;
         box-shadow: none;
         backdrop-filter: none;
         height: 100%;
+        background: transparent;
     }
     
-    /* Mobile Toggle Button */
-    .sidebar-toggle {
+    /* Mobile Button Bar */
+    .mobile-button-bar {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        height: 60px;
-        cursor: pointer;
+        height: 70px;
         background: var(--bg-color);
         border-top: 1px solid var(--border-color);
-        transition: all 0.3s ease;
+        padding: 0 1rem;
     }
     
-    .sidebar-toggle:hover {
-        background: var(--bg-hover-color);
-    }
-    
-    .sidebar-toggle::before {
-        content: "📋 Menu";
-        font-size: 1rem;
-        font-weight: 600;
+    .mobile-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        text-decoration: none;
         color: var(--primary-font-color);
+        font-size: 0.7rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-radius: 8px;
+        min-width: 60px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
     }
     
-    .post-sidebar.expanded .sidebar-toggle::before {
-        content: "✕ Close";
+    .mobile-btn:hover, .mobile-btn.active {
+        background: var(--bg-hover-color);
+        color: #007acc;
+    }
+    
+    .mobile-btn .icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
     }
     
     /* Mobile Content */
     .mobile-content {
         display: none;
         padding: 1rem;
-        height: calc(100% - 60px);
+        height: calc(100% - 70px);
         overflow-y: auto;
+        background: var(--bg-color);
     }
     
     .post-sidebar.expanded .mobile-content {
         display: block;
+    }
+    
+    /* Mobile Sheet Handle */
+    .mobile-sheet-handle {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: var(--border-color);
+        border-radius: 2px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .post-sidebar.expanded .mobile-sheet-handle {
+        opacity: 1;
     }
     
     /* Mobile Sections */
@@ -272,12 +307,59 @@
     .tags-sidebar,
     .toc-sidebar {
         margin-bottom: 1.5rem;
-        padding: 0.8rem;
+        padding: 1rem;
+        border-radius: 8px;
     }
     
     .tags-list {
         flex-direction: row;
         flex-wrap: wrap;
+    }
+    
+    /* Mobile Backdrop */
+    .mobile-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    .post-sidebar.expanded + .mobile-backdrop {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile Close Button */
+    .mobile-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: var(--bg-hover-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+    
+    .post-sidebar.expanded .mobile-close {
+        opacity: 1;
+    }
+    
+    .mobile-close:hover {
+        background: var(--border-color);
     }
 }
 
@@ -292,7 +374,7 @@
         z-index: 1000;
     }
     
-    .sidebar-toggle {
+    .mobile-button-bar {
         display: none;
     }
     
@@ -312,7 +394,7 @@
         z-index: 1000;
     }
     
-    .sidebar-toggle {
+    .mobile-button-bar {
         display: none;
     }
     
@@ -362,25 +444,61 @@
     color: var(--bg-color);
 }
 
-[data-theme="dark"] .sidebar-toggle {
+[data-theme="dark"] .mobile-button-bar {
     background: var(--bg-color);
     border-color: var(--border-color);
 }
 
-[data-theme="dark"] .sidebar-toggle:hover {
+[data-theme="dark"] .mobile-btn:hover, 
+[data-theme="dark"] .mobile-btn.active {
     background: var(--bg-hover-color);
+}
+
+[data-theme="dark"] .mobile-backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .mobile-close {
+    background: var(--bg-hover-color);
+}
+
+[data-theme="dark"] .mobile-close:hover {
+    background: var(--border-color);
 }
 </style>
 
 <aside class="post-sidebar">
     <div class="sidebar-content">
-        <!-- Mobile Toggle Button -->
-        <div class="sidebar-toggle"></div>
+        <!-- Mobile Button Bar -->
+        <div class="mobile-button-bar">
+            <button class="mobile-btn" data-section="info">
+                <span class="icon">📖</span>
+                <span>Info</span>
+            </button>
+            <button class="mobile-btn" data-section="tags">
+                <span class="icon">🏷️</span>
+                <span>Tags</span>
+            </button>
+            <button class="mobile-btn" data-section="toc">
+                <span class="icon">📑</span>
+                <span>Contents</span>
+            </button>
+            <button class="mobile-btn" data-section="all">
+                <span class="icon">☰</span>
+                <span>All</span>
+            </button>
+        </div>
+        
+        <!-- Mobile Sheet Handle -->
+        <div class="mobile-sheet-handle"></div>
+        
+        <!-- Mobile Close Button -->
+        <button class="mobile-close">✕</button>
         
         <!-- Mobile Content Wrapper -->
         <div class="mobile-content">
             <!-- Meta Bilgiler -->
-            <div class="post-meta-sidebar">
+            <div class="post-meta-sidebar" data-section="info">
                 <h4>📖 Article Info</h4>
                 <div class="meta-item">
                     <span class="meta-label">Published:</span>
@@ -400,7 +518,7 @@
 
             <!-- Tags -->
             {% if page.tags and page.tags.size > 0 %}
-            <div class="tags-sidebar">
+            <div class="tags-sidebar" data-section="tags">
                 <h4>🏷️ Tags</h4>
                 <div class="tags-list">
                     {% for tag in page.tags %}
@@ -411,7 +529,7 @@
             {% endif %}
 
             <!-- Table of Contents -->
-            <div class="toc-sidebar">
+            <div class="toc-sidebar" data-section="toc">
                 <h4>📑 Table of Contents</h4>
                 <nav class="toc-nav"></nav>
             </div>
@@ -419,35 +537,118 @@
     </div>
 </aside>
 
+<!-- Mobile Backdrop -->
+<div class="mobile-backdrop"></div>
+
 <script>
-// Responsive Sticky Sidebar - Full JavaScript Solution
+// Modern Bottom Sheet Sidebar - Enhanced JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.post-sidebar');
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const mobileButtons = document.querySelectorAll('.mobile-btn');
+    const mobileClose = document.querySelector('.mobile-close');
+    const mobileBackdrop = document.querySelector('.mobile-backdrop');
     const mobileContent = document.querySelector('.mobile-content');
     const content = document.querySelector('.blog-post-content');
     const tocNav = document.querySelector('.toc-nav');
+    let currentSection = 'all';
     
-    // Mobile Toggle Functionality
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('expanded');
+    // Mobile Button Click Handler
+    mobileButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const section = this.dataset.section;
+            
+            if (section === 'all') {
+                // Show all sections
+                sidebar.classList.add('expanded');
+                showAllSections();
+            } else {
+                // Show specific section
+                sidebar.classList.add('expanded');
+                showSection(section);
+            }
+            
+            // Update active button
+            mobileButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentSection = section;
+        });
+    });
+    
+    // Close handlers
+    mobileClose.addEventListener('click', closeSidebar);
+    mobileBackdrop.addEventListener('click', closeSidebar);
+    
+    function closeSidebar() {
+        sidebar.classList.remove('expanded');
+        mobileButtons.forEach(b => b.classList.remove('active'));
+        currentSection = 'all';
+    }
+    
+    function showSection(section) {
+        const sections = mobileContent.querySelectorAll('[data-section]');
+        sections.forEach(s => {
+            if (s.dataset.section === section) {
+                s.style.display = 'block';
+            } else {
+                s.style.display = 'none';
+            }
         });
     }
     
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            if (!sidebar.contains(e.target) && sidebar.classList.contains('expanded')) {
-                sidebar.classList.remove('expanded');
-            }
+    function showAllSections() {
+        const sections = mobileContent.querySelectorAll('[data-section]');
+        sections.forEach(s => s.style.display = 'block');
+    }
+    
+    // ESC key to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('expanded')) {
+            closeSidebar();
         }
+    });
+    
+    // Touch/Swipe to close
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+    
+    sidebar.addEventListener('touchstart', function(e) {
+        if (sidebar.classList.contains('expanded')) {
+            startY = e.touches[0].clientY;
+            dragging = true;
+        }
+    });
+    
+    sidebar.addEventListener('touchmove', function(e) {
+        if (!dragging) return;
+        
+        currentY = e.touches[0].clientY;
+        const diff = currentY - startY;
+        
+        if (diff > 0) {
+            sidebar.style.transform = `translateY(${diff}px)`;
+        }
+    });
+    
+    sidebar.addEventListener('touchend', function(e) {
+        if (!dragging) return;
+        
+        const diff = currentY - startY;
+        
+        if (diff > 100) {
+            closeSidebar();
+        }
+        
+        sidebar.style.transform = '';
+        dragging = false;
     });
     
     // Responsive behavior
     function handleResize() {
         if (window.innerWidth > 768) {
             sidebar.classList.remove('expanded');
+            mobileButtons.forEach(b => b.classList.remove('active'));
+            showAllSections();
         }
     }
     
@@ -464,14 +665,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 heading.id = id;
                 
                 const level = parseInt(heading.tagName.charAt(1));
-                const indent = Math.max(0, level - 2) * 1; // H2'den başlat
+                const indent = Math.max(0, level - 2) * 1;
                 
                 tocHTML += `<a href="#${id}" style="margin-left: ${indent}rem" class="toc-link">${heading.textContent}</a>`;
             });
             
             tocNav.innerHTML = tocHTML;
             
-            // Smooth scroll ve mobile close
+            // TOC Click Handler
             tocNav.addEventListener('click', function(e) {
                 if (e.target.classList.contains('toc-link')) {
                     e.preventDefault();
@@ -490,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         // Mobile'da sidebar'ı kapat
                         if (window.innerWidth <= 768) {
-                            sidebar.classList.remove('expanded');
+                            closeSidebar();
                         }
                     }
                 }
@@ -517,43 +718,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     observer.observe(heading);
                 });
             }
-            
         } else {
             document.querySelector('.toc-sidebar').style.display = 'none';
         }
     }
     
-    // Auto-adjust sidebar position on scroll (desktop only)
-    if (window.innerWidth > 768) {
-        let ticking = false;
-        
-        function updateSidebarPosition() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            
-            // Sidebar'ın pozisyonunu ayarla
-            if (scrollTop + windowHeight >= documentHeight - 100) {
-                sidebar.style.top = 'auto';
-                sidebar.style.bottom = '2rem';
-                sidebar.style.transform = 'none';
-            } else {
-                sidebar.style.top = '50%';
-                sidebar.style.bottom = 'auto';
-                sidebar.style.transform = 'translateY(-50%)';
-            }
-            
-            ticking = false;
-        }
-        
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateSidebarPosition);
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', requestTick);
-    }
+    // Initialize
+    showAllSections();
 });
 </script>
