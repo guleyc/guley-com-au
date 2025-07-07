@@ -484,7 +484,7 @@
                 <h4>📖 Article Info</h4>
                 <div class="meta-item">
                     <span class="meta-label">Published:</span>
-                    <span class="meta-value">{{ page.date | date: "%d.%m.%Y" }}</span>
+                    <time class="meta-value" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Reading Time:</span>
