@@ -16,19 +16,18 @@ layout: default
 	</script>
 	{% endif %}
 
-	<div class="post-header">
-		<div class="left">
-			<span>Reading time: {{ reading_time }} minutes</span>
-			{% include breadcrumbs.html %}
-		</div>
-
-		<div class="post-date" itemprop="datePublished">{{ page.date | date: "%d.%m.%Y" }}</div>
-	</div>
-
 	<div class="blog-post-title" itemprop="name headline">
 		<h1>{{page.title}}</h1>
 	</div>
 
+	<div class="post-header">
+		<div class="left">
+			<span>Reading time: {{ reading_time }} minutes</span>
+		</div>
+
+		<div class="post-date" itemprop="datePublished">{{ page.date | date: "%d.%m.%Y" }}</div>
+	</div>
+	<div class="breadcrumbs">{% include breadcrumbs.html %}</div>
 	<div class="blog-post-content" itemprop="articleBody">
 		{{ content }}
 	</div>
