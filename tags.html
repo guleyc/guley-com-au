@@ -5,7 +5,6 @@ permalink: /tags/
 ---
 
 <style>
-/* Mevcut stilleriniz aynı kalır */
 .tag-wall-container {
     display: flex;
     flex-wrap: wrap;
@@ -42,13 +41,11 @@ permalink: /tags/
     border: 3px solid #fff;
 }
 
-/* Boyutlar aynı kalır */
-.tag-block.level-1 { min-height: 30px; padding: 10px; font-size: 1rem; flex-basis: 120px; }
+.tag-block.level-1 { min-height: 60px; padding: 10px; font-size: 1rem; flex-basis: 120px; }
 .tag-block.level-2 { min-height: 100px; padding: 15px; font-size: 1.2rem; flex-basis: 160px; }
 .tag-block.level-3 { min-height: 120px; padding: 20px; font-size: 1.5rem; flex-basis: 220px; }
 .tag-block.level-4 { min-height: 140px; padding: 25px; font-size: 1.8rem; font-weight: 700; flex-basis: 280px; }
 
-/* Renkler aynı kalır */
 .tag-block:nth-child(7n+1) { background-color: #1abc9c; }
 .tag-block:nth-child(7n+2) { background-color: #3498db; }
 .tag-block:nth-child(7n+3) { background-color: #9b59b6; }
@@ -57,7 +54,6 @@ permalink: /tags/
 .tag-block:nth-child(7n+6) { background-color: #e74c3c; }
 .tag-block:nth-child(7n+7) { background-color: #34495e; }
 
-/* Yazı listesi stilleri */
 .posts-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -145,9 +141,9 @@ permalink: /tags/
             {%- assign tag_level = "level-4" -%}
         {%- endif -%}
 
-        <div class="tag-block {{ tag_level }}" data-tag="{{ tag_name | slugify }}" onclick="filterByTag('{{ tag_name | slugify }}', '{{ tag_name }}')">
+        <a href="#{{ tag_name | slugify }}" class="tag-block {{ tag_level }}" data-tag="{{ tag_name | slugify }}" onclick="filterByTag('{{ tag_name | slugify }}', this.dataset.tagName)" data-tag-name="{{ tag_name }}">
             <span>{{ tag_name }} ({{ tag_size }})</span>
-        </div>
+        </a>
     {% endfor %}
 </div>
 
@@ -155,29 +151,24 @@ permalink: /tags/
 
 <div class="posts-container" id="posts-container">
     <h2 id="selected-tag-title"></h2>
-    <div id="posts-list"></div>
+    <div id="posts-list">
+        {% for tag in site.tags %}
+            <div class="tag-posts" data-tag="{{ tag[0] | slugify }}" style="display: none;">
+                {% for post in tag[1] %}
+                    <div class="post-item">
+                        <div class="post-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </div>
+                        <div class="post-meta">Published: {{ post.date | date: '%d.%m.%Y' }}</div>
+                        <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 <script>
-// Tag verileri
-const tagData = {
-    {% for tag in site.tags %}
-    "{{ tag[0] | slugify }}": {
-        name: "{{ tag[0] }}",
-        posts: [
-            {% for post in tag[1] %}
-            {
-                title: "{{ post.title | escape }}",
-                url: "{{ post.url | relative_url }}",
-                date: "{{ post.date | date: '%d.%m.%Y' }}",
-                excerpt: "{{ post.excerpt | strip_html | truncate: 150 | escape }}"
-            }{% unless forloop.last %},{% endunless %}
-            {% endfor %}
-        ]
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-};
-
 function filterByTag(tagSlug, tagName) {
     // Tüm tag'leri deaktif et
     document.querySelectorAll('.tag-block').forEach(block => {
@@ -185,11 +176,14 @@ function filterByTag(tagSlug, tagName) {
     });
     
     // Seçili tag'i aktif et
-    document.querySelector(`[data-tag="${tagSlug}"]`).classList.add('active');
+    const activeTag = document.querySelector(`[data-tag="${tagSlug}"]`);
+    if (activeTag) {
+        activeTag.classList.add('active');
+        tagName = activeTag.dataset.tagName;
+    }
     
     // Posts container'ı göster
     const postsContainer = document.getElementById('posts-container');
-    const postsList = document.getElementById('posts-list');
     const titleElement = document.getElementById('selected-tag-title');
     const resetBtn = document.querySelector('.reset-btn');
     
@@ -198,23 +192,16 @@ function filterByTag(tagSlug, tagName) {
     
     titleElement.textContent = `Posts tagged with "${tagName}"`;
     
-    // Posts'ları listele
-    const posts = tagData[tagSlug].posts;
-    let postsHTML = '';
-    
-    posts.forEach(post => {
-        postsHTML += `
-            <div class="post-item">
-                <div class="post-title">
-                    <a href="${post.url}">${post.title}</a>
-                </div>
-                <div class="post-meta">Published: ${post.date}</div>
-                <div class="post-excerpt">${post.excerpt}</div>
-            </div>
-        `;
+    // Tüm post gruplarını gizle
+    document.querySelectorAll('.tag-posts').forEach(group => {
+        group.style.display = 'none';
     });
     
-    postsList.innerHTML = postsHTML;
+    // Seçili tag'in postlarını göster
+    const targetPosts = document.querySelector(`[data-tag="${tagSlug}"].tag-posts`);
+    if (targetPosts) {
+        targetPosts.style.display = 'block';
+    }
     
     // Smooth scroll to posts
     postsContainer.scrollIntoView({ behavior: 'smooth' });
@@ -232,6 +219,11 @@ function resetFilter() {
     document.getElementById('posts-container').classList.remove('active');
     document.querySelector('.reset-btn').classList.remove('active');
     
+    // Tüm post gruplarını gizle
+    document.querySelectorAll('.tag-posts').forEach(group => {
+        group.style.display = 'none';
+    });
+    
     // URL'yi temizle
     window.history.pushState(null, null, '/tags/');
     
@@ -242,8 +234,11 @@ function resetFilter() {
 // Page load'da URL hash kontrol et
 document.addEventListener('DOMContentLoaded', function() {
     const hash = window.location.hash.substr(1);
-    if (hash && tagData[hash]) {
-        filterByTag(hash, tagData[hash].name);
+    if (hash) {
+        const tagElement = document.querySelector(`[data-tag="${hash}"]`);
+        if (tagElement) {
+            filterByTag(hash, tagElement.dataset.tagName);
+        }
     }
 });
 </script>
