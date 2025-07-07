@@ -111,10 +111,29 @@
 .toc-nav { 
     font-size: 0.8rem; 
     line-height: 1.5; 
-    max-height: 300px; 
-    overflow-y: auto; 
     scrollbar-width: thin; 
     scrollbar-color: var(--border-color) transparent; 
+}
+
+/* Desktop TOC - Full height, auto scroll */
+@media (min-width: 769px) {
+    .toc-nav {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+/* Mobile TOC - No height limit, full expansion */
+@media (max-width: 768px) {
+    .toc-nav {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
+    .mobile-content .toc-sidebar {
+        /* Remove height constraints on mobile */
+        max-height: none;
+    }
 }
 
 .toc-nav::-webkit-scrollbar { width: 3px; }
@@ -129,6 +148,7 @@
     border-left: 2px solid transparent; 
     border-radius: 4px; 
     transition: background 0.2s ease, border-color 0.2s ease; 
+    margin-bottom: 0.1rem;
 }
 
 .toc-nav a:hover { 
@@ -171,8 +191,8 @@
     }
     
     .post-sidebar.expanded {
-        height: 85vh;
-        max-height: 85vh;
+        height: 90vh;
+        max-height: 90vh;
         border-radius: 16px 16px 0 0;
         box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
     }
@@ -223,7 +243,7 @@
     
     .mobile-content { 
         display: none; 
-        padding: 1.5rem 1rem; 
+        padding: 1.5rem 1rem 2rem 1rem;
         height: calc(100% - 70px); 
         overflow-y: auto; 
         background: var(--bg-color); 
@@ -493,6 +513,31 @@ document.addEventListener('DOMContentLoaded', function() {
         button.classList.add('active');
     };
 
+    // === AUTO SCROLL TO ACTIVE TOC ITEM ===
+    const scrollToActiveTocItem = (activeLink) => {
+        if (!activeLink || !tocNav) return;
+        
+        // Only on desktop
+        if (window.innerWidth <= 768) return;
+        
+        const tocNavRect = tocNav.getBoundingClientRect();
+        const activeLinkRect = activeLink.getBoundingClientRect();
+        
+        // Calculate if the active item is outside the visible area
+        const isAbove = activeLinkRect.top < tocNavRect.top;
+        const isBelow = activeLinkRect.bottom > tocNavRect.bottom;
+        
+        if (isAbove || isBelow) {
+            // Calculate scroll position to center the active item
+            const scrollTop = activeLink.offsetTop - (tocNav.clientHeight / 2) + (activeLink.clientHeight / 2);
+            
+            tocNav.scrollTo({
+                top: scrollTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     // === TABLE OF CONTENTS ===
     const destroyTocObserver = () => {
         if (tocObserver) {
@@ -504,18 +549,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const initTocObserver = () => {
         destroyTocObserver();
         
-        // Skip on mobile or if no content
+        // Skip if no content
         if (!mainContent) return;
 
         const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
         if (!headings.length) return;
 
         tocObserver = new IntersectionObserver((entries) => {
+            let mostVisibleEntry = null;
+            let maxVisibilityRatio = 0;
+            
+            // Find the most visible heading
             entries.forEach(entry => {
-                const id = entry.target.id;
+                if (entry.isIntersecting && entry.intersectionRatio > maxVisibilityRatio) {
+                    maxVisibilityRatio = entry.intersectionRatio;
+                    mostVisibleEntry = entry;
+                }
+            });
+            
+            // If we have a most visible entry, update active state
+            if (mostVisibleEntry) {
+                const id = mostVisibleEntry.target.id;
                 const navLink = tocNav?.querySelector(`a[href="#${id}"]`);
                 
-                if (navLink && entry.isIntersecting) {
+                if (navLink) {
                     // Remove all active states
                     tocNav.querySelectorAll('a').forEach(a => {
                         a.classList.remove('active');
@@ -525,11 +582,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Set new active state
                     navLink.classList.add('active');
                     navLink.setAttribute('aria-current', 'location');
+                    
+                    // Auto scroll to active item on desktop
+                    scrollToActiveTocItem(navLink);
                 }
-            });
+            }
         }, {
-            rootMargin: '-10% 0px -80% 0px',
-            threshold: 0.1
+            rootMargin: '-10% 0px -60% 0px',
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
         });
         
         headings.forEach(heading => tocObserver.observe(heading));
