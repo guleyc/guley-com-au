@@ -1,99 +1,121 @@
 ---
 layout: default
-title: Tags
+title: Tag Wall
 permalink: /tags/
 ---
+
+{%- comment -%}
+Bu sayfadaki ana mantık şudur:
+1. Sitedeki TÜM gönderileri (`site.posts`) tek tek geziyoruz.
+2. Her gönderinin içindeki etiketleri (`post.tags`) tek tek geziyoruz.
+3. Bu sayede her bir etiket, ait olduğu gönderiyle birlikte bir eleman haline geliyor.
+4. Etiketin genel popülerliğine göre boyut atıyoruz.
+5. Her blok, etiketin ait olduğu gönderiye link veriyor.
+{%- endcomment -%}
 <style>
-/* tags.html - Etiket Bulutu Stilleri */
+	/* Etiket Duvarı (Tag Wall) Stilleri */
 
-.tag-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 15px; /* Dikey ve yatay boşluklar */
-  padding: 20px 0;
-  list-style: none;
-  margin: 0;
-  justify-content: center; /* Etiketleri ortalamak için */
-  align-items: center; /* Dikeyde hizalamak için */
+.tag-wall-container {
+    display: flex; /* Ana konteyneri flex yapıyoruz */
+    flex-wrap: wrap; /* Bloklar sığmazsa alt satıra geçsin */
+    justify-content: center; /* Blokları yatayda ortala */
+    align-items: stretch; /* Blokların yüksekliklerini eşitlemeye yardımcı olur */
+    gap: 10px; /* Bloklar arası boşluk */
+    padding: 20px 10px; /* Sayfa kenarlarından boşluk */
+    width: 100%;
 }
 
-.tag-cloud .tag {
-  display: inline-block;
-  color: var(--primary-font-color);
-  padding: 6px 15px;
-  border-radius: 4px; /* Daha modern, hafif köşeli */
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-color, #eee);
-  white-space: nowrap; /* Etiketlerin bölünmesini engeller */
+.tag-block {
+    display: flex; /* İçindeki metni ortalamak için */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; /* Tüm metinler beyaz olacak */
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-grow: 1; /* Esnek büyüme */
 }
 
-.tag-cloud .tag:hover {
-  transform: scale(1.1);
-  border-color: #3498db; /* Veya temanızın ana rengi */
-  background-color: #3498db;
-  color: #fff;
-  z-index: 10;
-  position: relative;
+.tag-block:hover {
+    transform: scale(1.05); /* Üzerine gelince hafifçe büyüsün */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 2; /* Diğerlerinin üzerine çıksın */
 }
 
-/* Farklı Seviyeler İçin Boyut ve Ağırlık Ayarları */
+/* 1. Popülerliğe Göre Boyutlandırma */
 
-.tag.level-1 {
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #666; /* Daha az önemli etiketler için soluk renk */
+.tag-block.level-1 {
+    min-height: 80px;
+    padding: 10px;
+    font-size: 1rem;
+    flex-basis: 120px; /* Minimum genişlik */
 }
 
-.tag.level-2 {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 8px 18px;
+.tag-block.level-2 {
+    min-height: 100px;
+    padding: 15px;
+    font-size: 1.2rem;
+    flex-basis: 160px;
 }
 
-.tag.level-3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-color: var(--primary-font-color, #555);
+.tag-block.level-3 {
+    min-height: 120px;
+    padding: 20px;
+    font-size: 1.5rem;
+    flex-basis: 220px;
 }
 
-.tag.level-4 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  padding: 12px 24px;
-  background-color: var(--primary-font-color, #333);
-  color: var(--bg-color, #fff);
-  border: 1px solid transparent;
+.tag-block.level-4 {
+    min-height: 140px;
+    padding: 25px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    flex-basis: 280px;
+}
+
+
+/* 2. "Rastgele" Renk Ataması */
+/* nth-child kullanarak 7'li bir renk paletini sürekli döndürüyoruz. */
+/* Bu, tam bir rastgelelik olmasa da görsel olarak öyle bir his verir ve çok daha performanslıdır. */
+
+.tag-block:nth-child(7n+1) { background-color: #1abc9c; } /* Turkuaz */
+.tag-block:nth-child(7n+2) { background-color: #3498db; } /* Mavi */
+.tag-block:nth-child(7n+3) { background-color: #9b59b6; } /* Mor */
+.tag-block:nth-child(7n+4) { background-color: #e67e22; } /* Turuncu */
+.tag-block:nth-child(7n+5) { background-color: #f1c40f; } /* Sarı (Metin rengini siyah yapabiliriz) */
+.tag-block:nth-child(7n+6) { background-color: #e74c3c; } /* Kırmızı */
+.tag-block:nth-child(7n+7) { background-color: #34495e; } /* Koyu Mavi */
+
+/* Sarı gibi açık renkler için metin rengini koyu yapalım */
+.tag-block:nth-child(7n+5) {
+    color: #333;
 }
 </style>
-<div class="tags-list tag-cloud">
-    {% for tag in sorted_tags %}
-        {%- assign tag_name = tag[0] -%}
-        {%- assign tag_size = tag[1].size -%}
+<div class="tag-wall-container">
+    {% for post in site.posts %}
+        {% for tag_name in post.tags %}
+            
+            {%- comment -%} Etiketin genel boyutunu (kaç yazıda geçtiğini) bulalım {%- endcomment -%}
+            {%- assign tag_size = site.tags[tag_name].size -%}
 
-        {%- comment -%}
-            Etiketin yazı sayısına göre bir "seviye" belirliyoruz.
-            Bu seviyeler, CSS'te farklı boyutları temsil edecek.
-            Sayıları kendi sitenizdeki etiket yoğunluğuna göre ayarlayabilirsiniz.
-        {%- endcomment -%}
-        {%- if tag_size <= 2 -%}
-            {%- assign tag_level = "level-1" -%}
-        {%- elsif tag_size <= 5 -%}
-            {%- assign tag_level = "level-2" -%}
-        {%- elsif tag_size <= 10 -%}
-            {%- assign tag_level = "level-3" -%}
-        {%- else -%}
-            {%- assign tag_level = "level-4" -%}
-        {%- endif -%}
+            {%- comment -%} Popülerliğe göre bir boyut seviyesi atayalım {%- endcomment -%}
+            {%- if tag_size <= 2 -%}
+                {%- assign tag_level = "level-1" -%}
+            {%- elsif tag_size <= 5 -%}
+                {%- assign tag_level = "level-2" -%}
+            {%- elsif tag_size <= 10 -%}
+                {%- assign tag_level = "level-3" -%}
+            {%- else -%}
+                {%- assign tag_level = "level-4" -%}
+            {%- endif -%}
 
-        {%- comment -%}
-            Etiketin linkini oluştururken, atadığımız seviyeyi bir CSS sınıfı
-            olarak ekliyoruz. Artık yazı sayısını göstermeye gerek yok,
-            çünkü boyut zaten bu bilgiyi görsel olarak veriyor.
-        {%- endcomment -%}
-        <a href="#{{ tag_name | cgi_escape }}" class="tag {{ tag_level }}">
-            {{ tag_name }}
-        </a>
+            {%- comment -%} Her etiketi, ait olduğu posta link veren bir blok olarak oluşturalım {%- endcomment -%}
+            <a href="{{ post.url | relative_url }}" class="tag-block {{ tag_level }}">
+                <span>{{ tag_name }}</span>
+            </a>
+
+        {% endfor %}
     {% endfor %}
 </div>
