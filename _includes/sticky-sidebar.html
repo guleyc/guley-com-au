@@ -200,20 +200,20 @@
                 {% endif %}
             </div>
 
-                {% if page.tags and page.tags.size > 0 %}
-                <div class="tags-sidebar" data-section="tags">
-                    <h4>🏷️ Tags</h4>
-                    <div class="tags-list">
-                        {% for tag in page.tags %}
-                            <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" 
-                            class="sidebar-tag"
-                            title="View all posts tagged with {{ tag }}">
-                            {{ tag }}
-                            </a>
-                        {% endfor %}
-                    </div>
+            {% if page.tags and page.tags.size > 0 %}
+            <div class="tags-sidebar" data-section="tags">
+                <h4>🏷️ Tags</h4>
+                <div class="tags-list">
+                    {% for tag in page.tags %}
+                        <a href="{{ site.baseurl | default: '' }}/tags/#{{ tag | slugify | downcase }}" 
+               class="sidebar-tag"
+               title="View all posts tagged with {{ tag }}">
+               {{ tag }}
+            </a>
+                    {% endfor %}
                 </div>
-                {% endif %}
+            </div>
+            {% endif %}
 
             <div class="toc-sidebar" data-section="toc">
                 <h4>📑 Table of Contents</h4>
