@@ -1,6 +1,6 @@
 ---
 title: "From Grit to Gigabytes: Charting the Four Revolutions of Mining"
-date: '2025-04-21T00:27:04+00:00'
+date: '2025-07-01T00:27:04+00:00'
 author: Cagatay Guley
 layout: post
 permalink: /from-grit-to-gigabytes/
