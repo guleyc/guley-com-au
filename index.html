@@ -4,7 +4,7 @@ layout: default
 <div class="post-container">
 	{% for post in paginator.posts %}
         <a class="post-card-link" href="{{ site.url }}{{ post.url }}">
-            {%- assign post_image_url = post.image | prepend: '/assets/images/' | relative_url -%}
+            {%- assign post_image_url = post.image | prepend: '/_upload/' | relative_url -%}
             <div class="post-list" style="background-image: url('{{ post_image_url }}');">
                 <span class="post-title">{{ post.title }}</span>
             </div>

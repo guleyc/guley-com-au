@@ -8,7 +8,7 @@ redirect_from:
   - /blast-design-and-optimization-in-open-pit-mining
 categories: [mining]
 tags: [blast, design, open-pit, mining]
-image: ephesus.jpg
+image: blast.webp
 ---
 
 ## Introduction
