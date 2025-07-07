@@ -7,6 +7,7 @@ description: >-
 lang: en-US
 timezone:  Europe/Istanbul
 repo: https://github.com/guleyc # site repo [optional]
+logo: assets/images/logo.svg # Put your logo here
 # google_verify:      XXX # Put your Google Verification here
 google_analytics:   UA-XXXXXXXX-00 # Put your Google Analytics code
 # discus-identifier:  

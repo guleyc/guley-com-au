@@ -1,9 +1,7 @@
 ---
 layout: default
 ---
-{%- comment -%}
-    Okuma süresi hesaplaması. Ortalama bir insan dakikada 180 kelime okur.
-{%- endcomment -%}
+{%- comment -%} Okuma süresi hesaplaması {%- endcomment -%}
 {%- assign words = content | number_of_words -%}
 {%- if words < 360 -%}
   {%- assign reading_time = "1" -%}
@@ -14,19 +12,19 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-hero">
+    {%- comment -%} Her gönderinin Front Matter'ında 'image: /path/to/image.jpg' olmalı {%- endcomment -%}
     {%- if page.image -%}
       <div class="post-hero-image" style="background-image: url('{{ page.image | relative_url }}')"></div>
     {%- endif -%}
     <div class="post-hero-content">
       <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-      
       <section class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
           {{ page.date | date: "%d.%m.%Y" }}
         </time>
         <span class="meta-separator">&bull;</span>
         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <span itemprop="name">{{ site.author.name | default: "Çağatay Güley" }}</span>
+          <span itemprop="name">{{ site.author.name }}</span>
         </span>
         <span class="meta-separator">&bull;</span>
         <span>{{ reading_time }} dk okuma süresi</span>
@@ -43,7 +41,7 @@ layout: default
         <div class="tags-container">
             <strong>Etiketler:</strong>
             {% for tag in page.tags %}
-                <a href="{{ site.url }}/tags/#{{tag | cgi_escape}}" class="post-tag">{{tag}}</a>{% unless forloop.last %}&nbsp;{% endunless %}
+                <a href="{{ '/tags/#' | relative_url | append: (tag | cgi_escape) }}" class="post-tag">{{tag}}</a>{% unless forloop.last %}&nbsp;{% endunless %}
             {% endfor %}
         </div>
         <div class="post-share">
@@ -56,11 +54,15 @@ layout: default
   </div>
 
   <aside class="author-box">
-      <img src="{{ site.author.avatar | relative_url | default: '/assets/images/cagatay.jpg' }}" alt="{{ site.author.name }}" class="author-avatar">
+      {%- comment -%} 
+        HATA DÜZELTMESİ: Senin _config.yml dosyan "picture" anahtarını kullandığı için 
+        burası "site.author.picture" olarak güncellendi.
+      {%- endcomment -%}
+      <img src="{{ site.author.picture | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
       <div>
-          <h4>{{ site.author.name | default: "Çağatay Güley" }}</h4>
-          <p>{{ site.author.bio | default: "İstanbul Teknik Üniversitesi Maden Mühendisliği mezunu. Patlatma tasarımı ve optimizasyonu üzerine uzmanlaşmıştır." }}</p>
-          </div>
+          <h4><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank">{{ site.author.name }}</a></h4>
+          <p>{{ site.author.bio | remove: '<br>' }}</p>
+      </div>
   </aside>
 
   <nav class="post-navigation">
