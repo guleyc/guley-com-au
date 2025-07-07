@@ -1,7 +1,7 @@
 <style>
-/* --- GELİŞTİRİLMİŞ SIDEBAR STİLLERİ --- */
+/* --- SIDEBAR STYLES --- */
 
-/* Genel Layout Ayarları (Bu kısımlar temanızda olabilir, referans için burada) */
+/* Layout Base */
 .post-layout {
     position: relative;
     max-width: 1200px;
@@ -15,7 +15,7 @@
     margin: 0;
 }
 
-/* Sidebar Genel Stili */
+/* Sidebar Core */
 .post-sidebar {
     --sidebar-bg: var(--bg-color);
     --sidebar-border: var(--border-color);
@@ -34,14 +34,19 @@
     height: 100%;
 }
 
-.post-meta-sidebar, .tags-sidebar, .toc-sidebar {
+.post-meta-sidebar, 
+.tags-sidebar, 
+.toc-sidebar {
     margin-bottom: 1.5rem;
     background: var(--bg-color);
     border-radius: 8px;
     padding: 1rem;
     border: 1px solid var(--sidebar-border);
 }
-.post-meta-sidebar:last-child, .tags-sidebar:last-child, .toc-sidebar:last-child {
+
+.post-meta-sidebar:last-child, 
+.tags-sidebar:last-child, 
+.toc-sidebar:last-child {
     margin-bottom: 0;
 }
 
@@ -53,27 +58,99 @@
     padding-bottom: 0.5rem;
 }
 
-.meta-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.85rem; }
-.meta-label { font-weight: 500; }
-.meta-value { color: #666; background: var(--bg-color); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid var(--border-color); }
-.tags-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-.sidebar-tag { display: inline-block; padding: 0.3rem 0.6rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; background: var(--bg-color); color: var(--primary-font-color); border: 1px solid var(--border-color); }
-.sidebar-tag:hover { background: var(--primary-font-color); color: var(--bg-color); border-color: var(--primary-font-color); }
+/* Meta Items */
+.meta-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 0.5rem; 
+    font-size: 0.85rem; 
+}
 
-.toc-nav { font-size: 0.8rem; line-height: 1.5; max-height: 300px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border-color) transparent; }
+.meta-label { 
+    font-weight: 500; 
+}
+
+.meta-value { 
+    color: #666; 
+    background: var(--bg-color); 
+    padding: 0.2rem 0.5rem; 
+    border-radius: 4px; 
+    font-size: 0.8rem; 
+    border: 1px solid var(--border-color); 
+}
+
+/* Tags */
+.tags-list { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 0.5rem; 
+    margin-top: 0.5rem; 
+}
+
+.sidebar-tag { 
+    display: inline-block; 
+    padding: 0.3rem 0.6rem; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    font-weight: 500; 
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; 
+    background: var(--bg-color); 
+    color: var(--primary-font-color); 
+    border: 1px solid var(--border-color); 
+}
+
+.sidebar-tag:hover { 
+    background: var(--primary-font-color); 
+    color: var(--bg-color); 
+    border-color: var(--primary-font-color); 
+}
+
+/* Table of Contents */
+.toc-nav { 
+    font-size: 0.8rem; 
+    line-height: 1.5; 
+    max-height: 300px; 
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--border-color) transparent; 
+}
+
 .toc-nav::-webkit-scrollbar { width: 3px; }
 .toc-nav::-webkit-scrollbar-track { background: transparent; }
 .toc-nav::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
-.toc-nav a { display: block; padding: 0.4rem 0.6rem; color: var(--primary-font-color); text-decoration: none; border-left: 2px solid transparent; border-radius: 4px; transition: background 0.2s ease, border-color 0.2s ease; }
-.toc-nav a:hover { background: var(--bg-hover-color); }
-.toc-nav a.active { border-left-color: #007acc; background: var(--bg-hover-color); font-weight: 600; color: #007acc; }
 
-/* Mobil ve Masaüstü için varsayılan gizleme */
-.mobile-button-bar, .mobile-sheet-handle, .mobile-close, .mobile-backdrop {
+.toc-nav a { 
+    display: block; 
+    padding: 0.4rem 0.6rem; 
+    color: var(--primary-font-color); 
+    text-decoration: none; 
+    border-left: 2px solid transparent; 
+    border-radius: 4px; 
+    transition: background 0.2s ease, border-color 0.2s ease; 
+}
+
+.toc-nav a:hover { 
+    background: var(--bg-hover-color); 
+}
+
+.toc-nav a.active { 
+    border-left-color: #007acc; 
+    background: var(--bg-hover-color); 
+    font-weight: 600; 
+    color: #007acc; 
+}
+
+/* Hide mobile elements by default */
+.mobile-button-bar, 
+.mobile-sheet-handle, 
+.mobile-close, 
+.mobile-backdrop {
     display: none;
 }
 
-/* MOBİL GÖRÜNÜM (BOTTOM SHEET) */
+/* === MOBILE STYLES === */
 @media (max-width: 768px) {
     .post-sidebar {
         position: fixed;
@@ -100,27 +177,120 @@
         box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
     }
     
-    .sidebar-content { padding: 0; border: none; box-shadow: none; backdrop-filter: none; background: transparent; }
+    .sidebar-content { 
+        padding: 0; 
+        border: none; 
+        box-shadow: none; 
+        backdrop-filter: none; 
+        background: transparent; 
+    }
     
-    .mobile-button-bar { display: flex; justify-content: space-around; align-items: center; height: 70px; background: var(--bg-color); border-bottom: 1px solid var(--border-color); padding: 0 1rem; }
-    .mobile-btn { display: flex; flex-direction: column; align-items: center; padding: 0.5rem; color: var(--primary-font-color); font-size: 0.7rem; background: transparent; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
-    .mobile-btn:hover, .mobile-btn.active { background: var(--bg-hover-color); color: #007acc; }
-    .mobile-btn .icon { font-size: 1.4rem; margin-bottom: 0.2rem; }
+    /* Mobile Button Bar - Sadece 3 buton */
+    .mobile-button-bar { 
+        display: flex; 
+        justify-content: space-around; 
+        align-items: center; 
+        height: 70px; 
+        background: var(--bg-color); 
+        border-bottom: 1px solid var(--border-color); 
+        padding: 0 1rem; 
+    }
     
-    .mobile-content { display: none; padding: 1.5rem 1rem; height: calc(100% - 70px); overflow-y: auto; background: var(--bg-color); }
-    .post-sidebar.expanded .mobile-content { display: block; }
+    .mobile-btn { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 0.5rem; 
+        color: var(--primary-font-color); 
+        font-size: 0.7rem; 
+        background: transparent; 
+        border: none; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        transition: background 0.2s ease, color 0.2s ease; 
+    }
     
-    .mobile-sheet-handle { display: block; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 40px; height: 4px; background: var(--border-color); border-radius: 2px; opacity: 0; transition: opacity 0.3s ease; }
-    .post-sidebar.expanded .mobile-sheet-handle { opacity: 1; }
+    .mobile-btn:hover, 
+    .mobile-btn.active { 
+        background: var(--bg-hover-color); 
+        color: #007acc; 
+    }
     
-    .mobile-backdrop { display: block; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 999; }
-    .post-sidebar.expanded + .mobile-backdrop { opacity: 1; visibility: visible; }
+    .mobile-btn .icon { 
+        font-size: 1.4rem; 
+        margin-bottom: 0.2rem; 
+    }
     
-    .mobile-close { display: flex; align-items: center; justify-content: center; position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; border: none; background: var(--bg-hover-color); border-radius: 50%; cursor: pointer; opacity: 0; transition: opacity 0.3s ease, background 0.2s ease; z-index: 1001; }
-    .post-sidebar.expanded .mobile-close { opacity: 1; }
+    .mobile-content { 
+        display: none; 
+        padding: 1.5rem 1rem; 
+        height: calc(100% - 70px); 
+        overflow-y: auto; 
+        background: var(--bg-color); 
+    }
+    
+    .post-sidebar.expanded .mobile-content { 
+        display: block; 
+    }
+    
+    .mobile-sheet-handle { 
+        display: block; 
+        position: absolute; 
+        top: 8px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 40px; 
+        height: 4px; 
+        background: var(--border-color); 
+        border-radius: 2px; 
+        opacity: 0; 
+        transition: opacity 0.3s ease; 
+    }
+    
+    .post-sidebar.expanded .mobile-sheet-handle { 
+        opacity: 1; 
+    }
+    
+    .mobile-backdrop { 
+        display: block; 
+        position: fixed; 
+        inset: 0; 
+        background: rgba(0, 0, 0, 0.5); 
+        opacity: 0; 
+        visibility: hidden; 
+        transition: opacity 0.3s ease, visibility 0.3s ease; 
+        z-index: 999; 
+    }
+    
+    .post-sidebar.expanded + .mobile-backdrop { 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    
+    .mobile-close { 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        position: absolute; 
+        top: 1rem; 
+        right: 1rem; 
+        width: 32px; 
+        height: 32px; 
+        border: none; 
+        background: var(--bg-hover-color); 
+        border-radius: 50%; 
+        cursor: pointer; 
+        opacity: 0; 
+        transition: opacity 0.3s ease, background 0.2s ease; 
+        z-index: 1001; 
+    }
+    
+    .post-sidebar.expanded .mobile-close { 
+        opacity: 1; 
+    }
 }
 
-/* MASAÜSTÜ & TABLET GÖRÜNÜMÜ */
+/* === DESKTOP & TABLET === */
 @media (min-width: 769px) {
     .post-sidebar {
         position: fixed;
@@ -134,6 +304,7 @@
         scrollbar-width: thin;
         scrollbar-color: var(--border-color) transparent;
     }
+    
     .post-sidebar::-webkit-scrollbar { width: 4px; }
     .post-sidebar::-webkit-scrollbar-track { background: transparent; }
     .post-sidebar::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
@@ -151,13 +322,14 @@
     }
 }
 
-/* Dark Mode İyileştirmeleri */
+/* Dark Mode */
 [data-theme="dark"] .meta-value { color: #ccc; }
 [data-theme="dark"] .mobile-backdrop { background: rgba(0, 0, 0, 0.7); }
 </style>
 
 <aside class="post-sidebar">
     <div class="sidebar-content">
+        <!-- Mobile Button Bar - All butonu kaldırıldı -->
         <div class="mobile-button-bar">
             <button class="mobile-btn" data-section="info">
                 <span class="icon">📖</span>
@@ -170,10 +342,6 @@
             <button class="mobile-btn" data-section="toc">
                 <span class="icon">📑</span>
                 <span>Contents</span>
-            </button>
-            <button class="mobile-btn" data-section="all">
-                <span class="icon">☰</span>
-                <span>All</span>
             </button>
         </div>
         
@@ -190,7 +358,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Reading Time:</span>
-                    <span class="meta-value">{{ include.reading_time | default: "1" }} min</span>
+                    <span class="meta-value">{{ include.reading_time | default: "5" }} min</span>
                 </div>
                 {% if page.category %}
                 <div class="meta-item">
@@ -206,10 +374,10 @@
                 <div class="tags-list">
                     {% for tag in page.tags %}
                         <a href="{{ site.baseurl | default: '' }}/tags/#{{ tag | slugify | downcase }}" 
-               class="sidebar-tag"
-               title="View all posts tagged with {{ tag }}">
-               {{ tag }}
-            </a>
+                           class="sidebar-tag"
+                           title="View all posts tagged with {{ tag }}">
+                           {{ tag }}
+                        </a>
                     {% endfor %}
                 </div>
             </div>
@@ -227,7 +395,9 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Element Seçimleri ---
+    'use strict';
+    
+    // === ELEMENT SELECTIONS ===
     const sidebar = document.querySelector('.post-sidebar');
     if (!sidebar) return;
 
@@ -236,126 +406,94 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileButtons = document.querySelectorAll('.mobile-btn');
     const mobileContent = document.querySelector('.mobile-content');
     const tocNav = document.querySelector('.toc-nav');
-    const mainContent = document.querySelector('.post-content') || document.querySelector('.post__content') || document.querySelector('article');
+    const mainContent = document.querySelector('.post-content') || 
+                       document.querySelector('.post__content') || 
+                       document.querySelector('article') ||
+                       document.querySelector('main .content');
 
-    // --- Değişkenler ---
+    // === STATE VARIABLES ===
     let isExpanded = false;
+    let currentSection = null;
     let tocObserver = null;
     let touchStartY = 0;
     let touchMoveY = 0;
     let isDragging = false;
 
-    // --- Accessibility Helper Functions ---
-    const setFocusableState = (element, isDisabled) => {
-        const focusableElements = element.querySelectorAll('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        
-        focusableElements.forEach(el => {
-            if (isDisabled) {
-                // Disable for accessibility
-                el.setAttribute('tabindex', '-1');
-                el.setAttribute('aria-hidden', 'true');
-                if (el.tagName === 'BUTTON') {
-                    el.setAttribute('disabled', 'true');
-                }
-            } else {
-                // Enable for accessibility
-                el.removeAttribute('tabindex');
-                el.removeAttribute('aria-hidden');
-                if (el.tagName === 'BUTTON') {
-                    el.removeAttribute('disabled');
-                }
-            }
-        });
-    };
-
-    // --- Fonksiyonlar ---
+    // === CORE FUNCTIONS ===
     const openSidebar = () => {
         if (isExpanded) return;
+        
         isExpanded = true;
         sidebar.classList.add('expanded');
-        
-        // Accessibility: Enable focusable elements
         sidebar.setAttribute('aria-hidden', 'false');
-        setFocusableState(sidebar, false);
         
-        // Focus management for mobile
+        // Prevent body scroll on mobile
         if (window.innerWidth <= 768) {
-            // Focus first interactive element when opened
-            setTimeout(() => {
-                const firstFocusable = sidebar.querySelector('button:not([disabled])');
-                firstFocusable?.focus();
-            }, 300);
+            document.body.style.overflow = 'hidden';
         }
     };
 
     const closeSidebar = () => {
         if (!isExpanded) return;
+        
         isExpanded = false;
         sidebar.classList.remove('expanded');
         
-        // Accessibility: Hide and disable focusable elements
+        // Reset button states
+        mobileButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Reset accessibility and body scroll
         if (window.innerWidth <= 768) {
             sidebar.setAttribute('aria-hidden', 'true');
-            setFocusableState(sidebar, true);
+            document.body.style.overflow = '';
         } else {
-            // Desktop'ta sidebar her zaman erişilebilir olmalı
             sidebar.setAttribute('aria-hidden', 'false');
-            setFocusableState(sidebar, false);
         }
         
-        mobileButtons.forEach(b => b.classList.remove('active'));
-        
-        // Return focus to main content
-        if (window.innerWidth <= 768) {
-            const mainContent = document.querySelector('main, article, .post-content');
-            mainContent?.focus();
-        }
+        currentSection = null;
     };
 
     const showSection = (section) => {
         const sections = mobileContent?.querySelectorAll('[data-section]');
-        sections?.forEach(s => {
-            const isVisible = (s.dataset.section === section || section === 'all');
+        if (!sections) return;
+        
+        sections.forEach(s => {
+            const isVisible = s.dataset.section === section;
             s.style.display = isVisible ? 'block' : 'none';
-            
-            // Accessibility: Update aria-hidden for sections
-            s.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+        });
+        
+        currentSection = section;
+    };
+
+    const showAllSections = () => {
+        const sections = mobileContent?.querySelectorAll('[data-section]');
+        sections?.forEach(s => {
+            s.style.display = 'block';
         });
     };
 
     const handleMobileButtonClick = (e) => {
         const button = e.currentTarget;
         const section = button.dataset.section;
+        
+        // If clicking same section while expanded, close
+        if (isExpanded && currentSection === section) {
+            closeSidebar();
+            return;
+        }
+        
+        // Open and show section
         openSidebar();
         showSection(section);
-        mobileButtons.forEach(b => b.classList.remove('active'));
+        
+        // Update button states
+        mobileButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
         button.classList.add('active');
-        
-        // Announce to screen readers
-        const announcement = `Showing ${section === 'all' ? 'all sections' : section + ' section'}`;
-        announceToScreenReader(announcement);
     };
 
-    // --- Screen Reader Announcements ---
-    const announceToScreenReader = (message) => {
-        const announcement = document.createElement('div');
-        announcement.setAttribute('aria-live', 'polite');
-        announcement.setAttribute('aria-atomic', 'true');
-        announcement.style.position = 'absolute';
-        announcement.style.left = '-10000px';
-        announcement.style.width = '1px';
-        announcement.style.height = '1px';
-        announcement.style.overflow = 'hidden';
-        
-        document.body.appendChild(announcement);
-        announcement.textContent = message;
-        
-        setTimeout(() => {
-            document.body.removeChild(announcement);
-        }, 1000);
-    };
-
-    // --- TOC & Scroll Spy ---
+    // === TABLE OF CONTENTS ===
     const destroyTocObserver = () => {
         if (tocObserver) {
             tocObserver.disconnect();
@@ -365,27 +503,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const initTocObserver = () => {
         destroyTocObserver();
-        if (window.innerWidth <= 768 || !mainContent) return;
+        
+        // Skip on mobile or if no content
+        if (!mainContent) return;
 
         const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
-        if (!headings || headings.length === 0) return;
+        if (!headings.length) return;
 
         tocObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const id = entry.target.id;
                 const navLink = tocNav?.querySelector(`a[href="#${id}"]`);
-                if (navLink) {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-                        tocNav.querySelectorAll('a').forEach(a => {
-                            a.classList.remove('active');
-                            a.setAttribute('aria-current', 'false');
-                        });
-                        navLink.classList.add('active');
-                        navLink.setAttribute('aria-current', 'location');
-                    }
+                
+                if (navLink && entry.isIntersecting) {
+                    // Remove all active states
+                    tocNav.querySelectorAll('a').forEach(a => {
+                        a.classList.remove('active');
+                        a.setAttribute('aria-current', 'false');
+                    });
+                    
+                    // Set new active state
+                    navLink.classList.add('active');
+                    navLink.setAttribute('aria-current', 'location');
                 }
             });
-        }, { rootMargin: '-20% 0px -70% 0px' });
+        }, {
+            rootMargin: '-10% 0px -80% 0px',
+            threshold: 0.1
+        });
         
         headings.forEach(heading => tocObserver.observe(heading));
     };
@@ -393,40 +538,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const generateToc = () => {
         const tocSidebar = document.querySelector('.toc-sidebar');
         if (!mainContent || !tocNav) {
-            tocSidebar?.style.setProperty('display', 'none', 'important');
+            if (tocSidebar) {
+                tocSidebar.style.display = 'none';
+            }
             return;
         }
         
         const headings = mainContent.querySelectorAll('h2, h3, h4, h5, h6');
-        if (headings.length === 0) {
-            tocSidebar?.style.setProperty('display', 'none', 'important');
+        if (!headings.length) {
+            if (tocSidebar) {
+                tocSidebar.style.display = 'none';
+            }
             return;
         }
 
         let tocHTML = '';
         headings.forEach((heading, index) => {
+            // Ensure heading has ID
             if (!heading.id) {
                 heading.id = `toc-heading-${index}`;
             }
+            
             const id = heading.id;
             const level = parseInt(heading.tagName.charAt(1));
             const indent = Math.max(0, level - 2) * 1;
+            const text = heading.textContent.trim();
             
             tocHTML += `<a href="#${id}" 
                            style="padding-left: ${indent + 0.6}rem" 
                            class="toc-link"
-                           aria-current="false"
-                           title="Go to ${heading.textContent}">${heading.textContent}</a>`;
+                           title="Go to ${text}">${text}</a>`;
         });
-        tocNav.innerHTML = tocHTML;
         
-        // Add ARIA label to TOC nav
-        tocNav.setAttribute('aria-label', 'Table of Contents Navigation');
+        tocNav.innerHTML = tocHTML;
     };
     
-    // --- Touch Event Handlers ---
+    // === TOUCH HANDLERS ===
     const handleTouchStart = (e) => {
-        if (!isExpanded || mobileContent.scrollTop !== 0) return;
+        if (!isExpanded || mobileContent.scrollTop > 0) return;
+        
         touchStartY = e.touches[0].clientY;
         isDragging = true;
         sidebar.style.transition = 'none';
@@ -434,8 +584,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const handleTouchMove = (e) => {
         if (!isDragging) return;
+        
         touchMoveY = e.touches[0].clientY;
         const diff = touchMoveY - touchStartY;
+        
         if (diff > 0) {
             if (e.cancelable) e.preventDefault();
             sidebar.style.transform = `translateY(${diff}px)`;
@@ -444,105 +596,87 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const handleTouchEnd = () => {
         if (!isDragging) return;
+        
         isDragging = false;
         sidebar.style.transition = '';
         sidebar.style.transform = '';
+        
         const diff = touchMoveY - touchStartY;
         if (diff > 100) {
             closeSidebar();
-            announceToScreenReader('Sidebar closed');
         }
     };
     
-    // --- Keyboard Support ---
+    // === KEYBOARD HANDLERS ===
     const handleKeydown = (e) => {
         if (e.key === 'Escape' && isExpanded) {
             closeSidebar();
-            announceToScreenReader('Sidebar closed');
-        }
-        
-        // Tab trapping for mobile when expanded
-        if (window.innerWidth <= 768 && isExpanded && e.key === 'Tab') {
-            const focusableElements = sidebar.querySelectorAll('button:not([disabled]), a:not([aria-hidden="true"])');
-            const firstFocusable = focusableElements[0];
-            const lastFocusable = focusableElements[focusableElements.length - 1];
-            
-            if (e.shiftKey) {
-                if (document.activeElement === firstFocusable) {
-                    e.preventDefault();
-                    lastFocusable.focus();
-                }
-            } else {
-                if (document.activeElement === lastFocusable) {
-                    e.preventDefault();
-                    firstFocusable.focus();
-                }
-            }
         }
     };
     
-    // --- Resize Handler ---
+    // === RESIZE HANDLER ===
     const handleResize = () => {
         if (window.innerWidth > 768) {
-            // Desktop: Sidebar always accessible
+            // Desktop mode
             if (isExpanded) closeSidebar();
-            showSection('all');
+            showAllSections();
             sidebar.setAttribute('aria-hidden', 'false');
-            setFocusableState(sidebar, false);
+            document.body.style.overflow = '';
         } else {
-            // Mobile: Conditional accessibility
+            // Mobile mode
             sidebar.setAttribute('aria-hidden', !isExpanded);
-            setFocusableState(sidebar, !isExpanded);
         }
-        initTocObserver();
+        
+        // Always init TOC observer (works on both mobile and desktop)
+        setTimeout(initTocObserver, 100);
     };
 
-    // --- Event Listeners ---
-    mobileButtons.forEach(btn => btn.addEventListener('click', handleMobileButtonClick));
-    mobileCloseBtn?.addEventListener('click', () => {
-        closeSidebar();
-        announceToScreenReader('Sidebar closed');
-    });
-    mobileBackdrop?.addEventListener('click', () => {
-        closeSidebar();
-        announceToScreenReader('Sidebar closed');
-    });
+    // === EVENT LISTENERS ===
     
+    // Mobile buttons
+    mobileButtons.forEach(btn => {
+        btn.addEventListener('click', handleMobileButtonClick);
+    });
+
+    // Close handlers
+    mobileCloseBtn?.addEventListener('click', closeSidebar);
+    mobileBackdrop?.addEventListener('click', closeSidebar);
+
+    // Keyboard
     document.addEventListener('keydown', handleKeydown);
     
+    // Touch events
     mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
     mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
     mobileContent?.addEventListener('touchend', handleTouchEnd);
     
+    // TOC clicks
     tocNav?.addEventListener('click', (e) => {
-        if (e.target.classList.contains('toc-link')) {
-            e.preventDefault();
-            const targetId = e.target.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                // Set focus to target heading for screen readers
-                targetElement.setAttribute('tabindex', '-1');
-                targetElement.focus();
-                
-                if (isExpanded && window.innerWidth <= 768) {
-                    closeSidebar();
-                }
-                
-                announceToScreenReader(`Navigated to ${targetElement.textContent}`);
-            }
+        if (!e.target.classList.contains('toc-link')) return;
+        
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (!targetElement) return;
+        
+        // Smooth scroll
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Close on mobile
+        if (isExpanded && window.innerWidth <= 768) {
+            setTimeout(closeSidebar, 300);
         }
     });
 
+    // Resize
     window.addEventListener('resize', handleResize);
 
-    // --- Initialize ---
+    // === INITIALIZATION ===
     generateToc();
     handleResize();
-    
-    // Initial state setup
-    showSection('all');
 });
 </script>
