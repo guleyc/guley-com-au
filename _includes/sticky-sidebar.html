@@ -15,24 +15,318 @@
 
 .post-sidebar {
     position: fixed;
-    top: 2rem;
+    top: 50%;
+    transform: translateY(-50%); /* Dikey ortala */
     right: 2rem;
     width: 280px;
     height: fit-content;
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
     z-index: 100;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
 }
 
+.post-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.post-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.post-sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 2px;
+}
+
+.sidebar-content {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Sections */
+.post-meta-sidebar,
+.tags-sidebar,
+.toc-sidebar,
+.share-sidebar {
+    margin-bottom: 2rem;
+}
+
+.post-meta-sidebar:last-child,
+.tags-sidebar:last-child,
+.toc-sidebar:last-child,
+.share-sidebar:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-content h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-font-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+.sidebar-content h4::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(45deg, #007acc, #00d4ff);
+    border-radius: 2px;
+}
+
+/* ARTICLE INFO - Geliştirilmiş */
+.post-meta-sidebar {
+    background: linear-gradient(135deg, rgba(0, 122, 204, 0.1), rgba(0, 212, 255, 0.1));
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(0, 122, 204, 0.2);
+}
+
+.meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: var(--primary-font-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meta-value {
+    color: #666;
+    font-weight: 500;
+    background: var(--bg-hover-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+/* TAGS - Tuğla Duvar Görünümü */
+.tags-sidebar {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 87, 34, 0.1));
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.sidebar-tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+/* Random Renkli Tags */
+.sidebar-tag:nth-child(1) { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); color: white; }
+.sidebar-tag:nth-child(2) { background: linear-gradient(135deg, #4ecdc4, #7dd3fc); color: white; }
+.sidebar-tag:nth-child(3) { background: linear-gradient(135deg, #45b7d1, #96c93d); color: white; }
+.sidebar-tag:nth-child(4) { background: linear-gradient(135deg, #f9ca24, #f0932b); color: white; }
+.sidebar-tag:nth-child(5) { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: white; }
+.sidebar-tag:nth-child(6) { background: linear-gradient(135deg, #fd79a8, #fdcb6e); color: white; }
+.sidebar-tag:nth-child(7) { background: linear-gradient(135deg, #00b894, #00cec9); color: white; }
+.sidebar-tag:nth-child(8) { background: linear-gradient(135deg, #e17055, #fab1a0); color: white; }
+
+.sidebar-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.sidebar-tag:hover::before {
+    left: 100%;
+}
+
+.sidebar-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* TABLE OF CONTENTS - Şık Tasarım */
+.toc-sidebar {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(162, 155, 254, 0.1));
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.toc-nav {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.toc-nav::-webkit-scrollbar {
+    width: 3px;
+}
+
+.toc-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.toc-nav::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 2px;
+}
+
+.toc-nav a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 0.3rem;
+    color: var(--primary-font-color);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    background: var(--bg-hover-color);
+}
+
+.toc-nav a::before {
+    content: '▸';
+    position: absolute;
+    left: 0.3rem;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.toc-nav a:hover {
+    border-left-color: #007acc;
+    background: linear-gradient(135deg, rgba(0, 122, 204, 0.1), rgba(0, 212, 255, 0.1));
+    transform: translateX(4px);
+}
+
+.toc-nav a:hover::before {
+    color: #007acc;
+    transform: rotate(90deg);
+}
+
+.toc-nav a.active {
+    border-left-color: #007acc;
+    background: linear-gradient(135deg, rgba(0, 122, 204, 0.2), rgba(0, 212, 255, 0.2));
+    font-weight: 600;
+    color: #007acc;
+}
+
+.toc-nav a.active::before {
+    color: #007acc;
+    transform: rotate(90deg);
+}
+
+/* SHARE BUTTONS - Geliştirilmiş */
+.share-sidebar {
+    background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(34, 197, 94, 0.1));
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.share-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.share-btn:hover::before {
+    left: 100%;
+}
+
+.share-btn.twitter { background: linear-gradient(135deg, #1da1f2, #0d8bd9); }
+.share-btn.facebook { background: linear-gradient(135deg, #1877f2, #166fe5); }
+.share-btn.linkedin { background: linear-gradient(135deg, #0077b5, #005885); }
+.share-btn.whatsapp { background: linear-gradient(135deg, #25d366, #128c7e); }
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Büyük ekranlarda margin ekle */
 @media (min-width: 1400px) {
     .post-container {
         margin-right: 320px;
     }
 }
 
+/* Orta ekranlarda sidebar overlay */
+@media (min-width: 969px) and (max-width: 1399px) {
+    .post-sidebar {
+        position: fixed;
+        right: 1rem;
+        width: 260px;
+    }
+}
+
+/* Küçük ekranlarda minimize */
 @media (max-width: 968px) {
     .post-sidebar {
         position: fixed;
+        top: auto;
         bottom: 2rem;
         right: 1rem;
         width: 60px;
@@ -41,12 +335,13 @@
         overflow: hidden;
         transition: all 0.3s ease;
         cursor: pointer;
+        transform: none;
     }
     
     .post-sidebar:hover {
         width: 280px;
         height: auto;
-        border-radius: 8px;
+        border-radius: 12px;
         max-height: 70vh;
     }
     
@@ -67,11 +362,56 @@
         transform: translate(-50%, -50%);
         font-size: 1.5rem;
         z-index: 1;
+        background: linear-gradient(135deg, #007acc, #00d4ff);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
     
     .post-sidebar:hover::before {
         display: none;
     }
+}
+
+/* Dark Mode */
+[data-theme="dark"] .sidebar-content {
+    background: var(--bg-color);
+    border-color: var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .meta-value {
+    color: #ccc;
+    background: var(--bg-hover-color);
+}
+
+[data-theme="dark"] .post-meta-sidebar {
+    background: linear-gradient(135deg, rgba(0, 122, 204, 0.2), rgba(0, 212, 255, 0.2));
+}
+
+[data-theme="dark"] .tags-sidebar {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 87, 34, 0.2));
+}
+
+[data-theme="dark"] .toc-sidebar {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(162, 155, 254, 0.2));
+}
+
+[data-theme="dark"] .share-sidebar {
+    background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(34, 197, 94, 0.2));
+}
+
+[data-theme="dark"] .toc-nav a {
+    background: var(--bg-hover-color);
+}
+
+[data-theme="dark"] .toc-nav a:hover {
+    background: linear-gradient(135deg, rgba(0, 122, 204, 0.2), rgba(0, 212, 255, 0.2));
 }
 </style>
 
@@ -81,13 +421,25 @@
         <div class="post-meta-sidebar">
             <h4>📖 Article Info</h4>
             <div class="meta-item">
-                <span class="meta-label">Published:</span>
+                <span class="meta-label">📅 Published:</span>
                 <span class="meta-value">{{ page.date | date: "%d.%m.%Y" }}</span>
             </div>
             <div class="meta-item">
-                <span class="meta-label">Reading Time:</span>
+                <span class="meta-label">⏱️ Reading Time:</span>
                 <span class="meta-value">{{ include.reading_time | default: "1" }} min</span>
             </div>
+            {% if page.author %}
+            <div class="meta-item">
+                <span class="meta-label">✍️ Author:</span>
+                <span class="meta-value">{{ page.author }}</span>
+            </div>
+            {% endif %}
+            {% if page.category %}
+            <div class="meta-item">
+                <span class="meta-label">📂 Category:</span>
+                <span class="meta-value">{{ page.category }}</span>
+            </div>
+            {% endif %}
         </div>
 
         <!-- Tags -->
@@ -106,8 +458,38 @@
         <div class="toc-sidebar">
             <h4>📑 Table of Contents</h4>
             <nav class="toc-nav">
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
+                <!-- JavaScript ile doldurulacak -->
+            </nav>
+        </div>
+
+        <!-- Share Buttons -->
+        <div class="share-sidebar">
+            <h4>📤 Share</h4>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" 
+                   target="_blank" rel="nofollow" class="share-btn twitter">
+                    🐦 Twitter
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
+                   target="_blank" rel="nofollow" class="share-btn facebook">
+                    📘 Facebook
+                </a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" 
+                   target="_blank" rel="nofollow" class="share-btn linkedin">
+                    💼 LinkedIn
+                </a>
+                <a href="https://api.whatsapp.com/send?text={{ page.title }}%20{{ site.url }}{{ page.url }}" 
+                   target="_blank" rel="nofollow" class="share-btn whatsapp">
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<script>
+// Table of Contents Generator
+document.addEventListener('DOMContentLoaded', function() {
     const content = document.querySelector('.blog-post-content');
     const tocNav = document.querySelector('.toc-nav');
     
@@ -121,19 +503,35 @@
                 heading.id = id;
                 
                 const level = parseInt(heading.tagName.charAt(1));
-                const indent = (level - 2) * 1; // H2'den başlat
+                const indent = (level - 2) * 1.5; // H2'den başlat
                 
                 tocHTML += `<a href="#${id}" style="margin-left: ${indent}rem">${heading.textContent}</a>`;
             });
             
             tocNav.innerHTML = tocHTML;
+            
+            // Scroll spy functionality
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    const navLink = tocNav.querySelector(`a[href="#${id}"]`);
+                    if (navLink) {
+                        if (entry.isIntersecting) {
+                            tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '-20% 0px -70% 0px'
+            });
+            
+            headings.forEach(heading => {
+                observer.observe(heading);
+            });
         } else {
             document.querySelector('.toc-sidebar').style.display = 'none';
         }
     }
 });
-                </script>>
-            </nav>
-        </div>
-    </div>
-</aside>
+</script>
