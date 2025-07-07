@@ -5,19 +5,13 @@
         <div class="post-meta-sidebar">
             <h4>📖 Article Info</h4>
             <div class="meta-item">
-                <span class="meta-label">📅 Published:</span>
+                <span class="meta-label">Published:</span>
                 <span class="meta-value">{{ page.date | date: "%d.%m.%Y" }}</span>
             </div>
             <div class="meta-item">
-                <span class="meta-label">⏱️ Reading Time:</span>
+                <span class="meta-label">Reading Time:</span>
                 <span class="meta-value">{{ include.reading_time | default: "1" }} min</span>
             </div>
-            {% if page.author %}
-            <div class="meta-item">
-                <span class="meta-label">✍️ Author:</span>
-                <span class="meta-value">{{ page.author }}</span>
-            </div>
-            {% endif %}
         </div>
 
         <!-- Tags -->
@@ -36,31 +30,34 @@
         <div class="toc-sidebar">
             <h4>📑 Table of Contents</h4>
             <nav class="toc-nav">
-                <!-- JavaScript ile doldurulacak -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+    const content = document.querySelector('.blog-post-content');
+    const tocNav = document.querySelector('.toc-nav');
+    
+    if (content && tocNav) {
+        const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        
+        if (headings.length > 0) {
+            let tocHTML = '';
+            headings.forEach((heading, index) => {
+                const id = `heading-${index}`;
+                heading.id = id;
+                
+                const level = parseInt(heading.tagName.charAt(1));
+                const indent = (level - 2) * 1; // H2'den başlat
+                
+                tocHTML += `<a href="#${id}" style="margin-left: ${indent}rem">${heading.textContent}</a>`;
+            });
+            
+            tocNav.innerHTML = tocHTML;
+        } else {
+            document.querySelector('.toc-sidebar').style.display = 'none';
+        }
+    }
+});
+                </script>>
             </nav>
-        </div>
-
-        <!-- Social Share -->
-        <div class="share-sidebar">
-            <h4>📤 Share</h4>
-            <div class="share-buttons">
-                <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" 
-                   target="_blank" rel="nofollow" class="share-btn twitter">
-                    🐦 Twitter
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
-                   target="_blank" rel="nofollow" class="share-btn facebook">
-                    📘 Facebook
-                </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" 
-                   target="_blank" rel="nofollow" class="share-btn linkedin">
-                    💼 LinkedIn
-                </a>
-                <a href="https://api.whatsapp.com/send?text={{ page.title }}%20{{ site.url }}{{ page.url }}" 
-                   target="_blank" rel="nofollow" class="share-btn whatsapp">
-                    💬 WhatsApp
-                </a>
-            </div>
         </div>
     </div>
 </aside>
