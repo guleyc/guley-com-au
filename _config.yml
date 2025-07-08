@@ -6,10 +6,9 @@ description: >-
   As a passionate mining engineer, I will unveil mineral riches and innovative solutions, taking us towards new horizons.
 lang: en-US
 timezone:  Europe/Istanbul
-repo: https://github.com/guleyc # site repo [optional]
-logo: assets/images/logo.svg # Put your logo here
-# google_verify:      XXX # Put your Google Verification here
-google_analytics:   UA-XXXXXXXX-00 # Put your Google Analytics code
+repo: https://github.com/guleyc
+logo: assets/images/logo.svg
+google_analytics: GTM-T863VL7J
 # discus-identifier:  
 
 # Author settings
@@ -17,17 +16,17 @@ author:
   name: Cagatay Guley
   bio: "A Mining Engineer ⛏️ <br> Founder of @ore2b"
   picture: assets/images/profile.svg
-  github: guleyc # github username
-  # twitter:  # twitter username
-  # facebook:  # facebook username
-  # instagram:  # instagram username
-  # youtube:  # youtube username
-  linkedin: guleyc # linkedin username
-  email: cagatay@guley.com.tr # email adress
+  github: guleyc
+  # twitter: 
+  # facebook: 
+  # instagram: 
+  # youtube: 
+  linkedin: guleyc
+  email: cagatay@guley.com.tr
 
 
 # URL settings
-url: "https://guley.com.tr" # Domain Name of host. [username].github.io for github pages
+url: "https://guley.com.tr"
 permalink: pretty
 
 markdown: kramdown
