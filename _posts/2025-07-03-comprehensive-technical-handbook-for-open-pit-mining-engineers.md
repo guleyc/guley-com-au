@@ -92,17 +92,18 @@ The fundamental calculation for ore reserves involves determining the volume of 
 **Formula for Ore Tonnage:**
 
 $$
-\text{Ore}_{\text{Tonnage}} = \text{Ore}_{\text{Volume}} \times \text{Ore}_{\text{Density}}
+\text{O}_{\text{T}} = \text{O}_{\text{V}} \times \text{O}_{\text{D}}
 $$
 
 Where:
-* **Ore Volume:** Calculated based on geological models, drill hole data, and various estimation methods (e.g., sectional method, block modeling, geostatistical methods).
-* **Ore Density:** The specific gravity of the ore, determined through laboratory analysis of samples.
+* OT = Ore Tonnage
+* OV = Ore Volume: Calculated based on geological models, drill hole data, and various estimation methods (e.g., sectional method, block modeling, geostatistical methods).
+* OD = Ore Density: The specific gravity of the ore, determined through laboratory analysis of samples.
 
 For example, if the density of the ore is 1.35 tons/m³, and the estimated ore volume is 1,000,000 m³, then the ore tonnage would be:
 
 $$
-\text{Ore}_{\text{Tonnage}} = 1{,}000{,}000 \, \text{m}^3 \times 1.35 \, \frac{\text{tons}}{\text{m}^3} = 1{,}350{,}000 \, \text{tons}
+\text{O}_{\text{T}} = 1{,}000{,}000 \, \text{m}^3 \times 1.35 \, \frac{\text{tons}}{\text{m}^3} = 1{,}350{,}000 \, \text{tons}
 $$
 
 ### Example: Sectional Method for Volume Calculation
