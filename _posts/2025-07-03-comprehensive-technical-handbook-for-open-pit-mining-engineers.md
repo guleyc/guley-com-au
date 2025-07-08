@@ -60,7 +60,9 @@ The **stripping ratio** is a critical parameter that represents the amount of un
 
 **Formula for Stripping Ratio (SR):**
 
-$$SR = \frac{\text{Volume or Mass of Waste}}{\text{Volume or Mass of Ore}}$$
+\\[
+SR = \frac{\text{Volume or Mass of Waste}}{\text{Volume or Mass of Ore}}
+\\]
 
 A lower stripping ratio indicates a more economically favorable operation, as less waste needs to be handled per unit of valuable ore. As mining progresses deeper, the stripping ratio generally increases, eventually reaching an economic limit where the cost of removing waste equals the revenue generated from the ore. This economic limit defines the ultimate pit boundary.
 
