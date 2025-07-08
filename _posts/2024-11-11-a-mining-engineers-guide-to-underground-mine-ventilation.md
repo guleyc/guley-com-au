@@ -29,7 +29,7 @@ For any mining engineer, understanding and mastering ventilation is non-negotiab
 
 Behind every successful ventilation system are fundamental engineering principles and calculations. Let's dive into some of the core formulas that guide a mining engineer's decisions.
 
-![Mine Ventilation System Diagram](https://private-us-east-1.manuscdn.com/sessionFile/sIe0sQ927xSS8gPwv0ep1u/sandbox/vUBG6b7hKgDbEO7MtTCPWC-images_1752016461812_na1fn_L2hvbWUvdWJ1bnR1L2dlbmVyYXRlZF9pbWFnZXMvbWluZV92ZW50aWxhdGlvbl9zeXN0ZW1fZGlhZ3JhbQ.png?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvc0llMHNROTI3eFNTOGdQd3YwZXAxdS9zYW5kYm94L3ZVQkc2YjdoS2dEYkVPN010VENQV0MtaW1hZ2VzXzE3NTIwMTY0NjE4MTJfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwyZGxibVZ5WVhSbFpGOXBiV0ZuWlhNdmJXbHVaVjkyWlc1MGFXeGhkR2x2Ymw5emVYTjBaVzFmWkdsaFozSmhiUS5wbmciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=tIpj33QAE79AyhHTc6cf2ZEc7VOMd8LFKPYru~SmSd9f7QP8Ek8-byj2FF6Dpie8JVny8ycw2dAnklarXUlvjo5KhTPaLs4OtNxV0ouf4zemuLMIxjBp4nw9obzl7kIPO-46AvxuP6lY7DNGo7bMJZ-Y0TPphkGH9goYXO5d2-x5fip3AcfN8f82z32PF~tOfaZFt5jdqzr75I1tdUt7XIClYOY9wv5yauqZ~gD~NAvosii~KVuIN~ScFX35Or9D96bZG5dOB7V~tuj1kKshFjp0JItUzNnEWx5RkSrtGa--QDvPX~iN6D6tOkMO~ymDe1WDN2ATeaox90rVF9s~FQ__)
+![Mine Ventilation System Diagram - Maptek Vulcan](https://guley.com.tr/upload/mine_ventilation_system_diagram.jpg)
 
 ### 1. Atkinson's Equation: The Resistance Fighter
 
@@ -59,9 +59,11 @@ Imagine a rectangular mine airway, 3 meters high by 4 meters wide, stretching fo
 First, calculate the Area (A) and Perimeter (O):
 * A = 3m * 4m = 12 m^2
 * O = 2 * (3m + 4m) = 14 m
+
 Next, find the Resistance (R):
 * R = (0.01 Ns^2/m^4 * 500m * 14m) / (12 m^2)^3
 * R = 70 / 1728 = 0.0405 Ns^2/m^8
+
 Finally, calculate the Pressure drop (P):
 * P = 0.0405 Ns^2/m^8 * (20 m^3/s)^2
 * P = 0.0405 * 400 = 16.2 Pa
