@@ -181,8 +181,8 @@ body{
   margin-bottom: 5px;
   background:var(--bg-color);
 }
-.pagination .prev{color: var(--primary-font-color); font-weight: 600; font-size: 14px;}
-.pagination .next{color: var(--primary-font-color); font-weight: 600; text-align: right; font-size: 14px;}
+.pagination .prev{color: var(--primary-font-color); font-weight: 600; font-size: 18px;}
+.pagination .next{color: var(--primary-font-color); font-weight: 600; text-align: right; font-size: 18px;}
 
 .blog-post-content{
   width: 100%;
