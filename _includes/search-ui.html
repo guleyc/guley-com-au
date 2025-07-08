@@ -1,0 +1,195 @@
+<button id="search-trigger" class="search-trigger-button" aria-label="Aramayı aç">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+</button>
+
+<div id="search-overlay" class="search-overlay">
+    <button id="search-close" class="search-close-button" aria-label="Aramayı kapat">&times;</button>
+    <div class="search-content">
+        <input type="text" id="search-input" placeholder="Aranacak kelimeyi yazın..." autocomplete="off">
+        <div id="search-results" class="search-results-container"></div>
+    </div>
+</div>
+
+
+<style>
+    .search-trigger-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        margin-left: 10px; /* Diğer ikonlarla arasına boşluk koyar */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: inherit; /* Sitenin mevcut metin rengini alır */
+    }
+
+    .search-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8); /* Arka plan rengi ve şeffaflığı */
+        z-index: 9999;
+        display: none; /* Başlangıçta gizli */
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 15vh; /* Arama kutusunun yukarıdan mesafesi */
+        -webkit-backdrop-filter: blur(5px); /* Safari için blur efekti */
+        backdrop-filter: blur(5px); /* Modern tarayıcılar için blur efekti */
+    }
+
+    .search-overlay.is-active {
+        display: flex; /* Aktif olduğunda görünür yap */
+    }
+
+    .search-close-button {
+        position: absolute;
+        top: 25px;
+        right: 35px;
+        font-size: 40px;
+        color: #333;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-content {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    #search-input {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.5rem;
+        border: none;
+        border-bottom: 2px solid #333;
+        background-color: transparent;
+        outline: none;
+        color: #333;
+    }
+    #search-input::placeholder {
+        color: #888;
+    }
+
+    .search-results-container {
+        margin-top: 20px;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
+    .search-result-item {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        text-decoration: none;
+        display: block;
+        color: #333;
+    }
+    .search-result-item:hover {
+        background-color: #f5f5f5;
+    }
+    .search-result-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .search-result-excerpt {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 5px;
+    }
+</style>
+
+
+<script>
+    // Bu kod bloğunun birden fazla kez çalışmasını engellemek için kontrol
+    if (typeof window.jekyllSearchInit === 'undefined') {
+        window.jekyllSearchInit = true;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gerekli HTML elementlerini seç
+            const searchTrigger = document.getElementById('search-trigger');
+            const searchOverlay = document.getElementById('search-overlay');
+            const searchClose = document.getElementById('search-close');
+            const searchInput = document.getElementById('search-input');
+            const searchResults = document.getElementById('search-results');
+
+            let lunrIndex, documentsStore;
+
+            // Arama verisini (search.json) yükle ve Lunr index'ini hazırla
+            fetch('{{ "/search.json" | relative_url }}')
+                .then(response => response.json())
+                .then(data => {
+                    documentsStore = data;
+                    lunrIndex = lunr(function () {
+                        this.ref('url');
+                        this.field('title', { boost: 10 });
+                        this.field('content');
+                        this.field('tags');
+                        
+                        data.forEach(doc => {
+                            this.add(doc);
+                        });
+                    });
+                });
+
+            // Arama fonksiyonu
+            function performSearch() {
+                const query = searchInput.value;
+                if (!query || !lunrIndex) {
+                    searchResults.innerHTML = '';
+                    return;
+                }
+                const results = lunrIndex.search(query + '*'); // Sonuna wildcard ekleyerek daha esnek arama
+                displayResults(results);
+            }
+
+            // Sonuçları ekranda gösterme fonksiyonu
+            function displayResults(results) {
+                if (results.length) {
+                    let output = '';
+                    results.forEach(result => {
+                        const item = documentsStore.find(doc => doc.url === result.ref);
+                        if (item) {
+                            output += `
+                                <a href="{{ site.baseurl }}${item.url}" class="search-result-item">
+                                    <div class="search-result-title">${item.title}</div>
+                                    <p class="search-result-excerpt">${item.content.substring(0, 150)}...</p>
+                                </a>
+                            `;
+                        }
+                    });
+                    searchResults.innerHTML = output;
+                } else {
+                    searchResults.innerHTML = '<p class="search-result-excerpt">Sonuç bulunamadı...</p>';
+                }
+            }
+
+            // Olay dinleyicileri (Event Listeners)
+            searchTrigger.addEventListener('click', function () {
+                searchOverlay.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Arka planın kaymasını engelle
+                searchInput.focus(); // Arama kutusuna otomatik odaklan
+            });
+
+            function closeSearch() {
+                searchOverlay.classList.remove('is-active');
+                document.body.style.overflow = '';
+            }
+
+            searchClose.addEventListener('click', closeSearch);
+            searchInput.addEventListener('input', performSearch);
+
+            // Esc tuşuna basıldığında aramayı kapat
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && searchOverlay.classList.contains('is-active')) {
+                    closeSearch();
+                }
+            });
+        });
+    }
+</script>
