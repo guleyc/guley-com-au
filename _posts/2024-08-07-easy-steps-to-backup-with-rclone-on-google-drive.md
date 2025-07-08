@@ -7,9 +7,9 @@ permalink: /easy-steps-to-backup-with-rclone-on-google-drive/
 redirect_from:
   - /easy-steps-to-backup-with-rclone-on-google-drive
 categories: [web]
+tags: [rclone, google drive, backup, cloudpanel, web, linux, windows, security]
+image: backup.jpg
 ---
-
-### Introduction
 
 In this guide, we will walk you through the steps to back up your data to Google Drive using Rclone on a Windows operating system. This guide is suitable for both beginners and experienced users.
 
