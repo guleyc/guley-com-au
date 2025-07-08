@@ -41,27 +41,35 @@ layout: default
   font-weight: 700;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6); 
 }
+mjx-container {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
 </style>
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
 	{% if page.mathjax %}
 	<script>
 	MathJax = {
+	loader: {load: ['ui/lazy']},
 	tex: {
 		inlineMath: [['\\(', '\\)']],
 		displayMath: [['$$', '$$'], ['\\[', '\\]']],
 		processEscapes: true
 	},
-	svg: {
+	chtml: {
 		fontCache: 'global',
 		displayAlign: 'left',
-		adaptive: true, 
+		scale: 0.95,
+		adaptive: true,
 		linebreaks: {
 		automatic: true
+		}
 	}
-	};
+	};	
 	</script>
 	<script type="text/javascript" id="MathJax-script" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-svg.min.js">
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
 	</script>
 	{% endif %}
 	{% if page.image %}
