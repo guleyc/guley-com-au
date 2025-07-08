@@ -75,6 +75,7 @@ Piston pumps are the heavy-hitters of the hydraulic world, capable of producing 
 ##### Bent-Axis Piston Pumps
 
 ![Bent-Axis Piston Pumps Animation](https://guley.com.tr/upload/bent_axis_pumps.gif)
+
 **The Gist:** The most efficient hydraulic pump design available, capable of very high pressures and speeds.
 
 **How It Works:** The cylinder block is turned by the driveshaft but is set at an angle to it (the "bent axis"). This angle causes the pistons to reciprocate within the cylinder bores, creating the pumping action. A larger angle results in a longer piston stroke and greater displacement.
@@ -89,6 +90,7 @@ Piston pumps are the heavy-hitters of the hydraulic world, capable of producing 
 
 ##### Inline Axial (Swashplate) Piston Pumps
 ![Inline-Axis Piston Pumps Animation](https://guley.com.tr/upload/radial_piston_pumps.gif)
+
 **The Gist:** A more compact and common design than the bent-axis pump, offering excellent performance and versatility for high-pressure systems.
 
 **How It Works:** The pistons and cylinder block are in line with the driveshaft. The pistons are connected to a rotating swashplate, which is set at an angle. As the swashplate turns, it pushes the pistons in and out of the cylinder block, creating the pumping action. The angle of the swashplate determines the flow rate.
