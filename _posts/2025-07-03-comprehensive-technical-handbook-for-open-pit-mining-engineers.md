@@ -183,9 +183,14 @@ Where:
 **Required Number of Trucks:**
 
 $$
-N_{\text{trucks}} = \frac{\text{Shovel Loading Rate} \times \text{Truck Cycle Time}}{\text{Truck Capacity}}
+N_{\text{t}} = \frac{\text{SLR} \times \text{TCT}}{\text{TC}}
 $$
 
+Where:
+* SLR = Shovel Loading Rate
+* TCT = Truck Cycle Time
+* TC = Truck Capacity
+ 
 (This is a simplified representation; actual calculations involve more detailed analysis of shovel and truck capacities, efficiencies, and operational delays.)
 
 Production scheduling is an iterative process that requires continuous monitoring and adjustment to adapt to changing market conditions, geological realities, and operational performance.
@@ -214,22 +219,28 @@ The process of equipment selection typically involves three stages:
 **Match Factor (MF):** A crucial parameter for matching loading equipment (shovels, excavators) with hauling equipment (trucks). It represents the ratio of truck capacity to loader capacity.
 
 $$
-MF = \frac{\text{Truck Capacity}}{\text{Loader Bucket Capacity} \times \text{Number of Passes}}
+MF = \frac{\text{TC}}{\text{LBC} \times \text{NP}}
 $$
+
+Where
+* TC = Truck Capacity
+* LBC = Loader Bucket Capacity
+* NP = Number of Passes
+
 
 Ideally, the match factor should be close to 1, meaning the loader fills the truck in an optimal number of passes, minimizing waiting times for both.
 
 **Fleet Sizing (Simplified):** To determine the number of trucks required for a given number of shovels, the following simplified formula can be used:
 
 $$
-N_{\text{trucks}} = N_{\text{shovels}} \times \frac{\text{Truck Cycle Time}}{\text{Shovel Loading Time}}
+N_{\text{t}} = N_{\text{s}} \times \frac{\text{TCT}}{\text{SLT}}
 $$
 
 Where:
-*   Ntrucks = Number of trucks
-*   Nshovels = Number of shovels
-*   TruckCycleTime = Time for a truck to complete one cycle (loading, hauling, dumping, returning)
-*   ShovelLoadingTime = Time for a shovel to load one truck
+*   Nt = Number of trucks
+*   Ns = Number of shovels
+*   TCT = Truck Cycle Time = Time for a truck to complete one cycle (loading, hauling, dumping, returning)
+*   SLT = Shovel Loading Time = Time for a shovel to load one truck
 
 More detailed calculations involve considering equipment availability, utilization, mechanical efficiency, and operational delays.
 
@@ -285,8 +296,13 @@ Cost estimation in mining is often based on historical data, industry benchmarks
 * **Unit Cost Method:** Estimating costs based on a cost per unit of production (e.g., $/tonne of ore, $/bcm of waste).
 
 $$
-\text{Total Cost} = \text{Unit Cost} \times \text{Quantity}
+\text{TC} = \text{UC} \times \text{Q}
 $$
+
+Where:
+* TC = Total Cost
+* UC = Unit Cost
+* Q = Quantity
 
 * **Regression Analysis:** Developing cost models based on relationships between costs and various operational parameters (e.g., haul distance, production rate, equipment size).
 
@@ -351,8 +367,12 @@ Mining engineers use various methods to assess slope stability and determine saf
 * **Limit Equilibrium Methods:** These methods analyze the forces acting on a potential failure mass and calculate a Factor of Safety (FoS). A FoS greater than 1 indicates stability, with typical design values ranging from 1.2 to 1.5 for static conditions.
 
 $$
-FoS = \frac{\text{Resisting Forces}}{\text{Driving Forces}}
+FoS = \frac{\text{RF}}{\text{DF}}
 $$
+
+Where:
+* RF = Resisting Forces
+* DF = Driving Forces 
 
 * **Numerical Modeling (e.g., Finite Element Method, Discrete Element Method):** Advanced computational techniques that simulate rock mass behavior under various stress conditions, providing detailed insights into deformation and failure mechanisms.
 
@@ -399,7 +419,7 @@ $$
 **Blasted Tonnage (T) per hole:**
 
 $$
-T = V \times \text{Density of Rock}
+T = V \times \text{DR}
 $$
 
 **Powder Factor (PF):**
@@ -416,6 +436,7 @@ $$
 
 Where:
 
+* DR = Density of Rock
 * WEH = Weight of Explosive per Hole
 * VRH = Volume of Rock broken per Hole
 * TRH = Tonnage of Rock broken per Hole
