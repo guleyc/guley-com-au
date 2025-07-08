@@ -8,7 +8,7 @@ lang: en-US
 timezone:  Europe/Istanbul
 repo: https://github.com/guleyc
 logo: assets/images/logo.svg
-google_analytics: GTM-T863VL7J
+google_tag: GTM-T863VL7J
 # discus-identifier:  
 
 # Author settings
