@@ -7,13 +7,14 @@ permalink: /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-m
 redirect_from:
   - /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics
 categories: [energy]
+mathjax: true
 tags: [energy, hydraulic, pumps, machines, power, efficiency]
 image: hydraulic.jpg
 ---
 
 Now, let's explore the most common types of pumps, each with its unique design, strengths, and ideal applications.
 
-#### **a. Gear Pumps: The Rugged Workhorse**
+#### Gear Pumps: The Rugged Workhorse
 
 ![Gear Pumps Animation](https://guley.com.tr/upload/gear_pumps.gif)
 
@@ -40,7 +41,7 @@ Where:
 * $D_i$ = Inner Diameter of the gears (at the root, cm)
 * $W$ = Width of the gears (cm)
 
-#### **b. Vane Pumps: The Quiet Operator**
+#### Vane Pumps: The Quiet Operator
 
 
 **The Gist:** Known for their low noise levels and high efficiency, vane pumps are a popular choice for industrial and mobile applications with mid-range pressures.
@@ -66,11 +67,11 @@ Where:
 * $e$ = Eccentricity between the ring and rotor (cm)
 * $W$ = Width of the vanes (cm)
 
-#### **c. Piston Pumps: The High-Pressure Champions**
+#### Piston Pumps: The High-Pressure Champions
 
 Piston pumps are the heavy-hitters of the hydraulic world, capable of producing the highest pressures and offering the best overall efficiency. They are the top choice for demanding applications. There are several designs, with the most common being bent-axis and inline (swashplate) types.
 
-##### **d. Bent-Axis Piston Pumps**
+##### Bent-Axis Piston Pumps
 
 
 **The Gist:** The most efficient hydraulic pump design available, capable of very high pressures and speeds.
@@ -85,7 +86,7 @@ Piston pumps are the heavy-hitters of the hydraulic world, capable of producing 
 * **Cons:** High cost, large physical size, and complex design.
 * **Common Applications:** Heavy-duty construction and mining equipment (excavators, dump trucks), forestry machinery, and industrial manufacturing.
 
-##### **e. Inline Axial (Swashplate) Piston Pumps**
+##### Inline Axial (Swashplate) Piston Pumps
 
 **The Gist:** A more compact and common design than the bent-axis pump, offering excellent performance and versatility for high-pressure systems.
 
@@ -112,7 +113,7 @@ Where:
 
 ---
 
-### **Summary: Choosing the Right Pump**
+### Summary: Choosing the Right Pump
 
 Selecting the right hydraulic pump is a balancing act between performance, efficiency, and cost. Here’s a quick comparison to help guide your decision:
 
