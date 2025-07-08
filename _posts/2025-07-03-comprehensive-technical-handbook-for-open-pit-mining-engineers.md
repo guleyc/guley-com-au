@@ -146,7 +146,7 @@ Production scheduling in open pit mining is a complex optimization problem that 
 
 While specific formulas can be highly complex and depend on the chosen optimization model, some fundamental concepts include:
 
-1. **Net Present Value (NPV):** The sum of the present values of individual cash flows. This is the most common objective function in long-term scheduling.
+**Net Present Value (NPV):** The sum of the present values of individual cash flows. This is the most common objective function in long-term scheduling.
 
 $$
 NPV = \sum_{t=0}^{n} \frac{CF_t}{(1 + r)^t}
@@ -158,19 +158,19 @@ Where:
 *  t = Time period
 *  n = Total number of periods (mine life)
 
-2. **Cut-off Grade Optimization:** Determining the minimum grade of ore that should be processed to maximize profitability at any given time. This can vary over the mine life.
+**Cut-off Grade Optimization:** Determining the minimum grade of ore that should be processed to maximize profitability at any given time. This can vary over the mine life.
 
-3. **Material Balance:** Ensuring that the amount of material extracted (ore and waste) aligns with the processing plant capacity and waste dump capacities.
+**Material Balance:** Ensuring that the amount of material extracted (ore and waste) aligns with the processing plant capacity and waste dump capacities.
 
-4. **Fleet Management and Dispatch:** Optimizing the assignment of trucks to shovels and destinations to minimize waiting times and maximize material movement. This often involves queuing theory and simulation models.
+**Fleet Management and Dispatch:** Optimizing the assignment of trucks to shovels and destinations to minimize waiting times and maximize material movement. This often involves queuing theory and simulation models.
 
-4.1. **Truck Cycle Time:** The total time a truck takes to complete a round trip (loading, hauling, dumping, returning).
+**Truck Cycle Time:** The total time a truck takes to complete a round trip (loading, hauling, dumping, returning).
 
 $$
 \text{Cycle}_{\text{Time}} = \text{Load}_{\text{Time}} + \text{Haul}_{\text{Time}} + \text{Dump}_{\text{Time}} + \text{Return}_{\text{Time}} + \text{Queuing}_{\text{Time}}
 $$
 
-4.2. **Required Number of Trucks:**
+**Required Number of Trucks:**
 
 $$
 N_{\text{trucks}} = \frac{\text{Shovel Loading Rate} \times \text{Truck Cycle Time}}{\text{Truck Capacity}}
@@ -201,7 +201,7 @@ The process of equipment selection typically involves three stages:
 
 ### Key Formulas and Concepts in Equipment Sizing:
 
-1. **Match Factor (MF):** A crucial parameter for matching loading equipment (shovels, excavators) with hauling equipment (trucks). It represents the ratio of truck capacity to loader capacity.
+**Match Factor (MF):** A crucial parameter for matching loading equipment (shovels, excavators) with hauling equipment (trucks). It represents the ratio of truck capacity to loader capacity.
 
 $$
 MF = \frac{\text{Truck Capacity}}{\text{Loader Bucket Capacity} \times \text{Number of Passes}}
@@ -209,7 +209,7 @@ $$
 
 Ideally, the match factor should be close to 1, meaning the loader fills the truck in an optimal number of passes, minimizing waiting times for both.
 
-2. **Fleet Sizing (Simplified):** To determine the number of trucks required for a given number of shovels, the following simplified formula can be used:
+**Fleet Sizing (Simplified):** To determine the number of trucks required for a given number of shovels, the following simplified formula can be used:
 
 $$
 N_{\text{trucks}} = N_{\text{shovels}} \times \frac{\text{Truck Cycle Time}}{\text{Shovel Loading Time}}
@@ -223,7 +223,7 @@ Where:
 
 More detailed calculations involve considering equipment availability, utilization, mechanical efficiency, and operational delays.
 
-3. **Production Rate Calculation:**
+**Production Rate Calculation:**
 
 $$
 \text{Production Rate} = \text{Number of Units} \times \text{Unit Capacity} \times \text{Operating Hours} \times \text{Efficiency}
@@ -360,31 +360,31 @@ Drilling and blasting are fundamental operations in open pit mining, responsible
 
 ### Key Formulas and Concepts in Drilling and Blasting:
 
-* **Hole Length (L):**
+**Hole Length (L):**
 
 $$
 L = BH + SD
 $$
 
-* **Charge Length (C):**
+**Charge Length (C):**
 
 $$
 C = L - SL
 $$
 
-* **Blast Volume (V) per hole:**
+**Blast Volume (V) per hole:**
 
 $$
 V = B \times S \times BH
 $$
 
-* **Blasted Tonnage (T) per hole:**
+**Blasted Tonnage (T) per hole:**
 
 $$
 T = V \times \text{Density of Rock}
 $$
 
-* **Powder Factor (PF):**
+**Powder Factor (PF):**
 
 $$
 PF = \frac{\text{Weight of Explosive per Hole}}{\text{Volume of Rock broken per Hole}} \quad \text{(e.g., kg/m}^3 \text{ or lb/yd}^3)
