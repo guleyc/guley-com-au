@@ -1,108 +1,13 @@
-{% if paginator.total_pages > 1 %}
-<style>
-
-/* Ana pagination kapsayıcısı */
-.pagination-modern {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 3rem 0;
-  padding: 1rem 0;
-  /* Üst kenarlığı kaldırarak daha entegre bir görünüm sağlıyoruz */
-  border-top: none; 
-  /* Sitenizdeki font ailesini kullanıyoruz */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* Ortadaki "Page X of Y" metni */
-.pagination-modern .nav-center {
-  text-align: center;
-  color: #555; /* Daha yumuşak bir metin rengi */
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-/* Sağdaki 'Next' linkinin hizalaması */
-.pagination-modern .nav-next {
-  text-align: right;
-}
-
-/* Tıklanabilir linkler ve devre dışı butonlar için temel stil */
-.pagination-modern a,
-.pagination-modern .disabled {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid #e0e0e0; /* Daha ince bir kenarlık */
-  border-radius: 8px; /* Sitenizdeki gibi yuvarlak köşeler */
-  text-decoration: none;
-  font-weight: 600; /* Daha belirgin bir font kalınlığı */
-  font-size: 0.9rem;
-  color: #333; /* Ana metin rengi */
-  background-color: #ffffff; /* Beyaz arka plan */
-  transition: all 0.2s ease-in-out;
-}
-
-/* Linklerin üzerine gelindiğindeki efekt */
-.pagination-modern a:hover {
-  border-color: #FFC700; /* Vurgu renginiz */
-  color: #111;
-  transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Devre dışı bırakılmış butonların stili */
-.pagination-modern .disabled {
-  color: #b0b0b0;
-  background-color: #f9f9f9;
-  cursor: not-allowed;
-}
-
-.dark-theme .pagination-modern .nav-center {
-  color: #a0a0a0;
-}
-
-.dark-theme .pagination-modern a,
-.dark-theme .pagination-modern .disabled {
-  color: #e0e0e0;
-  background-color: #2a2a2a; /* Karanlık kart rengi */
-  border-color: #444; /* Daha koyu kenarlık */
-}
-
-.dark-theme .pagination-modern a:hover {
-  color: #FFC700; /* Vurgu renginiz */
-  border-color: #FFC700;
-  background-color: #333;
-}
-
-.dark-theme .pagination-modern .disabled {
-  color: #666;
-  background-color: #222;
-  border-color: #333;
-}
-</style>
-<nav class="pagination-modern" aria-label="Pagination">
-
-  <div class="nav-item nav-prev">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}" rel="prev">&larr; Previous</a>
-    {% else %}
-      <span class="disabled">&larr; Previous</span>
-    {% endif %}
-  </div>
-
-  <div class="nav-item nav-center">
-    <span class="page-number">
-      Page {{ paginator.page }} of {{ paginator.total_pages }}
-    </span>
-  </div>
-
-  <div class="nav-item nav-next">
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" rel="next">Next &rarr;</a>
-    {% else %}
-      <span class="disabled">Next &rarr;</span>
-    {% endif %}
-  </div>
-
-</nav>
-{% endif %}
+<div class="pagination">
+	{% if paginator.previous_page %}
+		{% if paginator.previous_page == 1 %}
+			<a class="prev" href="/">&larr; Previous</a>
+		{% else %}
+			<a class="prev" href="/page/{{ paginator.previous_page }}/">&larr; Previous</i></a>
+		{% endif %}
+	{% endif %}
+	<span class="page-number">Page {{paginator.page}} of {{paginator.total_pages}}</span>
+	{% if paginator.next_page %}
+		<a class="next" href="/page/{{ paginator.next_page }}/">Next &rarr;</a>
+	{% endif %}
+</div>
