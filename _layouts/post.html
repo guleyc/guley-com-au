@@ -53,7 +53,11 @@ layout: default
 	},
 	chtml: {
 		displayAlign: 'left',
-		displayIndent: '2em'
+		displayIndent: '1em',
+		adaptive: true,
+		linebreaks: {
+      		automatic: true 
+		}
 	},
 	svg: {
 		fontCache: 'global'
@@ -61,7 +65,7 @@ layout: default
 	};
 	</script>
 	<script type="text/javascript" id="MathJax-script" async
-	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
 	</script>
 	{% endif %}
 	{% if page.image %}
