@@ -44,8 +44,19 @@ layout: default
 </style>
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
 	{% if page.mathjax %}
+	<script type="text/javascript">
+	MathJax.Hub.Config({
+		tex2jax: {
+		inlineMath: [['\\(','\\)']],
+		displayMath: [['$$','$$']],
+		processEscapes: true
+		},
+		displayAlign: "left",
+		displayIndent: "2em"
+	});
+	</script>
 	<script type="text/javascript"
-		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
 	{% endif %}
 	{% if page.image %}
