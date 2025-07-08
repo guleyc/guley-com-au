@@ -332,3 +332,73 @@ th {
 .nav-next {
   text-align: right;
 }
+@media print {
+
+    .profile,
+    .post-header .post-share,
+    .tags-container,
+    .navigation,
+    .post-navigation, 
+    .pagination-modern, 
+    .footer,
+    .mode, 
+    figure, 
+    .tags,
+    .post-tag {
+        display: none !important;
+    }
+
+    body,
+    .container,
+    .blog-post-content,
+    .blog-post-title {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        background: #fff !important;
+    }
+
+    body {
+        font-family: 'Times New Roman', Times, serif; 
+        font-size: 12pt; 
+        line-height: 1.5;
+    }
+
+    .blog-post-title h1 {
+        font-size: 24pt;
+        margin-bottom: 20pt;
+    }
+    
+    .blog-post-content {
+        text-align: left; 
+    }
+
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    a, a:visited {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    a[href^="http"]:after,
+    a[href^="//"]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        font-weight: normal;
+        color: #333;
+    }
+    
+    pre, code, blockquote, figure, table {
+        page-break-inside: avoid;
+    }
+
+    h2, h3, h4 {
+        page-break-after: avoid;
+    }
+}
