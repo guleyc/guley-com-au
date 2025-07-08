@@ -89,7 +89,7 @@ The fundamental calculation for ore reserves involves determining the volume of 
 
 **Formula for Ore Tonnage:**
 
-$Ore\[Tonnage\] = Ore\[Volume\] \times Ore\[Density\]$
+$$Ore\[Tonnage\] = Ore\[Volume\] \times Ore\[Density\]$$
 
 Where:
 *   **Ore Volume:** Calculated based on geological models, drill hole data, and various estimation methods (e.g., sectional method, block modeling, geostatistical methods).
@@ -97,7 +97,7 @@ Where:
 
 For example, if the density of the ore is 1.35 tons/m³, and the estimated ore volume is 1,000,000 m³, then the ore tonnage would be:
 
-$Ore\[Tonnage\] = 1,000,000\[m^3\] \times 1.35\[tons/m^3\] = 1,350,000\[tons\]$
+$$Ore\[Tonnage\] = 1,000,000\[m^3\] \times 1.35\[tons/m^3\] = 1,350,000\[tons\]$$
 
 ### Example: Sectional Method for Volume Calculation
 
@@ -142,7 +142,7 @@ While specific formulas can be highly complex and depend on the chosen optimizat
 
 *   **Net Present Value (NPV):** The sum of the present values of individual cash flows. This is the most common objective function in long-term scheduling.
 
-    $NPV = \sum_{t=0}^{n} \frac{CF_t}{(1+r)^t}$
+    $$NPV = \sum_{t=0}^{n} \frac{CF_t}{(1+r)^t}$$
 
     Where:
     *   $CF_t$ = Net cash flow in period t
@@ -158,11 +158,11 @@ While specific formulas can be highly complex and depend on the chosen optimizat
 
     *   **Truck Cycle Time:** The total time a truck takes to complete a round trip (loading, hauling, dumping, returning).
 
-        $Cycle\[Time\] = Load\[Time\] + Haul\[Time\] + Dump\[Time\] + Return\[Time\] + Queuing\[Time\]$
+        $$Cycle\[Time\] = Load\[Time\] + Haul\[Time\] + Dump\[Time\] + Return\[Time\] + Queuing\[Time\]$$
 
     *   **Required Number of Trucks:**
 
-        $N_{trucks} = \frac{Shovel\[Loading\]\[Rate\] \times Truck\[Cycle\]\[Time\]}{Truck\[Capacity\]}$
+        $$N_{trucks} = \frac{Shovel\[Loading\]\[Rate\] \times Truck\[Cycle\]\[Time\]}{Truck\[Capacity\]}$$
 
         (This is a simplified representation; actual calculations involve more detailed analysis of shovel and truck capacities, efficiencies, and operational delays.)
 
@@ -191,13 +191,13 @@ The process of equipment selection typically involves three stages:
 
 *   **Match Factor (MF):** A crucial parameter for matching loading equipment (shovels, excavators) with hauling equipment (trucks). It represents the ratio of truck capacity to loader capacity.
 
-    $MF = \frac{Truck\[Capacity\]}{Loader\[Bucket\]\[Capacity\] \times Number\[of\]\[Passes\]}$
+    $$MF = \frac{Truck\[Capacity\]}{Loader\[Bucket\]\[Capacity\] \times Number\[of\]\[Passes\]}$$
 
     Ideally, the match factor should be close to 1, meaning the loader fills the truck in an optimal number of passes, minimizing waiting times for both.
 
 *   **Fleet Sizing (Simplified):** To determine the number of trucks required for a given number of shovels, the following simplified formula can be used:
 
-    $N_{trucks} = N_{shovels} \times \frac{Truck\[Cycle\]\[Time\]}{Shovel\[Loading\]\[Time\]}$
+    $$N_{trucks} = N_{shovels} \times \frac{Truck\[Cycle\]\[Time\]}{Shovel\[Loading\]\[Time\]}$$
 
     Where:
     *   $N_{trucks}$ = Number of trucks
@@ -209,7 +209,7 @@ The process of equipment selection typically involves three stages:
 
 *   **Production Rate Calculation:**
 
-    $Production\[Rate\] = Number\[of\]\[Units\] \times Unit\[Capacity\] \times Operating\[Hours\] \times Efficiency$
+    $$Production\[Rate\] = Number\[of\]\[Units\] \times Unit\[Capacity\] \times Operating\[Hours\] \times Efficiency$$
 
     This formula can be applied to calculate the production rate of drills, shovels, or trucks.
 
@@ -249,7 +249,7 @@ Cost estimation in mining is often based on historical data, industry benchmarks
 
 *   **Unit Cost Method:** Estimating costs based on a cost per unit of production (e.g., $/tonne of ore, $/bcm of waste).
 
-    $Total\[Cost\] = Unit\[Cost\] \times Quantity$
+    $$Total\[Cost\] = Unit\[Cost\] \times Quantity$$
 
 *   **Regression Analysis:** Developing cost models based on relationships between costs and various operational parameters (e.g., haul distance, production rate, equipment size).
 
@@ -273,7 +273,7 @@ These percentages can vary significantly based on the specific mine, commodity, 
 
 Breakeven analysis helps determine the minimum production or grade required to cover costs. The **breakeven stripping ratio** is a critical economic parameter:
 
-$Breakeven\[Stripping\]\[Ratio\] = \frac{Value\[of\]\[Ore\] - Processing\[Cost\] - Mining\[Cost\]\[of\]\[Ore\]}{Mining\[Cost\]\[of\]\[Waste\]}$
+$$Breakeven\[Stripping\]\[Ratio\] = \frac{Value\[of\]\[Ore\] - Processing\[Cost\] - Mining\[Cost\]\[of\]\[Ore\]}{Mining\[Cost\]\[of\]\[Waste\]}$$
 
 Where:
 *   $Value\[of\]\[Ore\]$ = (Metal Price - Selling Costs) $\times$ Grade $\times$ Recovery
@@ -309,7 +309,7 @@ Mining engineers use various methods to assess slope stability and determine saf
 
 *   **Limit Equilibrium Methods:** These methods analyze the forces acting on a potential failure mass and calculate a Factor of Safety (FoS). A FoS greater than 1 indicates stability, with typical design values ranging from 1.2 to 1.5 for static conditions.
 
-    $FoS = \frac{Resisting\[Forces\]}{Driving\[Forces\]}$
+    $$FoS = \frac{Resisting\[Forces\]}{Driving\[Forces\]}$$
 
 *   **Numerical Modeling (e.g., Finite Element Method, Discrete Element Method):** Advanced computational techniques that simulate rock mass behavior under various stress conditions, providing detailed insights into deformation and failure mechanisms.
 
@@ -337,27 +337,27 @@ Drilling and blasting are fundamental operations in open pit mining, responsible
 
 *   **Hole Length (L):**
 
-    $L = BH + SD$
+    $$L = BH + SD$$
 
 *   **Charge Length (C):**
 
-    $C = L - SL$
+    $$C = L - SL$$
 
 *   **Blast Volume (V) per hole:**
 
-    $V = B \times S \times BH$
+    $$V = B \times S \times BH$$
 
 *   **Blasted Tonnage (T) per hole:**
 
-    $T = V \times Density\[of\]\[Rock\]$
+    $$T = V \times Density\[of\]\[Rock\]$$
 
 *   **Powder Factor (PF):**
 
-    $PF = \frac{Weight\[of\]\[Explosive\]\[per\]\[Hole\]}{Volume\[of\]\[Rock\]\[broken\]\[per\]\[Hole\]}$ (e.g., kg/m³ or lb/yd³)
+    $$PF = \frac{Weight\[of\]\[Explosive\]\[per\]\[Hole\]}{Volume\[of\]\[Rock\]\[broken\]\[per\]\[Hole\]}$$ (e.g., kg/m³ or lb/yd³)
 
     Alternatively, in terms of tonnage:
 
-    $PF = \frac{Weight\[of\]\[Explosive\]\[per\]\[Hole\]}{Tonnage\[of\]\[Rock\]\[broken\]\[per\]\[Hole\]}$ (e.g., kg/tonne or lb/ton)
+    $$PF = \frac{Weight\[of\]\[Explosive\]\[per\]\[Hole\]}{Tonnage\[of\]\[Rock\]\[broken\]\[per\]\[Hole\]}$$ (e.g., kg/tonne or lb/ton)
 
     The optimal powder factor varies depending on rock type, desired fragmentation, and explosive properties. Typical ranges for open pit mining are 0.5 to 2.5 pounds per cubic yard or 0.15 to 0.75 kg/tonne.
 
@@ -371,7 +371,7 @@ Drilling and blasting are fundamental operations in open pit mining, responsible
 
 Assume a blast hole breaks 500 tonnes of rock and uses 250 kg of explosive. The powder factor would be:
 
-$PF = \frac{250\[kg\]}{500\[tonnes\]} = 0.5\[kg/tonne\]$
+$$PF = \frac{250\[kg\]}{500\[tonnes\]} = 0.5\[kg/tonne\]$$
 
 ### Considerations for Effective Blasting:
 
