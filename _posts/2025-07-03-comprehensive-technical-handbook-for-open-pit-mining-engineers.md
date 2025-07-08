@@ -167,8 +167,17 @@ Where:
 **Truck Cycle Time:** The total time a truck takes to complete a round trip (loading, hauling, dumping, returning).
 
 $$
-\text{Cycle}_{\text{Time}} = \text{Load}_{\text{Time}} + \text{Haul}_{\text{Time}} + \text{Dump}_{\text{Time}} + \text{Return}_{\text{Time}} + \text{Queuing}_{\text{Time}}
+\text{C}_{\text{T}} = \text{L}_{\text{T}} + \text{H}_{\text{T}} + \text{D}_{\text{T}} + \text{R}_{\text{T}} + \text{Q}_{\text{T}}
 $$
+
+Where:
+* CT = Cycle Time
+* LT = Loading Time
+* HT = Haul Time
+* DT = Dump Time
+* RT = Return Time
+* QT = Queuing Time
+
 
 **Required Number of Trucks:**
 
@@ -226,8 +235,15 @@ More detailed calculations involve considering equipment availability, utilizati
 **Production Rate Calculation:**
 
 $$
-\text{Production Rate} = \text{Number of Units} \times \text{Unit Capacity} \times \text{Operating Hours} \times \text{Efficiency}
+\text{PR} = \text{NU} \times \text{UC} \times \text{OH} \times \text{Eff}
 $$
+
+Where:
+* PR = Production Rate
+* NU = Number of Units
+* UC = Unit Capacity
+* OH = Operating Hours
+* Eff = Efficiency
 
 This formula can be applied to calculate the production rate of drills, shovels, or trucks.
 
@@ -295,14 +311,15 @@ Breakeven analysis helps determine the minimum production or grade required to c
 
 
 $$
-\text{Breakeven Stripping Ratio} = \frac{\text{Value of Ore} - \text{Processing Cost} - \text{Mining Cost of Ore}}{\text{Mining Cost of Waste}}
+\text{BSR} = \frac{\text{VO} - \text{PC} - \text{MCO}}{\text{MCW}}
 $$
 
 Where:
-* ValueofOre = (Metal Price - Selling Costs) x Grade x Recovery
-* ProcessingCost = Cost per tonne of ore processed
-* MiningCostofOre = Cost per tonne of ore mined
-* MiningCostofWaste = Cost per tonne of waste mined
+* BSR = Breakeven Stripping Ratio
+* VO = Value of Ore = (Metal Price - Selling Costs) x Grade x Recovery
+* PC = Processing Cost = Cost per tonne of ore processed
+* MCO = Mining Cost of Ore = Cost per tonne of ore mined
+* MCW = Mining Cost of Waste = Cost per tonne of waste mined
 
 This ratio indicates the maximum amount of waste that can be removed per unit of ore before the operation becomes unprofitable. It is a key factor in determining the ultimate pit limits.
 
@@ -387,14 +404,20 @@ $$
 **Powder Factor (PF):**
 
 $$
-PF = \frac{\text{Weight of Explosive per Hole}}{\text{Volume of Rock broken per Hole}} \quad \text{(e.g., kg/m}^3 \text{ or lb/yd}^3)
+PF = \frac{\text{WEH}}{\text{VRH}} \quad \text{(e.g., kg/m}^3)
 $$
 
 Alternatively, in terms of tonnage:
 
 $$
-PF = \frac{\text{Weight of Explosive per Hole}}{\text{Tonnage of Rock broken per Hole}} \quad \text{(e.g., kg/tonne or lb/ton)}
+PF = \frac{\text{WEH}}{\text{TRH}} \quad \text{(e.g., kg/tonne)}
 $$
+
+Where:
+
+* WEH = Weight of Explosive per Hole
+* VRH = Volume of Rock broken per Hole
+* TRH = Tonnage of Rock broken per Hole
 
 The optimal powder factor varies depending on rock type, desired fragmentation, and explosive properties. Typical ranges for open pit mining are 0.5 to 2.5 pounds per cubic yard or 0.15 to 0.75 kg/tonne.
 
