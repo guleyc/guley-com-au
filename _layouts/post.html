@@ -8,9 +8,9 @@ layout: default
 {%- else -%}
   {%- assign reading_time = words | divided_by: 180 | round -%}
 {%- endif -%}
-<style>/* Hero Image Stilleri */
+<style>
 .hero-image {
-  height: 45vh; /* Yüksekliği ekranın %45'i kadar yap. Değiştirebilirsin. */
+  height: 45vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,10 +19,8 @@ layout: default
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px; /* Görsel ile içerik arasına boşluk */
+  margin-bottom: 30px;
 }
-
-/* Görselin üzerine karartma efekti ekleyerek yazının okunurluğunu artırır */
 .hero-image::before {
   content: '';
   position: absolute;
@@ -30,22 +28,20 @@ layout: default
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Siyahlık oranını buradan ayarla */
+  background-color: rgba(0, 0, 0, 0.4);
 }
-
-/* Başlık metni */
 .hero-text {
-  position: relative; /* Karartma efektinin üzerinde kalması için */
+  position: relative;
   text-align: center;
   color: white;
   padding: 20px;
 }
-
 .hero-text h1 {
-  font-size: 2.8rem; /* Başlık boyutunu ayarla */
+  font-size: 2.2rem;
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* Yazıya gölge ekleyerek okunurluğu artırır */
-}</style>
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6); 
+}
+</style>
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
 	{% if page.mathjax %}
 	<script type="text/javascript"
