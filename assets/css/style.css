@@ -24,7 +24,7 @@ body{font-family:'Source Sans Pro',sans-serif;font-weight:300;background:var(--b
 .pagination{width:100%;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:5px 10px;margin-bottom:5px;background:var(--bg-color)}
 .pagination .prev{color:var(--primary-font-color);font-weight:600;font-size:18px}
 .pagination .next{color:var(--primary-font-color);font-weight:600;text-align:right;font-size:18px}
-.blog-post-content{width:100%;line-height:1.7;text-align:justify}
+.blog-post-content{width:100%;line-height:1.7;text-align:justify;font-size:1.1rem}
 .blog-post-title{width:100%;line-height:1.7;text-align:justify}
 .post-tag{background:var(--bg-color);color:var(--primary-font-color);padding:5px 10px}
 .profile{width:100%;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:5px 10px;margin-bottom:20px}
