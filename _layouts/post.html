@@ -54,8 +54,8 @@ layout: default
 	{% endif %}
 	{% if page.image %}
 		{%- assign post_image_url = page.image | prepend: '/upload/' | relative_url -%}
-		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" itemprop="name headline" data-echo-background="{{ post_image_url }}">
-			<div class="hero-text">
+		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" data-echo-background="{{ post_image_url }}">
+			<div class="hero-text" itemprop="name headline">
 				<h1>{{ page.title }}</h1>
 			</div>
 		</div>
