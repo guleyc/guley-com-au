@@ -60,7 +60,7 @@ The **stripping ratio** is a critical parameter that represents the amount of un
 
 **Formula for Stripping Ratio (SR):**
 
-$SR = \frac{\text{Volume or Mass of Waste}}{\text{Volume or Mass of Ore}}$
+$$SR = \frac{\text{Volume or Mass of Waste}}{\text{Volume or Mass of Ore}}$$
 
 A lower stripping ratio indicates a more economically favorable operation, as less waste needs to be handled per unit of valuable ore. As mining progresses deeper, the stripping ratio generally increases, eventually reaching an economic limit where the cost of removing waste equals the revenue generated from the ore. This economic limit defines the ultimate pit boundary.
 
@@ -386,12 +386,3 @@ $PF = \frac{250\[kg\]}{500\[tonnes\]} = 0.5\[kg/tonne\]$
 The role of a mining engineer in an open pit operation is multifaceted, demanding a deep understanding of geological principles, engineering mechanics, economic drivers, and operational intricacies. From the initial stages of ore reserve estimation and pit design to the daily challenges of production scheduling, equipment management, and drilling and blasting, every decision is underpinned by rigorous calculations and a keen eye for optimization. The continuous pursuit of efficiency, safety, and profitability drives innovation in this dynamic field.
 
 By mastering the formulas and considerations discussed in this guide, mining engineers can effectively navigate the complexities of open pit mining, ensuring sustainable and economically viable extraction of valuable mineral resources. The integration of advanced technologies, data analytics, and a commitment to best practices will continue to shape the future of open pit operations, making them safer, more productive, and environmentally responsible.
-
-## References
-
-1.  Penn State University. (n.d.). *9.2.1: Open Pit Mining | MNG 230 - Introduction to Mining Engineering*. Retrieved from [https://www.e-education.psu.edu/mng230/node/648](https://www.e-education.psu.edu/mng230/node/648)
-2.  Altiti, A. H., Alrawashdeh, R. O., & Alnawafleh, H. M. (n.d.). *Open Pit Mining*. IntechOpen. Retrieved from [https://minedocs.com/23/IntechOpen-Mining-03202020.pdf](https://minedocs.com/23/IntechOpen-Mining-03202020.pdf)
-3.  911Metallurgist. (2017, March 24). *Ore Reserve Estimation Method*. Retrieved from [https://www.911metallurgist.com/blog/ore-reserve-estimation-methods/](https://www.911metallurgist.com/blog/ore-reserve-estimation-methods/)
-4.  Sustaine. (n.d.). *Equipment Selection and Sizing for Optimum Planning and Design of an Open Pit Mine*. Retrieved from [https://sustaine.org/equipment-selection-and-sizing-for-optimum-planning-and-design-of-an-open-pit-mine/](https://sustaine.org/equipment-selection-and-sizing-for-optimum-planning-and-design-of-an-open-pit-mine/)
-5.  OSMRE. (n.d.). *Module 3 - Surface - Blast Design*. Retrieved from [https://www.osmre.gov/sites/default/files/inline-files/Module3_0.pdf](https://www.osmre.gov/sites/default/files/inline-files/Module3_0.pdf)
-6.  Mine Portal. (2023, June 4). *POWDER FACTOR WITH SOLVED EXAMPLES*. Retrieved from [https://mineportal.in/blog/powder-factor-with-solved-examples/1](https://mineportal.in/blog/powder-factor-with-solved-examples/1)
