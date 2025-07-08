@@ -1,115 +1,13 @@
-{% if paginator.total_pages > 1 %}
-<nav class="pagination" aria-label="Sayfalama">
-	<style>.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-.pagination ul {
-  display: flex;
-  list-style-type: none;
-  padding-left: 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden; /* Köşeleri yuvarlak tutmak için */
-}
-
-.pagination li {
-  display: inline;
-}
-
-.pagination li a,
-.pagination li span {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #007bff;
-  text-decoration: none;
-  border-left: 1px solid #ddd;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.pagination li:first-child a,
-.pagination li:first-child span {
-    border-left: none; /* İlk elemanın sol kenarlığını kaldır */
-}
-
-
-.pagination li a:hover {
-  background-color: #f2f2f2;
-}
-
-/* Aktif sayfa stili */
-.pagination li span.active {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  cursor: default;
-}
-
-/* Devre dışı bırakılmış bağlantı stili */
-.pagination li span.disabled {
-  color: #aaa;
-  cursor: not-allowed;
-}
-
-/* Elipsis stili */
-.pagination li span.ellipsis {
-    color: #888;
-}</style>
-  <ul>
-    {% comment %}{% endcomment %}
-    {% if paginator.previous_page %}
-      <li>
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="prev" rel="prev">Önceki</a>
-      </li>
-    {% else %}
-      <li>
-        <span class="disabled prev">Önceki</span>
-      </li>
-    {% endif %}
-
-    {% comment %}{% endcomment %}
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        {% comment %}{% endcomment %}
-        <li>
-          <span class="active" aria-current="page">{{ page }}</span>
-        </li>
-      {% elsif page == 1 %}
-        {% comment %}{% endcomment %}
-        <li>
-          <a href="{{ paginator.first_page_path | relative_url }}">{{ page }}</a>
-        </li>
-      {% elsif page == paginator.total_pages %}
-        {% comment %}{% endcomment %}
-        <li>
-          <a href="{{ paginator.last_page_path | relative_url }}">{{ page }}</a>
-        </li>
-      {% elsif page >= paginator.page - 1 and page <= paginator.page + 1 %}
-        {% comment %}{% endcomment %}
-        <li>
-          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-        </li>
-      {% elsif page == paginator.page - 2 or page == paginator.page + 2 %}
-         {% comment %}{% endcomment %}
-         <li>
-            <span class="ellipsis">&hellip;</span>
-         </li>
-      {% endif %}
-    {% endfor %}
-
-    {% comment %}{% endcomment %}
-    {% if paginator.next_page %}
-      <li>
-        <a href="{{ paginator.next_page_path | relative_url }}" class="next" rel="next">Sonraki</a>
-      </li>
-    {% else %}
-      <li>
-        <span class="disabled next">Sonraki</span>
-      </li>
-    {% endif %}
-  </ul>
-</nav>
-{% endif %}
+<div class="pagination">
+	{% if paginator.previous_page %}
+		{% if paginator.previous_page == 1 %}
+			<a class="prev" href="/">< Previous</a>
+		{% else %}
+			<a class="prev" href="/page/{{ paginator.previous_page }}/">< Previous</i></a>
+		{% endif %}
+	{% endif %}
+	<span class="page-number">Page {{paginator.page}} of {{paginator.total_pages}}</span>
+	{% if paginator.next_page %}
+		<a class="next" href="/page/{{ paginator.next_page }}/">Next ></a>
+	{% endif %}
+</div>
