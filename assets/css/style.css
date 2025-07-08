@@ -79,73 +79,13 @@ p{font-size:1.1rem}
 .mode.active:after{content:"🌛";transform:translateX(20px)}
 .mode.active span{transform:translateX(0)}
 .mode span{position:absolute;z-index:1;margin:2px;display:block;width:18px;height:18px;background:#fff;border-radius:50%;box-shadow:0 1px 3px rgb(0 0 0 / .1);transform:translateX(20px);transition:all .4s ease}
-
-/* =================================================================
-   POST NAVIGATION - KIRILMAYAN YERLEŞİM (BREAKOUT LAYOUT)
-   ================================================================= */
-
-.post-navigation {
-    /* Mevcut Hizalama Ayarları */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    /* YENİ EKLENEN KURALLAR (Sihir burada gerçekleşiyor) */
-    width: 100vw; /* 1. Elementi ekranın tam genişliğine zorla */
-    position: relative;
-    left: 50%; /* 2. Elementin sol kenarını ekranın ortasına getir */
-    transform: translateX(-50%); /* 3. Elementi kendi genişliğinin yarısı kadar sola kaydırarak tam ortala */
-    
-    /* Sitenizin ana kapsayıcısının maksimum genişliğiyle eşleştirme */
-    max-width: 960px; /* Bu değeri @media query içindeki .container'ınızın max-width'i ile aynı tutun */
-    box-sizing: border-box; /* Padding ve border değerlerinin genişliğe dahil edilmesini sağlar */
-
-    /* Mevcut Stil Ayarlarınız (Değişkenlerle) */
-    margin: 3rem auto; /* Üst/alt boşluk, yatayda ortalamak için auto */
-    padding: 1.5rem 25px; /* Kenarlarda boşluk bırakmak için padding ekledik */
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* Navigasyon içindeki link alanları */
-.nav-item {
-    flex-basis: 48%;
-    max-width: 48%;
-}
-
-.nav-item a {
-    display: block;
-    padding: 1rem;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.nav-item a:hover {
-    background-color: var(--bg-hover-color);
-    border-color: var(--border-color);
-}
-
-.nav-item .meta-nav {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--primary-font-color);
-    opacity: 0.7;
-    margin-bottom: 0.25rem;
-    font-weight: 500;
-}
-
-.nav-item .post-title {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--primary-font-color);
-}
-
-.nav-next {
-    text-align: right;
-}
+.post-navigation{display:flex;justify-content:space-between;align-items:center;width:100vw;position:relative;left:50%;transform:translateX(-50%);max-width:960px;box-sizing:border-box;margin:3rem auto;padding:1.5rem 25px;border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color)}
+.nav-item{flex-basis:48%;max-width:48%}
+.nav-item a{display:block;padding:1rem;border:1px solid transparent;border-radius:8px;text-decoration:none;transition:background-color .2s ease,border-color .2s ease}
+.nav-item a:hover{background-color:var(--bg-hover-color);border-color:var(--border-color)}
+.nav-item .meta-nav{display:block;font-size:.85rem;color:var(--primary-font-color);opacity:.7;margin-bottom:.25rem;font-weight:500}
+.nav-item .post-title{display:block;font-size:1.1rem;font-weight:700;color:var(--primary-font-color)}
+.nav-next{text-align:right}
 @media print{
 .footer,.hero-image,.mode,.navigation,.pagination-modern,.post-header .post-share,.post-navigation,.post-sidebar,.post-tag,.profile,.tags,.tags-container,.toc-left-sidebar,figure{display:none!important}
 .blog-post-content,.blog-post-title,.container,body{width:100%!important;margin:0!important;padding:0!important;border:none!important;box-shadow:none!important;color:#000!important;background:#fff!important}

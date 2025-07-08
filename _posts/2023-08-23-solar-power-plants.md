@@ -231,7 +231,7 @@ Applying the technical principles discussed previously to real-world scenarios d
   * **Installation Height:** To maximize the amount of reflected light reaching the rear of the panels, they must be installed at a greater height off the roof deck than a typical system. Studies show that higher elevation reduces shading from the panels themselves and improves the uniformity of the rear-side irradiance, boosting gain.  
   * **Racking Design:** The choice of racking is crucial. The support structure must be designed to minimize obstruction and shading on the rear side of the modules. A racking system with a large central torque tube or extensive cross-bracing would block reflected light and negate the benefits of the bifacial technology.
 
-    By carefully considering these factors and selecting an appropriate racking system, the commercial entity can achieve a significantly higher energy yield per square meter, maximizing their return on investment and more effectively offsetting their energy consumption.
+By carefully considering these factors and selecting an appropriate racking system, the commercial entity can achieve a significantly higher energy yield per square meter, maximizing their return on investment and more effectively offsetting their energy consumption.
 
 #### **Case Study 3: The Utility-Scale Tracker Decision \- LCOE Trade-offs**
 
