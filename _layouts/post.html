@@ -71,79 +71,25 @@ layout: default
 		{{ content }}
 	</div>
 
-<style>
-	/* Main navigation container */
-.post-navigation {
-  display: flex; /* Use Flexbox to align items side-by-side */
-  justify-content: space-between; /* Distribute space between them to push to either end */
-  margin: 3rem 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1.5rem 0;
-}
+	<nav class="post-navigation" aria-label="Post navigation">
+		{% if page.previous %}
+		<div class="nav-item nav-previous">
+			<a href="{{ page.previous.url | relative_url }}" rel="prev">
+			<span class="meta-nav" aria-hidden="true">&larr; Previous Post</span>
+			<span class="post-title">{{ page.previous.title }}</span>
+			</a>
+		</div>
+		{% endif %}
 
-/* Each navigation item (Previous/Next) */
-.nav-item {
-  flex-basis: 48%; /* Each item takes up about half of the width */
-  max-width: 48%;
-}
-
-.nav-item a {
-  display: block; /* Make the entire area clickable */
-  padding: 1rem;
-  border: 1px solid transparent; /* Transparent border for a smooth hover transition */
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.nav-item a:hover {
-  background-color: #f9f9f9;
-  border-color: #e0e0e0;
-}
-
-/* Small meta text like "Previous Post" / "Next Post" */
-.nav-item .meta-nav {
-  display: block;
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.25rem;
-  font-weight: 500;
-}
-
-/* The actual post title */
-.nav-item .post-title {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Right-align the text for the next post item */
-.nav-next {
-  text-align: right;
-}
-</style>
-<nav class="post-navigation" aria-label="Post navigation">
-
-  {% if page.previous %}
-  <div class="nav-item nav-previous">
-    <a href="{{ page.previous.url | relative_url }}" rel="prev">
-      <span class="meta-nav" aria-hidden="true">&larr; Previous Post</span>
-      <span class="post-title">{{ page.previous.title }}</span>
-    </a>
-  </div>
-  {% endif %}
-
-  {% if page.next %}
-  <div class="nav-item nav-next">
-    <a href="{{ page.next.url | relative_url }}" rel="next">
-      <span class="meta-nav" aria-hidden="true">Next Post &rarr;</span>
-      <span class="post-title">{{ page.next.title }}</span>
-    </a>
-  </div>
-  {% endif %}
-
-</nav></article>
+		{% if page.next %}
+		<div class="nav-item nav-next">
+			<a href="{{ page.next.url | relative_url }}" rel="next">
+			<span class="meta-nav" aria-hidden="true">Next Post &rarr;</span>
+			<span class="post-title">{{ page.next.title }}</span>
+			</a>
+		</div>
+		{% endif %}
+	</nav>
+</article>
 
 {% include sticky-sidebar.html reading_time=reading_time %}
