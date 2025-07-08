@@ -52,9 +52,9 @@ layout: default
 		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
 	{% endif %}
-
-	{% if page.image %}
-		<div class="hero-image" style="background-image: url('{{ page.image | relative_url }}');" itemprop="name headline">
+	{%- assign post_image_url = post.image | prepend: '/upload/' | relative_url -%}
+	{% if post_image_url %}
+		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" itemprop="name headline" data-echo-background="{{ post_image_url }}>
 			<div class="hero-text">
 				<h1>{{ page.title }}</h1>
 			</div>
