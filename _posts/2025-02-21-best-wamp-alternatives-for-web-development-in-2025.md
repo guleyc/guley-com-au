@@ -100,9 +100,7 @@ OpenServer is a powerful and convenient WAMP alternative for Windows that includ
 
 ### Download Link
 
-[Download OpenServer](https://ospanel.io/) 6.0.0
-
-[Download OpenServer from Drive](https://drive.google.com/file/d/1Qp_9FqhIhfhfiP0cztUNuMhPUYMIsFbl/view?usp=sharing) (OSPanel 6.0.0)
+[Download OpenServer](https://ospanel.io/) 6.3.5
 
 ## Conclusion
 
