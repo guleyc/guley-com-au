@@ -47,13 +47,13 @@ layout: default
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* Yazıya gölge ekleyerek okunurluğu artırır */
 }</style>
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
-	{%- assign post_image_url = post.image | prepend: '/upload/' | relative_url -%}
 	{% if page.mathjax %}
 	<script type="text/javascript"
 		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
 	{% endif %}
 	{% if post_image_url %}
+		{%- assign post_image_url = page.image | prepend: '/upload/' | relative_url -%}
 		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" itemprop="name headline" data-echo-background="{{ post_image_url }}">
 			<div class="hero-text">
 				<h1>{{ page.title }}</h1>
