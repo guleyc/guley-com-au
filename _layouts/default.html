@@ -26,10 +26,16 @@
 			<br>
 			{{ site.author.bio }}
 			<br>
-			<div class="mode" id="mode-switcher" onclick="toggleNightMode();">
-				<span></span>
-			</div>
+			<style>.header-controls {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+					}
+					</style>
+			<div class="header-controls">
+			{% include toggle.html %}
 			{% include search-ui.html %}
+			</div>
 		</div>
 	</div>
 	{{ content }}
