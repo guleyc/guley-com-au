@@ -88,6 +88,6 @@ jekyll-archives:
   enabled:
     - tags
   layouts:
-    tag: tag_archive
+    tag: tag
   permalinks:
     tag: /tag/:name/

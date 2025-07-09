@@ -98,6 +98,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-relative-links
   jekyll-sitemap
+  jekyll-archives
   tzinfo-data (~> 1.2021)
   wdm (>= 0.1.0)
   webrick (>= 1.8.2)
