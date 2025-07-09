@@ -85,9 +85,7 @@ relative_links:
   collections: false
 
 jekyll-archives:
-  enabled:
-    - tags
-  layouts:
-    tag: tag_archive
+  enabled: []
+  layout: tag_archive
   permalinks:
-    tag: /tag/:name/
+    tag: "/tag/:name/"
