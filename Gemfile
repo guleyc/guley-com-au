@@ -1,14 +1,18 @@
 source "https://rubygems.org"
-gem 'jekyll'
-gem 'jekyll-paginate'
-gem 'jekyll-sitemap'
-gem 'jekyll-relative-links'
-gem 'jekyll-github-metadata'
-gem 'jekyll-archives'
-gem "tzinfo-data", "~> 1.2021"
 
-# windows specific
+gem "github-pages", group: :jekyll_plugins
+gem 'faraday-retry'
+gem "webrick", "~> 1.8.2"
 gem 'wdm', '>= 0.1.0'
 
-# update ruby version
-gem 'webrick', '>= 1.8.2'
+group :jekyll_plugins do
+  gem "jekyll-github-metadata"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jekyll-feed"
+  gem "jekyll-redirect-from"
+  gem "jekyll-paginate"
+  gem "jekyll-relative-links"
+  gem 'jekyll-toc'
+  
+end

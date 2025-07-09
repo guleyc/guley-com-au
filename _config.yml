@@ -6,7 +6,6 @@ description: >-
   As a passionate mining engineer, I will unveil mineral riches and innovative solutions, taking us towards new horizons.
 lang: en-US
 timezone:  Europe/Istanbul
-repo: https://github.com/guleyc
 logo: assets/images/logo.svg
 google_tag: GTM-T863VL7J
 # discus-identifier:  
@@ -29,28 +28,29 @@ author:
 url: "https://guley.com.tr"
 baseurl: ""
 permalink: pretty
+repo: https://github.com/guleyc
 
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-
 exclude:
   - .jekyll-cache
   - .obsidian
-  - Gemfile
-  - Gemfile.lock
   - LICENSE.md
   - README.md
   - CONTRIBUTING.md
 
 plugins:
-  - jekyll-archives
   - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-relative-links
+  - jekyll-seo-tag
   - jekyll-github-metadata
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-toc
 
 paginate: 3
 paginate_path: "/page/:num"
@@ -85,12 +85,3 @@ defaults:
 relative_links:
   enabled:     true
   collections: false
-
-jekyll-archives:
-  enabled:
-    - tags
-    - categories
-  layout: archive
-  permalinks:
-    tag: /tag/:name/
-    category: /category/:name/
