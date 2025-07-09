@@ -5,6 +5,7 @@ permalink: /tags/
 ---
 
 <style>
+/* Stil kodlarınız aynı kalabilir, herhangi bir değişiklik gerekmiyor. */
 .tag-wall-container {
     display: flex;
     flex-wrap: wrap;
@@ -13,6 +14,8 @@ permalink: /tags/
     gap: 10px;
     padding: 20px 10px;
     width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
 }
 
 .tag-block {
@@ -35,12 +38,6 @@ permalink: /tags/
     z-index: 2;
 }
 
-.tag-block.active {
-    transform: scale(1.1);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    border: 3px solid #fff;
-}
-
 .tag-block.level-1 { min-height: 20px; padding: 10px; font-size: 1rem; flex-basis: 120px; }
 .tag-block.level-2 { min-height: 30px; padding: 15px; font-size: 1.2rem; flex-basis: 160px; }
 .tag-block.level-3 { min-height: 40px; padding: 20px; font-size: 1.5rem; flex-basis: 220px; }
@@ -53,80 +50,11 @@ permalink: /tags/
 .tag-block:nth-child(7n+5) { background-color: #f1c40f; color: #333; }
 .tag-block:nth-child(7n+6) { background-color: #e74c3c; }
 .tag-block:nth-child(7n+7) { background-color: #34495e; }
-
-.posts-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    display: none;
-}
-
-.posts-container.active {
-    display: block;
-}
-
-.post-item {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    transition: all 0.2s ease;
-}
-
-.post-item:hover {
-    background: var(--bg-hover-color);
-    border-color: var(--primary-font-color);
-}
-
-.post-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.post-title a {
-    color: var(--primary-font-color);
-    text-decoration: none;
-}
-
-.post-title a:hover {
-    color: #007acc;
-}
-
-.post-meta {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.post-excerpt {
-    color: var(--primary-font-color);
-    line-height: 1.6;
-}
-
-.reset-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #007acc;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-}
-
-.reset-btn.active {
-    display: block;
-}
 </style>
 
 <div class="tag-wall-container">
-    {% assign unique_tags = site.tags | sort %}
-    {% for tag in unique_tags %}
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
         {% assign tag_name = tag[0] %}
         {% assign tag_posts = tag[1] %}
         {% assign tag_size = tag_posts.size %}
@@ -141,104 +69,8 @@ permalink: /tags/
             {%- assign tag_level = "level-4" -%}
         {%- endif -%}
 
-        <a href="#{{ tag_name | slugify }}" class="tag-block {{ tag_level }}" data-tag="{{ tag_name | slugify }}" onclick="filterByTag('{{ tag_name | slugify }}', this.dataset.tagName)" data-tag-name="{{ tag_name }}">
+        <a href="{{ site.baseurl }}/tag/{{ tag_name | slugify }}/" class="tag-block {{ tag_level }}">
             <span>{{ tag_name }} ({{ tag_size }})</span>
         </a>
     {% endfor %}
 </div>
-
-<button class="reset-btn" onclick="resetFilter()">✕ Show All Tags</button>
-
-<div class="posts-container" id="posts-container">
-    <h2 id="selected-tag-title"></h2>
-    <div id="posts-list">
-        {% for tag in site.tags %}
-            <div class="tag-posts" data-tag="{{ tag[0] | slugify }}" style="display: none;">
-                {% for post in tag[1] %}
-                    <div class="post-item">
-                        <div class="post-title">
-                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                        </div>
-                        <div class="post-meta">Published: {{ post.date | date: '%d.%m.%Y' }}</div>
-                        <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-<script>
-function filterByTag(tagSlug, tagName) {
-    // Tüm tag'leri deaktif et
-    document.querySelectorAll('.tag-block').forEach(block => {
-        block.classList.remove('active');
-    });
-    
-    // Seçili tag'i aktif et
-    const activeTag = document.querySelector(`[data-tag="${tagSlug}"]`);
-    if (activeTag) {
-        activeTag.classList.add('active');
-        tagName = activeTag.dataset.tagName;
-    }
-    
-    // Posts container'ı göster
-    const postsContainer = document.getElementById('posts-container');
-    const titleElement = document.getElementById('selected-tag-title');
-    const resetBtn = document.querySelector('.reset-btn');
-    
-    postsContainer.classList.add('active');
-    resetBtn.classList.add('active');
-    
-    titleElement.textContent = `Posts tagged with "${tagName}"`;
-    
-    // Tüm post gruplarını gizle
-    document.querySelectorAll('.tag-posts').forEach(group => {
-        group.style.display = 'none';
-    });
-    
-    // Seçili tag'in postlarını göster
-    const targetPosts = document.querySelector(`[data-tag="${tagSlug}"].tag-posts`);
-    if (targetPosts) {
-        targetPosts.style.display = 'block';
-    }
-    
-    // Smooth scroll to posts
-    postsContainer.scrollIntoView({ behavior: 'smooth' });
-    
-    // URL'yi güncelle
-    window.history.pushState(null, null, `#${tagSlug}`);
-}
-
-function resetFilter() {
-    // Tüm aktif durumları temizle
-    document.querySelectorAll('.tag-block').forEach(block => {
-        block.classList.remove('active');
-    });
-    
-    document.getElementById('posts-container').classList.remove('active');
-    document.querySelector('.reset-btn').classList.remove('active');
-    
-    // Tüm post gruplarını gizle
-    document.querySelectorAll('.tag-posts').forEach(group => {
-        group.style.display = 'none';
-    });
-    
-    // URL'yi temizle
-    window.history.pushState(null, null, '/tags/');
-    
-    // Tag wall'a scroll
-    document.querySelector('.tag-wall-container').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Page load'da URL hash kontrol et
-document.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash.substr(1);
-    if (hash) {
-        const tagElement = document.querySelector(`[data-tag="${hash}"]`);
-        if (tagElement) {
-            filterByTag(hash, tagElement.dataset.tagName);
-        }
-    }
-});
-</script>
