@@ -1,5 +1,6 @@
 :root{--bg-color:#fafafa;--s-bg-color:#bfbebe;--bg-hover-color:#ececec;--body-bg:#fff;--primary-font-color:#000;--border-color:#dadada;--shadow-color:rgba(0, 0, 0, 0.1);--overlay-bg:rgba(255, 255, 255, 0.85)}
 [data-theme=dark]{--bg-color:#161f29;--s-bg-color:#161f29;--bg-hover-color:#36404c;--body-bg:#10171e;--primary-font-color:#bfbfbf;--border-color:#6a6a6a;--shadow-color:rgba(0, 0, 0, 0.3);--overlay-bg:rgba(16, 23, 30, 0.85);}
+[data-theme=dark] .social-icon{filter:invert(100%) sepia(50%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%)}
 body{font-family:'Source Sans Pro',sans-serif;font-weight:300;background:var(--body-bg);color:var(--primary-font-color);margin:0;padding:10px}
 .container{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;width:50%;margin-left:auto;margin-right:auto}
 .post-container{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;width:100%}
@@ -71,7 +72,6 @@ h5{font-size:1.1rem}
 p{font-size:1.1rem}
 .profile-image{width:96px;height:96px}
 }
-[data-theme=dark] .social-icon{filter:invert(100%) sepia(50%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%)}
 .mode{float:right;position:relative;margin:auto;width:42px;height:22px;background:#f1f2f4;border-radius:20px;cursor:pointer}
 .mode:after{content:"☀️";position:absolute;top:0;left:4px;font-size:0.875rem;height:22px;line-height:23px;text-align:center;transition:all .3s ease}
 .mode.active{background:#0771ca}
@@ -191,14 +191,14 @@ h2,h3,h4{page-break-after:avoid}
 table{border:1px solid var(--border-color);border-collapse:collapse;margin:0;padding:0;width:100%;table-layout:fixed}
 table caption{font-size:1.5em;margin:.5em 0 .75em;color:var(--primary-font-color)}
 table tr{background-color:var(--bg-color);border:1px solid var(--border-color);padding:.35em}
-table td,table th{padding:.625em;text-align:center;color:var(--primary-font-color)}
+table td,table th{padding:.625em;text-align:right;color:var(--primary-font-color)}
 table th{font-size:.85em;letter-spacing:.1em;text-transform:uppercase}
 @media screen and (max-width:600px){
 table{border:0}
 table caption{font-size:1.3em}
 table thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
 table tr{border-bottom:3px solid var(--border-color);display:block;margin-bottom:.625em;border-radius:8px;border:1px solid var(--border-color)}
-table td{border-bottom:1px solid var(--bg-hover-color);display:block;font-size:.8em;text-align:left}
+table td{border-bottom:1px solid var(--bg-hover-color);display:block;font-size:.8em;text-align:right}
 table td::before{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase}
 table td:last-child{border-bottom:0}
 }
