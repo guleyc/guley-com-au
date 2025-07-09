@@ -19,6 +19,28 @@
   
     var offset, poll, delay, useDebounce, unload;
   
+    /**
+     * GÜVENLİK DÜZELTMESİ:
+     * Verilen bir URL'nin güvenli protokollere (http, https) sahip olup olmadığını kontrol eder.
+     * Bu fonksiyon, 'javascript:' gibi tehlikeli protokollerle XSS saldırılarını önler.
+     * @param {string} urlString Kontrol edilecek URL.
+     * @returns {boolean} Güvenli ise true, değilse false döner.
+     */
+    var isSafeUrl = function(urlString) {
+        if (!urlString || typeof urlString !== 'string') {
+            return false;
+        }
+        try {
+            // Göreceli URL'leri de hesaba katmak için bir base URL kullanılır.
+            const url = new URL(urlString, window.location.origin);
+            // Sadece bilinen ve güvenli protokollere izin ver.
+            return ['http:', 'https:', 'blob:'].includes(url.protocol);
+        } catch (e) {
+            // Geçersiz URL formatı (javascript:alert(1) gibi) hataya neden olur.
+            return false;
+        }
+    };
+
     var isHidden = function (element) {
       return (element.offsetParent === null);
     };
@@ -89,11 +111,20 @@
             elem.setAttribute('data-echo-placeholder', elem.src);
           }
   
-          if (elem.getAttribute('data-echo-background') !== null) {
-            elem.style.backgroundImage = 'url(' + elem.getAttribute('data-echo-background') + ')';
+          // GÜVENLİK DÜZELTMESİ: URL'leri atamadan önce kontrol et.
+          var backgroundUrl = elem.getAttribute('data-echo-background');
+          if (backgroundUrl) {
+            if (isSafeUrl(backgroundUrl)) {
+                elem.style.backgroundImage = 'url(' + backgroundUrl + ')';
+            }
           }
-          else if (elem.src !== (src = elem.getAttribute('data-echo'))) {
-            elem.src = src;
+          else {
+            src = elem.getAttribute('data-echo');
+            if (src && elem.src !== src) {
+                if (isSafeUrl(src)) {
+                    elem.src = src;
+                }
+            }
           }
   
           if (!unload) {
@@ -104,12 +135,14 @@
           callback(elem, 'load');
         }
         else if (unload && !!(src = elem.getAttribute('data-echo-placeholder'))) {
-  
-          if (elem.getAttribute('data-echo-background') !== null) {
-            elem.style.backgroundImage = 'url(' + src + ')';
-          }
-          else {
-            elem.src = src;
+          // GÜVENLİK DÜZELTMESİ: Placeholder'dan geri yüklerken de URL'yi kontrol et.
+          if (isSafeUrl(src)) {
+            if (elem.getAttribute('data-echo-background') !== null) {
+              elem.style.backgroundImage = 'url(' + src + ')';
+            }
+            else {
+              elem.src = src;
+            }
           }
   
           elem.removeAttribute('data-echo-placeholder');
