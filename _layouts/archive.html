@@ -1,8 +1,18 @@
 ---
 layout: default
-title: 'Posts Tagged with "{{ page.title | capitalize }}"'
-description: 'Find all posts and articles on {{ site.title }} categorized under the "{{ page.title }}" tag.'
 ---
+{%- assign original_tag_title = page.title -%}
+
+{%- capture seo_title -%}
+Posts Tagged with "{{ original_tag_title | capitalize }}"
+{%- endcapture -%}
+
+{%- capture seo_description -%}
+Find all posts and articles on {{ site.title }} categorized under the "{{ original_tag_title }}" tag.
+{%- endcapture -%}
+
+{%- assign page.title = seo_title -%}
+{%- assign page.description = seo_description -%}
 
 <div class="archive-container">
   
