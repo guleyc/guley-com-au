@@ -50,8 +50,6 @@ plugins:
   - jekyll-relative-links
   - jekyll-redirect-from
   - jekyll-github-metadata
-  - jekyll-seo-tag
-  - jekyll-feed
   - jekyll-archives
 
 paginate: 3

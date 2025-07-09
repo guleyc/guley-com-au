@@ -1,9 +1,14 @@
 source "https://rubygems.org"
-
-gem "github-pages", group: :jekyll_plugins
-
+gem 'jekyll'
+gem 'jekyll-paginate'
+gem 'jekyll-sitemap'
+gem 'jekyll-relative-links'
+gem 'jekyll-github-metadata'
+gem 'jekyll-archives'
 gem "tzinfo-data", "~> 1.2021"
 
-group :development do
-  gem "wdm", ">= 0.1.0", platforms: [:mswin, :mingw, :x64_mingw]
-end
+# windows specific
+gem 'wdm', '>= 0.1.0'
+
+# update ruby version
+gem 'webrick', '>= 1.8.2'
