@@ -4,6 +4,7 @@ gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
 gem 'jekyll-relative-links'
 gem 'jekyll-github-metadata'
+gem 'jekyll-archives'
 gem "tzinfo-data", "~> 1.2021"
 
 # windows specific

@@ -49,6 +49,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-relative-links
   - jekyll-github-metadata
+  - jekyll-archives
 
 paginate: 3
 paginate_path: "/page/:num"
