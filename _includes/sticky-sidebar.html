@@ -51,7 +51,7 @@
                 <h4>🏷️ Tags</h4>
                 <div class="tags-list">
                     {% for tag in page.tags %}
-                        <a href="{{ site.baseurl | default: '' }}/tags/#{{ tag | slugify | downcase }}" 
+                        <a href="{{ site.baseurl | default: '' }}/tag/{{ tag | slugify | downcase }}/" 
                            class="sidebar-tag"
                            title="View all posts tagged with {{ tag }}">
                            {{ tag }}
