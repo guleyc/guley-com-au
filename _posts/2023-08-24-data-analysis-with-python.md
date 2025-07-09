@@ -7,6 +7,7 @@ permalink: /data-analysis-with-python/
 redirect_from:
   - /data-analysis-with-python
 categories: [engineering]
+tags: [data, analysis, python]
 ---
 
 Python is a powerful programming language used for data analysis and processing. It offers a range of libraries and tools to perform data analysis processes. Here are the fundamental libraries and steps you can use for data analysis in Python:

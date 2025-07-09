@@ -7,6 +7,7 @@ permalink: /solution-mining-well-and-cavern-design/
 redirect_from:
   - /solution-mining-well-and-cavern-design
 categories: [mining]
+tags: [solution, mining, well, cavern, design]
 ---
 
 A salt solution well’s design involves the use of two or more steel pipe columns (casing strings) nested within each other. To initiate the solution process within a expanding salt cavern, fresh water or undersaturated brine (known as the feed solvent) is pumped into the well, creating a void within the targeted salt formation. The resulting brine is then extracted to the surface for processing and recovery.

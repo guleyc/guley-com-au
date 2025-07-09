@@ -7,6 +7,7 @@ permalink: /how-does-a-motorcycle-clutch-work/
 redirect_from:
   - /how-does-a-motorcycle-clutch-work
 categories: [motorcycle]
+tags: [motorcycle, clutch, work]
 ---
 
 The clutch, an often overlooked device, is an integral part of motorcycles. While its concept is simple, allowing the rider to disengage power from the rear wheel while the engine spins, early motorcycles did not always feature clutches. Riding such motorcycles, which lacked clutches, offered a unique experience. Every start required a bump start, and stopping meant either stalling or lifting one’s weight off the saddle to allow the rear tire to gently spin, as tire traction was not a priority in those days. Furthermore, without a clutch, motorcycles couldn’t have gears.

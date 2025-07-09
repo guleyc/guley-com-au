@@ -6,8 +6,8 @@ layout: post
 permalink: /the-significance-of-support-systems-in-underground-mining-applications/
 redirect_from:
   - /the-significance-of-support-systems-in-underground-mining-applications
-
 categories: [mining]
+tags: [support, systems, underground, mining]
 ---
 
 ### <span class="ez-toc-section" id="Enhancing_Safety"></span>**Enhancing Safety**<span class="ez-toc-section-end"></span>

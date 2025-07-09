@@ -6,8 +6,8 @@ layout: post
 permalink: /the-economic-and-employment-impact-of-the-mining-sector/
 redirect_from:
   - /the-economic-and-employment-impact-of-the-mining-sector
-
 categories: [mining]
+tags: [mining, economic, employment]
 ---
 
 The mining sector plays a crucial role in the global economy, contributing significantly to economic growth and providing employment opportunities. This article examines the profound impact of the mining industry on the economy and employment, highlighting its key contributions and the associated benefits.

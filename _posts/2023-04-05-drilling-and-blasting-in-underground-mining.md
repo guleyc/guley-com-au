@@ -6,8 +6,8 @@ layout: post
 permalink: /drilling-and-blasting-in-underground-mining/
 redirect_from:
   - /drilling-and-blasting-in-underground-mining
-
 categories: [mining]
+tags: [drilling, blasting, underground, mining]
 ---
 
 ### <span class="ez-toc-section" id="The_Purpose_of_Drilling_and_Blasting"></span>The Purpose of Drilling and Blasting<span class="ez-toc-section-end"></span>

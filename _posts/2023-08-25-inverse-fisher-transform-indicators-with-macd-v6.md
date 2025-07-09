@@ -7,6 +7,7 @@ permalink: /inverse-fisher-transform-indicators-with-macd-v6/
 redirect_from:
   - /inverse-fisher-transform-indicators-with-macd-v6
 categories: [engineering]
+tags: [inverse, fisher, transform, indicators, macd]
 ---
 
 This script is a TradingView indicator written in Pine Script, a programming language designed for creating custom technical analysis indicators and strategies on the TradingView platform. The indicator is designed to create an “Inverse Fisher Transform” (IFT) indicator based on several technical indicators like Stochastic, RSI, CCI, and MFI, and combine their values to generate an overall rating. The indicator also includes elements related to MACD and offers alerting features.

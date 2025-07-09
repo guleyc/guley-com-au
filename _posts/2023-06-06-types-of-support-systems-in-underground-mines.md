@@ -6,8 +6,8 @@ layout: post
 permalink: /types-of-support-systems-in-underground-mines/
 redirect_from:
   - /types-of-support-systems-in-underground-mines
-
 categories: [mining]
+tags: [support, systems, underground, mines]
 ---
 
 Underground mining operations present unique challenges that require robust support systems to ensure the safety of miners and the stability of the mine workings. I have conducted extensive research and practical studies on various support systems used in underground mines. In this article, I will discuss different types of support systems commonly employed in the mining industry, providing explanations and examples to enhance understanding.
