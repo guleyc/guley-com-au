@@ -1,0 +1,25 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tables = document.querySelectorAll('table');
+
+  tables.forEach(table => {
+    const headers = [];
+    table.querySelectorAll('thead th').forEach(header => {
+      headers.push(header.textContent.trim());
+    });
+
+    if (headers.length === 0) return;
+
+    const rows = table.querySelectorAll('tbody tr');
+    
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      cells.forEach((cell, index) => {
+        if (headers[index]) {
+          cell.setAttribute('data-label', headers[index]);
+        }
+      });
+    });
+  });
+});
+</script>

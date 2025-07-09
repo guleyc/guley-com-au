@@ -51,20 +51,7 @@ img{max-width:100%}
 figure{margin:0;padding:15px}
 pre{font-size:1.125rem;max-width:90vw;overflow:auto}
 code{font-family:'Source Code Pro',sans-serif;font-size:1rem}
-table{border:1px solid var(--border-color);border-collapse:collapse;margin:0;padding:0;width:100%;table-layout:fixed}
-table caption{font-size:1.5em;margin:.5em 0 .75em;color:var(--primary-font-color)}
-table tr{background-color:var(--bg-color);border:1px solid var(--border-color);padding:.35em}
-table td,table th{padding:.625em;text-align:center;color:var(--primary-font-color)}
-table th{font-size:.85em;letter-spacing:.1em;text-transform:uppercase}
-@media screen and (max-width:600px){
-table{border:0}
-table caption{font-size:1.3em}
-table thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
-table tr{border-bottom:3px solid var(--border-color);display:block;margin-bottom:.625em;border-radius:8px;border:1px solid var(--border-color)}
-table td{border-bottom:1px solid var(--bg-hover-color);display:block;font-size:.8em;text-align:right}
-table td::before{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase}
-table td:last-child{border-bottom:0}
-}
+
 .social-icon{height:24px}
 .highlight{line-height:1}
 @media (min-width:1200px){
@@ -199,3 +186,19 @@ h2,h3,h4{page-break-after:avoid}
 .search-result-item:hover{background-color:var(--bg-hover-color)}
 .search-result-title{font-size:1.2rem;font-weight:700}
 .search-result-excerpt{font-size:.9rem;color:var(--primary-font-color);opacity:.7;margin-top:5px}
+
+/* TABLE */
+table{border:1px solid var(--border-color);border-collapse:collapse;margin:0;padding:0;width:100%;table-layout:fixed}
+table caption{font-size:1.5em;margin:.5em 0 .75em;color:var(--primary-font-color)}
+table tr{background-color:var(--bg-color);border:1px solid var(--border-color);padding:.35em}
+table td,table th{padding:.625em;text-align:center;color:var(--primary-font-color)}
+table th{font-size:.85em;letter-spacing:.1em;text-transform:uppercase}
+@media screen and (max-width:600px){
+table{border:0}
+table caption{font-size:1.3em}
+table thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
+table tr{border-bottom:3px solid var(--border-color);display:block;margin-bottom:.625em;border-radius:8px;border:1px solid var(--border-color)}
+table td{border-bottom:1px solid var(--bg-hover-color);display:block;font-size:.8em;text-align:left}
+table td::before{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase}
+table td:last-child{border-bottom:0}
+}
