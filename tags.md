@@ -9,21 +9,21 @@ permalink: /tags/
     <p>You can see all the tags on the site and how many articles they have below..</p>
 
     <div class="tag-wall">
-      {% capture tags_string %}
-        {% for tag in site.tags %}
-          {{ tag[1].size | lstrip | Sprintf: '%04d' }}:{{ tag[0] }}{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      {% endcapture %}
-      {% assign sorted_tags_array = tags_string | split: ',' | sort | reverse %}
-
-      {% for item in sorted_tags_array %}
-        {% assign parts = item | split: ':' %}
-        {% assign post_count = parts[0] | plus: 0 %}
-        {% assign tag_name = parts[1] %}
-        <a href="{{ '/tag/' | relative_url }}{{ tag_name | slugify }}/" class="tag-wall-item">
-          {{ tag_name }} <span class="tag-count">({{ post_count }})</span>
-        </a>
-      {% endfor %}
+       {% capture tags_string %}
+         {% for tag in site.tags %}
+           {{ tag.last.size | lstrip | Sprintf: '%04d' }}:{{ tag.first }}{% unless forloop.last %},{% endunless %}
+         {% endfor %}
+       {% endcapture %}
+       {% assign sorted_tags_array = tags_string | split: ',' | sort | reverse %}
+ 
+       {% for item in sorted_tags_array %}
+         {% assign parts = item | split: ':' %}
+         {% assign post_count = parts.first | plus: 0 %}
+         {% assign tag_name = parts.last %}
+         <a href="{{ '/tag/' | relative_url }}{{ tag_name | slugify }}/" class="tag-wall-item">
+           {{ tag_name }} <span class="tag-count">({{ post_count }})</span>
+         </a>
+       {% endfor %}
     </div>
   </div>
 
