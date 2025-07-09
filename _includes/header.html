@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{site.lang}}">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+        <script data-cfasync="false">
+            const theme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", theme);
+        </script>
+		{%- assign page_title = page.title | default: site.title -%}
+		{%- assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape -%}
+		{%- assign page_url = page.url | absolute_url -%}
+		{%- assign page_image = page.image | default: site.logo | absolute_url -%}
+        <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+		<meta name="description" content="{{ page_description }}">
+		<meta name="keywords" content="{% if page.tags and page.tags != empty %}{{ page.tags | join: ', ' }}{% else %}{{ site.keywords | join: ', ' }}{% endif %}">
+        <meta name="author" content="{{ site.author.name }}">
+		<meta name="robots" content="index, follow">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <base href="{{ site.url }}{{ site.baseurl }}" />
+        {% if page.date %}
+        <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+        <meta content="{{ site.url }}/about/" property="article:author">
+          {% endif %}
+        <meta property="og:site_name" content="{{site.title}}">
+        <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}" />
+        <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{page.url}}"/>
+        <meta property="og:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
+        <meta property="og:description" content="{{ page_description }}" />
+        <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}"/>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
+        <meta property="twitter:description" content="{{ page_description }}" />
+        <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}" />
+		<link rel="stylesheet" href="/assets/css/normalize.css?v={{ site.github.build_revision }}">
+		<link rel="stylesheet" href="/assets/css/highlight.css?v={{ site.github.build_revision }}">
+        <link rel="stylesheet" href="/assets/css/style.css?v={{ site.github.build_revision }}">
+        <link rel="shortcut icon" href="/assets/images/favicon.png" />
+		<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+		<link rel="shortcut icon" sizes="192x192" href="/assets/images/favicon.png">
+		<link rel="apple-touch-icon" href="/assets/images/favicon.png">
+		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+        <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/atom.xml">
+        <link rel="alternate" type="application/json" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.json" />
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+		<script src="https://unpkg.com/lunr/lunr.min.js"></script>
+		<link rel="sitemap" type="application/xml" title="sitemap" href="{{ site.url }}{{ site.baseurl }}/sitemap.xml" />
+			{% if page.layout == 'post' %}
+			<script type="application/ld+json">
+			{
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			"mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page_url }}" },
+			"headline": {{ page.title | jsonify }},
+			"description": {{ page_description | jsonify }},
+			"image": { "@type": "ImageObject", "url": "{{ page_image }}" },
+			"datePublished": "{{ page.date | date_to_xmlschema }}",
+			"dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+			"author": { "@type": "Person", "name": {{ site.author.name | jsonify }} },
+			"publisher": { "@type": "Organization", "name": {{ site.title | jsonify }}, "logo": { "@type": "ImageObject", "url": "{{ site.logo | absolute_url }}" } }
+			}
+			</script>
+			{% elsif page.url == '/' %}
+			<script type="application/ld+json">
+			{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": {{ site.title | jsonify }},
+			"url": "{{ site.url | absolute_url }}",
+			"potentialAction": { "@type": "SearchAction", "target": "{{ site.url | absolute_url }}/search/?q={search_term_string}", "query-input": "required name=search_term_string" }
+			}
+			</script>
+			{% endif %}
+			{% if site.google_tag %}
+			<!-- Google Tag Manager -->
+			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','{{site.google_tag}}');</script>
+			<!-- End Google Tag Manager -->
+			{% endif %}
+    </head>
+<body>
+{% if site.google_tag %}
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{site.google_tag}}"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+ {% endif %}

@@ -1,0 +1,410 @@
+<!-- LEFT TOC SIDEBAR - Desktop Only -->
+<aside class="toc-left-sidebar" id="toc-left-sidebar">
+    <h4>📑 Table of Contents</h4>
+    <nav class="toc-left-nav" id="toc-left-nav"></nav>
+</aside>
+
+<!-- RIGHT SIDEBAR -->
+<aside class="post-sidebar">
+    <div class="sidebar-content">
+        <!-- Mobile Button Bar -->
+        <div class="mobile-button-bar">
+            <button class="mobile-btn" data-section="info">
+                <span class="icon">📖</span>
+                <span>Info</span>
+            </button>
+            <button class="mobile-btn" data-section="tags">
+                <span class="icon">🏷️</span>
+                <span>Tags</span>
+            </button>
+            <button class="mobile-btn" data-section="toc">
+                <span class="icon">📑</span>
+                <span>Contents</span>
+            </button>
+        </div>
+        
+        <div class="mobile-sheet-handle"></div>
+        
+        <button class="mobile-close" aria-label="Close sidebar">✕</button>
+        
+        <div class="mobile-content">
+            <div class="post-meta-sidebar" data-section="info">
+                <h4>📖 Article Info</h4>
+                <div class="meta-item">
+                    <span class="meta-label">Published:</span>
+                    <time class="meta-value" itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Reading Time:</span>
+                    <span class="meta-value">{{ include.reading_time | default: "5" }} min</span>
+                </div>
+                {% if page.category %}
+                <div class="meta-item">
+                    <span class="meta-label">Category:</span>
+                    <span class="meta-value">{{ page.category }}</span>
+                </div>
+                {% endif %}
+            </div>
+
+            {% if page.tags and page.tags.size > 0 %}
+            <div class="tags-sidebar" data-section="tags">
+                <h4>🏷️ Tags</h4>
+                <div class="tags-list">
+                    {% for tag in page.tags %}
+                        <a href="{{ site.baseurl | default: '' }}/tag/{{ tag | slugify | downcase }}/" 
+                           class="sidebar-tag"
+                           title="View all posts tagged with {{ tag }}">
+                           {{ tag }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- TOC in mobile sidebar -->
+            <div class="toc-sidebar" data-section="toc">
+                <h4>📑 Table of Contents</h4>
+                <nav class="toc-nav"></nav>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<div class="mobile-backdrop"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+    
+    // === ELEMENT SELECTIONS ===
+    const sidebar = document.querySelector('.post-sidebar');
+    const tocLeftSidebar = document.querySelector('.toc-left-sidebar');
+    const tocLeftNav = document.querySelector('.toc-left-nav');
+    const mobileBackdrop = document.querySelector('.mobile-backdrop');
+    const mobileCloseBtn = document.querySelector('.mobile-close');
+    const mobileButtons = document.querySelectorAll('.mobile-btn');
+    const mobileContent = document.querySelector('.mobile-content');
+    const tocNav = document.querySelector('.toc-nav');
+    const mainContent = document.querySelector('.post-content') || 
+                        document.querySelector('.post__content') || 
+                        document.querySelector('article') ||
+                        document.querySelector('main .content');
+
+    // === STATE VARIABLES ===
+    let isExpanded = false;
+    let currentSection = null;
+    let tocObserver = null;
+    let touchStartY = 0;
+    let firstH1Position = null;
+
+    // === CORE FUNCTIONS ===
+    const openSidebar = () => {
+        if (!sidebar || isExpanded) return;
+        
+        isExpanded = true;
+        sidebar.classList.add('expanded');
+        sidebar.setAttribute('aria-hidden', 'false');
+        
+        if (window.innerWidth <= 768) {
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    const closeSidebar = () => {
+        if (!sidebar || !isExpanded) return;
+        
+        isExpanded = false;
+        sidebar.classList.remove('expanded');
+        
+        mobileButtons.forEach(btn => btn.classList.remove('active'));
+        
+        if (window.innerWidth <= 768) {
+            sidebar.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        } else {
+            sidebar.setAttribute('aria-hidden', 'false');
+        }
+        
+        currentSection = null;
+    };
+
+    const showSection = (section) => {
+        const sections = mobileContent?.querySelectorAll('[data-section]');
+        if (!sections) return;
+        
+        sections.forEach(s => {
+            const isVisible = s.dataset.section === section;
+            s.style.display = isVisible ? 'block' : 'none';
+        });
+        
+        currentSection = section;
+    };
+
+    const showAllSections = () => {
+        const sections = mobileContent?.querySelectorAll('[data-section]');
+        sections?.forEach(s => {
+            s.style.display = 'block';
+        });
+    };
+
+    const handleMobileButtonClick = (e) => {
+        const button = e.currentTarget;
+        const section = button.dataset.section;
+        
+        if (isExpanded && currentSection === section) {
+            closeSidebar();
+            return;
+        }
+        
+        openSidebar();
+        showSection(section);
+        
+        mobileButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    };
+
+    // === AUTO SCROLL TO ACTIVE TOC ITEM ===
+    const scrollToActiveTocItem = (activeLink, navContainer) => {
+        if (!activeLink || !navContainer) return;
+        
+        const navRect = navContainer.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        
+        const isAbove = linkRect.top < navRect.top;
+        const isBelow = linkRect.bottom > navRect.bottom;
+        
+        if (isAbove || isBelow) {
+            const scrollTop = activeLink.offsetTop - (navContainer.clientHeight / 2) + (activeLink.clientHeight / 2);
+            
+            navContainer.scrollTo({
+                top: scrollTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // === TABLE OF CONTENTS ===
+    const destroyTocObserver = () => {
+        if (tocObserver) {
+            tocObserver.disconnect();
+            tocObserver = null;
+        }
+    };
+
+    const initTocObserver = () => {
+        destroyTocObserver();
+        
+        if (!mainContent) return;
+
+        const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        if (!headings.length) return;
+
+        const firstH1 = mainContent.querySelector('h1');
+        if (firstH1) {
+            firstH1Position = firstH1.offsetTop;
+        }
+
+        tocObserver = new IntersectionObserver((entries) => {
+            let mostVisibleEntry = null;
+            let maxVisibilityRatio = 0;
+            
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > maxVisibilityRatio) {
+                    maxVisibilityRatio = entry.intersectionRatio;
+                    mostVisibleEntry = entry;
+                }
+            });
+            
+            if (mostVisibleEntry) {
+                const id = mostVisibleEntry.target.id;
+                
+                // Her iki TOC için de aktif linki güncelle
+                [tocLeftNav, tocNav].forEach(nav => {
+                    if (nav) {
+                        const activeLink = nav.querySelector(`a[href="#${id}"]`);
+                        if (activeLink) {
+                            nav.querySelectorAll('a').forEach(a => {
+                                a.classList.remove('active');
+                                a.setAttribute('aria-current', 'false');
+                            });
+                            activeLink.classList.add('active');
+                            activeLink.setAttribute('aria-current', 'location');
+                            if(nav === tocLeftNav) { // Sadece soldaki sidebar için otomatik kaydırma yap
+                                scrollToActiveTocItem(activeLink, tocLeftNav);
+                            }
+                        }
+                    }
+                });
+            }
+        }, {
+            rootMargin: '-10% 0px -60% 0px',
+            threshold: [0, 0.25, 0.5, 0.75, 1.0]
+        });
+        
+        headings.forEach(heading => tocObserver.observe(heading));
+    };
+
+    /**
+     * GÜVENLİK DÜZELTMESİ:
+     * Bu fonksiyon, XSS zafiyetini önlemek için `innerHTML` yerine standart DOM metotları
+     * (createElement, appendChild) kullanarak İçindekiler Tablosu'nu (TOC) oluşturur.
+     */
+    const generateToc = () => {
+        if (!mainContent) return;
+        
+        const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const tocSidebarElement = document.querySelector('.toc-sidebar');
+
+        // Eğer hiç başlık yoksa, ilgili TOC alanlarını CSS ile gizlemek için bir class ekle.
+        if (!headings.length) {
+            tocSidebarElement?.classList.add('hidden-by-js');
+            tocLeftSidebar?.classList.add('hidden-by-js');
+            // Not: CSS dosyanıza `.hidden-by-js { display: none !important; }` eklemeniz gerekebilir.
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        headings.forEach((heading, index) => {
+            if (!heading.id) {
+                heading.id = `toc-heading-${index}`;
+            }
+            
+            const id = heading.id;
+            const level = parseInt(heading.tagName.charAt(1));
+            const indent = Math.max(0, level - 1) * 0.8;
+            const text = heading.textContent.trim();
+            
+            const link = document.createElement('a');
+            
+            link.href = `#${id}`;
+            link.style.paddingLeft = `${indent + 0.6}rem`;
+            link.className = 'toc-link';
+            link.title = `Go to ${text}`;
+            link.textContent = text; // Metni güvenli bir şekilde ata
+            
+            fragment.appendChild(link);
+        });
+        
+        // Oluşturulan listeyi TOC konteynerlarına ekle
+        if (tocLeftNav) {
+            tocLeftNav.innerHTML = ''; // Temizle
+            tocLeftNav.appendChild(fragment.cloneNode(true)); // Klonunu ekle
+        }
+        if (tocNav) {
+            tocNav.innerHTML = ''; // Temizle
+            tocNav.appendChild(fragment); // Orijinalini ekle
+        }
+    };
+
+    // === LEFT SIDEBAR VISIBILITY ===
+    const updateLeftSidebarVisibility = () => {
+        if (!tocLeftSidebar || window.innerWidth <= 1200) return;
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (firstH1Position && scrollTop >= firstH1Position - 100) {
+            tocLeftSidebar.classList.add('visible');
+        } else {
+            tocLeftSidebar.classList.remove('visible');
+        }
+    };
+    
+    // === TOUCH HANDLERS ===
+    const handleTouchStart = (e) => {
+        if (!isExpanded || mobileContent.scrollTop > 0) return;
+        touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e) => {
+        if (touchStartY === 0) return;
+        const currentY = e.touches[0].clientY;
+        const diff = currentY - touchStartY;
+        if (diff > 0) { // Sadece aşağı sürüklemeyi algıla
+            e.preventDefault(); // Sayfanın kaymasını engelle
+            sidebar.style.transition = 'none';
+            sidebar.style.transform = `translateY(${diff}px)`;
+        }
+    };
+
+    const handleTouchEnd = (e) => {
+        if (touchStartY === 0) return;
+        const diff = e.changedTouches[0].clientY - touchStartY;
+        sidebar.style.transition = ''; // Geçişleri geri yükle
+        sidebar.style.transform = '';
+        if (diff > 100) { // Belirli bir eşikten fazla sürüklendiyse kapat
+            closeSidebar();
+        }
+        touchStartY = 0;
+    };
+
+    const handleKeydown = (e) => {
+        if (e.key === 'Escape' && isExpanded) closeSidebar();
+    };
+
+    const handleResize = () => {
+        if (window.innerWidth > 768) {
+            if (isExpanded) closeSidebar();
+            showAllSections();
+            if (sidebar) sidebar.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = '';
+            document.body.style.paddingBottom = '';
+        } else {
+            if (sidebar) sidebar.setAttribute('aria-hidden', !isExpanded);
+            if (!document.body.style.paddingBottom) {
+                document.body.style.paddingBottom = '80px';
+            }
+        }
+        
+        // Observer'ı yeniden başlatmak, responsive geçişlerde doğru çalışmasını sağlar
+        initTocObserver();
+        updateLeftSidebarVisibility();
+        // DİKKAT: TOC görünürlük kontrolü buradan kaldırıldı ve sadece CSS'e bırakıldı.
+    };
+
+    // === EVENT LISTENERS ===
+    mobileButtons.forEach(btn => {
+        btn.addEventListener('click', handleMobileButtonClick);
+    });
+
+    mobileCloseBtn?.addEventListener('click', closeSidebar);
+    mobileBackdrop?.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', handleKeydown);
+    
+    // Touch events (passive: false, e.preventDefault() için gerekli)
+    mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
+    mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
+    mobileContent?.addEventListener('touchend', handleTouchEnd);
+    
+    // Her iki TOC için de tıklama olayını yöneten tek bir fonksiyon
+    const handleTocClick = (e) => {
+        if (e.target.matches('a.toc-link')) { // Tıklanan elemanın bir TOC linki olduğundan emin ol
+            e.preventDefault();
+            const targetId = e.target.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (!targetElement) return;
+            
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Mobilde bir linke tıklandıysa sidebar'ı kapat
+            if (isExpanded && window.innerWidth <= 768) {
+                setTimeout(closeSidebar, 300);
+            }
+        }
+    };
+
+    tocNav?.addEventListener('click', handleTocClick);
+    tocLeftNav?.addEventListener('click', handleTocClick);
+
+    window.addEventListener('scroll', updateLeftSidebarVisibility, { passive: true });
+    window.addEventListener('resize', handleResize);
+
+    // === INITIALIZATION ===
+    generateToc();
+    handleResize(); // Başlangıç durumunu ayarla
+});
+</script>
