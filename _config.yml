@@ -83,3 +83,10 @@ defaults:
 relative_links:
   enabled:     true
   collections: false
+jekyll-archives:
+  enabled:
+    - tags
+  layouts:
+    tag: tag_archive
+  permalinks:
+    tag: /tag/:name/
