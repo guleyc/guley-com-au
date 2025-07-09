@@ -1,10 +1,12 @@
 source "https://rubygems.org"
 gem "jekyll"
 gem "jekyll-paginate"
-gem "jekyll-archives"
 gem "jekyll-sitemap"
 gem "jekyll-relative-links"
+gem "jekyll-redirect-from"
 gem "jekyll-github-metadata"
+gem "jekyll-feed"
+gem "jekyll-seo-tag"
 gem "tzinfo-data", "~> 1.2021"
 
 # windows specific
