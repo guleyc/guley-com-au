@@ -92,7 +92,7 @@
           if (elem.getAttribute('data-echo-background') !== null) {
             elem.style.backgroundImage = 'url(' + elem.getAttribute('data-echo-background') + ')';
           }
-          else if (elem.src !== (src = elem.getAttribute('data-echo'))) {
+          else if (elem.src !== (src = sanitizeUrl(elem.getAttribute('data-echo')))) {
             elem.src = src;
           }
   
@@ -132,6 +132,14 @@
   
     return echo;
   
+    function sanitizeUrl(url) {
+      try {
+        var parsedUrl = new URL(url, document.baseURI);
+        return parsedUrl.href;
+      } catch (e) {
+        return ''; // Return an empty string for invalid URLs
+      }
+    }
   });
 </script>
 <script>
