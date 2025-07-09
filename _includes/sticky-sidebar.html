@@ -477,7 +477,7 @@
         
         <div class="mobile-sheet-handle"></div>
         
-        <button class="mobile-close">✕</button>
+        <button class="mobile-close" aria-label="Close sidebar">✕</button>
         
         <div class="mobile-content">
             <div class="post-meta-sidebar" data-section="info">
@@ -538,9 +538,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileContent = document.querySelector('.mobile-content');
     const tocNav = document.querySelector('.toc-nav');
     const mainContent = document.querySelector('.post-content') || 
-                       document.querySelector('.post__content') || 
-                       document.querySelector('article') ||
-                       document.querySelector('main .content');
+                        document.querySelector('.post__content') || 
+                        document.querySelector('article') ||
+                        document.querySelector('main .content');
 
     // === STATE VARIABLES ===
     let isExpanded = false;
@@ -651,7 +651,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
         if (!headings.length) return;
 
-        // Find first H1 position for left sidebar visibility
         const firstH1 = mainContent.querySelector('h1');
         if (firstH1) {
             firstH1Position = firstH1.offsetTop;
@@ -671,59 +670,53 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mostVisibleEntry) {
                 const id = mostVisibleEntry.target.id;
                 
-                // Update left sidebar (desktop)
-                if (tocLeftNav && window.innerWidth > 1200) {
-                    const leftNavLink = tocLeftNav.querySelector(`a[href="#${id}"]`);
-                    if (leftNavLink) {
-                        tocLeftNav.querySelectorAll('a').forEach(a => {
-                            a.classList.remove('active');
-                            a.setAttribute('aria-current', 'false');
-                        });
-                        leftNavLink.classList.add('active');
-                        leftNavLink.setAttribute('aria-current', 'location');
-                        scrollToActiveTocItem(leftNavLink, tocLeftNav);
+                // Her iki TOC için de aktif linki güncelle
+                [tocLeftNav, tocNav].forEach(nav => {
+                    if (nav) {
+                        const activeLink = nav.querySelector(`a[href="#${id}"]`);
+                        if (activeLink) {
+                            nav.querySelectorAll('a').forEach(a => {
+                                a.classList.remove('active');
+                                a.setAttribute('aria-current', 'false');
+                            });
+                            activeLink.classList.add('active');
+                            activeLink.setAttribute('aria-current', 'location');
+                            if(nav === tocLeftNav) { // Sadece soldaki sidebar için otomatik kaydırma yap
+                                scrollToActiveTocItem(activeLink, tocLeftNav);
+                            }
+                        }
                     }
-                }
-                
-                // Update right sidebar (mobile)
-                if (tocNav) {
-                    const rightNavLink = tocNav.querySelector(`a[href="#${id}"]`);
-                    if (rightNavLink) {
-                        tocNav.querySelectorAll('a').forEach(a => {
-                            a.classList.remove('active');
-                            a.setAttribute('aria-current', 'false');
-                        });
-                        rightNavLink.classList.add('active');
-                        rightNavLink.setAttribute('aria-current', 'location');
-                    }
-                }
+                });
             }
         }, {
             rootMargin: '-10% 0px -60% 0px',
-            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+            threshold: [0, 0.25, 0.5, 0.75, 1.0]
         });
         
         headings.forEach(heading => tocObserver.observe(heading));
     };
 
+    /**
+     * GÜVENLİK DÜZELTMESİ:
+     * Bu fonksiyon, XSS zafiyetini önlemek için `innerHTML` yerine standart DOM metotları
+     * (createElement, appendChild) kullanarak İçindekiler Tablosu'nu (TOC) oluşturur.
+     */
     const generateToc = () => {
         if (!mainContent) return;
         
         const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
         const tocSidebarElement = document.querySelector('.toc-sidebar');
-        
+
+        // Eğer hiç başlık yoksa, ilgili TOC alanlarını CSS ile gizlemek için bir class ekle.
         if (!headings.length) {
-            // Hide both TOC sections if no headings
-            if (tocSidebarElement) {
-                tocSidebarElement.style.setProperty('display', 'none', 'important');
-            }
-            if (tocLeftSidebar) {
-                tocLeftSidebar.style.setProperty('display', 'none', 'important');
-            }
+            tocSidebarElement?.classList.add('hidden-by-js');
+            tocLeftSidebar?.classList.add('hidden-by-js');
+            // Not: CSS dosyanıza `.hidden-by-js { display: none !important; }` eklemeniz gerekebilir.
             return;
         }
 
-        let tocHTML = '';
+        const fragment = document.createDocumentFragment();
+
         headings.forEach((heading, index) => {
             if (!heading.id) {
                 heading.id = `toc-heading-${index}`;
@@ -731,28 +724,28 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const id = heading.id;
             const level = parseInt(heading.tagName.charAt(1));
-            const indent = Math.max(0, level - 1) * 0.8; // Start from H1
+            const indent = Math.max(0, level - 1) * 0.8;
             const text = heading.textContent.trim();
             
-            tocHTML += `<a href="#${id}" 
-                           style="padding-left: ${indent + 0.6}rem" 
-                           class="toc-link"
-                           title="Go to ${text}">${text}</a>`;
+            const link = document.createElement('a');
+            
+            link.href = `#${id}`;
+            link.style.paddingLeft = `${indent + 0.6}rem`;
+            link.className = 'toc-link';
+            link.title = `Go to ${text}`;
+            link.textContent = text; // Metni güvenli bir şekilde ata
+            
+            fragment.appendChild(link);
         });
         
-        // Populate both TOC navigations
+        // Oluşturulan listeyi TOC konteynerlarına ekle
         if (tocLeftNav) {
-            tocLeftNav.innerHTML = tocHTML;
+            tocLeftNav.innerHTML = ''; // Temizle
+            tocLeftNav.appendChild(fragment.cloneNode(true)); // Klonunu ekle
         }
         if (tocNav) {
-            tocNav.innerHTML = tocHTML;
-        }
-        
-        // DESKTOP'TA SAĞ TOC'U GİZLE
-        if (window.innerWidth > 1200 && tocSidebarElement) {
-            tocSidebarElement.style.setProperty('display', 'none', 'important');
-        } else if (tocSidebarElement) {
-            tocSidebarElement.style.removeProperty('display');
+            tocNav.innerHTML = ''; // Temizle
+            tocNav.appendChild(fragment); // Orijinalini ekle
         }
     };
 
@@ -779,7 +772,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (touchStartY === 0) return;
         const currentY = e.touches[0].clientY;
         const diff = currentY - touchStartY;
-        if (diff > 0) {
+        if (diff > 0) { // Sadece aşağı sürüklemeyi algıla
+            e.preventDefault(); // Sayfanın kaymasını engelle
             sidebar.style.transition = 'none';
             sidebar.style.transform = `translateY(${diff}px)`;
         }
@@ -788,9 +782,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const handleTouchEnd = (e) => {
         if (touchStartY === 0) return;
         const diff = e.changedTouches[0].clientY - touchStartY;
-        sidebar.style.transition = '';
+        sidebar.style.transition = ''; // Geçişleri geri yükle
         sidebar.style.transform = '';
-        if (diff > 100) {
+        if (diff > 100) { // Belirli bir eşikten fazla sürüklendiyse kapat
             closeSidebar();
         }
         touchStartY = 0;
@@ -806,79 +800,63 @@ document.addEventListener('DOMContentLoaded', function() {
             showAllSections();
             if (sidebar) sidebar.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = '';
-            
-            // DESKTOP: Remove mobile padding
             document.body.style.paddingBottom = '';
         } else {
             if (sidebar) sidebar.setAttribute('aria-hidden', !isExpanded);
-            
-            // MOBILE: Ensure proper spacing
             if (!document.body.style.paddingBottom) {
                 document.body.style.paddingBottom = '80px';
             }
         }
         
-        // TOC GÖRÜNÜRLÜğÜ KONTROL ET
-        const tocSidebarElement = document.querySelector('.toc-sidebar');
-        if (window.innerWidth > 1200 && tocSidebarElement) {
-            tocSidebarElement.style.setProperty('display', 'none', 'important');
-        } else if (tocSidebarElement) {
-            tocSidebarElement.style.removeProperty('display');
-        }
-        
+        // Observer'ı yeniden başlatmak, responsive geçişlerde doğru çalışmasını sağlar
         initTocObserver();
         updateLeftSidebarVisibility();
+        // DİKKAT: TOC görünürlük kontrolü buradan kaldırıldı ve sadece CSS'e bırakıldı.
     };
 
     // === EVENT LISTENERS ===
-    
-    // Mobile buttons
     mobileButtons.forEach(btn => {
         btn.addEventListener('click', handleMobileButtonClick);
     });
 
-    // Close handlers
     mobileCloseBtn?.addEventListener('click', closeSidebar);
     mobileBackdrop?.addEventListener('click', closeSidebar);
-
-    // Keyboard
     document.addEventListener('keydown', handleKeydown);
     
-    // Touch events
+    // Touch events (passive: false, e.preventDefault() için gerekli)
     mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
     mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
     mobileContent?.addEventListener('touchend', handleTouchEnd);
     
-    // TOC clicks - Both sidebars
+    // Her iki TOC için de tıklama olayını yöneten tek bir fonksiyon
     const handleTocClick = (e) => {
-        if (!e.target.classList.contains('toc-link')) return;
-        
-        e.preventDefault();
-        const targetId = e.target.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (!targetElement) return;
-        
-        targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-        
-        if (isExpanded && window.innerWidth <= 768) {
-            setTimeout(closeSidebar, 300);
+        if (e.target.matches('a.toc-link')) { // Tıklanan elemanın bir TOC linki olduğundan emin ol
+            e.preventDefault();
+            const targetId = e.target.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (!targetElement) return;
+            
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Mobilde bir linke tıklandıysa sidebar'ı kapat
+            if (isExpanded && window.innerWidth <= 768) {
+                setTimeout(closeSidebar, 300);
+            }
         }
     };
 
     tocNav?.addEventListener('click', handleTocClick);
     tocLeftNav?.addEventListener('click', handleTocClick);
 
-    // Scroll event for left sidebar visibility
-    window.addEventListener('scroll', updateLeftSidebarVisibility);
+    window.addEventListener('scroll', updateLeftSidebarVisibility, { passive: true });
     window.addEventListener('resize', handleResize);
 
     // === INITIALIZATION ===
     generateToc();
-    handleResize();
-    updateLeftSidebarVisibility();
+    handleResize(); // Başlangıç durumunu ayarla
 });
 </script>
