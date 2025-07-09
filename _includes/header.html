@@ -36,6 +36,7 @@
         <meta property="twitter:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
         <meta property="twitter:description" content="{{ page_description }}" />
         <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}" />
+		<link rel="stylesheet" href="/assets/css/normalize.css?v={{ site.github.build_revision }}">
 		<link rel="stylesheet" href="/assets/css/highlight.css?v={{ site.github.build_revision }}">
         <link rel="stylesheet" href="/assets/css/style.css?v={{ site.github.build_revision }}">
         <link rel="shortcut icon" href="/assets/images/favicon.png" />
