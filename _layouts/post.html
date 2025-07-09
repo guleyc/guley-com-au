@@ -49,29 +49,43 @@ mjx-container {
 </style>
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
 	{% if page.mathjax %}
-	<script>
-	MathJax = {
-	loader: {load: ['ui/lazy']},
-	tex: {
-		inlineMath: [['\\(', '\\)']],
-		displayMath: [['$$', '$$'], ['\\[', '\\]']],
-		processEscapes: true
-	},
-	chtml: {
-		fontCache: 'global',
-		displayAlign: 'left',
-		scale: 0.95,
-		adaptive: true,
-		linebreaks: {
-		automatic: true
-		}
-	}
-	};	
-	</script>
-	<script type="text/javascript" id="MathJax-script" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
-	</script>
-	{% endif %}
+Elbette, MathJax yapılandırmanızı kontrol ettim. Konsolda gördüğünüz hataların sebebi, mevcut yapılandırmanızın MathJax'in eski sürümü olan v2'ye ait opsiyonlar içermesidir. Kullandığınız script ise (mathjax/3.2.2/...) MathJax v3'e aittir.
+
+Aşağıda, MathJax v3 ile tam uyumlu, temizlenmiş ve çalışır durumdaki yapılandırma kodunuzu bulabilirsiniz.
+
+Güncellenmiş MathJax Yapılandırması
+
+Bu script bloğunu projenizde mevcut olanla değiştirebilirsiniz.
+HTML
+
+    <script>
+    MathJax = {
+      loader: {
+        load: ['ui/lazy']
+      },
+      tex: {
+        inlineMath: [
+          ['$', '$'],
+          ['\\(', '\\)'] 
+        ],
+        displayMath: [
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        scale: 0.95,
+        linebreaks: {
+          automatic: true
+        }
+      }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
+    </script>	{% endif %}
 	{% if page.image %}
 		{%- assign post_image_url = page.image | prepend: '/upload/' | relative_url -%}
 		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" data-echo-background="{{ post_image_url }}">
