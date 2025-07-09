@@ -20,7 +20,7 @@ permalink: /tags/
         {% assign parts = item | split: ':' %}
         {% assign post_count = parts[0] | plus: 0 %}
         {% assign tag_name = parts[1] %}
-        <a href="{{ '/tags/' | relative_url }}{{ tag_name | slugify }}/" class="tag-wall-item">
+        <a href="{{ '/tag/' | relative_url }}{{ tag_name | slugify }}/" class="tag-wall-item">
           {{ tag_name }} <span class="tag-count">({{ post_count }})</span>
         </a>
       {% endfor %}
