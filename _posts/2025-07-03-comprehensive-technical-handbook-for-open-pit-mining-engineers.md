@@ -179,6 +179,19 @@ Where:
 * RT = Return Time
 * QT = Queuing Time
 
+**Required Number of Trucks:**
+
+$$
+N_{\text{t}} = \frac{\text{SLR} \times \text{TCT}}{\text{TC}}
+$$
+
+Where:
+* SLR = Shovel Loading Rate
+* TCT = Truck Cycle Time
+* TC = Truck Capacity
+ 
+(This is a simplified representation; actual calculations involve more detailed analysis of shovel and truck capacities, efficiencies, and operational delays.)
+
 Below is a Python code for calculating trucks and excavators.
 
 ```python
@@ -335,19 +348,6 @@ if __name__ == "__main__":
     # Perform calculations and display the results
     calculate_optimum_fleet(proje_parametreleri)
 ```
-
-**Required Number of Trucks:**
-
-$$
-N_{\text{t}} = \frac{\text{SLR} \times \text{TCT}}{\text{TC}}
-$$
-
-Where:
-* SLR = Shovel Loading Rate
-* TCT = Truck Cycle Time
-* TC = Truck Capacity
- 
-(This is a simplified representation; actual calculations involve more detailed analysis of shovel and truck capacities, efficiencies, and operational delays.)
 
 Production scheduling is an iterative process that requires continuous monitoring and adjustment to adapt to changing market conditions, geological realities, and operational performance.
 
