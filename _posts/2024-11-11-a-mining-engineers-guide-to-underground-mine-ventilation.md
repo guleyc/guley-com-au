@@ -141,6 +141,134 @@ While formulas provide the backbone of ventilation design, a true mining enginee
 * **Energy Efficiency: The Green Imperative:** Ventilation systems are massive energy consumers in underground mines, often accounting for a significant portion of operational costs. Mining engineers are constantly looking for ways to optimize fan selection, minimize airway resistance (by keeping tunnels smooth and clear), and implement demand-controlled ventilation (adjusting airflow based on real-time needs). These efforts not only reduce costs but also contribute to a more sustainable mining operation.
 * **Fire and Emergency Preparedness: The Ultimate Test:** A ventilation system's true mettle is tested during emergencies, especially fires. Reversible fans, strategically placed stoppings (barriers to airflow), and clearly marked emergency escape routes are all integral parts of a comprehensive fire and emergency response plan. Crucially, personnel must be rigorously trained in these procedures, as their lives, and the lives of their colleagues, depend on it.
 
+## Python Code Example
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def get_user_input():
+    """
+    Prompts the user to enter coefficients for the mine and fan characteristics.
+    Includes error handling to ensure valid numerical input.
+    """
+    print("--- Mine Ventilation Operating Point Calculator ---")
+    print("\nThis script calculates the operating point where the fan curve intersects the mine curve.")
+    
+    while True:
+        try:
+            # 1. Mine Characteristic Curve Input: H_mine = R * Q^2
+            print("\nStep 1: Enter Mine Characteristics")
+            print("The Mine Characteristic Curve is defined as H = R * Q^2")
+            mine_resistance = float(input("Enter the total mine resistance (R) in Ns²/m⁸ (e.g., 0.05): "))
+            if mine_resistance <= 0:
+                print("Error: Mine resistance must be a positive number.")
+                continue
+
+            # 2. Fan Characteristic Curve Input: H_fan = A - B*Q - C*Q^2
+            print("\nStep 2: Enter Fan Characteristics")
+            print("The Fan Characteristic Curve is approximated by H = A - B*Q - C*Q^2")
+            fan_a = float(input("Enter the 'A' coefficient (shut-off pressure in Pa, e.g., 800): "))
+            fan_b = float(input("Enter the 'B' coefficient (e.g., 0.1): "))
+            fan_c = float(input("Enter the 'C' coefficient (e.g., 0.003): "))
+            
+            if fan_a <= 0:
+                print("Error: Fan coefficient 'A' (shut-off pressure) must be positive.")
+                continue
+
+            return mine_resistance, fan_a, fan_b, fan_c
+        
+        except ValueError:
+            print("\nInvalid input. Please enter valid numbers only. Let's try again.")
+
+
+def calculate_operating_point(R_mine, A_fan, B_fan, C_fan):
+    """
+    Calculates the operating point by solving for the intersection of the two curves.
+    H_mine = H_fan  =>  R*Q^2 = A - B*Q - C*Q^2
+    This rearranges to a standard quadratic equation: (R + C)*Q^2 + B*Q - A = 0
+    """
+    # Coefficients for the quadratic equation ax^2 + bx + c = 0
+    a = R_mine + C_fan
+    b = B_fan
+    c = -A_fan
+
+    # Using the quadratic formula to solve for Q (airflow)
+    # Q = (-b ± sqrt(b^2 - 4ac)) / 2a
+    # We take the positive root as airflow cannot be negative.
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        print("\nError: No real solution exists. The fan may be too weak for the mine system.")
+        return None, None
+
+    q_op = (-b + np.sqrt(discriminant)) / (2 * a)
+    
+    # Calculate the operating pressure using the mine curve
+    h_op = R_mine * (q_op**2)
+
+    return q_op, h_op
+
+
+def plot_curves(R_mine, A_fan, B_fan, C_fan, q_op, h_op):
+    """
+    Generates and displays a plot of the mine and fan characteristic curves,
+    highlighting the operating point.
+    """
+    # Generate a range of airflow values for plotting
+    # We will plot from Q=0 to 1.5 times the operating airflow to see the full curves
+    q_max_plot = q_op * 1.5
+    q_values = np.linspace(0, q_max_plot, 400)
+
+    # Calculate H for each Q for both curves
+    h_mine_values = R_mine * (q_values**2)
+    h_fan_values = A_fan - B_fan*q_values - C_fan*(q_values**2)
+    # Ensure fan pressure doesn't go below zero for the plot
+    h_fan_values[h_fan_values < 0] = 0 
+
+    # Plotting
+    plt.figure(figsize=(12, 8))
+    
+    # Plot the curves
+    plt.plot(q_values, h_mine_values, label='Mine Characteristic Curve ($H = R \cdot Q^2$)', color='blue', linewidth=2)
+    plt.plot(q_values, h_fan_values, label='Fan Characteristic Curve ($H = A - BQ - CQ^2$)', color='green', linewidth=2)
+
+    # Plot the operating point
+    plt.plot(q_op, h_op, 'ro', markersize=10, label=f'Operating Point\nQ = {q_op:.2f} m³/s\nH = {h_op:.2f} Pa')
+    
+    # Add lines from the point to the axes
+    plt.vlines(q_op, 0, h_op, colors='r', linestyles='--')
+    plt.hlines(h_op, 0, q_op, colors='r', linestyles='--')
+
+    # Formatting the plot
+    plt.title('Mine & Fan Characteristic Curves', fontsize=16)
+    plt.xlabel('Airflow (Q) [$m^3/s$]', fontsize=12)
+    plt.ylabel('Pressure (H) [Pa]', fontsize=12)
+    plt.legend(fontsize=10)
+    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+    plt.xlim(left=0)
+    plt.ylim(bottom=0)
+    
+    # Show the plot
+    plt.show()
+
+
+def main():
+    """Main function to run the script."""
+    R_mine, A_fan, B_fan, C_fan = get_user_input()
+    
+    q_op, h_op = calculate_operating_point(R_mine, A_fan, B_fan, C_fan)
+
+    if q_op is not None and h_op is not None:
+        print("\n--- Calculation Results ---")
+        print(f"Operating Airflow (Q): {q_op:.2f} m³/s")
+        print(f"Operating Pressure (H): {h_op:.2f} Pa")
+        print("\nGenerating plot...")
+        plot_curves(R_mine, A_fan, B_fan, C_fan, q_op, h_op)
+
+if __name__ == "__main__":
+    main()
+```
+
 ## Conclusion
 
 Mine ventilation is more than just a regulatory requirement; it is the very essence of safe and productive underground mining. A well-designed and meticulously managed ventilation system ensures that the subterranean environment remains a place where human ingenuity can thrive, free from the silent threats of hazardous gases, extreme temperatures, and airborne contaminants. As mining operations delve deeper and become more complex, the role of the ventilation engineer becomes increasingly vital, demanding continuous innovation and a steadfast commitment to the well-being of every individual working beneath the earth's surface.
