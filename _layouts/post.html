@@ -49,15 +49,6 @@ mjx-container {
 </style>
 <article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
 	{% if page.mathjax %}
-Elbette, MathJax yapılandırmanızı kontrol ettim. Konsolda gördüğünüz hataların sebebi, mevcut yapılandırmanızın MathJax'in eski sürümü olan v2'ye ait opsiyonlar içermesidir. Kullandığınız script ise (mathjax/3.2.2/...) MathJax v3'e aittir.
-
-Aşağıda, MathJax v3 ile tam uyumlu, temizlenmiş ve çalışır durumdaki yapılandırma kodunuzu bulabilirsiniz.
-
-Güncellenmiş MathJax Yapılandırması
-
-Bu script bloğunu projenizde mevcut olanla değiştirebilirsiniz.
-HTML
-
     <script>
     MathJax = {
       loader: {
