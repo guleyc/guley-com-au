@@ -7,7 +7,7 @@ permalink: /open-pit-mining-cost-accounting-the-complete-guide-to-maximizing-pro
 redirect_from:
   - /open-pit-mining-cost-accounting-the-complete-guide-to-maximizing-profitability
 categories: [mining]
-tags: [open-pit, mining, cost, accounting, profitability, guide]
+tags: [openpit, mining, cost, accounting, profitability, guide]
 toc: true
 ---
 

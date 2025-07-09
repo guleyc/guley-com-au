@@ -7,7 +7,7 @@ permalink: /blast-design-and-optimization-in-open-pit-mining/
 redirect_from:
   - /blast-design-and-optimization-in-open-pit-mining
 categories: [mining]
-tags: [blast, design, open-pit, mining]
+tags: [blast, design, openpit, mining]
 image: blast.webp
 ---
 
