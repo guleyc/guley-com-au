@@ -4,72 +4,49 @@ title: Tag Wall
 permalink: /tags/
 ---
 
-<style>
-.tag-wall-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 10px;
-    padding: 20px 10px;
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
-}
-
-.tag-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    flex-grow: 1;
-    cursor: pointer;
-}
-
-.tag-block:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    z-index: 2;
-}
-
-.tag-block.level-1 { min-height: 20px; padding: 10px; font-size: 1rem; flex-basis: 120px; }
-.tag-block.level-2 { min-height: 30px; padding: 15px; font-size: 1.2rem; flex-basis: 160px; }
-.tag-block.level-3 { min-height: 40px; padding: 20px; font-size: 1.5rem; flex-basis: 220px; }
-.tag-block.level-4 { min-height: 50px; padding: 25px; font-size: 1.8rem; font-weight: 700; flex-basis: 280px; }
-
-.tag-block:nth-child(7n+1) { background-color: #1abc9c; }
-.tag-block:nth-child(7n+2) { background-color: #3498db; }
-.tag-block:nth-child(7n+3) { background-color: #9b59b6; }
-.tag-block:nth-child(7n+4) { background-color: #e67e22; }
-.tag-block:nth-child(7n+5) { background-color: #f1c40f; color: #333; }
-.tag-block:nth-child(7n+6) { background-color: #e74c3c; }
-.tag-block:nth-child(7n+7) { background-color: #34495e; }
-</style>
-
 <div class="tag-wall-container">
-    {% assign tags = site.tags | sort %}
-    {% for tag in tags %}
-        {% assign tag_name = tag[0] %}
-        {% assign tag_posts = tag[1] %}
-        {% assign tag_size = tag_posts.size %}
+    {% comment %} 1. GELİŞTİRME: Etiketleri alfabetik değil, yazı sayısına göre sıralıyoruz. {% endcomment %}
+    {% capture tags_string %}
+      {% for tag in site.tags %}
+        {{ tag[1].size | lstrip | Sprintf: '%04d' }}:{{ tag[0] }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    {% endcapture %}
+    {% assign sorted_tags_array = tags_string | split: ',' | sort | reverse %}
 
-        {%- if tag_size <= 2 -%}
-            {%- assign tag_level = "level-1" -%}
-        {%- elsif tag_size <= 5 -%}
-            {%- assign tag_level = "level-2" -%}
-        {%- elsif tag_size <= 10 -%}
-            {%- assign tag_level = "level-3" -%}
-        {%- else -%}
-            {%- assign tag_level = "level-4" -%}
-        {%- endif -%}
+    {% for item in sorted_tags_array %}
+      {% assign parts = item | split: ':' %}
+      {% assign post_count = parts[0] | plus: 0 %}
+      {% assign tag_name = parts[1] %}
 
-        <a href="{{ site.baseurl }}/tag/{{ tag_name | slugify }}/" class="tag-block {{ tag_level }}">
-            <span>{{ tag_name }} ({{ tag_size }})</span>
-        </a>
+      {% assign tag_size = post_count %}
+
+      {%- if tag_size <= 2 -%}
+          {%- assign tag_level = "level-1" -%}
+      {%- elsif tag_size <= 5 -%}
+          {%- assign tag_level = "level-2" -%}
+      {%- elsif tag_size <= 10 -%}
+          {%- assign tag_level = "level-3" -%}
+      {%- else -%}
+          {%- assign tag_level = "level-4" -%}
+      {%- endif -%}
+
+      <a href="{{ site.baseurl }}/tag/{{ tag_name | slugify }}/" 
+         class="tag-block {{ tag_level }}" 
+         title="{{ tag_name }} etiketine sahip {{ tag_size }} yazı">
+          <span>{{ tag_name }} ({{ tag_size }})</span>
+      </a>
     {% endfor %}
 </div>
+
+
+<script>
+    // 2. GELİŞTİRME: Sayfa her yüklendiğinde etiketlere rastgele renkler atar.
+    document.addEventListener('DOMContentLoaded', () => {
+        const tags = document.querySelectorAll('.tag-block');
+        tags.forEach(tag => {
+            // Estetik açıdan uyumlu renkler için HSL renk uzayını kullanıyoruz.
+            const randomHue = Math.floor(Math.random() * 360);
+            tag.style.backgroundColor = `hsl(${randomHue}, 65%, 50%)`;
+        });
+    });
+</script>
