@@ -27,6 +27,7 @@ author:
 
 # URL settings
 url: "https://guley.com.tr"
+baseurl: ""
 permalink: pretty
 
 markdown: kramdown
