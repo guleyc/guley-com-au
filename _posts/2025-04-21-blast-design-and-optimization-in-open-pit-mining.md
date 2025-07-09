@@ -47,8 +47,6 @@ Open-pit mining represents one of the most prevalent methods for extracting valu
 | Multi-mine   | Slope Monitoring                 | Real-time movement detection         |
 | Iron Mine, BR| Blast-pile Image Analysis        | Optimum P90: 0.29–0.31 m, cost ↓    |
 
----
-
 ## Fundamentals of Blast Design
 
 Successful blast design in open-pit mining depends on several key parameters that must be carefully calibrated to site-specific conditions. Bench height, typically ranging from 5 to 15 meters, influences drilling patterns and explosive distribution. The burden (distance from blast hole to free face) and spacing (distance between adjacent blast holes) are critical for proper energy distribution throughout the rock mass. For instance, typical burden-to-spacing ratios range from 1:1 to 1:1.5, depending on rock characteristics and desired fragmentation.

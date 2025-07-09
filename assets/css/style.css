@@ -191,7 +191,7 @@ h2,h3,h4{page-break-after:avoid}
 table{border:1px solid var(--border-color);border-collapse:collapse;margin:0;padding:0;width:100%;table-layout:fixed}
 table caption{font-size:1.5em;margin:.5em 0 .75em;color:var(--primary-font-color)}
 table tr{background-color:var(--bg-color);border:1px solid var(--border-color);padding:.35em}
-table td,table th{padding:.625em;text-align:right;color:var(--primary-font-color)}
+table td,table th{padding:.625em;text-align:left;color:var(--primary-font-color)}
 table th{font-size:.85em;letter-spacing:.1em;text-transform:uppercase}
 @media screen and (max-width:600px){
 table{border:0}
