@@ -203,8 +203,10 @@ table td::before{content:attr(data-label);float:left;font-weight:700;text-transf
 table td:last-child{border-bottom:0}
 }
 
-/* TAG WALL - BRICK LAYOUT STYLES */
-.tag-wall {
+/* TAG WALL - GÜÇLENDİRİLMİŞ CSS */
+
+/* Grid konteynerini daha belirgin bir seçici ile hedefliyoruz */
+.post-container .tag-wall {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 10px;
@@ -213,6 +215,7 @@ table td:last-child{border-bottom:0}
   border-top: 1px solid var(--border-color);
 }
 
+/* Grid elemanları için stiller aynı kalabilir */
 .tag-wall-item {
   display: flex;
   align-items: center;
