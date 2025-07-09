@@ -179,6 +179,162 @@ Where:
 * RT = Return Time
 * QT = Queuing Time
 
+Below is a Python code for calculating trucks and excavators.
+
+```python
+import math
+import sys
+
+def get_valid_input(prompt, default, value_type=float):
+    """
+    Gets a valid input of a specific type from the user.
+    Uses the default value if the user enters an empty value.
+    """
+    while True:
+        try:
+            # Present a prompt to the user showing the default value
+            user_input = input(f"{prompt} (default: {default}): ")
+            # Use the default if the user just presses Enter
+            if user_input == "":
+                return value_type(default)
+            # Convert the entered value to the desired type
+            return value_type(user_input)
+        except ValueError:
+            print(f"Invalid input! Please enter a number.", file=sys.stderr)
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}", file=sys.stderr)
+
+def get_user_parameters():
+    """
+    Interactively gets all calculation parameters from the user.
+    """
+    print("\n--- PLEASE ENTER PROJECT PARAMETERS ---")
+    print("You can use the default values by just pressing Enter.")
+    
+    params = {
+        # --- Production and Material Information ---
+        "annual_production_target_tonnes": get_valid_input("Annual Production Target (tonnes)", 12_000_000, int),
+        "annual_working_hours": get_valid_input("Annual Working Hours (hours/year)", 6000, int),
+        "material_density_ton_per_lcm": get_valid_input("Material's LOOSE Density (ton/loose m³)", 1.9, float),
+        
+        # --- Excavator Information ---
+        "excavator_bucket_capacity_m3": get_valid_input("Excavator Bucket Capacity (m³)", 22, float),
+        "excavator_cycle_time_sec": get_valid_input("Excavator Cycle Time (seconds)", 28, float),
+        "bucket_fill_factor": get_valid_input("Bucket Fill Factor (e.g., 0.90)", 0.90, float),
+
+        # --- Truck Information ---
+        "truck_capacity_ton": get_valid_input("Truck Capacity (ton)", 180, float),
+        "truck_haul_time_min": get_valid_input("Loaded Haul Time (minutes)", 10.5, float),
+        "truck_dump_time_min": get_valid_input("Dumping and Maneuvering Time (minutes)", 2.0, float),
+        "truck_return_time_min": get_valid_input("Empty Return Time (minutes)", 7.5, float),
+
+        # --- Efficiency and Costs ---
+        "job_efficiency": get_valid_input("Job Efficiency (e.g., 0.83)", 0.83, float),
+        "mechanical_availability": get_valid_input("Mechanical Availability (e.g., 0.90)", 0.90, float),
+        "excavator_hourly_cost": get_valid_input("Excavator Hourly Cost ($/hour)", 550, float),
+        "truck_hourly_cost": get_valid_input("Truck Hourly Cost ($/hour)", 320, float)
+    }
+    return params
+
+def calculate_optimum_fleet(params):
+    """
+    Calculates the excavator and truck fleet based on the given parameters,
+    and performs a cost-based optimization. (This function has not changed)
+    """
+    # --- Step 1: Excavator Calculations ---
+    actual_bucket_volume_lcm = params["excavator_bucket_capacity_m3"] * params["bucket_fill_factor"]
+    actual_bucket_weight_ton = actual_bucket_volume_lcm * params["material_density_ton_per_lcm"]
+    cycles_per_hour = 3600 / params["excavator_cycle_time_sec"]
+    hourly_production_ton = actual_bucket_weight_ton * cycles_per_hour
+    effective_hourly_production_tph = hourly_production_ton * params["job_efficiency"] * params["mechanical_availability"]
+
+    # --- Step 2: Required Number of Excavators ---
+    if effective_hourly_production_tph == 0:
+        print("Error: Excavator production is zero. Check the parameters.", file=sys.stderr)
+        return
+        
+    single_excavator_annual_production = effective_hourly_production_tph * params["annual_working_hours"]
+    required_excavators = math.ceil(params["annual_production_target_tonnes"] / single_excavator_annual_production)
+
+    # --- Step 3: Truck-Excavator Matching and Optimization ---
+    passes_to_fill_truck = math.ceil(params["truck_capacity_ton"] / actual_bucket_weight_ton)
+    truck_loading_time_min = (passes_to_fill_truck * params["excavator_cycle_time_sec"]) / 60
+    truck_hauling_cycle_min = params["truck_haul_time_min"] + params["truck_dump_time_min"] + params["truck_return_time_min"]
+    total_truck_cycle_time_min = truck_loading_time_min + truck_hauling_cycle_min
+    
+    if truck_loading_time_min == 0:
+        print("Error: Truck loading time is zero. Check the parameters.", file=sys.stderr)
+        return
+        
+    theoretical_trucks_per_excavator = total_truck_cycle_time_min / truck_loading_time_min
+
+    start_trucks = math.floor(theoretical_trucks_per_excavator) - 2
+    if start_trucks < 1: start_trucks = 1
+    end_trucks = math.ceil(theoretical_trucks_per_excavator) + 5
+
+    optimization_results = []
+    for num_trucks in range(start_trucks, end_trucks + 1):
+        truck_fleet_capacity_tph = num_trucks * params["truck_capacity_ton"] * (60 / total_truck_cycle_time_min)
+        excavator_capacity_tph = effective_hourly_production_tph
+        system_production_tph = min(truck_fleet_capacity_tph, excavator_capacity_tph)
+        
+        if system_production_tph == 0:
+            print(f"Warning: System production for {num_trucks} trucks is zero, skipping.", file=sys.stderr)
+            continue
+
+        total_system_cost_per_hour = params["excavator_hourly_cost"] + (num_trucks * params["truck_hourly_cost"])
+        cost_per_ton = total_system_cost_per_hour / system_production_tph
+        
+        optimization_results.append({
+            "num_trucks": num_trucks,
+            "system_production_tph": system_production_tph,
+            "cost_per_ton": cost_per_ton,
+            "bottleneck": "Excavator" if excavator_capacity_tph <= truck_fleet_capacity_tph else "Trucks"
+        })
+
+    if not optimization_results:
+        print("Optimization results could not be calculated. Please check your inputs.", file=sys.stderr)
+        return
+
+    optimum_result = min(optimization_results, key=lambda x: x['cost_per_ton'])
+
+    # --- Printing the Results ---
+    print("\n\n--- CALCULATION RESULTS ---")
+    print("\n--- BASIC FLEET CALCULATION ---")
+    print(f"Effective Hourly Production of a Single Excavator: {effective_hourly_production_tph:.2f} tons/hour")
+    print(f"Number of Excavators Required to Meet Annual Production Target: {required_excavators} units")
+
+    print("\n--- TRUCK-EXCAVATOR MATCHING ---")
+    print(f"Number of Buckets Required to Fill a Truck: {passes_to_fill_truck} buckets")
+    print(f"Loading Time for a Truck: {truck_loading_time_min:.2f} minutes")
+    print(f"Total Cycle Time for a Truck: {total_truck_cycle_time_min:.2f} minutes")
+    print(f"Theoretically Required Number of Trucks per Excavator: {theoretical_trucks_per_excavator:.2f} units")
+
+    print("\n" + "="*65)
+    print("--- COST OPTIMIZATION RESULTS ---".center(65))
+    print("="*65)
+    print(f"{'Number of Trucks':<15} | {'System Production':<18} | {'Unit Cost':<15} | {'Bottleneck':<10}")
+    print("-"*65)
+    for res in optimization_results:
+        is_optimum = " <<< OPTIMUM" if res['num_trucks'] == optimum_result['num_trucks'] else ""
+        print(f"{res['num_trucks']:<15} | {res['system_production_tph']:<18.2f} | ${res['cost_per_ton']:<14.4f} | {res['bottleneck']:<10}{is_optimum}")
+    print("="*65)
+
+    print("\n--- OPTIMUM RESULT ---")
+    print(f"Number of Trucks for Lowest Unit Cost: {optimum_result['num_trucks']} units (for each excavator)")
+    print(f"Optimum System Unit Haulage Cost: ${optimum_result['cost_per_ton']:.4f} / ton")
+    
+    total_optimum_trucks = required_excavators * optimum_result['num_trucks']
+    print(f"\nTotal Optimum Fleet Size: {required_excavators} Excavators and {total_optimum_trucks} Trucks (operational)")
+    print("(Note: Spare trucks for breakdown and maintenance should be added to this number.)")
+
+
+if __name__ == "__main__":
+    # Get parameters from the user
+    proje_parametreleri = get_user_parameters()
+    # Perform calculations and display the results
+    calculate_optimum_fleet(proje_parametreleri)
+```
 
 **Required Number of Trucks:**
 
