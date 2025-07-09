@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<div class="post-container">
+	{% for post in paginator.posts %}
+        <a class="post-card-link" href="{{ site.url }}{{ post.url }}">
+            {%- assign post_image_url = post.image | prepend: '/upload/' | relative_url -%}
+            <div class="post-list" style="background-image: url('{{ post_image_url }}');" data-echo-background="{{ post_image_url }}">
+                <span class="post-title">{{ post.title }}</span>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% include pagination.html %}
