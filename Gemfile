@@ -7,6 +7,7 @@ gem "jekyll-redirect-from"
 gem "jekyll-github-metadata"
 gem "jekyll-feed"
 gem "jekyll-seo-tag"
+gem "jekyll-archives"
 gem "tzinfo-data", "~> 1.2021"
 
 # windows specific

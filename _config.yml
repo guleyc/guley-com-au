@@ -52,6 +52,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-archives
 
 paginate: 3
 paginate_path: "/page/:num"
@@ -86,5 +87,3 @@ defaults:
 relative_links:
   enabled:     true
   collections: false
-
-tags:
