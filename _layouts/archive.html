@@ -1,29 +1,15 @@
----
-layout: default
----
-
-{%- assign is_archive_page = true -%}
-
+<!DOCTYPE html>
+<html lang="{{site.lang}}">
+<head>
+    <title>Posts Tagged with "{{ page.title | capitalize }}" | {{ site.title }}</title>
+    <meta name="description" content="Find all posts and articles on {{ site.title }} categorized under the '{{ page.title }}' tag.">
+    </head>
+<body>
 <div class="archive-container">
-  
   <h1 class="archive-title">
     Posts Tagged with: <span class="tag-name">"{{ page.title | capitalize }}"</span>
   </h1>
-
-  <div class="posts-list">
-    {% for post in page.posts %}
-      <div class="post-item">
-        <div class="post-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </div>
-        <div class="post-meta">Published: {{ post.date | date: '%d.%m.%Y' }}</div>
-        <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</div>
-      </div>
-    {% endfor %}
   </div>
 
-  <div style="text-align: center; margin-top: 2rem;">
-      <a href="/tags/" class="btn" style="text-decoration: none; padding: 10px 20px; background: #333; color: white; border-radius: 5px;">&larr; Back to All Tags</a>
-  </div>
-
-</div>
+</body>
+</html>
