@@ -1,13 +1,12 @@
 ---
 layout: default
-title: Etiket Duvarı
+title: Tag Wall
 permalink: /tags/
 ---
 
-<div class="container">
   <div class="post-container">
     <h1 class="blog-post-title">{{ page.title }}</h1>
-    <p>Yazılarımda kullandığım etiketler, popülerliğine göre bir duvar deseniyle aşağıda sıralanmıştır.</p>
+    <p>You can see all the tags on the site and how many articles they have below..</p>
 
     <div class="tag-wall">
       {% capture tags_string %}
@@ -27,7 +26,6 @@ permalink: /tags/
       {% endfor %}
     </div>
   </div>
-</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
