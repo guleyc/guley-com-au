@@ -13,6 +13,5 @@ group :jekyll_plugins do
   gem "jekyll-redirect-from"
   gem "jekyll-paginate"
   gem "jekyll-relative-links"
-  gem 'jekyll-toc'
   
 end
