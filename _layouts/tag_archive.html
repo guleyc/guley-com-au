@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<style>
+.archive-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.archive-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.archive-title .tag-name {
+  color: #007acc; /* Rengi temanıza göre ayarlayabilirsiniz */
+}
+
+.post-item {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.post-item:hover {
+  background: var(--bg-hover-color);
+  border-color: var(--primary-font-color);
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.post-title a {
+  color: var(--primary-font-color);
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #007acc;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-excerpt {
+  color: var(--primary-font-color);
+  line-height: 1.6;
+}
+</style>
+
+<div class="archive-container">
+  
+  <h1 class="archive-title">
+    Posts Tagged with: <span class="tag-name">"{{ page.tag }}"</span>
+  </h1>
+
+  <div class="posts-list">
+    {% for post in page.posts %}
+      <div class="post-item">
+        <div class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </div>
+        <div class="post-meta">Published: {{ post.date | date: '%d.%m.%Y' }}</div>
+        <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem;">
+      <a href="/tags/" class="btn" style="text-decoration: none; padding: 10px 20px; background: #333; color: white; border-radius: 5px;">&larr; Back to All Tags</a>
+  </div>
+
+</div>
