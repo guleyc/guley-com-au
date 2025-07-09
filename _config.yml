@@ -91,5 +91,5 @@ jekyll-archives:
     - categories
   layout: archive
   permalinks:
-    tag: /tags/:name/
+    tag: /tag/:name/
     category: /category/:name/
