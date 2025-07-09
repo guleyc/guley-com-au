@@ -116,32 +116,32 @@ Production scheduling in open pit mining is a complex optimization problem that 
 
 ### Objectives of Production Scheduling:
 
-* **Maximize Net Present Value (NPV):** The primary financial objective, considering the time value of money.
-* **Meet Production Targets:** Ensuring the required quantities of ore are delivered to the processing plant.
-* **Manage Stripping Ratios:** Optimizing the removal of waste to maintain economic viability.
-* **Ensure Pit Slope Stability:** Adhering to geotechnical constraints to prevent slope failures.
-* **Optimize Equipment Utilization:** Efficiently deploying and utilizing mining fleet (shovels, trucks, drills).
-* **Manage Ore Grade and Quality:** Blending different ore types to meet processing plant specifications.
+1. **Maximize Net Present Value (NPV):** The primary financial objective, considering the time value of money.
+2. **Meet Production Targets:** Ensuring the required quantities of ore are delivered to the processing plant.
+3. **Manage Stripping Ratios:** Optimizing the removal of waste to maintain economic viability.
+4. **Ensure Pit Slope Stability:** Adhering to geotechnical constraints to prevent slope failures.
+5. **Optimize Equipment Utilization:** Efficiently deploying and utilizing mining fleet (shovels, trucks, drills).
+6. **Manage Ore Grade and Quality:** Blending different ore types to meet processing plant specifications.
 
 ### Production Scheduling Horizons:
 
-1.  **Strategic (Long-Term) Scheduling:**
-    * **Horizon:** Life of mine (typically 10-30+ years).
-    * **Focus:** Determines the ultimate pit limits, overall mining direction, and major capital expenditures. It defines the sequence of large mining phases or pushbacks.
-    * **Key Calculations:** Ultimate pit limit optimization (e.g., using Lerchs-Grossmann algorithm), long-term cash flow projections, and overall stripping ratio management.
-    * **Models:** Often uses mixed-integer programming (MIP) or specialized algorithms to maximize NPV by selecting blocks for extraction over the mine life.
+**Strategic (Long-Term) Scheduling:**
+* **Horizon:** Life of mine (typically 10-30+ years).
+* **Focus:** Determines the ultimate pit limits, overall mining direction, and major capital expenditures. It defines the sequence of large mining phases or pushbacks.
+* **Key Calculations:** Ultimate pit limit optimization (e.g., using Lerchs-Grossmann algorithm), long-term cash flow projections, and overall stripping ratio management.
+* **Models:** Often uses mixed-integer programming (MIP) or specialized algorithms to maximize NPV by selecting blocks for extraction over the mine life.
 
-2.  **Tactical (Medium-Term) Scheduling:**
-    * **Horizon:** 1-5 years.
-    * **Focus:** Breaks down the strategic plan into more detailed annual or quarterly plans. It defines the mining sequence for specific benches and areas within the pit.
-    * **Key Calculations:** Detailed material movement plans, equipment allocation, and blending strategies to meet processing plant requirements.
-    * **Models:** Often involves heuristic methods, simulation, and optimization techniques to balance production targets with operational constraints.
+**Tactical (Medium-Term) Scheduling:**
+* **Horizon:** 1-5 years.
+* **Focus:** Breaks down the strategic plan into more detailed annual or quarterly plans. It defines the mining sequence for specific benches and areas within the pit.
+* **Key Calculations:** Detailed material movement plans, equipment allocation, and blending strategies to meet processing plant requirements.
+* **Models:** Often involves heuristic methods, simulation, and optimization techniques to balance production targets with operational constraints.
 
-3.  **Operational (Short-Term) Scheduling:**
-    * **Horizon:** Daily, weekly, or monthly.
-    * **Focus:** Translates the medium-term plan into actionable, day-to-day instructions for mining crews and equipment. It dictates which blocks are mined, loaded, and hauled to specific destinations.
-    * **Key Considerations:** Real-time operational constraints, equipment availability, weather conditions, and unexpected geological variations. It aims to optimize shovel and truck assignments, minimize queuing, and ensure smooth material flow.
-    * **Techniques:** Often uses simulation, dispatch systems, and real-time optimization algorithms to react to dynamic conditions and maintain efficiency.
+**Operational (Short-Term) Scheduling:**
+* **Horizon:** Daily, weekly, or monthly.
+* **Focus:** Translates the medium-term plan into actionable, day-to-day instructions for mining crews and equipment. It dictates which blocks are mined, loaded, and hauled to specific destinations.
+* **Key Considerations:** Real-time operational constraints, equipment availability, weather conditions, and unexpected geological variations. It aims to optimize shovel and truck assignments, minimize queuing, and ensure smooth material flow.
+* **Techniques:** Often uses simulation, dispatch systems, and real-time optimization algorithms to react to dynamic conditions and maintain efficiency.
 
 ### Key Formulas and Concepts in Production Scheduling:
 
@@ -357,10 +357,10 @@ Equipment selection and sizing are paramount for the optimal planning and design
 
 ### Key Considerations in Equipment Selection:
 
-* **Production Demands:** Equipment must be sized and selected to meet the required production rates of both ore and waste.
-* **Operational Constraints:** Factors such as pit geometry, haul road gradients, material characteristics (e.g., density, fragmentation), and climate conditions influence equipment choice.
-* **Cost-Effectiveness:** Balancing initial capital investment with operational costs (fuel, maintenance, labor) to achieve the lowest overall cost of material handling.
-* **Integration:** Ensuring compatibility and optimal performance between different units of equipment (e.g., matching shovel capacity with truck capacity).
+**Production Demands:** Equipment must be sized and selected to meet the required production rates of both ore and waste.
+**Operational Constraints:** Factors such as pit geometry, haul road gradients, material characteristics (e.g., density, fragmentation), and climate conditions influence equipment choice.
+**Cost-Effectiveness:** Balancing initial capital investment with operational costs (fuel, maintenance, labor) to achieve the lowest overall cost of material handling.
+**Integration:** Ensuring compatibility and optimal performance between different units of equipment (e.g., matching shovel capacity with truck capacity).
 
 ### Sizing and Quantity Determination:
 
@@ -425,31 +425,31 @@ Economic analysis is fundamental to open pit mining, guiding decisions from feas
 
 ### Key Components of Economic Analysis:
 
-* **Capital Costs (CAPEX):** Initial investments required to establish the mine, including:
-    * Land acquisition
-    * Mine development (pre-stripping, infrastructure)
-    * Equipment purchase (mining fleet, processing plant)
-    * Ancillary facilities (workshops, offices, power, water)
+**Capital Costs (CAPEX):** Initial investments required to establish the mine, including:
+* Land acquisition
+* Mine development (pre-stripping, infrastructure)
+* Equipment purchase (mining fleet, processing plant)
+* Ancillary facilities (workshops, offices, power, water)
 
-* **Operating Costs (OPEX):** Recurring expenses incurred during the mine's operational life, including:
-    * **Mining Costs:** Drilling, blasting, loading, hauling, dewatering, and pit maintenance.
-    * **Processing Costs:** Crushing, grinding, beneficiation, and tailings management.
-    * **General & Administrative (G&A) Costs:** Salaries, overheads, and administrative expenses.
-    * **Reclamation Costs:** Ongoing and final reclamation expenses.
+**Operating Costs (OPEX):** Recurring expenses incurred during the mine's operational life, including:
+* **Mining Costs:** Drilling, blasting, loading, hauling, dewatering, and pit maintenance.
+* **Processing Costs:** Crushing, grinding, beneficiation, and tailings management.
+* **General & Administrative (G&A) Costs:** Salaries, overheads, and administrative expenses.
+* **Reclamation Costs:** Ongoing and final reclamation expenses.
 
-* **Revenue Projection:** Based on estimated ore production, metal prices, and processing recoveries.
+**Revenue Projection:** Based on estimated ore production, metal prices, and processing recoveries.
 
-* **Financial Metrics:** Evaluating the project's financial attractiveness using metrics such as:
-    * **Net Present Value (NPV):** As discussed in production scheduling, it measures the profitability of a project over its life.
-    * **Internal Rate of Return (IRR):** The discount rate at which the NPV of a project equals zero. It represents the project's effective rate of return.
-    * **Payback Period:** The time required for the cumulative cash inflows from a project to equal the initial investment.
-    * **Cash Flow Analysis:** Detailed projection of cash inflows and outflows over the mine life.
+**Financial Metrics:** Evaluating the project's financial attractiveness using metrics such as:
+* **Net Present Value (NPV):** As discussed in production scheduling, it measures the profitability of a project over its life.
+* **Internal Rate of Return (IRR):** The discount rate at which the NPV of a project equals zero. It represents the project's effective rate of return.
+* **Payback Period:** The time required for the cumulative cash inflows from a project to equal the initial investment.
+* **Cash Flow Analysis:** Detailed projection of cash inflows and outflows over the mine life.
 
 ### Cost Estimation Formulas (General Principles):
 
 Cost estimation in mining is often based on historical data, industry benchmarks, and detailed engineering studies. While specific formulas vary widely depending on the level of study (e.g., conceptual, pre-feasibility, feasibility), general approaches include:
 
-* **Unit Cost Method:** Estimating costs based on a cost per unit of production (e.g., $/tonne of ore, $/bcm of waste).
+**Unit Cost Method:** Estimating costs based on a cost per unit of production (e.g., $/tonne of ore, $/bcm of waste).
 
 $$
 \text{TC} = \text{UC} \times \text{Q}
@@ -460,9 +460,9 @@ Where:
 * UC = Unit Cost
 * Q = Quantity
 
-* **Regression Analysis:** Developing cost models based on relationships between costs and various operational parameters (e.g., haul distance, production rate, equipment size).
+**Regression Analysis:** Developing cost models based on relationships between costs and various operational parameters (e.g., haul distance, production rate, equipment size).
 
-* **Factored Estimation:** Applying factors to known costs of similar projects to estimate new project costs.
+**Factored Estimation:** Applying factors to known costs of similar projects to estimate new project costs.
 
 ### Example: Operating Cost Breakdown
 
@@ -520,7 +520,7 @@ Understanding potential failure mechanisms is crucial for effective design:
 
 Mining engineers use various methods to assess slope stability and determine safe design parameters:
 
-* **Limit Equilibrium Methods:** These methods analyze the forces acting on a potential failure mass and calculate a Factor of Safety (FoS). A FoS greater than 1 indicates stability, with typical design values ranging from 1.2 to 1.5 for static conditions.
+**Limit Equilibrium Methods:** These methods analyze the forces acting on a potential failure mass and calculate a Factor of Safety (FoS). A FoS greater than 1 indicates stability, with typical design values ranging from 1.2 to 1.5 for static conditions.
 
 $$
 FoS = \frac{\text{RF}}{\text{DF}}
@@ -530,9 +530,9 @@ Where:
 * RF = Resisting Forces
 * DF = Driving Forces 
 
-* **Numerical Modeling (e.g., Finite Element Method, Discrete Element Method):** Advanced computational techniques that simulate rock mass behavior under various stress conditions, providing detailed insights into deformation and failure mechanisms.
+**Numerical Modeling (e.g., Finite Element Method, Discrete Element Method):** Advanced computational techniques that simulate rock mass behavior under various stress conditions, providing detailed insights into deformation and failure mechanisms.
 
-* **Kinematic Analysis:** Used to identify potential failure modes based on the orientation of discontinuities relative to the pit slope.
+**Kinematic Analysis:** Used to identify potential failure modes based on the orientation of discontinuities relative to the pit slope.
 
 ### Monitoring and Risk Management:
 
@@ -599,11 +599,11 @@ Where:
 
 The optimal powder factor varies depending on rock type, desired fragmentation, and explosive properties. Typical ranges for open pit mining are 0.5 to 2.5 pounds per cubic yard or 0.15 to 0.75 kg/tonne.
 
-* **Drilling Patterns:** The arrangement of blast holes on the bench. Common patterns include square, rectangular, and staggered (triangular) patterns. The choice of pattern influences fragmentation, vibration, and overall blast efficiency.
+**Drilling Patterns:** The arrangement of blast holes on the bench. Common patterns include square, rectangular, and staggered (triangular) patterns. The choice of pattern influences fragmentation, vibration, and overall blast efficiency.
 
-    * **Square Pattern:** Burden and spacing are equal (B=S).
-    * **Rectangular Pattern:** Spacing is typically 1.2 to 1.5 times the burden (S = 1.2B to 1.5B).
-    * **Staggered Pattern:** Holes are offset in adjacent rows, often leading to better fragmentation and reduced vibration.
+* **Square Pattern:** Burden and spacing are equal (B=S).
+* **Rectangular Pattern:** Spacing is typically 1.2 to 1.5 times the burden (S = 1.2B to 1.5B).
+* **Staggered Pattern:** Holes are offset in adjacent rows, often leading to better fragmentation and reduced vibration.
 
 ### Example: Powder Factor Calculation
 
