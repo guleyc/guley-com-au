@@ -44,6 +44,7 @@ exclude:
 
 plugins:
   - jekyll-paginate
+  - jekyll-archives
   - jekyll-seo-tag
   - jekyll-github-metadata
   - jekyll-feed
@@ -84,3 +85,12 @@ defaults:
 relative_links:
   enabled:     true
   collections: false
+
+jekyll-archives:
+  enabled:
+    - tags
+    - categories
+  layout: archive
+  permalinks:
+    tag: /tag/:name/
+    category: /category/:name/
