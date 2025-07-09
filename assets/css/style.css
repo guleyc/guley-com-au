@@ -202,3 +202,40 @@ table td{border-bottom:1px solid var(--bg-hover-color);display:block;font-size:.
 table td::before{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase}
 table td:last-child{border-bottom:0}
 }
+/* TAG WALL STYLES */
+.tag-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Etiketler arası boşluk */
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.tag-wall-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-font-color);
+  border-radius: 20px; /* Yuvarlak köşeler */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.tag-wall-item:hover {
+  background-color: var(--primary-font-color);
+  color: var(--body-bg);
+  border-color: var(--primary-font-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tag-count {
+  margin-left: 8px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
