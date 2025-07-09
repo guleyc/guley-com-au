@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="page">
+<h1 class="page-title">Posts in "{{ page.category }}" Category</h1>
+<div class="category-list">
+  {% assign category_posts = site.categories[page.category] %}
+  {% if category_posts %}
+    {% for post in category_posts %}
+      <article class="category-post">
+        <header>
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="meta">
+            <span class="date">{{ post.date | date: "%d %b %Y" }}</span>
+          </div>
+        </header>
+        {% if post.excerpt %}
+          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  {% else %}
+    <p>No posts found in this category.</p>
+  {% endif %}
+</div>
+</div>

@@ -1,0 +1,124 @@
+---
+layout: default
+---
+{%- comment -%} Reading Time {%- endcomment -%}
+{%- assign words = content | number_of_words -%}
+{%- if words < 360 -%}
+  {%- assign reading_time = "1" -%}
+{%- else -%}
+  {%- assign reading_time = words | divided_by: 180 | round -%}
+{%- endif -%}
+<style>
+.hero-image {
+  height: 45vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.hero-text {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+.hero-text h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6); 
+}
+mjx-container {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+</style>
+<article class="post-container" itemscope itemtype="http://schema.org/BlogPosting">
+	{% if page.mathjax %}
+    <script>
+    MathJax = {
+      loader: {
+        load: ['ui/lazy']
+      },
+      tex: {
+        inlineMath: [
+          ['$', '$'],
+          ['\\(', '\\)'] 
+        ],
+        displayMath: [
+          ['$$', '$$'],
+          ['\\[', '\\]']
+        ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        scale: 0.95,
+        linebreaks: {
+          automatic: true
+        }
+      }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
+    </script>	{% endif %}
+	{% if page.image %}
+		{%- assign post_image_url = page.image | prepend: '/upload/' | relative_url -%}
+		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" data-echo-background="{{ post_image_url }}">
+			<div class="hero-text" itemprop="name headline">
+				<h1>{{ page.title }}</h1>
+			</div>
+		</div>
+	{% else %}
+		<div class="blog-post-title" itemprop="name headline">
+			<h1>{{ page.title }}</h1>
+		</div>
+	{% endif %}
+
+	<div class="post-header">
+		<div class="left">
+			<span>{% include breadcrumbs.html %}</span>
+		</div>
+	</div>
+	
+	<div class="blog-post-content" itemprop="articleBody">
+		{{ content }}
+	</div>
+
+</article>
+	<nav class="post-navigation" aria-label="Post navigation">
+		{% if page.previous %}
+		<div class="nav-item nav-previous">
+			<a href="{{ page.previous.url | relative_url }}" rel="prev">
+			<span class="meta-nav" aria-hidden="true">&larr; Previous Post</span>
+			<span class="post-title">{{ page.previous.title }}</span>
+			</a>
+		</div>
+		{% endif %}
+
+		{% if page.next %}
+		<div class="nav-item nav-next">
+			<a href="{{ page.next.url | relative_url }}" rel="next">
+			<span class="meta-nav" aria-hidden="true">Next Post &rarr;</span>
+			<span class="post-title">{{ page.next.title }}</span>
+			</a>
+		</div>
+		{% endif %}
+	</nav>
+
+{% include sticky-sidebar.html reading_time=reading_time %}

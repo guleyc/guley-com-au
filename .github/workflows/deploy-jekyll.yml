@@ -1,0 +1,64 @@
+# deploy-jekyll.yml
+
+name: Deploy Jekyll Site to GitHub Pages
+
+on:
+  # 'main' branch'ine her push yapıldığında çalışır
+  push:
+    branches: ["main"]
+
+  # Actions sekmesinden manuel olarak çalıştırmanıza olanak tanır
+  workflow_dispatch:
+
+# Gerekli izinler: GITHUB_TOKEN'in Gihub Pages'e dağıtım yapabilmesi için.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Aynı anda sadece bir dağıtıma izin vererek çakışmaları önler
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Build (İnşa) görevi
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Depo kodunu klonla
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Ruby ortamını kur ve Bundler önbelleğini kullan (hız için)
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1' # Jekyll'ın desteklediği güncel bir Ruby sürümü
+          bundler-cache: true # 'bundle install' komutunu çalıştırır ve gem'leri önbelleğe alır
+
+      # 3. Jekyll sitesini inşa et
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production # Üretim ortamı için derleme
+
+      # 4. İnşa edilen siteyi artifact olarak yükle
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # _site klasörünü yükle
+          path: './_site'
+
+  # Deploy (Dağıtım) görevi
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build # 'build' görevi bittikten sonra çalışır
+    steps:
+      # 1. Artifact'i kullanarak siteyi GitHub Pages'e dağıt
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
