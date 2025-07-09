@@ -48,7 +48,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-relative-links
-  - jekyll-redirect-from
   - jekyll-github-metadata
 
 paginate: 3
