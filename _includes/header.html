@@ -13,8 +13,17 @@
 		{%- assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape -%}
 		{%- assign page_url = page.url | absolute_url -%}
 		{%- assign page_image = page.image | default: site.logo | absolute_url -%}
-        <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
-		<meta name="description" content="{{ page_description }}">
+		{% if page.is_archive_page %}
+			{%- assign page_title = "Posts Tagged with '" | append: page.title | capitalize | append: "'" -%}
+			{%- assign page_description = "Find all posts and articles on " | append: site.title | append: " categorized under the '" | append: page.title | append: "' tag." -%}
+			<title>{{ page_title }} | {{ site.title }}</title>
+			<meta name="description" content="{{ page_description }}">
+		{% else %}
+			{%- assign page_title = page.title | default: site.title -%}
+			{%- assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape -%}
+			<title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+			<meta name="description" content="{{ page_description }}">
+		{% endif %}
 		<meta name="keywords" content="{% if page.tags and page.tags != empty %}{{ page.tags | join: ', ' }}{% else %}{{ site.keywords | join: ', ' }}{% endif %}">
         <meta name="author" content="{{ site.author.name }}">
 		<meta name="robots" content="index, follow">
@@ -32,10 +41,12 @@
         <meta property="og:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
         <meta property="og:description" content="{{ page_description }}" />
         <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}"/>
-        <meta name="twitter:card" content="summary_large_image">
+        
+		<meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
         <meta property="twitter:description" content="{{ page_description }}" />
         <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.image %}{{page.image}}{% else %}assets/images/favicon.png{% endif %}" />
+		
 		<link rel="stylesheet" href="/assets/css/normalize.css?v={{ site.github.build_revision }}">
 		<link rel="stylesheet" href="/assets/css/highlight.css?v={{ site.github.build_revision }}">
         <link rel="stylesheet" href="/assets/css/style.css?v={{ site.github.build_revision }}">
