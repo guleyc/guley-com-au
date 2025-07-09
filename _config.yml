@@ -50,7 +50,6 @@ plugins:
   - jekyll-relative-links
   - jekyll-redirect-from
   - jekyll-github-metadata
-  - jekyll-archives
 
 paginate: 3
 paginate_path: "/page/:num"
@@ -85,16 +84,3 @@ defaults:
 relative_links:
   enabled:     true
   collections: false
-
-jekyll-archives:
-  enabled: 
-  - tags
-  - categories
-
-  layouts: 
-    tag: archive
-    category: archive
-
-  permalinks:
-    tag: '/tag/:name/'
-    category: '/category/:name/'
