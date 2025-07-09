@@ -10,13 +10,19 @@ permalink: /tags/
     <p>Yazılarımda kullandığım etiketler, popülerliğine göre bir duvar deseniyle aşağıda sıralanmıştır.</p>
 
     <div class="tag-wall">
-      {% assign sorted_tags = site.tags | sort | sort: 'last.size' | reverse %}
+      {% capture tags_string %}
+        {% for tag in site.tags %}
+          {{ tag[1].size | lstrip | Sprintf: '%04d' }}:{{ tag[0] }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      {% endcapture %}
+      {% assign sorted_tags_array = tags_string | split: ',' | sort | reverse %}
 
-      {% for tag in sorted_tags %}
-        {% assign t = tag | first %}
-        {% assign posts = tag | last %}
-        <a href="{{ '/tags/' | relative_url }}{{ t | slugify }}/" class="tag-wall-item">
-          {{ t }} <span class="tag-count">({{ posts | size }})</span>
+      {% for item in sorted_tags_array %}
+        {% assign parts = item | split: ':' %}
+        {% assign post_count = parts[0] | plus: 0 %}
+        {% assign tag_name = parts[1] %}
+        <a href="{{ '/tags/' | relative_url }}{{ tag_name | slugify }}/" class="tag-wall-item">
+          {{ tag_name }} <span class="tag-count">({{ post_count }})</span>
         </a>
       {% endfor %}
     </div>
