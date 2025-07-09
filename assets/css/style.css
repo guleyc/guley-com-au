@@ -203,41 +203,11 @@ table td::before{content:attr(data-label);float:left;font-weight:700;text-transf
 table td:last-child{border-bottom:0}
 }
 
-/* --- Tag Wall Stilleri --- */
-
-.tag-wall-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch; /* Etiketlerin aynı hizada esnemesini sağlar */
-    gap: 10px;
-    padding: 20px 10px;
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
-}
-
-.tag-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    flex-grow: 1; /* Esnek büyüme */
-    cursor: pointer;
-}
-
-.tag-block:hover {
-    transform: translateY(-5px) scale(1.05); /* Daha belirgin bir hover efekti */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    z-index: 2; /* Diğer etiketlerin üzerine çıkması için */
-}
-
-.tag-block.level-1 { min-height: 20px; padding: 10px; font-size: 1rem; flex-basis: 120px; }
-.tag-block.level-2 { min-height: 30px; padding: 15px; font-size: 1.2rem; flex-basis: 160px; }
-.tag-block.level-3 { min-height: 40px; padding: 20px; font-size: 1.5rem; flex-basis: 220px; }
-.tag-block.level-4 { min-height: 50px; padding: 25px; font-size: 1.8rem; font-weight: 700; flex-basis: 280px; }
+/* TAG WALL */
+.tag-wall-container{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:10px;padding:20px 10px;width:100%;max-width:900px;margin:2rem auto}
+.tag-block{display:flex;justify-content:center;align-items:center;text-align:center;color:#fff;text-decoration:none;font-weight:600;border-radius:5px;transition:transform .2s ease,box-shadow .2s ease;flex-grow:1;cursor:pointer}
+.tag-block:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,.2);z-index:2}
+.tag-block.level-1 { min-height: 20px; padding: 10px; font-size: 1rem; }
+.tag-block.level-2 { min-height: 30px; padding: 15px; font-size: 1.2rem; }
+.tag-block.level-3 { min-height: 40px; padding: 20px; font-size: 1.5rem; }
+.tag-block.level-4 { min-height: 50px; padding: 25px; font-size: 1.8rem; font-weight: 700; }
