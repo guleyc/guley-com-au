@@ -90,49 +90,130 @@ p{font-size:1.1rem}
 
 /* TOC */
 /* ==========================================================================
-   SIDEBAR STYLES - NIHAI VE TEMIZLENMIS VERSIYON
+   SIDEBAR STYLES - GÜVENLİ VE UYUMLU VERSİYON
    ========================================================================== */
 
-/* --- 1. GENEL SIDEBAR YAPISI (ORTAK) --- */
-/*
- * Bu blok, hem sol hem de sağ kenar çubuğunun ortak temelini oluşturur.
- * Panel görünümü (arka plan, çerçeve, gölge vb.) tek bir yerden yönetilir.
-*/
-.sidebar {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: all .3s ease;
-}
+/* --- 1. SOL KENAR ÇUBUĞU (TABLE OF CONTENTS) --- */
 
-
-/* --- 2. KONUMA OZEL STILLER (SOL vs SAĞ) --- */
-
-/* Sol Kenar Çubuğu (Table of Contents) */
-.left-sidebar {
+.toc-left-sidebar {
     position: fixed;
     top: 20%;
     left: 2rem;
     width: 250px;
     max-height: 60vh;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transform: translateX(-20px);
+    transition: all .3s ease;
 }
 
-.left-sidebar.visible {
+.toc-left-sidebar.visible {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
 }
 
-/* Sağ Kenar Çubuğu (Masaüstü Görünümü) */
+.toc-left-sidebar h4 {
+    margin: 0 0 1rem 0;
+    font-size: .9rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: .5rem;
+}
+
+.toc-left-nav {
+    font-size: .8rem;
+    line-height: 1.4;
+    max-height: calc(60vh - 80px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+.toc-left-nav::-webkit-scrollbar { width: 3px; }
+.toc-left-nav::-webkit-scrollbar-track { background: transparent; }
+.toc-left-nav::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
+
+.toc-left-nav a {
+    display: block;
+    padding: .4rem .6rem;
+    color: var(--primary-font-color);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    border-radius: 4px;
+    transition: all .2s ease;
+    margin-bottom: .1rem;
+    font-size: .75rem;
+}
+.toc-left-nav a:hover {
+    background: var(--bg-hover-color);
+    border-left-color: #007acc;
+}
+.toc-left-nav a.active {
+    border-left-color: #007acc;
+    background: var(--bg-hover-color);
+    font-weight: 600;
+    color: #007acc;
+}
+
+@media (max-width: 1200px) {
+    .toc-left-sidebar { display: none; }
+}
+
+
+/* --- 2. SAĞ KENAR ÇUBUĞU (POST INFO, TAGS vb.) --- */
+
+/* Ana taşıyıcı (.post-sidebar): Sadece konumlandırma ve JS seçicisi için kullanılır. */
+.post-sidebar {
+    z-index: 1000;
+    transition: transform .3s ease, height .4s cubic-bezier(.25, .46, .45, .94), opacity .3s ease;
+}
+
+/* Görsel panel (.sidebar-content): Tüm görünüm stilleri bu sınıfa uygulanır. */
+.sidebar-content {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,.1);
+    backdrop-filter: blur(10px);
+    height: 100%;
+}
+
+/* Sağ sidebar içindeki her bir bölümü sıfırlama (Önceki başarılı düzeltme) */
+.post-meta-sidebar, 
+.tags-sidebar, 
+.toc-sidebar {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 1.5rem;
+}
+.post-meta-sidebar:last-child, 
+.tags-sidebar:last-child, 
+.toc-sidebar:last-child {
+    margin-bottom: 0;
+}
+
+/* Sağ sidebar içindeki başlıklar */
+.sidebar-content h4 {
+    margin: 0 0 1rem 0;
+    font-size: .95rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: .5rem;
+}
+
+/* Sağ sidebar masaüstü konumlandırması */
 @media (min-width: 769px) {
-    .right-sidebar {
+    .post-sidebar {
         position: fixed;
         top: 50%;
         right: 2rem;
@@ -145,108 +226,21 @@ p{font-size:1.1rem}
         scrollbar-color: var(--border-color) transparent;
     }
 
-    .right-sidebar::-webkit-scrollbar { width: 4px; }
-    .right-sidebar::-webkit-scrollbar-track { background: transparent; }
-    .right-sidebar::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
-
+    .post-sidebar::-webkit-scrollbar { width: 4px; }
+    .post-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .post-sidebar::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
+    
     @media (max-width: 1024px) {
-        .right-sidebar {
+        .post-sidebar {
             width: 260px;
             right: 1rem;
         }
     }
 }
 
-
-/* --- 3. SIDEBAR İÇERİĞİ --- */
-
-/* Sidebar içindeki genel başlık (h4) stili */
-.sidebar h4 {
-    margin: 0 0 1rem 0;
-    font-size: .95rem;
-    font-weight: 600;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: .5rem;
-}
-
-/* Sidebar içindeki her bir bölüm (Article Info, Tags vb.) için genel stil */
-.sidebar-section {
-    margin-bottom: 1.5rem;
-}
-.sidebar-section:last-child {
-    margin-bottom: 0;
-}
-
-/* İçindekiler listesi (TOC) için genel navigasyon stili */
-.sidebar-nav {
-    font-size: .8rem;
-    line-height: 1.4;
-}
-.sidebar-nav a {
-    display: block;
-    padding: .4rem .6rem;
-    color: var(--primary-font-color);
-    text-decoration: none;
-    border-left: 2px solid transparent;
-    border-radius: 4px;
-    transition: all .2s ease;
-    margin-bottom: .1rem;
-    font-size: .75rem;
-}
-.sidebar-nav a:hover {
-    background: var(--bg-hover-color);
-    border-left-color: #007acc;
-}
-.sidebar-nav a.active {
-    border-left-color: #007acc;
-    background: var(--bg-hover-color);
-    font-weight: 600;
-    color: #007acc;
-}
-
-/* Sol sidebar'daki navigasyon için dikey kaydırma */
-.left-sidebar .sidebar-nav {
-    max-height: calc(60vh - 80px); /* Yükseklik - padding - başlık */
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-color) transparent;
-}
-.left-sidebar .sidebar-nav::-webkit-scrollbar { width: 3px; }
-.left-sidebar .sidebar-nav::-webkit-scrollbar-track { background: transparent; }
-.left-sidebar .sidebar-nav::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px; }
-
-
-/* Sağ sidebar içindeki özel elementler */
-.meta-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: .5rem; font-size: .85rem; }
-.meta-label { font-weight: 500; }
-.meta-value { color: #666; background: var(--bg-color); padding: .2rem .5rem; border-radius: 4px; font-size: .8rem; border: 1px solid var(--border-color); }
-.tags-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
-.sidebar-tag { display: inline-block; padding: .3rem .6rem; border-radius: 4px; text-decoration: none; font-size: .8rem; font-weight: 500; transition: all .2s ease; background: var(--bg-color); color: var(--primary-font-color); border: 1px solid var(--border-color); }
-.sidebar-tag:hover { background: var(--primary-font-color); color: var(--bg-color); border-color: var(--primary-font-color); }
-
-
-/* --- 4. RESPONSIVE & MOBİL GÖRÜNÜM --- */
-
-/* 1200px altında sol sidebar'ı gizle */
-@media (max-width: 1200px) {
-    .left-sidebar { display: none; }
-}
-
-/* 1201px üzerinde mobil TOC'yi gizle */
-@media (min-width: 1201px){
-    .right-sidebar .sidebar-section[data-section="toc"] {
-        display: none !important;
-    }
-}
-
-/* Mobil görünüm (768px altı) */
+/* Sağ sidebar mobil konumlandırması */
 @media (max-width: 768px) {
-    body { padding-bottom: 80px !important; }
-    .main-content, .post-content, article, main { padding-bottom: 100px; }
-    footer, .site-footer { margin-bottom: 80px !important; }
-
-    /* Sağ sidebar'ı alttan çıkan bir panele dönüştür */
-    .right-sidebar {
+    .post-sidebar {
         position: fixed;
         top: auto;
         bottom: 0;
@@ -258,52 +252,44 @@ p{font-size:1.1rem}
         transform: translateY(0);
         overflow: hidden;
         border-radius: 0;
-        background: var(--bg-color);
+        background: var(--bg-color); /* Mobil panelin kendi arkaplanı var */
         border: none;
         border-top: 1px solid var(--border-color);
         box-shadow: 0 -4px 20px rgba(0,0,0,.1);
-        padding: 0;
     }
 
-    .right-sidebar.expanded {
+    .post-sidebar.expanded {
         height: 85vh;
         max-height: 85vh;
         border-radius: 16px 16px 0 0;
         box-shadow: 0 -8px 32px rgba(0,0,0,.2);
     }
-
-    /* Mobil içerik ve butonların gösterilmesi */
-    .sidebar-content { padding: 0; height: 100%; border: none; background: transparent; backdrop-filter: none; box-shadow: none; }
-    .mobile-content { display: none; padding: 1.5rem 1rem 2rem 1rem; height: calc(100% - 70px); overflow-y: auto; background: var(--bg-color); }
-    .right-sidebar.expanded .mobile-content { display: block; }
-
-    /* Mobil elementler (Butonlar, kapatma tuşu vb.) */
-    .mobile-button-bar { display: flex; justify-content: space-around; align-items: center; height: 70px; background: var(--bg-color); border-bottom: 1px solid var(--border-color); padding: 0 1rem; }
-    .mobile-btn { display: flex; flex-direction: column; align-items: center; padding: .5rem; color: var(--primary-font-color); font-size: .7rem; background: 0 0; border: none; border-radius: 8px; cursor: pointer; transition: all .2s ease; }
-    .mobile-btn:hover, .mobile-btn.active { background: var(--bg-hover-color); color: #007acc; }
-    .mobile-btn .icon { font-size: 1.4rem; margin-bottom: .2rem; }
-    .mobile-sheet-handle { display: block; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 40px; height: 4px; background: var(--border-color); border-radius: 2px; opacity: 0; transition: opacity .3s ease; }
-    .right-sidebar.expanded .mobile-sheet-handle { opacity: 1; }
-    .mobile-close { display: flex; align-items: center; justify-content: center; position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; border: none; background: var(--bg-hover-color); border-radius: 50%; cursor: pointer; opacity: 0; transition: all .2s ease; z-index: 1001; }
-    .right-sidebar.expanded .mobile-close { opacity: 1; }
-    .mobile-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); opacity: 0; visibility: hidden; transition: all .3s ease; z-index: 999; }
-    .right-sidebar.expanded + .mobile-backdrop { display: block; opacity: 1; visibility: visible; }
+    
+    /* Mobil modda .sidebar-content'in panel stillerini sıfırla */
+    .post-sidebar .sidebar-content {
+        padding: 0;
+        height: 100%;
+        border: none;
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
 }
 
 
-/* --- 5. TEMA (KARANLIK MOD) --- */
+/* --- 3. TEMA (KARANLIK MOD) --- */
 
-[data-theme=dark] .sidebar {
+/* Sol ve Sağ sidebar'lar için tutarlı gölge */
+[data-theme=dark] .toc-left-sidebar,
+[data-theme=dark] .sidebar-content {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme=dark] .meta-value {
-    color: #ccc;
-}
+/* Not: Mobil için olan .post-sidebar'ın kendi gölgesi vardır ve bu kural onu etkilemez, bu doğru bir davranıştır. */
 
-[data-theme=dark] .mobile-backdrop {
-    background: rgba(0, 0, 0, 0.7);
-}
+/* Diğer koyu tema stilleri... */
+[data-theme=dark] .meta-value { color: #ccc; }
+[data-theme=dark] .mobile-backdrop { background: rgba(0,0,0,.7); }
 
 /* PRINT */
 @media print{
