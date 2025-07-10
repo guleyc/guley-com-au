@@ -1,0 +1,161 @@
+<div class="language-switcher">
+    <div class="switcher-button" id="lang-switcher-button" title="Dili Değiştir">
+        <i class="fas fa-globe"></i>
+    </div>
+
+    <div class="language-dropdown" id="language-dropdown">
+        <ul>
+            {% for lang in page.languages %}
+              {% if lang != site.active_lang %}
+                <li>
+                  <a href="{{ lang | link: page.url }}">
+                    {{ site.data.languages[lang].name }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<style>
+   /* Dil Değiştirici Ana Konteyneri */
+.language-switcher {
+    position: relative; /* Dropdown menünün buna göre konumlanması için */
+    display: inline-block;
+}
+
+/* Küre ikonunu taşıyan buton */
+.switcher-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Yuvarlak yapar */
+    background-color: #f0f0f0; /* Açık tema için arka plan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.switcher-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.switcher-button i {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Karanlık Tema Uyumluluğu (İsteğe Bağlı) */
+body.dark .switcher-button {
+    background-color: #2b2b2b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+body.dark .switcher-button:hover {
+    background-color: #3c3c3c;
+}
+body.dark .switcher-button i {
+    color: #f1f1f1;
+}
+
+
+/* Dropdown Menü */
+.language-dropdown {
+    display: none; /* Varsayılan olarak gizli */
+    position: absolute;
+    top: 50px; /* Butonun 10px altına */
+    right: 0;
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 100;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Karanlık Tema için Dropdown */
+body.dark .language-dropdown {
+    background-color: #2b2b2b;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+/* Dropdown menüyü göstermek için kullanılacak class */
+.language-dropdown.show {
+    display: block;
+}
+
+/* Animasyon */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.language-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.language-dropdown ul li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.language-dropdown ul li a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Karanlık Tema için linkler */
+body.dark .language-dropdown ul li a {
+    color: #f1f1f1;
+}
+body.dark .language-dropdown ul li a:hover {
+    background-color: #3c3c3c;
+} 
+</style>
+<script>
+    // Sayfa yüklendiğinde çalışacak kod
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Gerekli HTML elementlerini seçelim
+    const switcherButton = document.getElementById('lang-switcher-button');
+    const dropdown = document.getElementById('language-dropdown');
+
+    // Butonun var olup olmadığını kontrol edelim
+    if (switcherButton) {
+        // Butona tıklandığında...
+        switcherButton.addEventListener('click', function(event) {
+            // Dropdown'a 'show' class'ını ekle/kaldır
+            dropdown.classList.toggle('show');
+            // Olayın daha fazla yayılmasını engelle, böylece window'daki click olayı tetiklenmez
+            event.stopPropagation();
+        });
+    }
+
+    // Sayfanın herhangi bir yerine tıklandığında...
+    window.addEventListener('click', function(event) {
+        // Eğer dropdown açıksa VE tıklanan yer buton değilse...
+        if (dropdown.classList.contains('show') && !switcherButton.contains(event.target)) {
+            // Dropdown'u kapat
+            dropdown.classList.remove('show');
+        }
+    });
+
+});
+</script>
