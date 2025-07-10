@@ -134,5 +134,5 @@ polyglot:
       title: "Cagatay Guley - Горный инженер"
       description: "Как увлеченный горный инженер, я буду открывать минеральные богатства и инновационные решения, ведя нас к новым горизонтам."
   default_lang: "en"
-  exclude_from_localization: ["assets", "css", "js"]
+  exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
   parallel_localization: true

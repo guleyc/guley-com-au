@@ -7,6 +7,7 @@ permalink: /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail/
 redirect_from:
   - /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail
 categories: [web]
+lang: en
 tags: [smtp, error, plesk, yandex mail]
 ---
 
