@@ -10,3 +10,9 @@ zh:
   name: 中文
 hi:
   name: हिन्दी
+es:
+  name: Español
+ja:
+  name: 日本語
+ru:
+  name: Русский
