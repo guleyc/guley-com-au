@@ -209,7 +209,6 @@ body{font-family:'Times New Roman',Times,serif!important;font-size:12pt!importan
 @page :first{margin-top:3cm}
 .blog-post-title{page-break-before:avoid!important}
 .force-page-break{page-break-before:always!important}
-.blog-post-content:after{content:"Print Date: " attr(data-print-date)!important;display:block!important;margin-top:30pt!important;padding-top:20pt!important;border-top:1pt solid #ddd!important;font-size:10pt!important;color:#666!important;text-align:center!important}
 }
 
 /* SEARCH */
