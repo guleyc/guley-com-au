@@ -3,30 +3,7 @@
 	<div class="profile">
 		<a href="{{ site.url }}"><img src="{{site.author.picture}}" class="profile-image" alt="{{ site.author.bio }}" data-echo="{{site.author.picture}}"></a>
 		<div class="profile-about">
-			<h1 style="margin-bottom: 0; font-weight: 700;">{{site.author.name}}</h1>
-			{% if site.author.facebook %}
-				<a href="https://facebook.com/{{site.author.facebook}}" target="_blank"><img src="assets/images/icon/facebook.svg" class="social-icon" alt="Facebook"></a>
-			{% endif %}
-			{% if site.author.twitter %}
-				<a href="https://twitter.com/{{site.author.twitter}}" target="_blank"><img src="assets/images/icon/twitter.svg" class="social-icon" alt="Twitter"></a>
-			{% endif %}
-			{% if site.author.instagram %}
-				<a href="https://instagram.com/{{site.author.instagram}}" target="_blank"><img src="assets/images/icon/instagram.svg" class="social-icon" alt="Instagram"></a>
-			{% endif %}
-			{% if site.author.youtube %}
-				<a href="{{site.author.youtube}}" target="_blank"><img src="assets/images/icon/youtube.svg" class="social-icon" alt="Youtube"></a>
-			{% endif %}
-			{% if site.author.github %}
-				<a href="https://github.com/{{site.author.github}}" target="_blank"><img src="assets/images/icon/github.svg" class="social-icon" alt="Github"></a>
-			{% endif %}
-			{% if site.author.linkedin %}
-				<a href="https://linkedin.com/in/{{site.author.linkedin}}" target="_blank"><img src="assets/images/icon/linkedin.svg" class="social-icon" alt="Linkedin"></a>
-			{% endif %}
-			<a href="about"><img src="assets/images/icon/me.svg" class="social-icon" alt="About Me"></a>
-			<br>
-			{{ site.author.bio }}
-			<br>
-			<style>.header-controls { display: inline-flex; align-items: center; gap: 1px; }</style>			
+			{% include profile.html %}
 			<div class="header-controls">
 			{% include toggle.html %}
 			{% include search-ui.html %}
