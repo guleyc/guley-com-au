@@ -7,13 +7,11 @@ permalink: /darcys-law/
 redirect_from:
   - /darcys-law
 categories: [engineering]
-tags: [darcys, law, engineering]
+tags: [darcys, law, engineering, math, physics]
 image: darcy.png
+mathjax: true
 ---
 
-# Understanding Darcy's Law: The Fundamentals of Fluid Flow in Porous Media
-
-## Introduction
 In the mid-19th century, a French engineer named Henry Darcy was tasked with designing the public water fountains for the city of Dijon. His work on water flow through sand filters led him to establish an empirical relationship that has become a cornerstone of hydrogeology, petroleum engineering, and civil engineering. This relationship, known as **Darcy's Law**, describes the flow of a fluid through a porous medium. It provides a quantitative basis for understanding how groundwater moves, how oil and gas migrate through reservoirs, and how water seeps through soil and rock.
 
 ## The Mathematical Expression of Darcy's Law
