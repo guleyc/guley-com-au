@@ -108,7 +108,7 @@ p{font-size:1.1rem}
     border-radius: 12px;              /* Sol sidebar ile aynı yuvarlaklık */
     padding: 1rem;                    /* Panelin iç boşluğu */
     border: 1px solid var(--border-color); /* Panelin dış çerçevesi */
-    box-shadow: var(--sidebar-shadow);
+    box-shadow:0 8px 24px rgba(0,0,0,.1);
     backdrop-filter: blur(10px);
     height: 100%;
 }
@@ -185,6 +185,7 @@ body{padding-bottom:0!important}
 [data-theme=dark] .meta-value{color:#ccc}
 [data-theme=dark] .mobile-backdrop{background:rgba(0,0,0,.7)}
 [data-theme=dark] .toc-left-sidebar{background:var(--bg-color);border-color:var(--border-color);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+[data-theme=dark] .post-sidebar {box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);}
 
 /* PRINT */
 @media print{
