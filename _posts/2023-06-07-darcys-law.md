@@ -53,7 +53,7 @@ For flow to occur from point 1 to point 2, $h_1$ must be greater than $h_2$, mak
 
 Permeability is an intrinsic property of a porous material that measures the ease with which fluids can pass through it. A material like gravel has high permeability, while clay has extremely low permeability. The table below provides typical ranges for the permeability coefficient for various rock types.
 
-| Rock Type          | Permeability Coefficient ($k$) ($m^2$) | Typical Hydraulic Gradient ($dh/dL$) ($m/m$) |
+| Rock Type          | Permeability Coefficient (k) (m^2) | Typical Hydraulic Gradient (dh/dL) (m/m) |
 | ------------------ | -------------------------------------- | ------------------------------------------ |
 | Sand               | $10^{-10}$ – $10^{-5}$                   | 0.001 – 0.1                                |
 | Sandstone          | $10^{-15}$ – $10^{-12}$                  | 0.001 – 0.1                                |
