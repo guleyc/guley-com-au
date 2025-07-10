@@ -167,10 +167,11 @@ body{padding-bottom:0!important}
 
 /* PRINT */
 @media print{
-.footer,.hero-image,.mode,.navigation,.pagination-modern,.post-header .post-share,.post-navigation,.post-sidebar,.post-tag,.profile,.tags,.tags-container,.toc-left-sidebar,figure{display:none!important}
+.footer,.hero-image,.mode,.navigation,.pagination-modern,.post-header .post-share,.post-navigation,.left-sidebar,.post-tag,.profile,.tags,.tags-container,.right-sidebar,figure{display:none!important}
 .blog-post-content,.blog-post-title,.container,body{width:100%!important;margin:0!important;padding:0!important;border:none!important;box-shadow:none!important;color:#000!important;background:#fff!important}
 body{font-family:'Times New Roman',Times,serif;font-size:12pt;line-height:1.5}
 .blog-post-title h1{font-size:24pt;margin-bottom:20pt}
+.breadcrumbs {font-size:16pt}
 .blog-post-content{text-align:left}
 img{max-width:100%!important;height:auto!important}
 a,a:visited{color:#000!important;text-decoration:underline}
