@@ -73,11 +73,11 @@ Turbines are the machines that convert the energy of flowing water into rotation
         * **The Francis Turbine:** The most versatile and widely used turbine. It operates efficiently over a vast range of heads (10 m - 350 m) and flow rates, making it the workhorse of medium-head plants.
         * **The Kaplan & Propeller Turbine:** Designed for low head (< 40 m) and very high flow rate conditions, typical of run-of-river plants. Kaplan turbines feature adjustable blades, allowing them to maintain high efficiency even with varying flow rates.
 
-#### Selecting the Right Turbine: The Role of Specific Speed ($n_s$)
+#### Selecting the Right Turbine: The Role of Specific Speed (Ns)
 
-The most fundamental parameter engineers use to select the optimal turbine for a project is **Specific Speed ($n_s$)**. Specific speed is a dimensionless index that predicts the performance of a turbine. It represents the speed at which a geometrically similar turbine would run if it were to generate one unit of power under one unit of head. It is calculated using the project's known **Head (H)**, **Flow Rate (Q)**, and the desired **rotational speed (n)**. This value determines which turbine family (Pelton, Francis, Kaplan) will be most efficient for the project.
+The most fundamental parameter engineers use to select the optimal turbine for a project is **Specific Speed (Ns)**. Specific speed is a dimensionless index that predicts the performance of a turbine. It represents the speed at which a geometrically similar turbine would run if it were to generate one unit of power under one unit of head. It is calculated using the project's known **Head (H)**, **Flow Rate (Q)**, and the desired **rotational speed (n)**. This value determines which turbine family (Pelton, Francis, Kaplan) will be most efficient for the project.
 
-| Turbine Type      | Typical Operating Head (m) | Specific Speed ($n_s$) Range |
+| Turbine Type      | Typical Operating Head (m) | Specific Speed (Ns) Range |
 | :---------------- | :------------------------ | :---------------------------- |
 | **Pelton** | 50 - 1300+                | 12 - 30                       |
 | **Francis** | 10 - 350                  | 80 - 400                      |
@@ -89,7 +89,7 @@ As the table shows, **high heads require low-specific-speed turbines (Pelton)**,
 
 While the potential energy stored in a dam is simple in theory, converting it to electricity involves inevitable losses. The critical task for an engineer is to calculate the **net power** after accounting for these losses.
 
-**Net Head ($H_{net}$):** This is the actual head available to the turbine after subtracting energy losses due to friction ($\sum \Delta H$) as water travels through tunnels, channels, and the penstock.
+**Net Head (Hnet):** This is the actual head available to the turbine after subtracting energy losses due to friction ($\sum \Delta H$) as water travels through tunnels, channels, and the penstock.
 
 $$H_{net} = H_{gross} - \sum \Delta H$$
 
