@@ -1,12 +1,12 @@
-<!-- LEFT TOC SIDEBAR - Desktop Only -->
-<aside class="toc-left-sidebar" id="toc-left-sidebar">
+<!-- LEFT SIDEBAR - Desktop Only -->
+<aside class="left-sidebar" id="left-sidebar">
     <h4>📑 Table of Contents</h4>
-    <nav class="toc-left-nav" id="toc-left-nav"></nav>
+    <nav class="left-sidebar-nav" id="left-sidebar-nav"></nav>
 </aside>
 
 <!-- RIGHT SIDEBAR -->
-<aside class="post-sidebar">
-    <div class="sidebar-content">
+<aside class="right-sidebar">
+    <div class="right-sidebar-content">
         <!-- Mobile Button Bar -->
         <div class="mobile-button-bar">
             <button class="mobile-btn" data-section="info">
@@ -64,7 +64,7 @@
             <!-- TOC in mobile sidebar -->
             <div class="toc-sidebar" data-section="toc">
                 <h4>📑 Table of Contents</h4>
-                <nav class="toc-nav"></nav>
+                <nav class="right-sidebar-nav"></nav>
             </div>
         </div>
     </div>
@@ -77,14 +77,14 @@ document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
     // === ELEMENT SELECTIONS ===
-    const sidebar = document.querySelector('.post-sidebar');
-    const tocLeftSidebar = document.querySelector('.toc-left-sidebar');
-    const tocLeftNav = document.querySelector('.toc-left-nav');
+    const rightSidebar = document.querySelector('.right-sidebar');
+    const leftSidebar = document.querySelector('.left-sidebar');
+    const leftSidebarNav = document.querySelector('.left-sidebar-nav');
     const mobileBackdrop = document.querySelector('.mobile-backdrop');
     const mobileCloseBtn = document.querySelector('.mobile-close');
     const mobileButtons = document.querySelectorAll('.mobile-btn');
     const mobileContent = document.querySelector('.mobile-content');
-    const tocNav = document.querySelector('.toc-nav');
+    const rightSidebarNav = document.querySelector('.right-sidebar-nav');
     const mainContent = document.querySelector('.post-content') || 
                         document.querySelector('.post__content') || 
                         document.querySelector('article') ||
@@ -99,11 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === CORE FUNCTIONS ===
     const openSidebar = () => {
-        if (!sidebar || isExpanded) return;
+        if (!rightSidebar || isExpanded) return;
         
         isExpanded = true;
-        sidebar.classList.add('expanded');
-        sidebar.setAttribute('aria-hidden', 'false');
+        rightSidebar.classList.add('expanded');
+        rightSidebar.setAttribute('aria-hidden', 'false');
         
         if (window.innerWidth <= 768) {
             document.body.style.overflow = 'hidden';
@@ -111,18 +111,18 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const closeSidebar = () => {
-        if (!sidebar || !isExpanded) return;
+        if (!rightSidebar || !isExpanded) return;
         
         isExpanded = false;
-        sidebar.classList.remove('expanded');
+        rightSidebar.classList.remove('expanded');
         
         mobileButtons.forEach(btn => btn.classList.remove('active'));
         
         if (window.innerWidth <= 768) {
-            sidebar.setAttribute('aria-hidden', 'true');
+            rightSidebar.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         } else {
-            sidebar.setAttribute('aria-hidden', 'false');
+            rightSidebar.setAttribute('aria-hidden', 'false');
         }
         
         currentSection = null;
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const id = mostVisibleEntry.target.id;
                 
                 // Her iki TOC için de aktif linki güncelle
-                [tocLeftNav, tocNav].forEach(nav => {
+                [leftSidebarNav, rightSidebarNav].forEach(nav => {
                     if (nav) {
                         const activeLink = nav.querySelector(`a[href="#${id}"]`);
                         if (activeLink) {
@@ -229,8 +229,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
                             activeLink.classList.add('active');
                             activeLink.setAttribute('aria-current', 'location');
-                            if(nav === tocLeftNav) { // Sadece soldaki sidebar için otomatik kaydırma yap
-                                scrollToActiveTocItem(activeLink, tocLeftNav);
+                            if(nav === leftSidebarNav) {
+                                scrollToActiveTocItem(activeLink, leftSidebarNav);
                             }
                         }
                     }
@@ -258,8 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Eğer hiç başlık yoksa, ilgili TOC alanlarını CSS ile gizlemek için bir class ekle.
         if (!headings.length) {
             tocSidebarElement?.classList.add('hidden-by-js');
-            tocLeftSidebar?.classList.add('hidden-by-js');
-            // Not: CSS dosyanıza `.hidden-by-js { display: none !important; }` eklemeniz gerekebilir.
+            leftSidebar?.classList.add('hidden-by-js');
             return;
         }
 
@@ -281,32 +280,32 @@ document.addEventListener('DOMContentLoaded', function() {
             link.style.paddingLeft = `${indent + 0.6}rem`;
             link.className = 'toc-link';
             link.title = `Go to ${text}`;
-            link.textContent = text; // Metni güvenli bir şekilde ata
+            link.textContent = text;
             
             fragment.appendChild(link);
         });
         
         // Oluşturulan listeyi TOC konteynerlarına ekle
-        if (tocLeftNav) {
-            tocLeftNav.innerHTML = ''; // Temizle
-            tocLeftNav.appendChild(fragment.cloneNode(true)); // Klonunu ekle
+        if (leftSidebarNav) {
+            leftSidebarNav.innerHTML = '';
+            leftSidebarNav.appendChild(fragment.cloneNode(true));
         }
-        if (tocNav) {
-            tocNav.innerHTML = ''; // Temizle
-            tocNav.appendChild(fragment); // Orijinalini ekle
+        if (rightSidebarNav) {
+            rightSidebarNav.innerHTML = '';
+            rightSidebarNav.appendChild(fragment);
         }
     };
 
     // === LEFT SIDEBAR VISIBILITY ===
     const updateLeftSidebarVisibility = () => {
-        if (!tocLeftSidebar || window.innerWidth <= 1200) return;
+        if (!leftSidebar || window.innerWidth <= 1200) return;
         
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (firstH1Position && scrollTop >= firstH1Position - 100) {
-            tocLeftSidebar.classList.add('visible');
+            leftSidebar.classList.add('visible');
         } else {
-            tocLeftSidebar.classList.remove('visible');
+            leftSidebar.classList.remove('visible');
         }
     };
     
@@ -320,19 +319,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if (touchStartY === 0) return;
         const currentY = e.touches[0].clientY;
         const diff = currentY - touchStartY;
-        if (diff > 0) { // Sadece aşağı sürüklemeyi algıla
-            e.preventDefault(); // Sayfanın kaymasını engelle
-            sidebar.style.transition = 'none';
-            sidebar.style.transform = `translateY(${diff}px)`;
+        if (diff > 0) {
+            e.preventDefault();
+            rightSidebar.style.transition = 'none';
+            rightSidebar.style.transform = `translateY(${diff}px)`;
         }
     };
 
     const handleTouchEnd = (e) => {
         if (touchStartY === 0) return;
         const diff = e.changedTouches[0].clientY - touchStartY;
-        sidebar.style.transition = ''; // Geçişleri geri yükle
-        sidebar.style.transform = '';
-        if (diff > 100) { // Belirli bir eşikten fazla sürüklendiyse kapat
+        rightSidebar.style.transition = '';
+        rightSidebar.style.transform = '';
+        if (diff > 100) {
             closeSidebar();
         }
         touchStartY = 0;
@@ -346,20 +345,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 768) {
             if (isExpanded) closeSidebar();
             showAllSections();
-            if (sidebar) sidebar.setAttribute('aria-hidden', 'false');
+            if (rightSidebar) rightSidebar.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = '';
             document.body.style.paddingBottom = '';
         } else {
-            if (sidebar) sidebar.setAttribute('aria-hidden', !isExpanded);
+            if (rightSidebar) rightSidebar.setAttribute('aria-hidden', !isExpanded);
             if (!document.body.style.paddingBottom) {
                 document.body.style.paddingBottom = '80px';
             }
         }
         
-        // Observer'ı yeniden başlatmak, responsive geçişlerde doğru çalışmasını sağlar
         initTocObserver();
         updateLeftSidebarVisibility();
-        // DİKKAT: TOC görünürlük kontrolü buradan kaldırıldı ve sadece CSS'e bırakıldı.
     };
 
     // === EVENT LISTENERS ===
@@ -371,14 +368,14 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileBackdrop?.addEventListener('click', closeSidebar);
     document.addEventListener('keydown', handleKeydown);
     
-    // Touch events (passive: false, e.preventDefault() için gerekli)
+    // Touch events
     mobileContent?.addEventListener('touchstart', handleTouchStart, { passive: true });
     mobileContent?.addEventListener('touchmove', handleTouchMove, { passive: false });
     mobileContent?.addEventListener('touchend', handleTouchEnd);
     
     // Her iki TOC için de tıklama olayını yöneten tek bir fonksiyon
     const handleTocClick = (e) => {
-        if (e.target.matches('a.toc-link')) { // Tıklanan elemanın bir TOC linki olduğundan emin ol
+        if (e.target.matches('a.toc-link')) {
             e.preventDefault();
             const targetId = e.target.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
@@ -397,14 +394,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    tocNav?.addEventListener('click', handleTocClick);
-    tocLeftNav?.addEventListener('click', handleTocClick);
+    rightSidebarNav?.addEventListener('click', handleTocClick);
+    leftSidebarNav?.addEventListener('click', handleTocClick);
 
     window.addEventListener('scroll', updateLeftSidebarVisibility, { passive: true });
     window.addEventListener('resize', handleResize);
 
     // === INITIALIZATION ===
     generateToc();
-    handleResize(); // Başlangıç durumunu ayarla
+    handleResize();
 });
 </script>
