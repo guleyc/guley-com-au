@@ -63,7 +63,8 @@ Finally, all recovered material, whether core or chips, must be geologically and
 
 Once the drill has brought rock to the surface, a sample must be taken for laboratory analysis. The goal of all sampling and sub-sampling procedures is to obtain a small aliquot of material (typically a few kilograms or less) that is truly representative of the entire drilled interval from which it was taken. The JORC Code requires explicit disclosure of these procedures.  
 
-For diamond core, the report must state if the core was sawn or split, and what portion was taken for the sample—typically half-core is sent for assay, with the other half retained for reference. For RC chips, which can amount to many tens of kilograms per metre, the method of splitting must be described. Common methods include using a riffle splitter or a rotary splitter to obtain a manageable and representative sub-sample.  
+For diamond core, the report must state if the core was sawn or split, and what portion was taken for the sample—typically half-core is sent for assay, with the other half retained for reference. For RC chips, which can amount to many tens of kilograms per metre, the method of splitting must be described. Common methods include using a riffle splitter or a rotary splitter to obtain a manageable and representative sub-sample.
+  
 The appropriateness of the final sample size must be considered relative to the grain size and nature of the mineralization. For example, a deposit with coarse, nuggety gold requires different (and often larger) sample sizes and preparation techniques than a deposit with finely disseminated mineralization to avoid sampling bias.  
 
 Finally, the report must describe the measures taken to ensure sample security. This "chain of custody" from the drill rig to the laboratory is crucial for ensuring that samples are not accidentally mixed up, contaminated, or tampered with, thereby guaranteeing the integrity of the results.
