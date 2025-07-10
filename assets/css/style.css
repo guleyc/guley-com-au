@@ -102,7 +102,7 @@ p{font-size:1.1rem}
 @media (max-width:1200px){
 .toc-left-sidebar{display:none}
 }
-.post-sidebar{--sidebar-bg:var(--bg-color);--sidebar-border:var(--border-color);--sidebar-shadow:0 8px 24px rgba(0, 0, 0, 0.1);z-index:1000;transition:transform .3s ease,height .4s cubic-bezier(.25, .46, .45, .94),opacity .3s ease}
+.post-sidebar{--sidebar-border:var(--border-color);--sidebar-shadow:0 8px 24px rgba(0, 0, 0, 0.1);z-index:1000;transition:transform .3s ease,height .4s cubic-bezier(.25, .46, .45, .94),opacity .3s ease}
 .sidebar-content{background:var(--sidebar-bg);border-radius:8px;padding:0;box-shadow:var(--sidebar-shadow);backdrop-filter:blur(10px);height:100%}
 .post-meta-sidebar,.tags-sidebar,.toc-sidebar{margin-bottom:1.5rem;background:var(--bg-color);border-radius:8px;padding:1rem;border:1px solid var(--sidebar-border)}
 .post-meta-sidebar:last-child,.tags-sidebar:last-child,.toc-sidebar:last-child{margin-bottom:0}
