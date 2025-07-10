@@ -1,13 +1,11 @@
-<!-- LEFT TOC SIDEBAR - Desktop Only -->
-<aside class="toc-left-sidebar" id="toc-left-sidebar">
+<aside class="sidebar left-sidebar" id="toc-left-sidebar">
     <h4>📑 Table of Contents</h4>
-    <nav class="toc-left-nav" id="toc-left-nav"></nav>
+    <nav class="sidebar-nav" id="toc-left-nav"></nav>
 </aside>
 
-<!-- RIGHT SIDEBAR -->
-<aside class="post-sidebar">
+<aside class="sidebar right-sidebar">
     <div class="sidebar-content">
-        <!-- Mobile Button Bar -->
+
         <div class="mobile-button-bar">
             <button class="mobile-btn" data-section="info">
                 <span class="icon">📖</span>
@@ -24,11 +22,11 @@
         </div>
         
         <div class="mobile-sheet-handle"></div>
-        
         <button class="mobile-close" aria-label="Close sidebar">✕</button>
         
         <div class="mobile-content">
-            <div class="post-meta-sidebar" data-section="info">
+            
+            <div class="sidebar-section" data-section="info">
                 <h4>📖 Article Info</h4>
                 <div class="meta-item">
                     <span class="meta-label">Published:</span>
@@ -47,31 +45,29 @@
             </div>
 
             {% if page.tags and page.tags.size > 0 %}
-            <div class="tags-sidebar" data-section="tags">
+            <div class="sidebar-section" data-section="tags">
                 <h4>🏷️ Tags</h4>
                 <div class="tags-list">
                     {% for tag in page.tags %}
                         <a href="{{ site.baseurl | default: '' }}/tag/{{ tag | slugify | downcase }}/" 
                            class="sidebar-tag"
                            title="View all posts tagged with {{ tag }}">
-                           {{ tag }}
+                            {{ tag }}
                         </a>
                     {% endfor %}
                 </div>
             </div>
             {% endif %}
 
-            <!-- TOC in mobile sidebar -->
-            <div class="toc-sidebar" data-section="toc">
+            <div class="sidebar-section" data-section="toc">
                 <h4>📑 Table of Contents</h4>
-                <nav class="toc-nav"></nav>
+                <nav class="sidebar-nav"></nav>
             </div>
         </div>
     </div>
 </aside>
 
 <div class="mobile-backdrop"></div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
