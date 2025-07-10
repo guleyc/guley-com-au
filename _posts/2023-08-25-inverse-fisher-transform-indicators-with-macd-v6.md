@@ -8,21 +8,71 @@ redirect_from:
   - /inverse-fisher-transform-indicators-with-macd-v6
 categories: [engineering]
 tags: [inverse, fisher, transform, indicators, macd]
+image: macd.png
 ---
 
-This script is a TradingView indicator written in Pine Script, a programming language designed for creating custom technical analysis indicators and strategies on the TradingView platform. The indicator is designed to create an “Inverse Fisher Transform” (IFT) indicator based on several technical indicators like Stochastic, RSI, CCI, and MFI, and combine their values to generate an overall rating. The indicator also includes elements related to MACD and offers alerting features.
+This document provides a detailed technical breakdown of the "Inverse Fisher Transform Indicators with MACD v6," a custom indicator developed in Pine Script for the TradingView platform. The primary objective of this indicator is to normalize and transform the output of several common oscillators—Stochastic, RSI, CCI, and MFI—using the Inverse Fisher Transform (IFT). This process aims to generate clearer, more timely trading signals by reducing noise and normalizing oscillator behavior. The indicator aggregates these transformed values into a unified rating system and integrates MACD as a supplementary tool for signal confirmation. This paper will detail the mathematical foundations, calculation pipeline, and practical application of each component.
 
-1. **Indicator Setup**: The script is defined as an indicator with various input options that allow users to configure its behavior. It includes options for enabling or disabling calculations for various technical indicators (Stochastic, RSI, CCI, MFI), selecting the type of output (average or individual indicator), and specifying the price data source.
-2. **Smoothing and Calculations**: The script uses various technical indicators like CCI, RSI, Stochastic, and MFI to calculate their values. These values are then subjected to a smoothing process using a weighted moving average (WMA) to get the smoothed values for each indicator.
-3. **Inverse Fisher Transform (IFT)**: The smoothed values are then transformed using the Inverse Fisher Transform formula, which aims to map the indicator values to a range between -0.5 and 0.5, making them more suitable for analysis.
-4. **Plotting**: The IFT-transformed values are plotted on the chart using different colors based on the user’s selections. The colors indicate different rating levels, such as “Strong Buy,” “Buy,” “Neutral,” “Sell,” and “Strong Sell.” These rating levels are determined by the magnitude of the IFT-transformed values.
-5. **MACD Constants and Inputs**: The script includes a section related to MACD (Moving Average Convergence Divergence) calculations. It defines various input options for configuring the appearance and behavior of the MACD-related aspects of the indicator.
-6. **Helper Functions**: The script defines several helper functions to facilitate calculations, such as detecting rising or falling conditions, determining trends, and calculating ratings for individual technical indicators.
-7. **Alerts and Markers**: The script also includes alerting features. It triggers alerts based on certain conditions being met, such as crossing certain levels or specific changes in the gradient of the indicator. It also places markers on the chart to highlight potential long or short signals.
-8. **Plotting**: The script plots the calculated values on the chart, displaying the IFT-transformed values for the selected technical indicators. It also displays rating levels and markers.
-9. **User Interface**: The script includes a visual representation of the calculated rating levels and their corresponding text labels.
+## Core Concept: The Inverse Fisher Transform (IFT)
 
-This script combines various technical indicators and transforms their values using the Inverse Fisher Transform to create an overall rating that can be used for trading analysis. The MACD-related sections of the script allow users to customize the appearance and behavior of the MACD aspect of the indicator. The alerting and marker features help users identify potential trading opportunities based on the calculated ratings.
+The standard Fisher Transform, developed by John Ehlers, is a mathematical operation that transforms any data set into a nearly Gaussian (normal) probability distribution. In trading, this is useful for identifying price reversals.
+
+The **Inverse Fisher Transform (IFT)**, as its name suggests, performs the reverse operation. It takes a normalized input (typically in the range of `[-1, 1]`) and maps it to a new output, creating sharp, wave-like indicator movements that are less prone to the choppiness of traditional oscillators. The primary benefit is its ability to pinpoint turning points with minimal lag.
+
+### Mathematical Formulation
+
+The IFT is mathematically equivalent to the **hyperbolic tangent function (`tanh`)**. If we have a normalized value `x`, the IFT is calculated as:
+
+$$y_{IFT} = \frac{e^{2x} - 1}{e^{2x} + 1} = \tanh(x)$$
+
+## Indicator Components and Calculation Pipeline
+
+The indicator follows a multi-step process to generate its final output.
+
+### Step 1: Raw Oscillator Calculation
+The script first calculates the values of several standard oscillators.
+
+#### a) Relative Strength Index (RSI)
+$$RSI = 100 - \frac{100}{1 + RS}$$
+
+#### b) Commodity Channel Index (CCI)
+$$CCI = \frac{\text{Typical Price} - \text{SMA}(\text{Typical Price}, n)}{0.015 \times \text{Mean Deviation}}$$
+
+#### c) Stochastic Oscillator
+$$\%K = 100 \times \frac{\text{Current Close} - \text{Lowest Low}_n}{\text{Highest High}_n - \text{Lowest Low}_n}$$
+
+#### d) Money Flow Index (MFI)
+$$MFI = 100 - \frac{100}{1 + \text{Money Flow Ratio}}$$
+
+### Step 2: Smoothing with Weighted Moving Average (WMA)
+To reduce signal noise, the raw values from each oscillator are smoothed using a Weighted Moving Average (WMA).
+$$WMA = \frac{\sum_{i=1}^{n} \text{Price}_i \times w_i}{\sum_{i=1}^{n} w_i}$$
+
+### Step 3: Normalization and IFT Application
+The smoothed oscillator values are normalized and then used as the input `x` in the IFT formula:
+$$\text{Final Value} = \tanh(\text{Normalized Value})$$
+
+## Signal Generation and Rating System
+
+The final IFT-transformed values determine the market rating:
+- **Strong Buy:** IFT value > 0.5
+- **Buy:** IFT value is positive.
+- **Neutral:** IFT value is near zero.
+- **Sell:** IFT value is negative.
+- **Strong Sell:** IFT value < -0.5
+
+### Alerting Conditions
+1.  **Level Crossing:** Alert when IFT crosses overbought/oversold levels.
+2.  **Gradient Change:** Alert when the slope of the IFT line changes direction.
+
+## Complementary Tool: Moving Average Convergence Divergence (MACD)
+
+MACD is included as a supplementary visual tool for confirmation.
+- **MACD Line:** EMA(12) - EMA(26)
+- **Signal Line:** EMA(9) of MACD Line
+- **Histogram:** MACD Line - Signal Line
+
+The "Inverse Fisher Transform Indicators with MACD v6" script is a sophisticated tool that leverages the normalizing power of the IFT to enhance traditional oscillators. By smoothing data, applying the IFT, and aggregating the results, it provides a powerful method for identifying market reversals with improved clarity and reduced lag.
 
 ```
 //@version=5
