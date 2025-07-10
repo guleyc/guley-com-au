@@ -104,29 +104,36 @@ p{font-size:1.1rem}
 }
 .post-sidebar{--sidebar-border:var(--border-color);--sidebar-shadow:0 8px 24px rgba(0, 0, 0, 0.1);z-index:1000;transition:transform .3s ease,height .4s cubic-bezier(.25, .46, .45, .94),opacity .3s ease}
 .sidebar-content {
-    background: var(--bg-color); /* Arka planı iç kutulardan buraya taşıdık */
-    border-radius: 12px;         /* Kenar yuvarlaklığını 12px'e yükselttik (sol ile aynı) */
-    padding: 1rem;               /* İçeriğin kenarlardan uzak durması için padding ekledik */
+    background: var(--bg-color);      /* Panelin arka plan rengi */
+    border-radius: 12px;              /* Sol sidebar ile aynı yuvarlaklık */
+    padding: 1rem;                    /* Panelin iç boşluğu */
+    border: 1px solid var(--border-color); /* Panelin dış çerçevesi */
     box-shadow: var(--sidebar-shadow);
     backdrop-filter: blur(10px);
     height: 100%;
-    border: 1px solid var(--sidebar-border); /* Dış çerçeveyi buraya ekledik */
 }
 .post-meta-sidebar, 
 .tags-sidebar, 
 .toc-sidebar {
-    margin-bottom: 1.5rem;
-    background: transparent; /* Kendi arka planlarını şeffaf yapıyoruz */
-    border-radius: 0;        /* Kendi kenar yuvarlaklıklarını kaldırıyoruz */
-    padding: 0;              /* Kendi padding'lerini sıfırlıyoruz */
-    border: none;            /* Kendi çerçevelerini kaldırıyoruz */
+    background: transparent !important; /* Arka planlarını tamamen şeffaf yap */
+    border: none !important;            /* Çerçevelerini tamamen kaldır */
+    padding: 0 !important;              /* Kendi iç boşluklarını sıfırla */
+    box-shadow: none !important;        /* Olası gölgeleri kaldır */
+    margin-bottom: 1.5rem;              /* Bölümler arası dikey boşluk kalsın */
 }
 .post-meta-sidebar:last-child, 
 .tags-sidebar:last-child, 
 .toc-sidebar:last-child {
     margin-bottom: 0;
 }
-.sidebar-content h4{margin:0 0 1rem 0;font-size:.95rem;font-weight:600;border-bottom:1px solid var(--sidebar-border);padding-bottom:.5rem}
+.sidebar-content h4 {
+    margin: 0 0 1rem 0;
+    font-size: .95rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color); /* Ayraç çizgisi */
+    padding-bottom: .5rem;
+}
+
 .meta-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;font-size:.85rem}
 .meta-label{font-weight:500}
 .meta-value{color:#666;background:var(--bg-color);padding:.2rem .5rem;border-radius:4px;font-size:.8rem;border:1px solid var(--border-color)}
