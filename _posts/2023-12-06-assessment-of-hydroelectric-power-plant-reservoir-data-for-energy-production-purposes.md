@@ -9,6 +9,7 @@ redirect_from:
 categories: [energy]
 tags: [hydroelectric, power, plant, reservoir, data, assessment, energy, production]
 image: hydro.jpg
+mathjax: true
 ---
 
 This study aims to analyze the reservoir data of a hydroelectric power plant (HPP) to optimize its energy production efficiency and ensure its long-term sustainability. This assessment goes beyond fundamental parameters like water level fluctuations to conduct an in-depth analysis of critical engineering and ecological challenges. These include **sedimentation rates**, which directly impact reservoir lifespan, **changes in water quality**, and the **overall impact on the surrounding ecosystem**. The findings of this research aim to provide a tangible roadmap for decision-makers and field engineers to enhance both the economic efficiency and the ecological harmony of HPPs.
