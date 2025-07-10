@@ -9,6 +9,7 @@ redirect_from:
 categories: [mining]
 tags: [injection, works, underground, openings]
 image: injection.jpg
+mathjax: true
 ---
 
 Ground treatment and water control are paramount for the safety, stability, and long-term serviceability of tunnels. This article provides a technical overview of advanced injection methodologies employed in modern tunneling projects. We will explore the principles and applications of cementitious grouting for pre-excavation ground improvement, post-excavation support, and structural integrity, including key concepts like the Umbrella Arch method, rock bolting, and contact grouting. Furthermore, the article delves into specialized chemical injection systems, namely polyurethane (PU) and acrylic resins, which are critical for challenging waterproofing scenarios. The discussion incorporates mix design considerations, quality control parameters, and the fundamental mechanics governing each technique.
