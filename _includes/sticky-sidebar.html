@@ -308,7 +308,18 @@ document.addEventListener('DOMContentLoaded', function() {
             leftSidebar.classList.remove('visible');
         }
     };
-    
+    // === RIGHT SIDEBAR VISIBILITY ===
+    const updateRightSidebarVisibility = () => {
+        if (!rightSidebar || window.innerWidth <= 1200) return;
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (firstH1Position && scrollTop >= firstH1Position - 100) {
+            rightSidebar.classList.add('visible');
+        } else {
+            rightSidebar.classList.remove('visible');
+        }
+    };
     // === TOUCH HANDLERS ===
     const handleTouchStart = (e) => {
         if (!isExpanded || mobileContent.scrollTop > 0) return;
@@ -357,6 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         initTocObserver();
         updateLeftSidebarVisibility();
+        updateRightSidebarVisibility();
     };
 
     // === EVENT LISTENERS ===
@@ -398,6 +410,7 @@ document.addEventListener('DOMContentLoaded', function() {
     leftSidebarNav?.addEventListener('click', handleTocClick);
 
     window.addEventListener('scroll', updateLeftSidebarVisibility, { passive: true });
+    window.addEventListener('scroll', updateRightSidebarVisibility, { passive: true });
     window.addEventListener('resize', handleResize);
 
     // === INITIALIZATION ===
