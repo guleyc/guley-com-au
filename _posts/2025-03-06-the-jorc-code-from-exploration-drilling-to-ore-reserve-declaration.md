@@ -1,6 +1,6 @@
 ---
 title: 'The JORC Code: From Exploration Drilling to Ore Reserve Declaration'
-date: '2023-03-06'
+date: '2025-05-06'
 author: 'Cagatay Guley'
 layout: post
 permalink: /the-jorc-code-from-exploration-drilling-to-ore-reserve-declaration/
@@ -44,6 +44,8 @@ The increasing complexity of mining projects, particularly with the rise of Envi
 ## **Part I: The Foundation of Truth – Data Acquisition and Verification**
 
 The entire JORC classification system, from a speculative Exploration Result to a high-confidence Proved Ore Reserve, is built upon a pyramid of data. The quality and integrity of the data at the base—collected through drilling and sampling—determine the reliability of everything that follows. The JORC Code, through the detailed criteria in Table 1, mandates rigorous disclosure of how this foundational data was acquired and verified.
+
+![Classification Framework - JORC Code 2024](/assets/images/tux.png)
 
 ### **2.1 Drilling Techniques and Best Practices**
 
