@@ -1,6 +1,6 @@
 ---
 title: 'Multi-Timeframe Price Predictor'
-date: '2025-03-25T06:30:00+00:00'
+date: '2025-03-25'
 author: 'Cagatay Guley'
 layout: post
 permalink: /multi-timeframe-price-predictor/

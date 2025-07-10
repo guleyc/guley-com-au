@@ -1,6 +1,6 @@
 ---
 title: "Blast Design and Optimization in Open-Pit Mining"
-date: '2025-04-21T00:27:04+00:00'
+date: '2025-04-21'
 author: Cagatay Guley
 layout: post
 permalink: /blast-design-and-optimization-in-open-pit-mining/

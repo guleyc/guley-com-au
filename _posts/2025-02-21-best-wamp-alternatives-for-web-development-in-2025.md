@@ -1,6 +1,6 @@
 ---
 title: 'Best WAMP Alternatives for Web Development in 2025'
-date: '2025-02-21T00:27:04+00:00'
+date: '2025-02-21'
 author: 'Cagatay Guley'
 layout: post
 permalink: /best-wamp-alternatives-for-web-development-in-2025/

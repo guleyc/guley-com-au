@@ -1,6 +1,6 @@
 ---
 title: 'Drilling and Blasting in Underground Mining'
-date: '2023-04-05T06:23:00+00:00'
+date: '2023-04-05'
 author: 'Cagatay Guley'
 layout: post
 permalink: /drilling-and-blasting-in-underground-mining/

@@ -1,6 +1,6 @@
 ---
 title: 'Comprehensive Guide to Hydraulic Pump Calculations and Performance Metrics'
-date: '2024-07-23T08:41:56+00:00'
+date: '2024-07-23'
 author: 'Cagatay Guley'
 layout: post
 permalink: /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics/

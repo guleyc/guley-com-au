@@ -1,6 +1,6 @@
 ---
 title: 'How to Resolve SMTP Error in Plesk Panel with Yandex Mail'
-date: '2020-06-01T13:53:00+00:00'
+date: '2020-06-01'
 author: 'Cagatay Guley'
 layout: post
 permalink: /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail/
@@ -13,14 +13,14 @@ tags: [smtp, error, plesk, yandex mail]
 
 If you’re using Plesk Panel for managing your web hosting and Yandex Mail for your email services, you might encounter SMTP (Simple Mail Transfer Protocol) errors when trying to send emails. This issue can often be resolved by making adjustments to the “msmtprc” file. In this guide, we’ll walk you through the steps to resolve this problem.
 
-### <span class="ez-toc-section" id="Step_1_Accessing_the_%E2%80%9Cmsmtprc%E2%80%9D_File"></span>**Step 1: Accessing the “msmtprc” File**<span class="ez-toc-section-end"></span>
+### **Step 1: Accessing the “msmtprc” File**
 
 1. Log in to your server where Plesk Panel is installed using SSH or your preferred terminal application.
 2. Navigate to the directory where the “msmtprc” file is located. Typically, it can be found at `/etc/msmtprc`.
 
-### <span class="ez-toc-section" id="Step_2_Editing_the_%E2%80%9Cmsmtprc%E2%80%9D_File"></span>**Step 2: Editing the “msmtprc” File**<span class="ez-toc-section-end"></span>
+### **Step 2: Editing the “msmtprc” File**
 
-1\. Open the “msmtprc” file using a text editor. You can use the `nano`, `edit` or `vi` command, depending on your preference:
+1. Open the “msmtprc” file using a text editor. You can use the `nano`, `edit` or `vi` command, depending on your preference:
 
 ```
 nano /etc/msmtprc
@@ -37,7 +37,7 @@ edit /etc/msmtprc
 
 ```
 
-2\. Within the “msmtprc” file, you will see various SMTP configuration settings. These settings may include the SMTP server address, port, authentication details, and more. Ensure that the settings match the requirements of your Yandex Mail SMTP server.
+2. Within the “msmtprc” file, you will see various SMTP configuration settings. These settings may include the SMTP server address, port, authentication details, and more. Ensure that the settings match the requirements of your Yandex Mail SMTP server.
 
 ```
 #ATTENTION!

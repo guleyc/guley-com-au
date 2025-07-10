@@ -1,6 +1,6 @@
 ---
 title: 'Time Series Analysis'
-date: '2022-05-03T13:58:00+00:00'
+date: '2022-05-03'
 author: 'Cagatay Guley'
 layout: post
 permalink: /time-series-analysis/

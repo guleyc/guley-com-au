@@ -1,6 +1,6 @@
 ---
 title: "A Mining Engineer's Guide to Underground Mine Ventilation"
-date: '2024-11-11T15:45:53+00:00'
+date: '2024-11-11'
 author: 'Cagatay Guley'
 layout: post
 permalink: /a-mining-engineers-guide-to-underground-mine-ventilation/

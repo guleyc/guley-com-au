@@ -1,6 +1,6 @@
 ---
 title: 'Emerging 5 Trends and Technologies in Mining Engineering'
-date: '2025-01-16T15:16:27+00:00'
+date: '2025-01-16'
 author: 'Cagatay Guley'
 layout: post
 permalink: /emerging-5-trends-and-technologies-in-mining-engineering/
