@@ -50,6 +50,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-polyglot
 
 paginate: 3
 paginate_path: "/page/:num"
@@ -93,3 +94,45 @@ jekyll-archives:
   permalinks:
     tag: /tag/:name/
     category: /category/:name/
+
+polyglot:
+  languages:
+    en:
+      locale: "en_US"
+      title: "Cagatay Guley - A Mining Engineer"
+      description: " As a passionate mining engineer, I will unveil mineral riches and innovative solutions, taking us towards new horizons."
+    tr:
+      locale: "tr_TR"
+      title: "Çağatay Güley - Bir Maden Mühendisi"
+      description: "Bir maden mühendisi olarak maden zenginliklerini ve yenilikçi çözümleri ortaya çıkaracak, bizi yeni ufuklara taşıyacağım."
+    de:
+      locale: "de_DE"
+      title: "Cagatay Guley - Ein Bergbauingenieur"
+      description: "Als leidenschaftlicher Bergbauingenieur werde ich Bodenschätze erschließen und innovative Lösungen entwickeln, die uns zu neuen Horizonten führen.."
+    fr:
+      locale: "fr_FR"
+      title: "Cagatay Guley - Un ingénieur des mines"
+      description: "En tant qu'ingénieur des mines passionné, je révélerai des richesses minérales et des solutions innovantes, pour nous conduire vers de nouveaux horizons."
+    zh:
+      locale: "zh_CN"
+      title: "Cagatay Guley - 采矿工程师"
+      description: "作为一名充满热情的采矿工程师，我将发掘丰富的矿产资源，提供创新的解决方案，带领我们走向新的地平线。"
+    hi:
+      locale: "hi_IN"
+      title: "Cagatay Guley - एक खनन इंजीनियर"
+      description: "एक जोशीले खनन इंजीनियर के रूप में, मैं खनिज संपदा और अभिनव समाधानों को उजागर करूँगा, जो हमें नए क्षितिजों की ओर ले जाएगा।"
+    es:
+      locale: "es_ES"
+      title: "Cagatay Guley - Un Ingeniero de Minas"
+      description: "Como un apasionado ingeniero de minas, desvelaré riquezas minerales y soluciones innovadoras, llevándonos hacia nuevos horizontes."
+    ja:
+      locale: "ja_JP"
+      title: "Cagatay Guley - 鉱山技術者"
+      description: "情熱的な鉱山技術者として、私は鉱物の豊かさと革新的な解決策を明らかにし、私たちを新たな地平へと導きます。"
+    ru:
+      locale: "ru_RU"
+      title: "Cagatay Guley - Горный инженер"
+      description: "Как увлеченный горный инженер, я буду открывать минеральные богатства и инновационные решения, ведя нас к новым горизонтам."
+  default_lang: "en"
+  exclude_from_localization: ["assets", "css", "js"]
+  parallel_localization: true
