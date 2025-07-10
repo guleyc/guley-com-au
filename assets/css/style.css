@@ -146,7 +146,8 @@ body{padding-bottom:80px}
 body{padding-bottom:0!important}
 .footer,.site-footer,footer{margin-bottom:0!important}
 .main-content,.post-content,article,main{padding-bottom:0}
-.right-sidebar{position:fixed;top:50%;right:2rem;width:280px;height:fit-content;max-height:calc(100vh - 4rem);overflow-y:auto;scrollbar-width:thin;box-shadow:0 8px 24px rgba(0,0,0,.1);scrollbar-color:var(--border-color) transparent}
+.right-sidebar{position:fixed;top:50%;right:2rem;width:280px;height:fit-content;max-height:calc(100vh - 4rem);opacity:0;visibility:hidden;transform:translateX(20px) translateY(-50%);overflow-y:auto;scrollbar-width:thin;box-shadow:0 8px 24px rgba(0,0,0,.1);scrollbar-color:var(--border-color) transparent}
+.right-sidebar.visible{opacity:1;visibility:visible;transform:translateX(0) translateY(-50%)}
 .right-sidebar::-webkit-scrollbar{width:4px}
 .right-sidebar::-webkit-scrollbar-track{background:0 0}
 .right-sidebar::-webkit-scrollbar-thumb{background-color:var(--border-color);border-radius:2px}
