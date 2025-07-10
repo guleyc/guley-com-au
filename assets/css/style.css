@@ -106,7 +106,7 @@ p{font-size:1.1rem}
 .left-sidebar{display:none}
 }
 .right-sidebar{--sidebar-border:var(--border-color);--sidebar-shadow:0 8px 24px rgba(0, 0, 0, 0.1);z-index:1000;transition:transform .3s ease,height .4s cubic-bezier(.25, .46, .45, .94),opacity .3s ease}
-.right-sidebar.visible{opacity:1;visibility:visible;transform: translateX(0) translateY(-50%);}
+.right-sidebar.visible{opacity:1;visibility:visible;}
 .right-sidebar-content{background:var(--bg-color);border-radius:12px;padding:1rem;border:1px solid var(--border-color);box-shadow:0 8px 24px rgba(0,0,0,.1);backdrop-filter:blur(10px);height:100%}
 .post-meta-sidebar,.tags-sidebar,.toc-sidebar{background:0 0!important;border:none!important;padding:0!important;box-shadow:none!important;margin-bottom:1.5rem}
 .post-meta-sidebar:last-child,.tags-sidebar:last-child,.toc-sidebar:last-child{margin-bottom:0}
