@@ -45,7 +45,7 @@ The increasing complexity of mining projects, particularly with the rise of Envi
 
 The entire JORC classification system, from a speculative Exploration Result to a high-confidence Proved Ore Reserve, is built upon a pyramid of data. The quality and integrity of the data at the base—collected through drilling and sampling—determine the reliability of everything that follows. The JORC Code, through the detailed criteria in Table 1, mandates rigorous disclosure of how this foundational data was acquired and verified.
 
-![Classification Framework - JORC Code 2024](/assets/images/tux.png)
+![Classification Framework - JORC Code 2024](/upload/jorc-classification-framework.webp)
 
 ### **2.1 Drilling Techniques and Best Practices**
 
