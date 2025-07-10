@@ -530,7 +530,7 @@ p{font-size:1.1rem}
 
 @media (max-width: 1024px) {
     .right-sidebar {
-        width: 260px;
+        width: 100%;
         right: 1rem;
     }
 }
