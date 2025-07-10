@@ -7,7 +7,7 @@ permalink: /the-significance-of-support-systems-in-underground-mining-applicatio
 redirect_from:
   - /the-significance-of-support-systems-in-underground-mining-applications
 categories: [mining]
-tags: [support, systems, underground, mining
+tags: [support, systems, underground, mining]
 mathjax: true
 ---
 
