@@ -9,6 +9,7 @@ redirect_from:
 categories: [engineering]
 tags: [inverse, fisher, transform, indicators, macd]
 image: macd.png
+mathjax: true
 ---
 
 This document provides a detailed technical breakdown of the "Inverse Fisher Transform Indicators with MACD v6," a custom indicator developed in Pine Script for the TradingView platform. The primary objective of this indicator is to normalize and transform the output of several common oscillators—Stochastic, RSI, CCI, and MFI—using the Inverse Fisher Transform (IFT). This process aims to generate clearer, more timely trading signals by reducing noise and normalizing oscillator behavior. The indicator aggregates these transformed values into a unified rating system and integrates MACD as a supplementary tool for signal confirmation. This paper will detail the mathematical foundations, calculation pipeline, and practical application of each component.
