@@ -320,7 +320,7 @@ p{font-size:1.1rem}
 }
 
 /* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
     body {
         padding-bottom: 80px;
     }
@@ -478,7 +478,7 @@ p{font-size:1.1rem}
 }
 
 /* DESKTOP RESPONSIVE */
-@media (min-width: 769px) {
+@media (min-width: 1200px) {
     body {
         padding-bottom: 0 !important;
     }
@@ -528,12 +528,7 @@ p{font-size:1.1rem}
     }
 }
 
-@media (max-width: 1024px) {
-    .right-sidebar {
-        width: 100%;
-        right: 1rem;
-    }
-}
+
 
 @media (min-width: 1201px) {
     .toc-sidebar {
