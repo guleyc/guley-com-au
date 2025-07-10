@@ -8,6 +8,7 @@ redirect_from:
   - /time-series-analysis
 categories: [engineering]
 tags: [time, series, analysis, forecasting, regression]
+mathjax: true
 ---
 
 Time series analysis is a statistical method employed to forecast future values based on historical data. It aims to predict the values of a variable that changes over time, such as stock prices, weather patterns, or economic indicators, by utilizing past observations. To construct a time series forecasting model, the first step involves examining the dataset. The dataset consists of measurements of the variable at regular intervals over time, such as daily closing prices of a stock or monthly average temperature. The initial step is to analyze the statistical characteristics of the time series data, which may include trend, seasonality, and periodic variations. Trend refers to the long-term increasing or decreasing pattern observed in the data. Seasonality captures the regular, recurring patterns at specific intervals, such as the surge in retail sales during the holiday season. Periodic variations represent regular repeating patterns observed in the data.
@@ -22,7 +23,7 @@ In the above equation, Y is dependent on the average of its two preceding values
 
 It is imperative to acknowledge that while this basic model showcases the essence of univariate time series forecasting, real-world applications often demand more intricate and sophisticated models. These models might encompass additional features, incorporate external factors, or integrate more extensive historical data to enhance predictive capabilities. Furthermore, the selection of the optimal window size is not a trivial task and might necessitate empirical experimentation to determine the configuration that optimally captures the underlying patterns in the data.
 
-#### <span class="ez-toc-section" id="Key_Concepts_to_be_Acquainted_With"></span>Key Concepts to be Acquainted With<span class="ez-toc-section-end"></span>
+#### Key Concepts to be Acquainted With
 
 **Trend** — The linearly increasing or decreasing behavior of a series over time. A trend can be upward, downward, or flat (horizontal).
 
@@ -40,71 +41,71 @@ It is imperative to acknowledge that while this basic model showcases the essenc
 
 In the realm of time series analysis, these concepts are paramount for comprehending the underlying dynamics and patterns within data. Accurate analysis and forecasting hinge on the mastery of these foundational principles. By dissecting trends, identifying seasonal influences, employing decomposition methods, ensuring stationarity, utilizing differencing judiciously, accounting for dependence, and recognizing the presence of noise, analysts can extract meaningful insights and build robust models that effectively predict future outcomes.
 
-#### <span class="ez-toc-section" id="Smoothing_Techniques"></span>Smoothing Techniques<span class="ez-toc-section-end"></span>
+#### Smoothing Techniques
 
 **Smoothing** is a fundamental process in reducing the noise present in our series and revealing underlying patterns that might emerge over time. In time series analysis, there are three significant smoothing methods.
 
 **Single Exponential Smoothing**: Also known as Simple Exponential Smoothing, this is a time series forecasting technique for univariate data without trends or seasonality. SES performs well on stationary series. Here, alpha is a smoothing factor that takes values between 0 and 1. It determines how quickly weights diminish for previous observations. (yt​ = Smoothed value at time t, α = Smoothing constant (0 &lt; α &lt; 1), xt= Actual value at time t, y(t−1) = Smoothed value at time t−1)
 
-\[latex\]S\_t = \\alpha X\_t + (1 – \\alpha) S\_{t-1}\[/latex\]
+$$S_t = \alpha X_t + (1 – \alpha) S_{t-1}$$
+
+$$F_{t+k} = S_t \quad \text{(for k = 1, 2, 3, ...)}$$
+
+Where:
+
+* $S_t$: The smoothed value (or level) of the series at time $t$.
+* $X_t$: The actual observed value at time $t$.
+* $S_{t-1}$: The smoothed value from the previous period ($t-1$).
+* $\alpha$ (alpha): The smoothing coefficient ($0 \le \alpha \le 1$). This coefficient determines how much weight is given to the most recent observation. As alpha approaches 1, the model responds more quickly to recent changes; as it approaches 0, the smoothing is greater and the model is less responsive to recent changes.
+* $F_{t+k}$: The forecast for $k$ steps ahead from time $t$.
 
 **Double Exponential Smoothing**: Double Exponential Smoothing is an extension of Exponential Smoothing that explicitly adds support for trends in univariate time series. Double Exponential Smoothing with additive trend is classically referred to as Holt’s Linear Trend model. Here, beta is the trend smoothing factor and takes values between 0 and 1.
 
-\[latex\]  
-S\_t = \\alpha X\_t + (1 – \\alpha) (S\_{t-1} + b\_{t-1})  
-\[/latex\]
+$$S_t = \alpha X_t + (1 – \alpha) (S_{t-1} + b_{t-1})$$
 
-\[latex\]  
-b\_t = \\beta (S\_t – S\_{t-1}) + (1 – \\beta) b\_{t-1}  
-\[/latex\]
+$$b_t = \beta (S_t – S_{t-1}) + (1 – \beta) b_{t-1}$$
 
-\[latex\]  
-F\_{t+k} = S\_t + k b\_t  
-\[/latex\]
+$$F_{t+k} = S_t + k b_t$$
 
-St = Smoothed value at time t  
-α = Smoothing constant (0 &lt; α &lt; 1)  
-Xt = Actual value at time t  
-bt = Trend component at time t  
-β = Trend smoothing constant (0 &lt; β &lt; 1)  
-F(t+k) = Forecast value at time t for k steps ahead  
-k = Number of steps ahead for forecasting
+Where:
+
+* $S_t$: Smoothed value at time $t$
+* $\alpha$: Smoothing constant ($0 < \alpha < 1$)
+* $X_t$: Actual value at time $t$
+* $b_t$: Trend component at time $t$
+* $\beta$: Trend smoothing constant ($0 < \beta < 1$)
+* $F_{t+k}$: Forecast value at time $t$ for $k$ periods ahead
+* $k$: Number of periods ahead for forecasting
 
 **Triple Exponential Smoothing**: Triple Exponential Smoothing, an extension of Exponential Smoothing, explicitly incorporates support for seasonality in univariate time series. This method is sometimes called Holt-Winters Exponential Smoothing. Gamma is the seasonal smoothing factor, and L represents the length of the season.
 
-\[latex\]  
-L\_t = \\alpha \\left( \\frac{X\_t}{S\_{t-m}} \\right) + (1 – \\alpha) (L\_{t-1} + T\_{t-1})  
-\[/latex\]
+$$L_t = \alpha \left( \frac{X_t}{S_{t-m}} \right) + (1 – \alpha) (L_{t-1} + T_{t-1})$$
 
-\[latex\]  
-T\_t = \\beta (L\_t – L\_{t-1}) + (1 – \\beta) T\_{t-1}  
-\[/latex\]
+$$T_t = \beta (L_t – L_{t-1}) + (1 – \beta) T_{t-1}$$
 
-\[latex\]  
-S\_t = \\gamma \\left( \\frac{X\_t}{L\_t} \\right) + (1 – \\gamma) S\_{t-m}  
-\[/latex\]
+$$S_t = \gamma \left( \frac{X_t}{L_t} \right) + (1 – \gamma) S_{t-m}$$
 
-\[latex\]  
-F\_{t+k} = (L\_t + k T\_t) S\_{t-m+k \\mod m}  
-\[/latex\]
+$$F_{t+k} = (L_t + k T_t) S_{t-m+k \pmod m}$$
 
-Lt: Smoothed level at time t  
-Tt: Smoothed trend at time t  
-St: Seasonal component at time t  
-Xt: Actual value at time t  
-α: Level smoothing coefficient (0 &lt; α &lt; 1)  
-β: Trend smoothing coefficient (0 &lt; β &lt; 1)  
-γ: Seasonal smoothing coefficient (0 &lt; γ &lt; 1)  
-m: Number of periods in a season  
-k: Number of periods ahead for forecasting
+Where:
+
+* $L_t$: Smoothed level at time $t$
+* $T_t$: Smoothed trend at time $t$
+* $S_t$: Seasonal component at time $t$
+* $X_t$: Actual value at time $t$
+* $\alpha$: Level smoothing coefficient ($0 < \alpha < 1$)
+* $\beta$: Trend smoothing coefficient ($0 < \beta < 1$)
+* $\gamma$: Seasonal smoothing coefficient ($0 < \gamma < 1$)
+* $m$: Number of periods in a season
+* $k$: Number of periods ahead for forecasting
 
 By applying these smoothing techniques, analysts can enhance their ability to discern meaningful patterns and trends in time series data while mitigating the impact of noise. The selection of appropriate smoothing factors and the consideration of the type of trends or seasonality present in the data are vital decisions that significantly impact the accuracy of forecasts. These techniques provide valuable tools for understanding and predicting complex temporal data patterns in diverse fields ranging from economics to healthcare to meteorology.
 
-#### <span class="ez-toc-section" id="Autoregression_AR_Models"></span>Autoregression (AR) Models<span class="ez-toc-section-end"></span>
+#### Autoregression (AR) Models
 
 The Autoregression (AR) method models the next step in a sequence as a linear function of observations from previous time steps. This method is suitable for univariate time series without trends or seasonality. It’s important to note that our data needs to be stationary before applying any statistical model.
 
-#### <span class="ez-toc-section" id="Stationary_Data"></span>Stationary Data<span class="ez-toc-section-end"></span>
+#### Stationary Data
 
 A stationary time series is one whose properties—such as mean, variance, and covariance—are not dependent on the time at which the series is observed. Hence, time series with trends or seasonality are not stationary—trend and seasonality affect the value of the time series at different points in time. The model will work effectively only if specific features (mean, variance, covariance) are consistent across selected time intervals. If there’s a trend in your dataset, you need to remove it (via differencing or detrending) before proceeding.
 
@@ -123,35 +124,35 @@ An autoregression model assumes that previous observations of a time series can 
 
 **PACF (Partial Autocorrelation Function):** PACF is a partial autocorrelation function. As the name suggests, PACF is a subset of ACF. PACF captures the correlation between observations made at two points in time while accounting for any influences from other data points. We can use PACF to determine the optimal number of terms to use in an AR model. The number of terms determines the order of the model. Identifying an AR model is usually done using the best PACF values.
 
-#### <span class="ez-toc-section" id="Moving_Average_MA"></span>Moving Average (MA)<span class="ez-toc-section-end"></span>
+#### Moving Average (MA)
 
 Also known as Rolling or Running Average, a Moving Average is used to analyze time series data by calculating the averages of different subsets of the full dataset. Since it involves taking the mean of the dataset over time, it’s also called Moving Mean (MM) or Rolling Mean.
 
-#### <span class="ez-toc-section" id="Autoregressive_Moving_Average_ARMA"></span>Autoregressive Moving Average (ARMA)<span class="ez-toc-section-end"></span>
+#### Autoregressive Moving Average (ARMA)
 
 The ARMA method models the next step in a sequence as a linear function of observations and residual errors from previous time steps. It combines both Autoregressive (AR) and Moving Average (MA) models.
 
-#### <span class="ez-toc-section" id="Autoregressive_Integrated_Moving_Average_ARIMA"></span>Autoregressive Integrated Moving Average (ARIMA)<span class="ez-toc-section-end"></span>
+#### Autoregressive Integrated Moving Average (ARIMA)
 
 ARIMA is an extension of ARMA that models the next step in a sequence as a linear function of differenced observations and residual errors from previous time steps. In addition to combining AR and MA models, it also incorporates differencing to make the series stationary. This integration step is denoted as “I” in ARIMA.
 
-#### <span class="ez-toc-section" id="Seasonal_Autoregressive_Integrated_Moving_Average_SARIMA"></span>Seasonal Autoregressive Integrated Moving Average (SARIMA)<span class="ez-toc-section-end"></span>
+#### Seasonal Autoregressive Integrated Moving Average (SARIMA)
 
 SARIMA models the next step in a sequence as a linear function of differenced observations, residual errors, differenced seasonal observations, and seasonal residual errors from previous time steps. It combines ARIMA with the ability to perform autoregression, differencing, and moving average modeling at a seasonal level.
 
-#### <span class="ez-toc-section" id="Seasonal_Autoregressive_Integrated_Moving_Average_with_Exogenous_Regressors_SARIMAX"></span>Seasonal Autoregressive Integrated Moving Average with Exogenous Regressors (SARIMAX)<span class="ez-toc-section-end"></span>
+#### Seasonal Autoregressive Integrated Moving Average with Exogenous Regressors (SARIMAX)
 
 SARIMAX is an extension of SARIMA that includes modeling external variables. It can be used to model various models covered by external variables like ARX, MAX, ARMAX, and ARIMAX. This method is suitable for univariate time series with trend and/or seasonal components as well as external variables.
 
-#### <span class="ez-toc-section" id="Vector_Autoregression_Moving_Average_VARMA"></span>Vector Autoregression Moving Average (VARMA)<span class="ez-toc-section-end"></span>
+#### Vector Autoregression Moving Average (VARMA)
 
 VARMA method models the next step in each time series using an ARMA model. It’s a generalization of ARMA to multiple parallel time series, i.e., multivariate time series. It’s suitable for multivariate time series without trend and seasonal components.
 
-#### <span class="ez-toc-section" id="Vector_Autoregression_Moving_Average_with_Exogenous_Regressors_VARMAX"></span>Vector Autoregression Moving Average with Exogenous Regressors (VARMAX)<span class="ez-toc-section-end"></span>
+#### Vector Autoregression Moving Average with Exogenous Regressors (VARMAX)
 
 VARMAX, an extension of VARMA, includes modeling external variables. It’s a multivariate version of the ARMAX method, covering external variables’ modeling within the VARMA framework.
 
-#### <span class="ez-toc-section" id="Example_of_an_ARIMA_Model_in_python"></span>Example of an ARIMA Model in python<span class="ez-toc-section-end"></span>
+#### Example of an ARIMA Model in python
 
 ```
 import pandas as pd
@@ -183,7 +184,7 @@ print(forecast)
 
 This code example loads the time series data from a file called data.csv. It then sets the data as a time series by converting the ‘Date’ column to datetime and setting it as the index. The ARIMA model with an order of (1, 1, 1) is created and fitted to the data. Finally, predictions for the next 5 steps are made using the forecast method.
 
-#### <span class="ez-toc-section" id="Example_of_a_SARIMA_Model"></span>Example of a SARIMA Model<span class="ez-toc-section-end"></span>
+#### Example of a SARIMA Model
 
 ```
 import pandas as pd
@@ -220,7 +221,7 @@ print(forecast)
 
 In this example, the time series data is loaded from a file called data.csv. The data is then set as a time series by converting the ‘Date’ column to datetime and setting it as the index. The SARIMA model with an order of (1, 1, 1) and seasonal order of (1, 1, 1, 12) is created and fitted to the data. Finally, predictions for the next 5 steps are made using the forecast method.
 
-#### <span class="ez-toc-section" id="Example_of_a_ETS_Model"></span>Example of a ETS Model<span class="ez-toc-section-end"></span>
+#### Example of a ETS Model
 
 ```
 import pandas as pd
@@ -252,7 +253,7 @@ print(forecast)
 
 In this example, the time series data is loaded from a file called data.csv. The data is then set as a time series by converting the ‘Date’ column to datetime and setting it as the index. The ETS model with an additive trend and additive seasonality is created and fitted to the data. The seasonal\_periods parameter is set to 12, indicating monthly seasonality. Finally, predictions for the next 5 steps are made using the forecast method.
 
-#### <span class="ez-toc-section" id="Example_of_a_GARCH_Model"></span>Example of a GARCH Model<span class="ez-toc-section-end"></span>
+#### Example of a GARCH Model
 
 ```
 import pandas as pd
@@ -284,7 +285,7 @@ print(forecast.variance.values[-1, :])
 
 This example loads the time series data from a file called data.csv. The data is then set as a time series by converting the ‘Date’ column to datetime and setting it as the index. The GARCH model with a p-value of 1 and q-value of 1 is created and fitted to the data. Finally, volatility forecasts are made using the forecast method.
 
-#### <span class="ez-toc-section" id="datacsv_Example"></span>data.csv Example<span class="ez-toc-section-end"></span>
+#### data.csv Example
 
 ```
 Date,Value 
