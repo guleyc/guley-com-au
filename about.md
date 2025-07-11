@@ -11,4 +11,4 @@ My experience spans both open-pit and underground work. This includes participat
 
 Having worked in customer coordinating and ore selling, I have broadened my knowledge past engineering. The combination of technical and business knowledge serves me well because I can see how operations impact the business as a whole.
 
-I love addressing hands-on technical challenges, streamlining processes, and enabling better team collaboration. I strive to make a positive impact whether it be at a worksite, on a computer, or in meetings.	</p>
+I love addressing hands-on technical challenges, streamlining processes, and enabling better team collaboration. I strive to make a positive impact whether it be at a worksite, on a computer, or in meetings.
