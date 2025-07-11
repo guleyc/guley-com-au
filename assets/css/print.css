@@ -11,10 +11,9 @@
     font-family: "Georgia", "Times New Roman", serif;
     font-size: 12pt;
     line-height: 1.6;
-    margin: 2cm;
   }
 
- body, main, article, .content, .entry-content, .container, .post-container {
+ body, .container, main, article, .blog-post-content  {
     width: 100% !important;         
     max-width: none !important;      
     margin: 0 !important;            
