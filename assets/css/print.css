@@ -21,28 +21,8 @@
   }
 
   .hero-image {
-    height: auto !important;         /* Yüksekliği içeriğe göre otomatik ayarla */
-    min-height: 0 !important;        /* Minimum yükseklik limitini kaldır */
-    padding: 0 !important;           /* İç boşlukları tamamen sıfırla */
-    margin-bottom: 0 !important;     /* Alt marjini sıfırla (başlık kendi marjinini alacak) */
-    border: none !important;         /* Kenarlıkları kaldır */
-    background-image: none !important; /* Arkaplanı kesin olarak kaldır (önlem olarak) */
-  }
-
-  .hero-image .hero-text {
-    position: static !important; /* Metni ortalamak için kullanılan konumlandırmayı sıfırla */
-    transform: none !important;  /* Metni ortalamak için kullanılan transformu sıfırla */
-    color: #000 !important;      /* Yazı renginin siyah olduğundan emin ol */
-    text-shadow: none !important;/* Metin gölgesini kaldır */
-    padding: 0 !important;
-    width: 100% !important;      /* Genişliğin tamamını kaplasın */
-  }
-
-  .hero-image h1 {
-    text-align: left !important;   /* Başlığı sola yasla (eğer ortalıysa) */
-    margin-top: 0 !important;      /* Belgenin en başında üst boşluk olmasın */
-    margin-bottom: 1cm !important; /* Başlık ile altındaki içerik arasına boşluk koy */
-    font-size: 24pt !important;    /* Başlığın punto boyutunu ayarla (isteğe bağlı) */
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   /* Başlıklar */
@@ -92,26 +72,17 @@
   }
 
   /* Sayfa başlığı otomatik eklensin */
-  @page {
+    @page {
     margin: 2cm;
 
-    @top-center {
-      content: "guley.com.tr"; 
-      font-size: 10pt;
-      font-style: italic;
-      color: #666 !important;
-      vertical-align: bottom;
-      padding-bottom: 5px;
-    }
+        @top-center {
+            content: "Cagatay Guley";
+        }
 
-    @bottom-right {
-      content: "Page " counter(page);
-      font-size: 10pt;
-      color: #666 !important;
-      vertical-align: top; 
-      padding-top: 5px;
+        @bottom-right {
+            content: "Page " counter(page);
+        }
     }
-  }
 
   /* Gerekirse link içeriğini küçük göster */
   .entry-content a[href]:after {
