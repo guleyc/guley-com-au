@@ -11,6 +11,14 @@ img{max-width:100%!important;height:auto!important;page-break-inside:avoid}
 .breadcrumbs,.comments,.post-header,.post-meta,.post-tags,.print-hide,.profile,.sidebar,.site-footer,aside,footer,header,nav{display:none!important}
 article,section{page-break-inside:avoid}
 code,pre{background:#eee!important;color:#000!important;white-space:pre-wrap;word-wrap:break-word}
-@page{margin:2cm}
+  @page {
+    margin: 2cm; 
+    background-image: url('/assets/images/favicon.png'); /* Logo dosyanızın yolu */
+    background-repeat: no-repeat; /* Tekrar etmesin */
+    background-position: center center; /* Sayfanın ortasına konumlandırılsın */
+    background-size: contain; /* Logoyu sayfanın içine sığdır, en boy oranını koruyarak */
+    -webkit-print-color-adjust: exact; /* Bazı tarayıcılarda renklerin soluk çıkmasını engeller */
+    print-color-adjust: exact; /* Standart versiyonu */
+  }
 .entry-content a[href]:after{font-size:10pt}
 }
