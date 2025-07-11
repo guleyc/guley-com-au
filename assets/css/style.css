@@ -237,8 +237,8 @@ table{border:0}
 table caption{font-size:1.3em}
 table thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
 table tr{border-bottom:3px solid var(--border-color);display:block;margin-bottom:.625em;border-radius:8px;border:1px solid var(--border-color)}
-table td{border-bottom:1px solid var(--bg-hover-color);display:block;font-size:.8em;text-align:right}
-table td::before{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase}
+table td{border-bottom:1px solid var(--bg-hover-color);display:flex;justify-content:space-between;align-items:center;font-size:.8em;text-align:right}
+table td::before{content:attr(data-label);font-weight:700;text-transform:uppercase;text-align:left}
 table td:last-child{border-bottom:0}
 }
 
