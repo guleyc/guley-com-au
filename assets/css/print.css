@@ -49,7 +49,7 @@
   }
 
   /* Gereksiz bölümleri gizle */
-  header, footer, nav, aside, .sidebar, .site-footer, .breadcrumbs, .post-meta, .comments, .post-tags, .print-hide {
+  header, footer, nav, aside, .sidebar, .profile, .site-footer, .breadcrumbs, .post-meta, .comments, .post-tags, .print-hide {
     display: none !important;
   }
 
