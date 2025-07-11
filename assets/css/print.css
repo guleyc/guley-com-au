@@ -14,7 +14,7 @@
     margin: 2cm;
   }
 
- body, main, article, .content, .entry-content {
+ body, main, article, .content, .entry-content, .container, .post-container {
     width: 100% !important;         
     max-width: none !important;      
     margin: 0 !important;            
