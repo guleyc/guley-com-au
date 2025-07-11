@@ -14,6 +14,13 @@
     margin: 2cm;
   }
 
+ body, main, article, .content, .entry-content {
+    width: 100% !important;         
+    max-width: none !important;      
+    margin: 0 !important;            
+    padding: 0 !important;           
+  }
+
   /* Başlıklar */
   h1, h2, h3, h4, h5 {
     page-break-after: avoid;
