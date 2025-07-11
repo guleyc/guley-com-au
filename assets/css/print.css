@@ -1,91 +1,16 @@
-@media print {
-  /* Genel temizleme */
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
- body {
-    font-family: "Georgia", "Times New Roman", serif;
-    font-size: 12pt;
-    line-height: 1.6;
-  }
-
- body, .container, main, article, .blog-post-content  {
-    width: 100% !important;         
-    max-width: none !important;      
-    margin: 0 !important;            
-    padding: 0 !important;           
-  }
-
-  .hero-image {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Başlıklar */
-  h1, h2, h3, h4, h5 {
-    page-break-after: avoid;
-    font-weight: bold;
-  }
-
-  /* Linkler */
-  a[href]:after {
-    content: " (" attr(href) ")";
-    font-size: 10pt;
-  }
-
-  a[href^="#"]:after {
-    content: "";
-  }
-
-  a, a:visited {
-    text-decoration: underline;
-    color: #000;
-  }
-
-  /* Resimler */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-    page-break-inside: avoid;
-  }
-
-  /* Gereksiz bölümleri gizle */
-  header, footer, nav, aside, .sidebar, .profile, .site-footer, .post-header, .breadcrumbs, .post-meta, .comments, .post-tags, .print-hide {
-    display: none !important;
-  }
-
-  /* Sayfa bölmeleri */
-  article, section {
-    page-break-inside: avoid;
-  }
-
-  /* Kod blokları */
-  pre, code {
-    background: #eee !important;
-    color: #000 !important;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  /* Sayfa başlığı otomatik eklensin */
-    @page {
-    margin: 2cm;
-
-        @top-center {
-            content: "Cagatay Guley";
-        }
-
-        @bottom-right {
-            content: "Page " counter(page);
-        }
-    }
-
-  /* Gerekirse link içeriğini küçük göster */
-  .entry-content a[href]:after {
-    font-size: 10pt;
-  }
+@media print{
+*{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}
+body{font-family:Georgia,"Times New Roman",serif;font-size:12pt;line-height:1.6}
+.blog-post-content,.container,article,body,main{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+.hero-image{max-width:100%!important;height:auto!important}
+h1,h2,h3,h4,h5{page-break-after:avoid;font-weight:700}
+a[href]:after{content:" (" attr(href) ")";font-size:10pt}
+a[href^="#"]:after{content:""}
+a,a:visited{text-decoration:underline;color:#000}
+img{max-width:100%!important;height:auto!important;page-break-inside:avoid}
+.breadcrumbs,.comments,.post-header,.post-meta,.post-tags,.print-hide,.profile,.sidebar,.site-footer,aside,footer,header,nav{display:none!important}
+article,section{page-break-inside:avoid}
+code,pre{background:#eee!important;color:#000!important;white-space:pre-wrap;word-wrap:break-word}
+@page{margin:2cm}
+.entry-content a[href]:after{font-size:10pt}
 }
