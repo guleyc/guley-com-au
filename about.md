@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "About Me"
+permalink: /about/
+author: Cagatay Guley
 ---
 
 I hold a degree in Mining Engineering from Istanbul Technical University and have over seven years of experience in mining operations as well as office-based technical work. I have worked in all stages of the mining value chain in which I contributed to exploration, planning, production, design, and in some instances even sales.
