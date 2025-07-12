@@ -46,7 +46,7 @@ function createWatermark() {
     removeAllWatermarks();
     
     const positions = [
-        { top: '50%', left: '25%' }
+        { top: '50%', left: '0%' }
     ];
     
     positions.forEach((pos, index) => {
