@@ -46,41 +46,34 @@ function createWatermark() {
     removeAllWatermarks();
     
     const positions = [
-        { top: '20%', left: '20%' },
-        { top: '20%', left: '60%' },
-        { top: '40%', left: '40%' },
-        { top: '60%', left: '20%' },
-        { top: '60%', left: '60%' },
-        { top: '80%', left: '40%' }
+        { top: '50%', left: '50%' }
     ];
     
     positions.forEach((pos, index) => {
-        // Metin watermark
         const textElement = document.createElement('div');
         textElement.className = 'watermark-element';
-        textElement.textContent = 'Cagatay Guley'; // Buraya kendi metninizi yazın
+        textElement.textContent = 'Cagatay Guley';
         textElement.style.top = pos.top;
         textElement.style.left = pos.left;
         textElement.id = `watermark-text-${index}`;
         
         document.body.appendChild(textElement);
         
-        // Görüntü watermark (isteğe bağlı)
-        const imgElement = document.createElement('img');
-        imgElement.className = 'watermark-image';
-        imgElement.src = './assets/images/watermark.png'; // Kendi görüntü yolunuz
-        imgElement.style.top = pos.top;
-        imgElement.style.left = pos.left;
-        imgElement.style.width = '100px';
-        imgElement.style.height = '100px';
-        imgElement.style.transform = 'rotate(-45deg)';
-        imgElement.id = `watermark-img-${index}`;
+        // const imgElement = document.createElement('img');
+        // imgElement.className = 'watermark-image';
+        // imgElement.src = 'https://guley.com.tr/assets/images/watermark.png';
+        // imgElement.style.top = pos.top;
+        // imgElement.style.left = pos.left;
+        // imgElement.style.width = '100px';
+        // imgElement.style.height = '100px';
+        // imgElement.style.transform = 'rotate(-45deg)';
+        // imgElement.id = `watermark-img-${index}`;
         
-        imgElement.onerror = function() {
-            this.style.display = 'none';
-        };
+        // imgElement.onerror = function() {
+        //     this.style.display = 'none';
+        // };
         
-        document.body.appendChild(imgElement);
+        // document.body.appendChild(imgElement);
     });
     
     watermarkVisible = true;
@@ -92,12 +85,10 @@ function removeAllWatermarks() {
     watermarkVisible = false;
 }
 
-// Otomatik watermark - tüm print işlemleri için
 window.addEventListener('beforeprint', function() {
     createWatermark();
 });
 
 window.addEventListener('afterprint', function() {
-    // İsteğe bağlı: print sonrası watermark'ı kaldır
     removeAllWatermarks();
 });
