@@ -46,18 +46,18 @@ function createWatermark() {
     removeAllWatermarks();
     
     const positions = [
-        { top: '50%', left: '50%' }
+        { top: '50%', left: '25%' }
     ];
     
     positions.forEach((pos, index) => {
         
         const imgElement = document.createElement('img');
         imgElement.className = 'watermark-image';
-        imgElement.src = 'https://guley.com.tr/assets/images/favicon.png';
+        imgElement.src = 'https://guley.com.tr/assets/images/watermark.png';
         imgElement.style.top = pos.top;
         imgElement.style.left = pos.left;
-        imgElement.style.width = '200px';
-        imgElement.style.height = '200px';
+        imgElement.style.width = '40px';
+        imgElement.style.height = '400px';
         imgElement.style.transform = 'rotate(0)';
         imgElement.id = `watermark-img-${index}`;
         
