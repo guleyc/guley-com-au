@@ -17,23 +17,18 @@ code,pre{background:#eee!important;color:#000!important;white-space:pre-wrap;wor
 .entry-content a[href]:after{font-size:10pt}
 }
 
-.watermark-element {
+.watermark-image {
     position: fixed;
     pointer-events: none;
-    font-size: 72px;
-    color: rgba(0, 0, 0, 0.05);
-    font-weight: bold;
-    transform: rotate(0);
+    opacity: 0.05;
     user-select: none;
     z-index: 5;
-    font-family: Arial, sans-serif;
 }
 
 @media print {
-    .watermark-element {
+    .watermark-image {
         display: block !important;
-        color: rgba(0, 0, 0, 0.05) !important;
-        opacity: 1 !important;
+        opacity: 0.1 !important;
         z-index: 1 !important;
     }
 }
