@@ -45,7 +45,7 @@ function createWatermark() {
     positions.forEach((pos, index) => {
         const textElement = document.createElement('div');
         textElement.className = 'watermark-element';
-        textElement.textContent = 'Cagatay Guley';
+        textElement.textContent = 'CG';
         textElement.style.top = pos.top;
         textElement.style.left = pos.left;
         textElement.id = `watermark-text-${index}`;
