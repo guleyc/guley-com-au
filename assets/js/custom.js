@@ -37,7 +37,7 @@ function createWatermark() {
     removeAllWatermarks();
     
     const positions = [
-        { top: '50%', left: '0%' }
+        { top: '25%', left: '10%' }
     ];
     
     positions.forEach((pos, index) => {
@@ -47,8 +47,8 @@ function createWatermark() {
         imgElement.src = 'https://guley.com.tr/assets/images/watermark.png';
         imgElement.style.top = pos.top;
         imgElement.style.left = pos.left;
-        imgElement.style.width = '600px';
-        imgElement.style.height = '600px';
+        imgElement.style.width = '500px';
+        imgElement.style.height = '500px';
         imgElement.style.transform = 'rotate(0)';
         imgElement.id = `watermark-img-${index}`;
         
