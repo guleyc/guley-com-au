@@ -58,7 +58,8 @@ Storage> drive
 Leave these fields empty:
 
 ```
-client_id>client_secret>
+client_id>
+client_secret>
 ```
 
 ### Step 9: Specify the Scope
