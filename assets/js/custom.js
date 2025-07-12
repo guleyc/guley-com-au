@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // WATERMARK
-// Bu JavaScript kodunu sitenizin alt kısmına ekleyin
 let watermarkVisible = false;
 
 function createWatermark() {
