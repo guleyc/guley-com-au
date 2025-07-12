@@ -1,66 +1,17 @@
-<style>
-/* Dil Değiştirici Navigasyon Konteyneri */
-.lang-nav {
-    margin-left: 15px; /* Gece modu butonu gibi diğer elementlerden ayırmak için */
-}
-
-/* Liste stillerini sıfırlama ve yatay hizalama */
-.lang-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap; /* Mobil cihazlarda çok dil varsa satır atlamasını sağlar */
-    gap: 5px; /* Diller arasına boşluk ekler */
-}
-
-/* Her bir dil linkinin stili */
-.lang-nav li a {
-    display: block;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #888; /* Pasif dillerin rengi */
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-/* Linklerin üzerine gelindiğinde */
-.lang-nav li a:hover {
-    color: #333;
-    background-color: #f0f0f0;
-}
-
-/* AKTİF DİLİN STİLİ */
-.lang-nav li.active a {
-    background-color: #3498db; /* Aktif dilin arka plan rengi (istediğiniz gibi değiştirin) */
-    color: #ffffff; /* Aktif dilin metin rengi */
-    cursor: default; /* Zaten o sayfada olduğu için imleci normal yapar */
-}
-
-/* Karanlık Tema Uyumluluğu (İsteğe Bağlı) */
-body.dark .lang-nav li a {
-    color: #aaa;
-}
-body.dark .lang-nav li a:hover {
-    color: #fff;
-    background-color: #3c3c3c;
-}
-body.dark .lang-nav li.active a {
-    background-color: #5dade2;
-    color: #1e1e1e;
-}
-</style>
-
-<nav class="lang-nav">
-    <ul>
-        {% for lang in page.languages %}
-            <li {% if lang == site.active_lang %}class="active"{% endif %}>
-                <a href="{{ lang | link: page.url }}" title="{{ site.data.languages[lang].name }}">
-                    {{ lang | upcase }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+<nav class="lang-switcher">
+  <ul>
+    {% for lang in site.languages %}
+      <li>
+        {% if lang == site.default_lang %}
+          <a href="{{ site.baseurl }}/" {% if lang == page.lang %}class="active"{% endif %}>
+            {{ lang | upcase }}
+          </a>
+        {% else %}
+          <a href="{{ site.baseurl }}/{{ lang }}/" {% if lang == page.lang %}class="active"{% endif %}>
+            {{ lang | upcase }}
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
 </nav>
