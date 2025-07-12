@@ -20,7 +20,7 @@ code,pre{background:#eee!important;color:#000!important;white-space:pre-wrap;wor
 .watermark-image {
     position: fixed;
     pointer-events: none;
-    opacity: 0.05;
+    opacity: 1;
     user-select: none;
     z-index: 5;
 }
@@ -28,7 +28,7 @@ code,pre{background:#eee!important;color:#000!important;white-space:pre-wrap;wor
 @media print {
     .watermark-image {
         display: block !important;
-        opacity: 0.1 !important;
+        opacity: 1 !important;
         z-index: 1 !important;
     }
 }
