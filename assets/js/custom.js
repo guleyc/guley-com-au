@@ -1,4 +1,3 @@
-// setTheme fonksiyonu yoksa ekleyin
 if (typeof setTheme === 'undefined') {
     function setTheme(theme) {
         theme = theme || localStorage.getItem('theme') || 'light';
@@ -7,20 +6,16 @@ if (typeof setTheme === 'undefined') {
     }
 }
 
-// Tema değiştirme fonksiyonu
 function toggleNightMode() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    // Temayı değiştir
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
-    // Toggle button durumunu güncelle
     updateToggleButton(newTheme);
 }
 
-// Toggle button durumunu güncelle
 function updateToggleButton(theme) {
     const switcher = document.getElementById('mode-switcher');
     if (switcher) {
@@ -32,7 +27,6 @@ function updateToggleButton(theme) {
     }
 }
 
-// Sayfa yüklendiğinde button durumunu ayarla
 document.addEventListener('DOMContentLoaded', function() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     updateToggleButton(currentTheme);
