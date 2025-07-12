@@ -98,5 +98,5 @@ jekyll-archives:
 polyglot:
   languages: ["en", "tr", "de", "fr", "zh", "hi", "es", "ja", "ru"]
   default_lang: "en"
-  exclude_from_localization: ["javascript", "images", "css", "public", "sitemap"]
-  parallel_localization: true
+  exclude_from_localization: ["assets", "images", "css", "js", "sitemap"]
+  parallel_localization: false
