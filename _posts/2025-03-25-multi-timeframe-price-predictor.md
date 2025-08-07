@@ -6,6 +6,7 @@ layout: post
 permalink: /multi-timeframe-price-predictor/
 redirect_from:
   - /multi-timeframe-price-predictor
+  - /coklu-zaman-dilimli-fiyat-tahminleyici
 categories: [engineering]
 tags: [price, prediction, indicator, binance, crypto]
 image: crypto-asset.png
