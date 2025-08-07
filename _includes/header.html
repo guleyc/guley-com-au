@@ -107,14 +107,14 @@
 
         <!-- Canonical URLs and Language Alternatives -->
         {% if page.lang == site.default_lang %}
-        <link rel="canonical" href="https://guley.com.tr{{page.permalink}}" />
+        <link rel="canonical" href="https://guley.com.au{{page.permalink}}" />
         {% else %}
-        <link rel="canonical" href="https://guley.com.tr{{page.lang}}{{page.permalink}}" />
+        <link rel="canonical" href="https://guley.com.au{{page.lang}}{{page.permalink}}" />
         {% endif %}
         
         <!-- Default Language Link -->
-        <link rel="alternate" hreflang="{{site.default_lang}}" href="https://guley.com.tr{{page.permalink}}" />
-        <link rel="alternate" hreflang="x-default" href="https://guley.com.tr{{page.permalink}}" />
+        <link rel="alternate" hreflang="{{site.default_lang}}" href="https://guley.com.au{{page.permalink}}" />
+        <link rel="alternate" hreflang="x-default" href="https://guley.com.au{{page.permalink}}" />
         
         <!-- Alternative Language Links -->
         {% for lang in site.languages %}
