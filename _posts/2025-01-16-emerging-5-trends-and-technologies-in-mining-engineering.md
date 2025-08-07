@@ -6,6 +6,8 @@ layout: post
 permalink: /emerging-5-trends-and-technologies-in-mining-engineering/
 redirect_from:
   - /emerging-5-trends-and-technologies-in-mining-engineering
+  - /madencilikte-yukselen-5-trend-ve-teknoloji
+  - /madencilikte-yukselen-5-trend-ve-teknoloji/
 categories: [mining]
 tags: [mining, engineer, digital transformation, engineering to tech, remote work, digital skills, data-driven decisions]
 image: hardhat.jpg

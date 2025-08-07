@@ -6,6 +6,8 @@ layout: post
 permalink: /comprehensive-technical-handbook-for-open-pit-mining-engineers/
 redirect_from:
   - /comprehensive-technical-handbook-for-open-pit-mining-engineers
+  - /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi
+  - /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi/
 categories: [mining]
 mathjax: true
 tags: [openpit, mining, engineer, handbook]
