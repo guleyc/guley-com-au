@@ -5,7 +5,7 @@ keywords: mining, engineer, cagatay guley, cagatay, guley, mining engineer, mini
 description: >-
   As a passionate mining engineer, I will unveil mineral riches and innovative solutions, taking us towards new horizons.
 lang: en-US
-timezone:  Europe/Istanbul
+timezone:  Europe/London
 logo: assets/images/logo.svg
 google_tag: GTM-T863VL7J
 # discus-identifier:  
@@ -50,7 +50,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-relative-links
-  - jekyll-polyglot
 
 paginate: 3
 paginate_path: "/page/:num"
