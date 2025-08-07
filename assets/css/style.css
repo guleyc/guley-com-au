@@ -216,3 +216,21 @@ table td:last-child{border-bottom:0}
 .post-title a:hover{color:#007acc}
 .post-meta{color:#666;font-size:.9rem;margin-bottom:.5rem}
 .post-excerpt{color:var(--primary-font-color);line-height:1.6}
+
+/* Dil Değiştirme Bayrağı Stili */
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px; /* Arama butonuyla benzer boşluk için */
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 0; /* Dikey hizalamayı iyileştirmek için */
+}
+
+.language-switcher img {
+    height: 20px; /* Arama ikonuyla aynı yükseklikte olması için */
+    width: auto;  /* Genişliğin otomatik ayarlanması için */
+    display: block; /* Resim altındaki istenmeyen boşlukları kaldırır */
+    border-radius: 3px; /* İsteğe bağlı: Bayrak köşelerini hafif yuvarlatır */
+}
