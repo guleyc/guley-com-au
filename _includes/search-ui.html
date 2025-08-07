@@ -99,6 +99,52 @@
     }
 </script>
 
-    <a href="https://guley.com.tr" class="language-switcher" aria-label="Switch to Turkish version">
-        <img src="https://guley.com.au/assets/images/tr.svg" alt="Turkish Flag">
-    </a>
+<a href="#" id="language-switcher-link" class="language-switcher" aria-label="Switch to other version"></a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gerekli HTML elementlerini seçelim
+    const switchLink = document.getElementById('language-switcher-link');
+    
+    // Eğer link elementi sayfada bulunamazsa, hatayı önlemek için işlemi durdur
+    if (!switchLink) {
+        return;
+    }
+
+    // Mevcut sitenin domain adını (hostname) alalım
+    const currentHost = window.location.hostname; // örn: "guley.com.tr" veya "guley.com.au"
+
+    let targetHost;
+    let flagImageSrc;
+    let altText;
+    let ariaLabel;
+
+    // Hangi sitede olduğumuzu kontrol edip hedefi ve bayrağı belirleyelim
+    if (currentHost.includes('guley.com.tr')) {
+        targetHost = 'https://guley.com.au';
+        flagImageSrc = 'https://guley.com.au/assets/images/au.svg'; // Avustralya bayrağı
+        altText = 'Australian Flag';
+        ariaLabel = 'Switch to English version';
+    } else {
+        targetHost = 'https://guley.com.tr';
+        flagImageSrc = 'https://guley.com.au/assets/images/tr.svg'; // Türk bayrağı (varsayımsal yol)
+        altText = 'Turkish Flag';
+        ariaLabel = 'Türkçe versiyona geç';
+    }
+
+    // Mevcut sayfanın geri kalan yolunu (path, search, hash) alalım
+    const currentPath = window.location.pathname; // örn: "/multi-timeframe-price-predictor/"
+    const currentSearch = window.location.search; // örn: "?ref=123"
+    const currentHash = window.location.hash;     // örn: "#section-2"
+
+    // Yeni ve tam URL'yi oluşturalım
+    const newUrl = targetHost + currentPath + currentSearch + currentHash;
+
+    // Linkin hedefini (href) dinamik olarak güncelleyelim
+    switchLink.href = newUrl;
+
+    // Linkin içindeki bayrak resmini ve diğer özellikleri de güncelleyelim
+    switchLink.innerHTML = `<img src="${flagImageSrc}" alt="${altText}">`;
+    switchLink.setAttribute('aria-label', ariaLabel);
+});
+</script>
