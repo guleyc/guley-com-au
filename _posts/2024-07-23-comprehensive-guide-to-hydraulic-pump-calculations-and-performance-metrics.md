@@ -6,6 +6,8 @@ layout: post
 permalink: /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics/
 redirect_from:
   - /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics
+  - /hidrolik-pompa-hesaplamalari-ve-performans-kriterleri
+  - /hidrolik-pompa-hesaplamalari-ve-performans-kriterleri/
 categories: [energy]
 mathjax: true
 tags: [energy, hydraulic, pumps, machines, power, efficiency]
@@ -16,7 +18,7 @@ Now, let's explore the most common types of pumps, each with its unique design, 
 
 #### Gear Pumps: The Rugged Workhorse
 
-![Gear Pumps Animation](https://guley.com.tr/upload/gear_pumps.gif)
+![Gear Pumps Animation](https://guley.com.au/upload/gear_pumps.gif)
 
 **The Gist:** Simple, rugged, and cost-effective, gear pumps are the go-to choice for many medium-pressure applications where reliability is key.
 
@@ -43,7 +45,7 @@ Where:
 
 #### Vane Pumps: The Quiet Operator
 
-![Vane Pumps Animation](https://guley.com.tr/upload/vane_pumps.gif)
+![Vane Pumps Animation](https://guley.com.au/upload/vane_pumps.gif)
 
 **The Gist:** Known for their low noise levels and high efficiency, vane pumps are a popular choice for industrial and mobile applications with mid-range pressures.
 
@@ -74,7 +76,7 @@ Piston pumps are the heavy-hitters of the hydraulic world, capable of producing 
 
 ##### Bent-Axis Piston Pumps
 
-![Bent-Axis Piston Pumps Animation](https://guley.com.tr/upload/bent_axis_pumps.gif)
+![Bent-Axis Piston Pumps Animation](https://guley.com.au/upload/bent_axis_pumps.gif)
 
 **The Gist:** The most efficient hydraulic pump design available, capable of very high pressures and speeds.
 
@@ -89,7 +91,7 @@ Piston pumps are the heavy-hitters of the hydraulic world, capable of producing 
 * **Common Applications:** Heavy-duty construction and mining equipment (excavators, dump trucks), forestry machinery, and industrial manufacturing.
 
 ##### Inline Axial (Swashplate) Piston Pumps
-![Inline-Axis Piston Pumps Animation](https://guley.com.tr/upload/radial_piston_pumps.gif)
+![Inline-Axis Piston Pumps Animation](https://guley.com.au/upload/radial_piston_pumps.gif)
 
 **The Gist:** A more compact and common design than the bent-axis pump, offering excellent performance and versatility for high-pressure systems.
 
