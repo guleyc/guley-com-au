@@ -6,6 +6,8 @@ layout: post
 permalink: /time-series-analysis/
 redirect_from:
   - /time-series-analysis
+  - /zaman-serisi-analizi
+  - /zaman-serisi-analizi/
 categories: [engineering]
 tags: [time, series, analysis, forecasting, regression]
 mathjax: true
