@@ -6,7 +6,10 @@ layout: post
 permalink: /calcium-aluminate-cements-cacs/
 redirect_from:
   - /calcium-aluminate-cements-cacs
+  - /kalsiyum-aluminat-cimentolari
+  - /kalsiyum-aluminat-cimentolari/
 categories: [mining]
+image: cac.jpg
 tags: [calcium, aluminate, cements]
 ---
 
