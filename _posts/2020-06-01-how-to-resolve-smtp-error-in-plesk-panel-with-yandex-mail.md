@@ -6,9 +6,11 @@ layout: post
 permalink: /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail/
 redirect_from:
   - /how-to-resolve-smtp-error-in-plesk-panel-with-yandex-mail
+  - /plesk-panelde-yandex-mail-ile-smtp-hatasi-nasil-cozulur
+  - /plesk-panelde-yandex-mail-ile-smtp-hatasi-nasil-cozulur/
 categories: [web]
-language: en
 tags: [smtp, error, plesk, yandex mail]
+image: yandex-mail.webp
 ---
 
 

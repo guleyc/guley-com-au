@@ -6,6 +6,8 @@ layout: post
 permalink: /types-of-support-systems-in-underground-mines/
 redirect_from:
   - /types-of-support-systems-in-underground-mines
+  - /yeralti-madenlerinde-tahkimat-sistemleri
+  - /yeralti-madenlerinde-tahkimat-sistemleri/
 categories: [mining]
 tags: [support, systems, underground, mines]
 image: shotcrete.jpg
