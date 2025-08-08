@@ -6,6 +6,8 @@ layout: post
 permalink: /solution-mining-well-and-cavern-design/
 redirect_from:
   - /solution-mining-well-and-cavern-design
+  - /cozelti-madenciligi-kuyu-ve-magara-tasarimi
+  - /cozelti-madenciligi-kuyu-ve-magara-tasarimi/
 categories: [mining]
 tags: [solution, mining, well, cavern, design]
 image: salt.jpg
