@@ -2,6 +2,10 @@
 layout: page
 title: "About Me"
 permalink: /about/
+redirect_from:
+ - /hakkimda
+ - /hakkimda/
+ - /about
 author: Cagatay Guley
 ---
 
