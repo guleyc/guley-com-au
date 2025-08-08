@@ -10,6 +10,7 @@ redirect_from:
   - /maden-sektorunde-veri-analitigi-ve-yapay-zeka-uygulamalari/
 categories: [mining]
 tags: [applications, data, analytics, artificial, intelligence, mining]
+image: ai-mining.jpg
 ---
 
 The mining industry is undergoing a digital transformation with the adoption of advanced technologies such as data analytics and artificial intelligence (AI). These technologies have the potential to revolutionize various aspects of mining operations, from exploration and mine planning to production optimization and safety management. This article explores the applications of data analytics and AI in the mining sector and highlights their potential benefits and challenges.
