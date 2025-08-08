@@ -6,6 +6,8 @@ layout: post
 permalink: /darcys-law/
 redirect_from:
   - /darcys-law
+  - /darcy-kanunu
+  - /darcy-kanunu/
 categories: [engineering]
 tags: [darcys, law, engineering, math, physics]
 image: darcy.png
