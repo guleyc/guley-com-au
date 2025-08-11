@@ -10,8 +10,6 @@ redirect_from:
 author: Cagatay Guley
 ---
 
-# Privacy Policy
-
 **Last updated: {{ site.time | date: "%d.%m.%Y" }}**
 
 This privacy policy explains the privacy practices of **{{ site.title }}** website ({{ site.url }}).
