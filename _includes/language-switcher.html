@@ -1,0 +1,44 @@
+<a href="#" id="language-switcher-link" class="language-switcher" aria-label="Switch to other version"></a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const switchLink = document.getElementById('language-switcher-link');
+    if (!switchLink) {
+        return;
+    }
+    const currentHost = window.location.hostname;
+
+    let targetHost;
+    let flagImageSrc;
+    let altText;
+    let ariaLabel;
+
+    if (currentHost.includes('guley.com.tr')) {
+        targetHost = 'https://guley.com.au';
+        flagImageSrc = 'https://guley.com.tr/assets/images/au.svg';
+        altText = 'Australian Flag';
+        ariaLabel = 'Switch to English version';
+    } else {
+        targetHost = 'https://guley.com.tr';
+        flagImageSrc = 'https://guley.com.tr/assets/images/tr.svg';
+        altText = 'Turkish Flag';
+        ariaLabel = 'Türkçe versiyona geç';
+    }
+
+    const currentPath = window.location.pathname;
+    const currentSearch = window.location.search;
+    const currentHash = window.location.hash;
+
+    const newUrl = targetHost + currentPath + currentSearch + currentHash;
+
+    switchLink.href = newUrl;
+
+    switchLink.innerHTML = `<img src="${flagImageSrc}" alt="${altText}">`;
+    switchLink.setAttribute('aria-label', ariaLabel);
+
+    switchLink.addEventListener('click', function(e) {
+        document.cookie = 'manual_lang=true; path=/; max-age=31536000; SameSite=Lax; domain=' + 
+                         (currentHost.includes('guley.com.tr') ? '.guley.com.tr' : '.guley.com.au');
+    });
+});
+</script>
