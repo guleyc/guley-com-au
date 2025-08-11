@@ -7,7 +7,6 @@ permalink: /inverse-fisher-transform-indicators-with-macd-v6/
 tr_url: /inverse-fisher-transform-indicators-with-macd-v6/
 redirect_from:
   - /inverse-fisher-transform-indicators-with-macd-v6
-categories: [engineering]
 tags: [inverse, fisher, transform, indicators, macd]
 image: macd.png
 mathjax: true

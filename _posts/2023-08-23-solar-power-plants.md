@@ -9,7 +9,6 @@ redirect_from:
   - /solar-power-plants
   - /gunes-enerjisi-santralleri
   - /gunes-enerjisi-santralleri/
-categories: [energy]
 tags: [solar, power, panel, pv module, energy, inverter, transformer]
 image: solar.jpg
 ---

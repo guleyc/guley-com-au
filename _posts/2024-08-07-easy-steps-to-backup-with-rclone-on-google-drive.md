@@ -9,7 +9,6 @@ redirect_from:
   - /easy-steps-to-backup-with-rclone-on-google-drive
   - /rclone-ile-google-drive-yedekleme-adimlari
   - /rclone-ile-google-drive-yedekleme-adimlari/
-categories: [web]
 tags: [rclone, google drive, backup, cloudpanel, web, linux, windows, security]
 image: backup.jpg
 ---

@@ -9,7 +9,6 @@ redirect_from:
   - /injection-works-in-underground-openings
   - /yeralti-enjeksiyon-uygulamalari
   - /yeralti-enjeksiyon-uygulamalari/
-categories: [mining]
 tags: [injection, works, underground, openings]
 image: injection.jpg
 mathjax: true

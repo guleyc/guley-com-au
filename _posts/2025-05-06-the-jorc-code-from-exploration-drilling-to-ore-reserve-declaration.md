@@ -9,7 +9,6 @@ redirect_from:
   - /the-jorc-code-from-exploration-drilling-to-ore-reserve-declaration
   - /jorc-kodu-arama-sondajindan-cevher-rezervi-beyanina
   - /jorc-kodu-arama-sondajindan-cevher-rezervi-beyanina/
-categories: [mining]
 tags: [JORC, Code, Exploration, Drilling, Ore Reserve, Declaration]
 image: jorc.jpg
 mathjax: true

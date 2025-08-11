@@ -7,7 +7,6 @@ permalink: /motorcycle-maintenance-basics/
 tr_url: /motorcycle-maintenance-basics/
 redirect_from:
   - /motorcycle-maintenance-basics
-categories: [motorcycle]
 tags: [motorcycle, maintenance, basics]
 image: t-clocs.jpg
 mathjax: true

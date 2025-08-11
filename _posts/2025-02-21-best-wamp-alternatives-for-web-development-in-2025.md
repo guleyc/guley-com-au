@@ -9,7 +9,6 @@ redirect_from:
   - /best-wamp-alternatives-for-web-development-in-2025
   - /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri
   - /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri/
-categories: [web]
 tags: [wamp, xampp, mamp, lamp, laragon, easyphp, openserver, web, development, apache, mysql, php, windows]
 image: close-up-code.jpg
 ---

@@ -9,7 +9,6 @@ redirect_from:
   - /a-mining-engineers-guide-to-underground-mine-ventilation
   - /yeralti-maden-havalandirmasi-rehberi
   - /yeralti-maden-havalandirmasi-rehberi/
-categories: [web]
 tags: [mining, engineer, guide, underground, mine, ventilation]
 mathjax: true
 image: ventilation.jpg

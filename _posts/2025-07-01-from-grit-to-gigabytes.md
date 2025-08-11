@@ -9,7 +9,6 @@ redirect_from:
   - /from-grit-to-gigabytes
   - /cakildan-gigabayta
   - /cakildan-gigabayta/
-categories: [mining]
 tags: [mining, engineer, digital transformation, engineering to tech, remote work, digital skills, data-driven decisions, grit to gigabytes, mining to technology, personal transformation, remote engineering, tech transition, digitalization]
 image: mining5.jpg
 ---

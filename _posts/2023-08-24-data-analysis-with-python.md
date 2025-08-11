@@ -9,7 +9,6 @@ redirect_from:
   - /data-analysis-with-python
   - /python-ile-veri-analizi
   - /python-ile-veri-analizi/
-categories: [engineering]
 tags: [data, analysis, python, data science, machine learning, statistics, visualization, modeling]
 image: python.jpg
 

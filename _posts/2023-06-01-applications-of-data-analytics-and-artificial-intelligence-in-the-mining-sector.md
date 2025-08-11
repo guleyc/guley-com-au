@@ -9,7 +9,6 @@ redirect_from:
   - /applications-of-data-analytics-and-artificial-intelligence-in-the-mining-sector
   - /maden-sektorunde-veri-analitigi-ve-yapay-zeka-uygulamalari
   - /maden-sektorunde-veri-analitigi-ve-yapay-zeka-uygulamalari/
-categories: [mining]
 tags: [applications, data, analytics, artificial, intelligence, mining]
 image: ai-mining.jpg
 ---

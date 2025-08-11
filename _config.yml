@@ -88,14 +88,6 @@ relative_links:
 jekyll-archives:
   enabled:
     - tags
-    - categories
   layout: archive
   permalinks:
     tag: /tag/:name/
-    category: /category/:name/
-
-polyglot:
-  languages: ["en", "tr", "de", "fr", "zh", "hi", "es", "ja", "ru"]
-  default_lang: "en"
-  exclude_from_localization: ["assets", "images", "css", "js", "sitemap"]
-  parallel_localization: false

@@ -9,7 +9,6 @@ redirect_from:
   - /carbon-credits-and-carbon-footprints-guide
   - /karbon-kredileri-ve-karbon-ayak-izi-rehberi
   - /karbon-kredileri-ve-karbon-ayak-izi-rehberi/
-categories: [energy]
 tags: [carbon, footprint, credits, emissions, climate, sustainability, offset, market, voluntary, compliance, GHG, CO2e, GWP, scope, calculation, measurement, verification, validation, standard, protocol, ISO, Verra, GoldStandard, project, reforestation, renewable, energy, avoidance, removal, additionality, permanence, leakage, greenwashing, policy, regulation, finance, technology, allowance, cap, trade, neutrality, impact, reduction, sequestration, methane, atmosphere, corporate, individual]
 image: carbon.webp
 ---

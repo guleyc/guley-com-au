@@ -9,7 +9,6 @@ redirect_from:
   - /blast-design-and-optimization-in-open-pit-mining
   - /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu
   - /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu/
-categories: [mining]
 tags: [blast, design, openpit, mining]
 image: blast.webp
 ---
