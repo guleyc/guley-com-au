@@ -6,45 +6,55 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!switchLink) {
         return;
     }
+    
     const currentHost = window.location.hostname;
-
     let targetHost;
+    let targetUrl;
     let flagImageSrc;
     let altText;
     let ariaLabel;
 
     if (currentHost.includes('guley.com.tr')) {
+        // .com.tr'deyiz, .com.au'ya geçiş
         targetHost = 'https://guley.com.au';
-        flagImageSrc = '/assets/images/au.svg'; // Sadece relative path
+        flagImageSrc = '/assets/images/au.svg';
         altText = 'Australian Flag';
         ariaLabel = 'Switch to English version';
+        
+        // Jekyll page data'dan en_url al
+        {% if page.en_url %}
+            targetUrl = targetHost + '{{ page.en_url }}';
+        {% else %}
+            targetUrl = targetHost + '/'; // Ana sayfaya yönlendir
+        {% endif %}
+        
     } else {
+        // .com.au'dayız, .com.tr'ye geçiş  
         targetHost = 'https://guley.com.tr';
-        flagImageSrc = '/assets/images/tr.svg'; // Sadece relative path
+        flagImageSrc = '/assets/images/tr.svg';
         altText = 'Turkish Flag';
         ariaLabel = 'Türkçe versiyona geç';
+        
+        // Jekyll page data'dan tr_url al
+        {% if page.tr_url %}
+            targetUrl = targetHost + '{{ page.tr_url }}';
+        {% else %}
+            targetUrl = targetHost + '/'; // Ana sayfaya yönlendir
+        {% endif %}
     }
 
-    const currentPath = window.location.pathname;
-    const currentSearch = window.location.search;
-    const currentHash = window.location.hash;
-
-    const newUrl = targetHost + currentPath + currentSearch + currentHash + '?lang_switch=true';
-
-    switchLink.href = newUrl;
+    switchLink.href = targetUrl + '?lang_switch=true';
     switchLink.innerHTML = `<img src="${flagImageSrc}" alt="${altText}">`;
     switchLink.setAttribute('aria-label', ariaLabel);
 
     // Debug için console'a yazdıralım
     console.log('Current Host:', currentHost);
-    console.log('Target URL:', newUrl);
+    console.log('Target URL:', targetUrl);
 
     switchLink.addEventListener('click', function(e) {
-        console.log('Language switcher clicked, redirecting to:', newUrl);
-        // Cross-domain cookie yerine localStorage kullan
+        console.log('Language switcher clicked, redirecting to:', targetUrl);
         localStorage.setItem('manual_lang_switch', Date.now().toString());
-        // URL'e parametre ekleyerek yönlendir
-        window.location.href = newUrl;
+        window.location.href = targetUrl + '?lang_switch=true';
     });
 });
 </script>
