@@ -32,11 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const newUrl = targetHost + currentPath + currentSearch + currentHash;
 
     switchLink.href = newUrl;
-
     switchLink.innerHTML = `<img src="${flagImageSrc}" alt="${altText}">`;
     switchLink.setAttribute('aria-label', ariaLabel);
 
+    // Debug için console'a yazdıralım
+    console.log('Current Host:', currentHost);
+    console.log('Target URL:', newUrl);
+
     switchLink.addEventListener('click', function(e) {
+        console.log('Language switcher clicked, redirecting to:', newUrl);
         document.cookie = 'manual_lang=true; path=/; max-age=31536000; SameSite=Lax; domain=' + 
                          (currentHost.includes('guley.com.tr') ? '.guley.com.tr' : '.guley.com.au');
     });
