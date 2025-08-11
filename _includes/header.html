@@ -106,23 +106,14 @@
         <link rel="apple-touch-icon" href="/assets/images/favicon.png">
 
         <!-- Canonical URLs and Language Alternatives -->
-        {% if page.lang == site.default_lang %}
-        <link rel="canonical" href="https://guley.com.au{{page.permalink}}" />
-        {% else %}
-        <link rel="canonical" href="https://guley.com.au{{page.lang}}{{page.permalink}}" />
-        {% endif %}
+        <link rel="canonical" href="https://guley.com.au{{ page.url }}" />
         
-        <!-- Default Language Link -->
-        <link rel="alternate" hreflang="{{site.default_lang}}" href="https://guley.com.au{{page.permalink}}" />
-        <link rel="alternate" hreflang="x-default" href="https://guley.com.au{{page.permalink}}" />
-        
-        <!-- Alternative Language Links -->
-        {% for lang in site.languages %}
-        {% if lang == site.default_lang %}
-        {% continue %}
+        <!-- Language Alternatives -->
+        <link rel="alternate" hreflang="en-AU" href="https://guley.com.au{{ page.url }}" />
+        {% if page.tr_url %}
+        <link rel="alternate" hreflang="tr-TR" href="https://guley.com.tr{{ page.tr_url }}" />
         {% endif %}
-        <link rel="alternate" hreflang="{{lang}}" href="https://guley.com.tr/{{lang}}{{page.permalink}}" />
-        {% endfor %}
+        <link rel="alternate" hreflang="x-default" href="https://guley.com.au{{ page.url }}" />
 
         <!-- RSS and Feed Links -->
         <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/atom.xml">
