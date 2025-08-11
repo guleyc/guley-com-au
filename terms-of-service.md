@@ -10,8 +10,6 @@ redirect_from:
 author: Cagatay Guley
 ---
 
-# Terms of Service
-
 **Last updated: {{ site.time | date: "%d.%m.%Y" }}**
 
 These terms of service govern the use of **{{ site.title }}** website ({{ site.url }}).
