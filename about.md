@@ -2,6 +2,7 @@
 layout: page
 title: "About Me"
 permalink: /about/
+tr_url: /hakkimda/
 redirect_from:
  - /hakkimda
  - /hakkimda/
