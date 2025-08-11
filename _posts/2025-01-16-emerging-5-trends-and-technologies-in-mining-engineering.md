@@ -4,6 +4,7 @@ date: '2025-01-16'
 author: 'Cagatay Guley'
 layout: post
 permalink: /emerging-5-trends-and-technologies-in-mining-engineering/
+tr_url: /madencilikte-yukselen-5-trend-ve-teknoloji/
 redirect_from:
   - /emerging-5-trends-and-technologies-in-mining-engineering
   - /madencilikte-yukselen-5-trend-ve-teknoloji

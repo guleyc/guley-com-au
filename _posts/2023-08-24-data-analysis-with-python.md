@@ -4,6 +4,7 @@ date: '2023-08-24'
 author: 'Cagatay Guley'
 layout: post
 permalink: /data-analysis-with-python/
+tr_url: /python-ile-veri-analizi/
 redirect_from:
   - /data-analysis-with-python
   - /python-ile-veri-analizi

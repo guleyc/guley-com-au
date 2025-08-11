@@ -4,6 +4,7 @@ date: '2023-06-10'
 author: 'Cagatay Guley'
 layout: post
 permalink: /motorcycle-maintenance-basics/
+tr_url: /motorcycle-maintenance-basics/
 redirect_from:
   - /motorcycle-maintenance-basics
 categories: [motorcycle]

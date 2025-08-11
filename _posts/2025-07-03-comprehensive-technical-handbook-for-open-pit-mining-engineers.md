@@ -4,6 +4,7 @@ date: '2025-07-03T08:41:56+00:00'
 author: 'Cagatay Guley'
 layout: post
 permalink: /comprehensive-technical-handbook-for-open-pit-mining-engineers/
+tr_url: /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi/
 redirect_from:
   - /comprehensive-technical-handbook-for-open-pit-mining-engineers
   - /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi

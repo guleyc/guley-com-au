@@ -4,6 +4,7 @@ date: '2023-06-06'
 author: 'Cagatay Guley'
 layout: post
 permalink: /types-of-support-systems-in-underground-mines/
+tr_url: /yeralti-madenlerinde-tahkimat-sistemleri/
 redirect_from:
   - /types-of-support-systems-in-underground-mines
   - /yeralti-madenlerinde-tahkimat-sistemleri

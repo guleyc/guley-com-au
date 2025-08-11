@@ -4,6 +4,7 @@ date: '2025-04-21'
 author: Cagatay Guley
 layout: post
 permalink: /blast-design-and-optimization-in-open-pit-mining/
+tr_url: /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu/
 redirect_from:
   - /blast-design-and-optimization-in-open-pit-mining
   - /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu

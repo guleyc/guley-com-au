@@ -4,6 +4,7 @@ date: '2023-08-30'
 author: 'Cagatay Guley'
 layout: post
 permalink: /carbon-credits-and-carbon-footprints-guide/
+tr_url: /karbon-kredileri-ve-karbon-ayak-izi-rehberi/
 redirect_from:
   - /carbon-credits-and-carbon-footprints-guide
   - /karbon-kredileri-ve-karbon-ayak-izi-rehberi

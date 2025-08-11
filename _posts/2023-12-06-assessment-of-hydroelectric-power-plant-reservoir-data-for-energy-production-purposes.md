@@ -4,6 +4,7 @@ date: '2023-12-06'
 author: 'Cagatay Guley'
 layout: post
 permalink: /assessment-of-hydroelectric-power-plant-reservoir-data-for-energy-production-purposes/
+tr_url: /hidroelektrik-santral-verilerinin-degerlendirilmesi/
 redirect_from:
   - /assessment-of-hydroelectric-power-plant-reservoir-data-for-energy-production-purposes
   - /hidroelektrik-santral-verilerinin-degerlendirilmesi

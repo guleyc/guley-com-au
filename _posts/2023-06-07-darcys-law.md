@@ -4,6 +4,7 @@ date: '2023-06-07'
 author: 'Cagatay Guley'
 layout: post
 permalink: /darcys-law/
+tr_url: /darcy-kanunu/
 redirect_from:
   - /darcys-law
   - /darcy-kanunu

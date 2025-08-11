@@ -4,6 +4,7 @@ date: '2024-08-07'
 author: 'Cagatay Guley'
 layout: post
 permalink: /easy-steps-to-backup-with-rclone-on-google-drive/
+tr_url: /rclone-ile-google-drive-yedekleme-adimlari/
 redirect_from:
   - /easy-steps-to-backup-with-rclone-on-google-drive
   - /rclone-ile-google-drive-yedekleme-adimlari

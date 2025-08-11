@@ -4,6 +4,7 @@ date: '2025-03-25'
 author: 'Cagatay Guley'
 layout: post
 permalink: /multi-timeframe-price-predictor/
+tr_url: /coklu-zaman-dilimli-fiyat-tahminleyici/
 redirect_from:
   - /multi-timeframe-price-predictor
   - /coklu-zaman-dilimli-fiyat-tahminleyici

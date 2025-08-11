@@ -4,6 +4,7 @@ date: '2024-11-11'
 author: 'Cagatay Guley'
 layout: post
 permalink: /a-mining-engineers-guide-to-underground-mine-ventilation/
+tr_url: /yeralti-maden-havalandirmasi-rehberi/
 redirect_from:
   - /a-mining-engineers-guide-to-underground-mine-ventilation
   - /yeralti-maden-havalandirmasi-rehberi

@@ -4,6 +4,7 @@ date: '2023-08-25'
 author: 'Cagatay Guley'
 layout: post
 permalink: /inverse-fisher-transform-indicators-with-macd-v6/
+tr_url: /inverse-fisher-transform-indicators-with-macd-v6/
 redirect_from:
   - /inverse-fisher-transform-indicators-with-macd-v6
 categories: [engineering]

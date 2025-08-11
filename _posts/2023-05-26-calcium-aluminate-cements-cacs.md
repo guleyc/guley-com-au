@@ -4,6 +4,7 @@ date: '2023-05-26'
 author: 'Cagatay Guley'
 layout: post
 permalink: /calcium-aluminate-cements-cacs/
+tr_url: /kalsiyum-aluminat-cimentolari/
 redirect_from:
   - /calcium-aluminate-cements-cacs
   - /kalsiyum-aluminat-cimentolari

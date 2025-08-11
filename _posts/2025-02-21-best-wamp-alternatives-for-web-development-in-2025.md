@@ -4,6 +4,7 @@ date: '2025-02-21'
 author: 'Cagatay Guley'
 layout: post
 permalink: /best-wamp-alternatives-for-web-development-in-2025/
+tr_url: /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri/
 redirect_from:
   - /best-wamp-alternatives-for-web-development-in-2025
   - /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri
