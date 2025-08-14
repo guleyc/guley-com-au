@@ -44,7 +44,7 @@ function createWatermark() {
         
         const imgElement = document.createElement('img');
         imgElement.className = 'watermark-image';
-        imgElement.src = 'https://guley.com.tr/assets/images/watermark.png';
+        imgElement.src = 'https://guley.com.au/assets/images/watermark.png';
         imgElement.style.top = pos.top;
         imgElement.style.left = pos.left;
         imgElement.style.width = '500px';
@@ -75,3 +75,21 @@ window.addEventListener('beforeprint', function() {
 window.addEventListener('afterprint', function() {
     removeAllWatermarks();
 });
+
+// SEARCH
+function searchByTag(posts, tag) {
+  return posts.filter(post => 
+    post.tags && post.tags.includes(tag)
+  );
+}
+
+function advancedSearch(posts, query, tags, category) {
+  return posts.filter(post => {
+    const matchesQuery = post.title.toLowerCase().includes(query.toLowerCase()) ||
+                        post.content.toLowerCase().includes(query.toLowerCase());
+    const matchesTags = !tags.length || tags.some(tag => post.tags.includes(tag));
+    const matchesCategory = !category || post.categories.includes(category);
+    
+    return matchesQuery && matchesTags && matchesCategory;
+  });
+}
