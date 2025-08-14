@@ -98,6 +98,7 @@
         <link rel="stylesheet" href="/assets/css/highlight.css?v={{ site.github.build_revision }}">
         <link rel="stylesheet" href="/assets/css/style.css?v={{ site.github.build_revision }}">
 		<link rel="stylesheet" href="/assets/css/print.css?v={{ site.github.build_revision }}">
+        <link rel="stylesheet" href="/assets/css/pdf.css?v={{ site.github.build_revision }}">
         
         <!-- Favicons -->
         <link rel="shortcut icon" href="/assets/images/favicon.png" />
@@ -123,7 +124,7 @@
         <!-- Search Engine and Sitemap -->
         <script src="https://unpkg.com/lunr/lunr.min.js"></script>
         <link rel="sitemap" type="application/xml" title="sitemap" href="{{ site.url }}{{ site.baseurl }}/sitemap.xml" />
-
+        <script src="{{ '/assets/js/pdf-viewer.js' | relative_url }}"></script>
         <!-- Structured Data (JSON-LD) -->
         {% if page.layout == 'post' %}
         <!-- Blog Post Schema -->

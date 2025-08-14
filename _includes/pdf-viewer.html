@@ -1,0 +1,175 @@
+<!-- PDF Viewer Component -->
+<div class="pdf-viewer-container" id="pdf-container-{{ include.id }}">
+    <div class="pdf-toolbar">
+        <div class="pdf-controls-left">
+            <button class="pdf-btn" onclick="prevPage('{{ include.id }}')" id="prev-{{ include.id }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+                Previous
+            </button>
+            <button class="pdf-btn" onclick="nextPage('{{ include.id }}')" id="next-{{ include.id }}">
+                Next
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="pdf-info">
+            <span id="page-info-{{ include.id }}">Page 1 of 1</span>
+        </div>
+        
+        <div class="pdf-controls-right">
+            <button class="pdf-btn" onclick="zoomOut('{{ include.id }}')">−</button>
+            <span id="zoom-info-{{ include.id }}" class="pdf-zoom-info">100%</span>
+            <button class="pdf-btn" onclick="zoomIn('{{ include.id }}')">+</button>
+            <button class="pdf-btn" onclick="toggleFullscreen('{{ include.id }}')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                </svg>
+            </button>
+            <a href="{{ include.src }}" class="pdf-btn" download>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Download
+            </a>
+        </div>
+    </div>
+    
+    <div class="pdf-canvas-container">
+        <canvas id="pdf-canvas-{{ include.id }}" class="pdf-canvas"></canvas>
+        <div class="pdf-loading" id="pdf-loading-{{ include.id }}">
+            <div class="loading-spinner"></div>
+            <p>Loading PDF...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const viewerId = '{{ include.id }}';
+    const pdfUrl = '{{ include.src }}';
+    
+    let pdfDoc = null;
+    let pageNum = 1;
+    let scale = 1.2;
+    let canvas = document.getElementById('pdf-canvas-' + viewerId);
+    let ctx = canvas.getContext('2d');
+    
+    // Initialize PDF viewer
+    pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+        pdfDoc = pdf;
+        document.getElementById('pdf-loading-' + viewerId).style.display = 'none';
+        renderPage(pageNum);
+        updateUI();
+    }).catch(function(error) {
+        console.error('Error loading PDF:', error);
+        document.getElementById('pdf-loading-' + viewerId).innerHTML = 
+            '<p style="color: red;">Error loading PDF. <a href="' + pdfUrl + '">Download directly</a></p>';
+    });
+    
+    function renderPage(num) {
+        if (!pdfDoc) return;
+        
+        pdfDoc.getPage(num).then(function(page) {
+            const viewport = page.getViewport({scale: scale});
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            
+            page.render(renderContext);
+        });
+    }
+    
+    function updateUI() {
+        if (!pdfDoc) return;
+        
+        document.getElementById('page-info-' + viewerId).textContent = 
+            `Page ${pageNum} of ${pdfDoc.numPages}`;
+        document.getElementById('zoom-info-' + viewerId).textContent = 
+            Math.round(scale * 100) + '%';
+        
+        document.getElementById('prev-' + viewerId).disabled = pageNum <= 1;
+        document.getElementById('next-' + viewerId).disabled = pageNum >= pdfDoc.numPages;
+    }
+    
+    // Global functions for this viewer instance
+    window['prevPage'] = function(id) {
+        if (id !== viewerId) return;
+        if (pageNum <= 1) return;
+        pageNum--;
+        renderPage(pageNum);
+        updateUI();
+    };
+    
+    window['nextPage'] = function(id) {
+        if (id !== viewerId) return;
+        if (pageNum >= pdfDoc.numPages) return;
+        pageNum++;
+        renderPage(pageNum);
+        updateUI();
+    };
+    
+    window['zoomIn'] = function(id) {
+        if (id !== viewerId) return;
+        scale = Math.min(scale * 1.2, 3.0);
+        renderPage(pageNum);
+        updateUI();
+    };
+    
+    window['zoomOut'] = function(id) {
+        if (id !== viewerId) return;
+        scale = Math.max(scale / 1.2, 0.5);
+        renderPage(pageNum);
+        updateUI();
+    };
+    
+    window['toggleFullscreen'] = function(id) {
+        if (id !== viewerId) return;
+        const container = document.getElementById('pdf-container-' + viewerId);
+        
+        if (!document.fullscreenElement) {
+            container.requestFullscreen().then(() => {
+                container.classList.add('fullscreen');
+                scale = 1.5;
+                renderPage(pageNum);
+                updateUI();
+            });
+        } else {
+            document.exitFullscreen().then(() => {
+                container.classList.remove('fullscreen');
+                scale = 1.2;
+                renderPage(pageNum);
+                updateUI();
+            });
+        }
+    };
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('pdf-container-' + viewerId).contains(document.activeElement)) return;
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                window['prevPage'](viewerId);
+                e.preventDefault();
+                break;
+            case 'ArrowRight':
+                window['nextPage'](viewerId);
+                e.preventDefault();
+                break;
+            case 'Escape':
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                }
+                break;
+        }
+    });
+})();
+</script>
