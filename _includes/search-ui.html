@@ -5,11 +5,7 @@
 <div id="search-overlay" class="search-overlay">
     <button id="search-close" class="search-close-button" aria-label="Close search">&times;</button>
     <div class="search-content">
-        <div class="search-filters">
-            <input type="text" id="search-input" placeholder="Type to search..." autocomplete="off">
-            <input type="text" id="tag-filter" placeholder="Filter by tags..." list="tag-suggestions">
-            <datalist id="tag-suggestions"></datalist>
-        </div>
+        <input type="text" id="search-input" placeholder="Type to search..." autocomplete="off">
         <div id="search-results" class="search-results-container"></div>
     </div>
 </div>
@@ -26,8 +22,6 @@
             const searchClose = document.getElementById('search-close');
             const searchInput = document.getElementById('search-input');
             const searchResults = document.getElementById('search-results');
-            const tagFilter = document.getElementById('tag-filter');
-            const tagSuggestions = document.getElementById('tag-suggestions');
 
             let lunrIndex, documentsStore;
 
@@ -37,99 +31,46 @@
                 .then(data => {
                     documentsStore = data;
                     lunrIndex = lunr(function () {
-                        this.ref('id');
+                        this.ref('url');
                         this.field('title', { boost: 10 });
-                        this.field('excerpt', { boost: 8 });
-                        this.field('tags', { boost: 7 });
-                        this.field('content', { boost: 5 });
+                        this.field('content');
+                        this.field('tags');
                         
                         data.forEach(doc => {
                             this.add(doc);
                         });
                     });
-                    
-                    // Populate tag suggestions
-                    populateTagSuggestions(data);
                 });
-
-            // Populate tag suggestions
-            function populateTagSuggestions(data) {
-                const tags = [...new Set(data.flatMap(doc => doc.tags || []))];
-                
-                // Populate tag suggestions
-                tags.forEach(tag => {
-                    const option = document.createElement('option');
-                    option.value = tag;
-                    tagSuggestions.appendChild(option);
-                });
-            }
 
             // Search function
             function performSearch() {
-                const query = searchInput.value.trim();
-                const selectedTags = tagFilter.value.trim();
-                
-                if (!lunrIndex) return;
-                
-                let results = [];
-                
-                // If there's a text query, use Lunr search
-                if (query) {
-                    results = lunrIndex.search(query + '*');
-                } else {
-                    // If no text query, show all documents for filtering
-                    results = documentsStore.map(doc => ({ ref: doc.id, score: 1 }));
+                const query = searchInput.value;
+                if (!query || !lunrIndex) {
+                    searchResults.innerHTML = '';
+                    return;
                 }
-                
-                // Apply tag filter
-                let filteredResults = results.map(result => {
-                    const item = documentsStore.find(doc => doc.id === result.ref);
-                    return { ...result, item };
-                }).filter(result => {
-                    const item = result.item;
-                    if (!item) return false;
-                    
-                    // Tag filter
-                    if (selectedTags && (!item.tags || !item.tags.some(tag => 
-                        tag.toLowerCase().includes(selectedTags.toLowerCase())))) {
-                        return false;
-                    }
-                    
-                    return true;
-                });
-                
-                displayResults(filteredResults);
+                const results = lunrIndex.search(query + '*'); // Add wildcard for more flexible search
+                displayResults(results);
             }
 
             // Function to display results on screen
             function displayResults(results) {
                 if (results.length) {
-                    let output = '<div class="search-results-header">Found ' + results.length + ' result(s)</div>';
+                    let output = '';
                     results.forEach(result => {
-                        const item = result.item;
+                        const item = documentsStore.find(doc => doc.url === result.ref);
                         if (item) {
-                            const tags = item.tags ? item.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
-                            const date = item.date ? new Date(item.date).toLocaleDateString() : '';
-                            const readingTime = item.reading_time ? `${item.reading_time} min read` : '';
-                            
                             output += `
                                 <a href="{{ site.baseurl }}${item.url}" class="search-result-item">
-                                    <div class="search-result-header">
-                                        <h3 class="search-result-title">${item.title}</h3>
-                                        <div class="search-result-meta">
-                                            ${date ? `<span class="date">${date}</span>` : ''}
-                                            ${readingTime ? `<span class="reading-time">${readingTime}</span>` : ''}
-                                        </div>
-                                    </div>
-                                    <p class="search-result-excerpt">${item.excerpt || item.content.substring(0, 150)}...</p>
-                                    ${tags ? `<div class="search-result-tags">${tags}</div>` : ''}
+                                    <div class="search-result-title">${item.title}</div>
+                                    <p class="search-result-excerpt">${item.content.substring(0, 150)}...</p>
                                 </a>
                             `;
                         }
                     });
                     searchResults.innerHTML = output;
                 } else {
-                    searchResults.innerHTML = '<p class="search-no-results">No results found. Try different keywords or tags.</p>';
+                    searchResults.innerHTML = '<p class="search-result-excerpt">No results found...</p>';
                 }
             }
 
@@ -147,7 +88,6 @@
 
             searchClose.addEventListener('click', closeSearch);
             searchInput.addEventListener('input', performSearch);
-            tagFilter.addEventListener('input', performSearch);
 
             // Close search when Esc key is pressed
             document.addEventListener('keydown', function (e) {

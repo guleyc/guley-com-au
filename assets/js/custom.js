@@ -75,21 +75,3 @@ window.addEventListener('beforeprint', function() {
 window.addEventListener('afterprint', function() {
     removeAllWatermarks();
 });
-
-// SEARCH
-function searchByTag(posts, tag) {
-  return posts.filter(post => 
-    post.tags && post.tags.includes(tag)
-  );
-}
-
-function advancedSearch(posts, query, tags, category) {
-  return posts.filter(post => {
-    const matchesQuery = post.title.toLowerCase().includes(query.toLowerCase()) ||
-                        post.content.toLowerCase().includes(query.toLowerCase());
-    const matchesTags = !tags.length || tags.some(tag => post.tags.includes(tag));
-    const matchesCategory = !category || post.categories.includes(category);
-    
-    return matchesQuery && matchesTags && matchesCategory;
-  });
-}
