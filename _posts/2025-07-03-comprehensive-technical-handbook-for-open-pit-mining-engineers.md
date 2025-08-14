@@ -629,4 +629,4 @@ The role of a mining engineer in an open pit operation is multifaceted, demandin
 
 By mastering the formulas and considerations discussed in this guide, mining engineers can effectively navigate the complexities of open pit mining, ensuring sustainable and economically viable extraction of valuable mineral resources. The integration of advanced technologies, data analytics, and a commitment to best practices will continue to shape the future of open pit operations, making them safer, more productive, and environmentally responsible.
 
-{% include pdf-viewer.html src="/upload/OPEN-PIT-HANDBOOK.pdf" id="handbook" %}
+{% include pdf-viewer.html src="/upload/sample-local-pdf" id="handbook" %}
