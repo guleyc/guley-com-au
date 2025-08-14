@@ -17,25 +17,34 @@
         </div>
         
         <div class="pdf-info">
-            <span id="page-info-{{ include.id }}">Page 1 of 1</span>
+            <input type="number" id="page-input-{{ include.id }}" class="page-input" min="1" value="1">
+            <span>/</span>
+            <span id="total-pages-{{ include.id }}">1</span>
         </div>
         
         <div class="pdf-controls-right">
             <button class="pdf-btn" onclick="zoomOut('{{ include.id }}')">−</button>
             <span id="zoom-info-{{ include.id }}" class="pdf-zoom-info">100%</span>
             <button class="pdf-btn" onclick="zoomIn('{{ include.id }}')">+</button>
+            <button class="pdf-btn" onclick="toggleSearch('{{ include.id }}')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
             <button class="pdf-btn" onclick="toggleFullscreen('{{ include.id }}')">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
                 </svg>
             </button>
-            <a href="{{ include.src }}" class="pdf-btn" download>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                </svg>
-                Download
-            </a>
         </div>
+    </div>
+    
+    <div class="pdf-search-bar" id="search-bar-{{ include.id }}" style="display: none;">
+        <input type="text" id="search-input-{{ include.id }}" placeholder="Search in PDF..." class="search-input">
+        <button onclick="searchPrev('{{ include.id }}')" class="search-btn">↑</button>
+        <button onclick="searchNext('{{ include.id }}')" class="search-btn">↓</button>
+        <span id="search-results-{{ include.id }}" class="search-results"></span>
+        <button onclick="toggleSearch('{{ include.id }}')" class="search-close">✕</button>
     </div>
     
     <div class="pdf-canvas-container">
@@ -55,8 +64,11 @@
     let pdfDoc = null;
     let pageNum = 1;
     let scale = 1.2;
+    let originalScale = 1.2;
     let canvas = document.getElementById('pdf-canvas-' + viewerId);
     let ctx = canvas ? canvas.getContext('2d') : null;
+    let searchMatches = [];
+    let currentMatch = -1;
     
     // Wait for PDF.js to load and DOM to be ready
     function initializePDF() {
@@ -111,13 +123,18 @@
     function updateUI() {
         if (!pdfDoc) return;
         
-        const pageInfoEl = document.getElementById('page-info-' + viewerId);
+        const pageInputEl = document.getElementById('page-input-' + viewerId);
+        const totalPagesEl = document.getElementById('total-pages-' + viewerId);
         const zoomInfoEl = document.getElementById('zoom-info-' + viewerId);
         const prevBtn = document.getElementById('prev-' + viewerId);
         const nextBtn = document.getElementById('next-' + viewerId);
         
-        if (pageInfoEl) {
-            pageInfoEl.textContent = `Page ${pageNum} of ${pdfDoc.numPages}`;
+        if (pageInputEl) {
+            pageInputEl.value = pageNum;
+            pageInputEl.max = pdfDoc.numPages;
+        }
+        if (totalPagesEl) {
+            totalPagesEl.textContent = pdfDoc.numPages;
         }
         if (zoomInfoEl) {
             zoomInfoEl.textContent = Math.round(scale * 100) + '%';
@@ -167,6 +184,7 @@
         if (!container) return;
         
         if (!document.fullscreenElement) {
+            originalScale = scale; // Orijinal scale'i kaydet
             container.requestFullscreen().then(() => {
                 container.classList.add('fullscreen');
                 scale = 1.5;
@@ -178,18 +196,197 @@
         } else {
             document.exitFullscreen().then(() => {
                 container.classList.remove('fullscreen');
-                scale = 1.2;
+                scale = originalScale; // Orijinal scale'e geri dön
                 renderPage(pageNum);
                 updateUI();
             });
         }
     };
     
+    // Sayfa numarası inputu için
+    window['goToPage'] = function(id) {
+        if (id !== viewerId || !pdfDoc) return;
+        const pageInput = document.getElementById('page-input-' + viewerId);
+        if (!pageInput) return;
+        
+        let targetPage = parseInt(pageInput.value);
+        if (isNaN(targetPage) || targetPage < 1 || targetPage > pdfDoc.numPages) {
+            pageInput.value = pageNum; // Geçersizse eski değere geri dön
+            return;
+        }
+        
+        pageNum = targetPage;
+        renderPage(pageNum);
+        updateUI();
+    };
+    
+    // Arama fonksiyonları
+    window['toggleSearch'] = function(id) {
+        if (id !== viewerId) return;
+        const searchBar = document.getElementById('search-bar-' + viewerId);
+        if (!searchBar) return;
+        
+        if (searchBar.style.display === 'none') {
+            searchBar.style.display = 'flex';
+            document.getElementById('search-input-' + viewerId).focus();
+        } else {
+            searchBar.style.display = 'none';
+            clearSearchHighlights();
+        }
+    };
+    
+    window['searchNext'] = function(id) {
+        if (id !== viewerId) return;
+        performSearch(true);
+    };
+    
+    window['searchPrev'] = function(id) {
+        if (id !== viewerId) return;
+        performSearch(false);
+    };
+    
+    function performSearch(forward = true) {
+        const searchInput = document.getElementById('search-input-' + viewerId);
+        if (!searchInput || !pdfDoc) return;
+        
+        const query = searchInput.value.trim();
+        if (!query) return;
+        
+        // Bu basit bir arama implementasyonu
+        // Gerçek PDF.js text search daha karmaşık
+        if (searchMatches.length === 0) {
+            searchInPDF(query);
+        } else {
+            if (forward) {
+                currentMatch = (currentMatch + 1) % searchMatches.length;
+            } else {
+                currentMatch = currentMatch <= 0 ? searchMatches.length - 1 : currentMatch - 1;
+            }
+            
+            if (searchMatches[currentMatch]) {
+                goToSearchResult(searchMatches[currentMatch]);
+            }
+        }
+    }
+    
+    function searchInPDF(query) {
+        // Basit text search implementasyonu
+        searchMatches = [];
+        currentMatch = -1;
+        
+        for (let i = 1; i <= pdfDoc.numPages; i++) {
+            pdfDoc.getPage(i).then(page => {
+                return page.getTextContent();
+            }).then(textContent => {
+                const text = textContent.items.map(item => item.str).join(' ');
+                if (text.toLowerCase().includes(query.toLowerCase())) {
+                    searchMatches.push({ page: i, text: text });
+                    updateSearchResults();
+                }
+            });
+        }
+    }
+    
+    function goToSearchResult(match) {
+        pageNum = match.page;
+        renderPage(pageNum);
+        updateUI();
+    }
+    
+    function updateSearchResults() {
+        const searchResults = document.getElementById('search-results-' + viewerId);
+        if (searchResults) {
+            searchResults.textContent = `${currentMatch + 1}/${searchMatches.length}`;
+        }
+    }
+    
+    function clearSearchHighlights() {
+        searchMatches = [];
+        currentMatch = -1;
+        updateSearchResults();
+    }
+    
     // Initialize when ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializePDF);
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePDF();
+            setupEventListeners();
+        });
     } else {
-        setTimeout(initializePDF, 100);
+        setTimeout(function() {
+            initializePDF();
+            setupEventListeners();
+        }, 100);
+    }
+    
+    function setupEventListeners() {
+        // Sayfa input'u için enter ve blur event'leri
+        const pageInput = document.getElementById('page-input-' + viewerId);
+        if (pageInput) {
+            pageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    window['goToPage'](viewerId);
+                }
+            });
+            pageInput.addEventListener('blur', function() {
+                window['goToPage'](viewerId);
+            });
+        }
+        
+        // Arama input'u için enter event'i
+        const searchInput = document.getElementById('search-input-' + viewerId);
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    window['searchNext'](viewerId);
+                }
+            });
+            searchInput.addEventListener('input', function() {
+                clearSearchHighlights(); // Input değiştiğinde önceki aramayı temizle
+            });
+        }
+        
+        // Klavye kısayolları
+        document.addEventListener('keydown', function(e) {
+            const container = document.getElementById('pdf-container-' + viewerId);
+            if (!container || !container.contains(e.target)) return;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    window['prevPage'](viewerId);
+                    e.preventDefault();
+                    break;
+                case 'ArrowRight':
+                    window['nextPage'](viewerId);
+                    e.preventDefault();
+                    break;
+                case 'ArrowUp':
+                    window['zoomIn'](viewerId);
+                    e.preventDefault();
+                    break;
+                case 'ArrowDown':
+                    window['zoomOut'](viewerId);
+                    e.preventDefault();
+                    break;
+                case 'f':
+                case 'F':
+                    if (e.ctrlKey) {
+                        window['toggleSearch'](viewerId);
+                        e.preventDefault();
+                    }
+                    break;
+                case 'Escape':
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen();
+                    } else {
+                        const searchBar = document.getElementById('search-bar-' + viewerId);
+                        if (searchBar && searchBar.style.display !== 'none') {
+                            window['toggleSearch'](viewerId);
+                        }
+                    }
+                    break;
+            }
+        });
     }
 })();
 </script>
