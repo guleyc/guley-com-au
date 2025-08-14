@@ -628,5 +628,3 @@ $$
 The role of a mining engineer in an open pit operation is multifaceted, demanding a deep understanding of geological principles, engineering mechanics, economic drivers, and operational intricacies. From the initial stages of ore reserve estimation and pit design to the daily challenges of production scheduling, equipment management, and drilling and blasting, every decision is underpinned by rigorous calculations and a keen eye for optimization. The continuous pursuit of efficiency, safety, and profitability drives innovation in this dynamic field.
 
 By mastering the formulas and considerations discussed in this guide, mining engineers can effectively navigate the complexities of open pit mining, ensuring sustainable and economically viable extraction of valuable mineral resources. The integration of advanced technologies, data analytics, and a commitment to best practices will continue to shape the future of open pit operations, making them safer, more productive, and environmentally responsible.
-
-{% include pdf-viewer.html src="/upload/sample-local-pdf" id="handbook" %}
