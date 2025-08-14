@@ -174,7 +174,7 @@ body{padding-bottom:0!important}
 .search-content{width:90%;max-width:600px}
 #search-input{width:100%;padding:15px 20px;font-size:1.5rem;border:none;border-bottom:2px solid var(--primary-font-color);background-color:transparent;outline:0;color:var(--primary-font-color)}
 #search-input::placeholder{color:var(--primary-font-color);opacity:.6}
-.search-results-container{margin-top:20px;max-height:60vh;overflow-y:auto}
+.search-results-container{margin-top:20px;max-height:60vh;overflow-y:auto;text-align:left;scrollbar-width:thin;scrollbar-color:var(--border-color) transparent}
 .search-result-item{background-color:var(--bg-color);padding:15px;border-radius:5px;margin-bottom:10px;box-shadow:0 2px 10px var(--shadow-color);text-decoration:none;display:block;color:var(--primary-font-color);border:1px solid var(--border-color)}
 .search-result-item:hover{background-color:var(--bg-hover-color)}
 .search-result-title{font-size:1.2rem;font-weight:700}
