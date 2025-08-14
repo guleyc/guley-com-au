@@ -7,16 +7,8 @@
     <div class="search-content">
         <div class="search-filters">
             <input type="text" id="search-input" placeholder="Type to search..." autocomplete="off">
-            <div class="filter-row">
-                <select id="category-filter">
-                    <option value="">All Categories</option>
-                </select>
-                <select id="author-filter">
-                    <option value="">All Authors</option>
-                </select>
-                <input type="text" id="tag-filter" placeholder="Filter by tags..." list="tag-suggestions">
-                <datalist id="tag-suggestions"></datalist>
-            </div>
+            <input type="text" id="tag-filter" placeholder="Filter by tags..." list="tag-suggestions">
+            <datalist id="tag-suggestions"></datalist>
         </div>
         <div id="search-results" class="search-results-container"></div>
     </div>
@@ -34,8 +26,6 @@
             const searchClose = document.getElementById('search-close');
             const searchInput = document.getElementById('search-input');
             const searchResults = document.getElementById('search-results');
-            const categoryFilter = document.getElementById('category-filter');
-            const authorFilter = document.getElementById('author-filter');
             const tagFilter = document.getElementById('tag-filter');
             const tagSuggestions = document.getElementById('tag-suggestions');
 
@@ -49,42 +39,22 @@
                     lunrIndex = lunr(function () {
                         this.ref('id');
                         this.field('title', { boost: 10 });
-                        this.field('content', { boost: 5 });
                         this.field('excerpt', { boost: 8 });
                         this.field('tags', { boost: 7 });
-                        this.field('categories', { boost: 6 });
-                        this.field('author', { boost: 3 });
+                        this.field('content', { boost: 5 });
                         
                         data.forEach(doc => {
                             this.add(doc);
                         });
                     });
                     
-                    // Populate filter dropdowns
-                    populateFilters(data);
+                    // Populate tag suggestions
+                    populateTagSuggestions(data);
                 });
 
-            // Populate filter dropdowns and suggestions
-            function populateFilters(data) {
-                const categories = [...new Set(data.flatMap(doc => doc.categories || []))];
-                const authors = [...new Set(data.map(doc => doc.author).filter(Boolean))];
+            // Populate tag suggestions
+            function populateTagSuggestions(data) {
                 const tags = [...new Set(data.flatMap(doc => doc.tags || []))];
-                
-                // Populate category filter
-                categories.forEach(category => {
-                    const option = document.createElement('option');
-                    option.value = category;
-                    option.textContent = category;
-                    categoryFilter.appendChild(option);
-                });
-                
-                // Populate author filter
-                authors.forEach(author => {
-                    const option = document.createElement('option');
-                    option.value = author;
-                    option.textContent = author;
-                    authorFilter.appendChild(option);
-                });
                 
                 // Populate tag suggestions
                 tags.forEach(tag => {
@@ -97,8 +67,6 @@
             // Search function
             function performSearch() {
                 const query = searchInput.value.trim();
-                const selectedCategory = categoryFilter.value;
-                const selectedAuthor = authorFilter.value;
                 const selectedTags = tagFilter.value.trim();
                 
                 if (!lunrIndex) return;
@@ -113,23 +81,13 @@
                     results = documentsStore.map(doc => ({ ref: doc.id, score: 1 }));
                 }
                 
-                // Apply additional filters
+                // Apply tag filter
                 let filteredResults = results.map(result => {
                     const item = documentsStore.find(doc => doc.id === result.ref);
                     return { ...result, item };
                 }).filter(result => {
                     const item = result.item;
                     if (!item) return false;
-                    
-                    // Category filter
-                    if (selectedCategory && (!item.categories || !item.categories.includes(selectedCategory))) {
-                        return false;
-                    }
-                    
-                    // Author filter
-                    if (selectedAuthor && item.author !== selectedAuthor) {
-                        return false;
-                    }
                     
                     // Tag filter
                     if (selectedTags && (!item.tags || !item.tags.some(tag => 
@@ -159,7 +117,6 @@
                                     <div class="search-result-header">
                                         <h3 class="search-result-title">${item.title}</h3>
                                         <div class="search-result-meta">
-                                            ${item.author ? `<span class="author">${item.author}</span>` : ''}
                                             ${date ? `<span class="date">${date}</span>` : ''}
                                             ${readingTime ? `<span class="reading-time">${readingTime}</span>` : ''}
                                         </div>
@@ -172,7 +129,7 @@
                     });
                     searchResults.innerHTML = output;
                 } else {
-                    searchResults.innerHTML = '<p class="search-no-results">No results found. Try different keywords or filters.</p>';
+                    searchResults.innerHTML = '<p class="search-no-results">No results found. Try different keywords or tags.</p>';
                 }
             }
 
@@ -190,8 +147,6 @@
 
             searchClose.addEventListener('click', closeSearch);
             searchInput.addEventListener('input', performSearch);
-            categoryFilter.addEventListener('change', performSearch);
-            authorFilter.addEventListener('change', performSearch);
             tagFilter.addEventListener('input', performSearch);
 
             // Close search when Esc key is pressed
