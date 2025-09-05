@@ -10,10 +10,12 @@ redirect_from:
 author: Cagatay Guley
 ---
 
-I hold a degree in Mining Engineering from Istanbul Technical University and have over seven years of experience in mining operations as well as office-based technical work. I have worked in all stages of the mining value chain in which I contributed to exploration, planning, production, design, and in some instances even sales.
+Hello! I'm a Mining Engineer graduate from Istanbul Technical University. Over the past seven years, I've had the opportunity to work in different corners of the mining world - both underground and at the desk.
 
-My experience spans both open-pit and underground work. This includes participating in short and long-term mine planning, 3D mine design, as well as contributing to the design and construction of mineral processing facilities. I also improved my understanding of strategic decision making when I worked in production planning and team coordination in a publicly traded mining company.
+I've gained experience in every stage of mining, from exploration to planning, managing production processes, and design work. I've even been on the sales side from time to time - talking with customers and understanding their needs was truly an enjoyable experience.
 
-Having worked in customer coordinating and ore selling, I have broadened my knowledge past engineering. The combination of technical and business knowledge serves me well because I can see how operations impact the business as a whole.
+I've worked in both open pit and underground operations. I've been involved in a wide variety of projects, from short-term plans to long-term strategies, from 3D designs to the installation of ore processing plants. During my time at a publicly traded company, I particularly developed myself in team management and strategic decision-making.
 
-I love addressing hands-on technical challenges, streamlining processes, and enabling better team collaboration. I strive to make a positive impact whether it be at a worksite, on a computer, or in meetings.
+What I enjoy most is being able to blend technical knowledge with commercial understanding. This way, I can see not just "how to do it" but also "why it should be done this way." Being able to think about how a decision will impact not just the technical outcomes but the entire business has given me a different perspective.
+
+I really enjoy tackling practical problems in the field, trying to optimize processes at the computer, and creating solutions. Wherever I am - whether on site, in the office, or in meetings - I focus on creating better things together with the people around me.
