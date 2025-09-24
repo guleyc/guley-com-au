@@ -4,11 +4,11 @@ date: '2025-09-24'
 author: 'Cagatay Guley'
 layout: post
 permalink: /soothsayer-time-series-forecasting-system/
-tr_url: /coklu-zaman-dilimli-fiyat-tahminleyici/
+tr_url: /soothsayer-zaman-serisi-tahminleme-sistemi/
 redirect_from:
   - /soothsayer-time-series-forecasting-system
-  - /coklu-zaman-dilimli-fiyat-tahminleyici
-  - /coklu-zaman-dilimli-fiyat-tahminleyici/
+  - /soothsayer-zaman-serisi-tahminleme-sistemi
+  - /soothsayer-zaman-serisi-tahminleme-sistemi/
 tags: [forecast, prediction, time, series, soothsayer]
 image: timeseries.jpeg
 ---
