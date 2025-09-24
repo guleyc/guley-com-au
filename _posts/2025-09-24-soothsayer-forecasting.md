@@ -310,4 +310,4 @@ conf_upper = weighted_prediction + margin_error
 
 The Soothsayer forecasting system combines a diverse set of statistical and machine learning models to produce robust time series predictions. By leveraging methods like Linear Trend, Seasonal Naive, Moving Average, Exponential Smoothing, ARIMA, Prophet, and various ML algorithms, it captures a wide range of patterns in the data. The ensemble approach with dynamic weighting ensures that the most reliable models contribute more to the final prediction, while the confidence interval provides a measure of uncertainty.
 
-Feel free to try out the Soothsayer code in your own projects! You can find the full implementation [https://github.com/guleyc/soothsayer](Github Link). Let me know in the comments if you have questions or suggestions for improving the system.
+Feel free to try out the Soothsayer code in your own projects! You can find the full implementation [https://github.com/guleyc/soothsayer](https://github.com/guleyc/soothsayer). Let me know in the comments if you have questions or suggestions for improving the system.
