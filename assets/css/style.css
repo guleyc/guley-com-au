@@ -1374,8 +1374,9 @@ table th {
 }
 
 .hero-image {
-    height: 45vh;
-    width: 100%;
+    max-height: 45vh;
+    height: 100%;
+    width: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
