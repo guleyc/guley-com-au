@@ -1372,3 +1372,45 @@ table th {
     border-radius: 3px;
     /* İsteğe bağlı: Bayrak köşelerini hafif yuvarlatır */
 }
+
+.hero-image {
+    height: 45vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+mjx-container {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
