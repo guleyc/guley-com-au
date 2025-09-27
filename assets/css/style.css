@@ -370,7 +370,10 @@ pre {
 
 code {
     font-family: 'Source Code Pro', sans-serif;
-    font-size: 1rem
+    font-size: 1rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .social-icon {
