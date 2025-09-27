@@ -559,7 +559,7 @@ code {
 
 .post-container {
     width: 100%;
-    margin: 1vh;
+    padding: 5px 10px;
 }
 
 /* TOC */
