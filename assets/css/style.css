@@ -1349,34 +1349,27 @@ table th {
     line-height: 1.6
 }
 
-/* Dil Değiştirme Bayrağı Stili */
 .language-switcher {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
-    /* Arama butonuyla benzer boşluk için */
     cursor: pointer;
     text-decoration: none;
     line-height: 0;
-    /* Dikey hizalamayı iyileştirmek için */
 }
 
 .language-switcher img {
     height: 20px;
-    /* Arama ikonuyla aynı yükseklikte olması için */
     width: auto;
-    /* Genişliğin otomatik ayarlanması için */
     display: block;
-    /* Resim altındaki istenmeyen boşlukları kaldırır */
     border-radius: 3px;
-    /* İsteğe bağlı: Bayrak köşelerini hafif yuvarlatır */
 }
 
 .hero-image {
     max-height: 45vh;
     height: 100%;
-    width: auto;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
