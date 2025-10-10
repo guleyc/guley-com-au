@@ -61,8 +61,7 @@ layout: default
 	<div class="blog-post-content" itemprop="articleBody">
 		{{ content }}
 	</div>
-
-</article>
+	
 	<nav class="post-navigation" aria-label="Post navigation">
 		{% if page.previous %}
 		<div class="nav-item nav-previous">
@@ -82,5 +81,7 @@ layout: default
 		</div>
 		{% endif %}
 	</nav>
+
+</article>
 
 {% include sticky-sidebar.html reading_time=reading_time %}
