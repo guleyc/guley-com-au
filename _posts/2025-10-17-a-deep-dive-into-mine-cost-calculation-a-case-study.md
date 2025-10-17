@@ -60,26 +60,26 @@ $$
 
 This means for every 1 tonne of ore, 1.16 tonnes of waste must be mined. This ratio is vital for the mine's economics.
 
-**Ratio of Concentration:** The ratio of the concentrate grade to the head grade. It shows how effectively the plant enriches the ore.
+**Ratio of Concentration (RoC):** The ratio of the concentrate grade to the head grade. It shows how effectively the plant enriches the ore.
 
 $$
-\text{Ratio of Concentration} = \frac{\text{Concentrate Grade}}{\text{Head Grade}} = \frac{30\%}{0.43\%} \approx \mathbf{69.8}
+\text{RoC} = \frac{\text{Concentrate Grade}}{\text{Head Grade}} = \frac{30\%}{0.43\%} \approx \mathbf{69.8}
 $$
 
-**Annual Metal Production:** Let's calculate how much saleable copper the mine produces.
+**Annual Copper Production (ACoP):** Let's calculate how much saleable copper the mine produces. It should be named Annual Metal Production.
 
 $$
-\text{Annual Copper Production (tonnes)} = (\text{Annual Ore Processed}) \times (\text{Head Grade}) \times (\text{Recovery})
+\text{ACoP (tonnes)} = (\text{Annual Ore Processed}) \times (\text{Head Grade}) \times (\text{Recovery})
 $$
 
 $$
-\text{Annual Copper Production} = (2,672,000 \text{ tonnes}) \times (0.0043) \times (0.855) \approx \mathbf{9,824 \text{ tonnes of metallic copper}}
+\text{ACoP} = (2,672,000 \text{ tonnes}) \times (0.0043) \times (0.855) \approx \mathbf{9,824 \text{ tonnes of metallic copper}}
 $$
 
-**Annual Concentrate Production:** The produced metallic copper is contained within the 30% Cu concentrate.
+**Annual Concentrate Production (ACP):** The produced metallic copper is contained within the 30% Cu concentrate.
 
 $$
-\text{Annual Concentrate Production} = \frac{\text{Annual Copper Production}}{\text{Concentrate Grade}} = \frac{9,824 \text{ tonnes}}{0.30} \approx \mathbf{32,747 \text{ tonnes of copper concentrate}}
+\text{ACP} = \frac{\text{ACoP}}{\text{Concentrate Grade}} = \frac{9,824 \text{ tonnes}}{0.30} \approx \mathbf{32,747 \text{ tonnes of copper concentrate}}
 $$
 
 ### 4. Pit Equipment
