@@ -104,16 +104,9 @@
         <link rel="shortcut icon" sizes="192x192" href="/assets/images/favicon.png">
         <link rel="apple-touch-icon" href="/assets/images/favicon.png">
 
-        <!-- Canonical URLs and Language Alternatives -->
+        <!-- Canonical URLs -->
         <link rel="canonical" href="https://guley.com.au{{ page.url }}" />
         
-        <!-- Language Alternatives -->
-        <link rel="alternate" hreflang="en-AU" href="https://guley.com.au{{ page.url }}" />
-        {% if page.tr_url %}
-        <link rel="alternate" hreflang="tr-TR" href="https://guley.com.tr{{ page.tr_url }}" />
-        {% endif %}
-        <link rel="alternate" hreflang="x-default" href="https://guley.com.au{{ page.url }}" />
-
         <!-- RSS and Feed Links -->
         <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/atom.xml">
         <link rel="alternate" type="application/json" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.json" />
