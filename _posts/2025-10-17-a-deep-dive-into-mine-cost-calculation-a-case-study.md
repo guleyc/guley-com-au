@@ -53,6 +53,7 @@ This section is where the "heart" of the mine operates. Here, we'll analyze how 
 With the given figures, we can calculate some critical Key Performance Indicators (KPIs).
 
 **Stripping Ratio:** The ratio of waste material that must be moved to extract a certain amount of ore.
+
 $$
 \text{Stripping Ratio} = \frac{\text{Waste Mined}}{\text{Ore Mined}} = \frac{25,500}{22,000} \approx \mathbf{1.16} \text{ (tonne waste / tonne ore)}
 $$
@@ -60,28 +61,33 @@ $$
 This means for every 1 tonne of ore, 1.16 tonnes of waste must be mined. This ratio is vital for the mine's economics.
 
 **Ratio of Concentration:** The ratio of the concentrate grade to the head grade. It shows how effectively the plant enriches the ore.
+
 $$
 \text{Ratio of Concentration} = \frac{\text{Concentrate Grade}}{\text{Head Grade}} = \frac{30\%}{0.43\%} \approx \mathbf{69.8}
 $$
 
 **Annual Metal Production:** Let's calculate how much saleable copper the mine produces.
+
 $$
 \text{Annual Copper Production (tonnes)} = (\text{Annual Ore Processed}) \times (\text{Head Grade}) \times (\text{Recovery})
-$$   
+$$
 
 $$
 \text{Annual Copper Production} = (2,672,000 \text{ tonnes}) \times (0.0043) \times (0.855) \approx \mathbf{9,824 \text{ tonnes of metallic copper}}
 $$
 
 **Annual Concentrate Production:** The produced metallic copper is contained within the 30% Cu concentrate.
+
 $$
 \text{Annual Concentrate Production} = \frac{\text{Annual Copper Production}}{\text{Concentrate Grade}} = \frac{9,824 \text{ tonnes}}{0.30} \approx \mathbf{32,747 \text{ tonnes of copper concentrate}}
 $$
 
 ### 4. Pit Equipment
 
-**Loading:** 4 x P&H 1900A shovels (10 yd³ **~7.65 m³ bucket**)
+**Loading:** 4 x P&H 1900A shovels (10 yd³ ~7.65 m³ bucket)
+
 **Haulage:** 15 x Lectra Haul M100 trucks
+
 **Ancillary Equipment:** Dozers, graders, rubber-tired dozers, and front-end loaders.
 
 **Short Note:** Equipment selection is based on bench height, production capacity, and material characteristics. The number and capacity of shovels and trucks are determined by "fleet matching" calculations to minimize wait times for both loaders and haulers.
@@ -89,19 +95,21 @@ $$
 ### 5. Blasting
 
 **Explosive Type:** 85% ANFO, 15% Slurry
-**Powder Factor:** 0.46 lb/ton **~0.23 kg/tonne**
-**Loading Factor:** 0.70 lb/yd³ **~0.41 kg/m³**
+
+**Powder Factor:** 0.23 kg/ton
+
+**Loading Factor:** 0.41 kg/m³
 
 **Short Note:** The Powder Factor is a key efficiency metric indicating the amount of explosive used to break one unit of rock. ANFO is a cost-effective choice for dry holes. In the presence of water, water-resistant explosives like Slurry are used. This mine employs a hybrid approach.
 
 ### 6. Drilling
 
-**Drills:** 3 x Bucyrus-Erie 60R
-**Hole Diameter:** 251 mm
-**Pattern (Burden x Spacing):** 5.5 m x 7.3 m
-**Meter Drilled/Shift:** 150 m/shift
-**Tons/Meter Drilled:** 77 tonnes/meter
-**Bit Life:** 1,830 m
+- **Drills:** 3 x Bucyrus-Erie 60R
+- **Hole Diameter:** 251 mm
+- **Pattern (Burden x Spacing):** 5.5 m x 7.3 m
+- **Meter Drilled/Shift:** 150 m/shift
+- **Tons/Meter Drilled:** 77 tonnes/meter
+- **Bit Life:** 1,830 m
 
 **Short Note:** The drill pattern (burden and spacing) directly influences blasting efficiency and rock fragmentation. The "Tons/meter" metric shows how many tonnes of material are liberated for each meter drilled. This can be cross-checked with a theoretical calculation (assuming rock density of ~2.7 t/m³):
 
@@ -130,7 +138,8 @@ The difference between the theoretical value (108 t/m) and the practical field v
 - **Mineral Processing Plant:** 107 people (35.8%)
 - **Surface Plant:** 14 people (4.7%)
 - **Admin & Other:** 36 people (12.0%)
-- **TOTAL EMPLOYEES:** 299 people
+
+**TOTAL EMPLOYEES:** 299 people
 
 ### 9. Mining Costs (for ore and waste, $/ton)
 
@@ -143,7 +152,8 @@ These costs apply to **all material moved (both ore and waste)**. The currency i
 - Hauling: $0.21
 - Crushing (in-pit): $0.11
 - Other (Pumping, Maintenance, Supervision, etc.): $0.21
-- **TOTAL MINING COST: $0.92 / ton** (of total material mined)
+
+**TOTAL MINING COST: $0.92 / ton** (of total material mined)
 
 ### 10. Milling Costs (for ore only, $/ton)
 
@@ -156,7 +166,8 @@ These costs apply only to the **ore** that is fed to the processing plant.
 - Power: $0.921
 - Labor: $0.437
 - Other (Assaying, Conveying, Tailings, etc.): $0.347
-- **TOTAL MILLING COST: $3.954 / ton** (of ore processed)
+
+**TOTAL MILLING COST: $3.954 / ton** (of ore processed)
 
 ### How Are Unit Costs Calculated?
 
@@ -166,7 +177,6 @@ The unit costs listed above are the result of a "bottom-up" accounting process. 
 
 The mining unit cost ($/ton) represents the total expense incurred to move one tonne of material (both ore and waste) in the open pit.
 
-**The Formula:**
 $$
 \text{Mining Unit Cost} = \frac{\text{Total Mining Opex}}{\text{Total Tonnes Mined (Ore + Waste)}}
 $$
@@ -186,7 +196,6 @@ These costs are summed over a specific period (e.g., a month or year) and then d
 
 The milling unit cost ($/ton) represents the total expense to process one tonne of ore through the plant. The key difference is the denominator—only ore tonnes are considered.
 
-**The Formula:**
 $$
 \text{Milling Unit Cost} = \frac{\text{Total Milling Opex}}{\text{Total Tonnes Milled (Ore Only)}}
 $$
@@ -207,26 +216,30 @@ These costs are summed over a period and divided by the tonnes of ore that passe
 Now for the most critical part: What do these numbers tell us? Let's calculate the mine's total operational expenditure (OpEx) and, most importantly, the unit cost of the metal produced.
 
 **Total Annual Mining Cost:**
+
 $$
 (4,640,000 \text{ tonnes/year}) \times (\$0.92/\text{tonne}) = \mathbf{\$4,268,800 / year}
 $$
 
 **Total Annual Milling Cost:**
+
 $$
 (2,672,000 \text{ tonnes/year}) \times (\$3.954/\text{tonne}) = \mathbf{\$10,565,088 / year}
 $$
 
-**Total Annual Operating Cost (OpEx):**
+**Total Annual Operating Cost (OPEX):**
+
 $$
 \$4,268,800 + \$10,565,088 = \mathbf{\$14,833,888 / year}
 $$
 
 **Total Cost per Tonne of Ore Processed:** This is one of the most fundamental cost metrics for a mine.
+
 $$
 \frac{\text{Total Annual Cost}}{\text{Annual Tonnes of Ore Processed}} = \frac{\$14,833,888}{2,672,000 \text{ tonnes}} = \mathbf{\$5.55 / \text{tonne of ore}}
 $$
 
-**Unit Cost of Copper Produced (C1 Cash Cost):** This is the ultimate figure that determines profitability and is compared against the market price of the metal. Annual Copper Production: 9,824 tonnes ➡️ ~21,658,000 pounds (lbs)
+**Unit Cost of Copper Produced (C1 Cash Cost):** This is the ultimate figure that determines profitability and is compared against the market price of the metal. Annual Copper Production: 9,824 tonnes ~21,658,000 pounds (lbs)
 
 $$
 \text{Cost per lb of Cu} = \frac{\text{Total Annual Cost}}{\text{Total Pounds of Copper Produced}} = \frac{\$14,833,888}{21,658,000 \text{ lbs}} = \mathbf{\$0.685 / \text{lb Cu}}
