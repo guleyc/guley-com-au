@@ -52,7 +52,7 @@ The strategy, first launched by the Western Australian government in 2019, expli
 
 ### **2.2 A Robust Government Support and Incentive Framework**
 
-Significant financial commitments have been made by both state and federal governments. The Australian Government has provided over $2.2 billion in support for critical mineral projects in WA. This support includes a $1.25 billion loan for Iluka's rare earths refinery in Eneabba.⁷ At the state level, support includes the $285 million Investment Attraction Fund (IAF) and the long-running Exploration Incentive Scheme (EIS), which de-risks early-stage exploration activities.⁷ Non-financial support also plays a critical role, including a $142 million investment to streamline project approvals and provide certainty for investors.⁷
+Significant financial commitments have been made by both state and federal governments. The Australian Government has provided over 2.2 billion AUD in support for critical mineral projects in WA. This support includes a 1.25 billion AUD loan for Iluka's rare earths refinery in Eneabba.⁷ At the state level, support includes the 285 million AUD Investment Attraction Fund (IAF) and the long-running Exploration Incentive Scheme (EIS), which de-risks early-stage exploration activities.⁷ Non-financial support also plays a critical role, including a 142 million AUD investment to streamline project approvals and provide certainty for investors.⁷
 
 WA's strategy is a direct and asymmetric response to China's dominance. WA is not attempting to compete with China on volume or historical cost. Instead, it is building a parallel, premium supply chain built on three pillars that China cannot easily replicate:
 
