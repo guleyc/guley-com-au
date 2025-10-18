@@ -1,14 +1,11 @@
 ---
 title: 'Comprehensive Guide to Hydraulic Pump Calculations and Performance Metrics'
 date: '2024-07-23'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics/
-tr_url: /hidrolik-pompa-hesaplamalari-ve-performans-kriterleri/
 redirect_from:
   - /comprehensive-guide-to-hydraulic-pump-calculations-and-performance-metrics
-  - /hidrolik-pompa-hesaplamalari-ve-performans-kriterleri
-  - /hidrolik-pompa-hesaplamalari-ve-performans-kriterleri/
 mathjax: true
 tags: [energy, hydraulic, pumps, machines, power, efficiency]
 image: hydraulic.jpg

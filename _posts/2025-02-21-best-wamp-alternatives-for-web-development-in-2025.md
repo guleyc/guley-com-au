@@ -1,14 +1,11 @@
 ---
 title: 'Best WAMP Alternatives for Web Development in 2025'
 date: '2025-02-21'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /best-wamp-alternatives-for-web-development-in-2025/
-tr_url: /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri/
 redirect_from:
   - /best-wamp-alternatives-for-web-development-in-2025
-  - /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri
-  - /2025-web-gelistirme-icin-en-iyi-wamp-alternatifleri/
 tags: [wamp, xampp, mamp, lamp, laragon, easyphp, openserver, web, development, apache, mysql, php, windows]
 image: close-up-code.jpg
 ---

@@ -1,14 +1,11 @@
 ---
 title: 'Time Series Analysis'
 date: '2022-05-03'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /time-series-analysis/
-tr_url: /zaman-serisi-analizi/
 redirect_from:
   - /time-series-analysis
-  - /zaman-serisi-analizi
-  - /zaman-serisi-analizi/
 tags: [time, series, analysis, forecasting, regression]
 mathjax: true
 image: time-series.jpg

@@ -1,14 +1,11 @@
 ---
 title: 'Multi-Timeframe Price Predictor'
 date: '2025-03-25'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /multi-timeframe-price-predictor/
-tr_url: /coklu-zaman-dilimli-fiyat-tahminleyici/
 redirect_from:
   - /multi-timeframe-price-predictor
-  - /coklu-zaman-dilimli-fiyat-tahminleyici
-  - /coklu-zaman-dilimli-fiyat-tahminleyici/
 tags: [price, prediction, indicator, binance, crypto]
 image: crypto-asset.png
 ---

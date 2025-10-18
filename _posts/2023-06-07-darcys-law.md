@@ -1,14 +1,11 @@
 ---
 title: 'Darcy’s Law'
 date: '2023-06-07'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /darcys-law/
-tr_url: /darcy-kanunu/
 redirect_from:
   - /darcys-law
-  - /darcy-kanunu
-  - /darcy-kanunu/
 tags: [darcys, law, engineering, math, physics]
 image: darcy.png
 mathjax: true

@@ -1,14 +1,11 @@
 ---
 title: 'Calcium Aluminate Cements (CACs)'
 date: '2023-05-26'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /calcium-aluminate-cements-cacs/
-tr_url: /kalsiyum-aluminat-cimentolari/
 redirect_from:
   - /calcium-aluminate-cements-cacs
-  - /kalsiyum-aluminat-cimentolari
-  - /kalsiyum-aluminat-cimentolari/
 image: cac.jpg
 tags: [calcium, aluminate, cements]
 ---

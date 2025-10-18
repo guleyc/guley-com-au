@@ -1,14 +1,11 @@
 ---
 title: 'Types of Support Systems in Underground Mines'
 date: '2023-06-06'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /types-of-support-systems-in-underground-mines/
-tr_url: /yeralti-madenlerinde-tahkimat-sistemleri/
 redirect_from:
   - /types-of-support-systems-in-underground-mines
-  - /yeralti-madenlerinde-tahkimat-sistemleri
-  - /yeralti-madenlerinde-tahkimat-sistemleri/
 tags: [support, systems, underground, mines]
 image: shotcrete.jpg
 mathjax: true

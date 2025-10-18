@@ -1,14 +1,11 @@
 ---
 title: 'Solution Mining: Well and Cavern Design'
 date: '2023-09-12'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /solution-mining-well-and-cavern-design/
-tr_url: /cozelti-madenciligi-kuyu-ve-magara-tasarimi/
 redirect_from:
   - /solution-mining-well-and-cavern-design
-  - /cozelti-madenciligi-kuyu-ve-magara-tasarimi
-  - /cozelti-madenciligi-kuyu-ve-magara-tasarimi/
 tags: [solution, mining, well, cavern, design]
 image: salt.jpg
 mathjax: true

@@ -1,14 +1,11 @@
 ---
 title: "From Grit to Gigabytes: Charting the Four Revolutions of Mining"
 date: '2025-07-01'
-author: Cagatay Guley
+author: Cagatay Jay Guley
 layout: post
 permalink: /from-grit-to-gigabytes/
-tr_url: /cakildan-gigabayta/
 redirect_from:
   - /from-grit-to-gigabytes
-  - /cakildan-gigabayta
-  - /cakildan-gigabayta/
 tags: [mining, engineer, digital transformation, engineering to tech, remote work, digital skills, data-driven decisions, grit to gigabytes, mining to technology, personal transformation, remote engineering, tech transition, digitalization]
 image: mining5.jpg
 ---

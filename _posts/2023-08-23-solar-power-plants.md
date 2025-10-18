@@ -1,14 +1,11 @@
 ---
 title: 'Solar Power Plants'
 date: '2023-08-23'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /solar-power-plants/
-tr_url: /gunes-enerjisi-santralleri/
 redirect_from:
   - /solar-power-plants
-  - /gunes-enerjisi-santralleri
-  - /gunes-enerjisi-santralleri/
 tags: [solar, power, panel, pv module, energy, inverter, transformer]
 image: solar.jpg
 ---

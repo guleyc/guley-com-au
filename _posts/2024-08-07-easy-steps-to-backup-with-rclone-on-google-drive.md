@@ -1,14 +1,11 @@
 ---
 title: 'Easy Steps to Backup with Rclone on Google Drive'
 date: '2024-08-07'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /easy-steps-to-backup-with-rclone-on-google-drive/
-tr_url: /rclone-ile-google-drive-yedekleme-adimlari/
 redirect_from:
   - /easy-steps-to-backup-with-rclone-on-google-drive
-  - /rclone-ile-google-drive-yedekleme-adimlari
-  - /rclone-ile-google-drive-yedekleme-adimlari/
 tags: [rclone, google drive, backup, cloudpanel, web, linux, windows, security]
 image: backup.jpg
 ---

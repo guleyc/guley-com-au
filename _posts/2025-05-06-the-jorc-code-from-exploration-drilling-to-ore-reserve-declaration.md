@@ -1,14 +1,11 @@
 ---
 title: 'The JORC Code: From Exploration Drilling to Ore Reserve Declaration'
 date: '2025-05-06'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /the-jorc-code-from-exploration-drilling-to-ore-reserve-declaration/
-tr_url: /jorc-kodu-arama-sondajindan-cevher-rezervi-beyanina/
 redirect_from:
   - /the-jorc-code-from-exploration-drilling-to-ore-reserve-declaration
-  - /jorc-kodu-arama-sondajindan-cevher-rezervi-beyanina
-  - /jorc-kodu-arama-sondajindan-cevher-rezervi-beyanina/
 tags: [JORC, Code, Exploration, Drilling, Ore Reserve, Declaration]
 image: jorc.jpg
 mathjax: true

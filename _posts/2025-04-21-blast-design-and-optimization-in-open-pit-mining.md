@@ -1,14 +1,11 @@
 ---
 title: "Blast Design and Optimization in Open-Pit Mining"
 date: '2025-04-21'
-author: Cagatay Guley
+author: Cagatay Jay Guley
 layout: post
 permalink: /blast-design-and-optimization-in-open-pit-mining/
-tr_url: /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu/
 redirect_from:
   - /blast-design-and-optimization-in-open-pit-mining
-  - /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu
-  - /acik-ocak-madenciliginde-patlatma-tasarimi-ve-optimizasyonu/
 tags: [blast, design, openpit, mining]
 image: blast.webp
 ---

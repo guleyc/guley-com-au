@@ -1,14 +1,11 @@
 ---
 title: 'Soothsayer: Time Series Forecasting System'
 date: '2025-09-24'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /soothsayer-time-series-forecasting-system/
-tr_url: /soothsayer-zaman-serisi-tahminleme-sistemi/
 redirect_from:
   - /soothsayer-time-series-forecasting-system
-  - /soothsayer-zaman-serisi-tahminleme-sistemi
-  - /soothsayer-zaman-serisi-tahminleme-sistemi/
 tags: [forecast, prediction, time, series, soothsayer]
 image: timeseries.jpeg
 ---

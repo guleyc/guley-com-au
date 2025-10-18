@@ -1,14 +1,11 @@
 ---
 title: 'Comprehensive Technical Handbook for Open Pit Mining Engineers'
 date: '2025-07-03T08:41:56+00:00'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /comprehensive-technical-handbook-for-open-pit-mining-engineers/
-tr_url: /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi/
 redirect_from:
   - /comprehensive-technical-handbook-for-open-pit-mining-engineers
-  - /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi
-  - /acik-ocak-isletmeleri-icin-kapsamli-el-kitabi/
 mathjax: true
 tags: [openpit, mining, engineer, handbook]
 image: openpit.jpg

@@ -1,7 +1,7 @@
 ---
 title: 'A Deep Dive into Mine Cost Calculation: A Case Study'
-date: '2025-10-17'
-author: 'Cagatay Guley'
+date: '2025-10-07'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /a-deep-dive-into-mine-cost-calculation-a-case-study/
 tags: [Mining, Cost, Engineering, Case Study, Open Pit, Copper, Opex]

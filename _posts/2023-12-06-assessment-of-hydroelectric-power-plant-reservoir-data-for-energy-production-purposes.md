@@ -1,14 +1,11 @@
 ---
 title: 'Assessment of Hydroelectric Power Plant Reservoir Data for Energy Production Purposes'
 date: '2023-12-06'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /assessment-of-hydroelectric-power-plant-reservoir-data-for-energy-production-purposes/
-tr_url: /hidroelektrik-santral-verilerinin-degerlendirilmesi/
 redirect_from:
   - /assessment-of-hydroelectric-power-plant-reservoir-data-for-energy-production-purposes
-  - /hidroelektrik-santral-verilerinin-degerlendirilmesi
-  - /hidroelektrik-santral-verilerinin-degerlendirilmesi/
 tags: [hydroelectric, power, plant, reservoir, data, assessment, energy, production]
 image: hydro.jpg
 mathjax: true

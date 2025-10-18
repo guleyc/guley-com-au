@@ -1,14 +1,11 @@
 ---
 title: 'Applications of Data Analytics and Artificial Intelligence in the Mining Sector'
 date: '2023-06-01'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /applications-of-data-analytics-and-artificial-intelligence-in-the-mining-sector/
-tr_url: /maden-sektorunde-veri-analitigi-ve-yapay-zeka-uygulamalari/
 redirect_from:
   - /applications-of-data-analytics-and-artificial-intelligence-in-the-mining-sector
-  - /maden-sektorunde-veri-analitigi-ve-yapay-zeka-uygulamalari
-  - /maden-sektorunde-veri-analitigi-ve-yapay-zeka-uygulamalari/
 tags: [applications, data, analytics, artificial, intelligence, mining]
 image: ai-mining.jpg
 ---

@@ -1,14 +1,11 @@
 ---
 title: "A Mining Engineer's Guide to Underground Mine Ventilation"
 date: '2024-11-11'
-author: 'Cagatay Guley'
+author: 'Cagatay Jay Guley'
 layout: post
 permalink: /a-mining-engineers-guide-to-underground-mine-ventilation/
-tr_url: /yeralti-maden-havalandirmasi-rehberi/
 redirect_from:
   - /a-mining-engineers-guide-to-underground-mine-ventilation
-  - /yeralti-maden-havalandirmasi-rehberi
-  - /yeralti-maden-havalandirmasi-rehberi/
 tags: [mining, engineer, guide, underground, mine, ventilation]
 mathjax: true
 image: ventilation.jpg
