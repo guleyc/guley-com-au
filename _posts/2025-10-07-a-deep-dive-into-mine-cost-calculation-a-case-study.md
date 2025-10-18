@@ -5,7 +5,7 @@ author: 'Cagatay Jay Guley'
 layout: post
 permalink: /a-deep-dive-into-mine-cost-calculation-a-case-study/
 tags: [Mining, Cost, Engineering, Case Study, Open Pit, Copper, Opex]
-image: open-pit-mine.jpg
+image: mine-cost-calc.png
 mathjax: true
 ---
 
