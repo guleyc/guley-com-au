@@ -19,8 +19,6 @@ Rather than being competitors, these two projects are complementary. When Mount 
 
 ## **Chapter 1: The Geopolitical Cauldron of the Global REE Market**
 
-Diversifying the Rare Earth Element supply chain has become an urgent economic and national security matter for countries outside of China. This section establishes the macro-environmental context needed to understand Western Australia's strategic importance by examining the current structure of the global market, China's structural dominance, and the geopolitical tensions created by this dominance.
-
 ### **1.1 China's Structural Dominance and Strategic Influence**
 
 China holds an overwhelming share of the global REE market, controlling approximately 70% of global mining and, more critically, about 90% of processing.¹ This dominance is not an accidental outcome but the result of a deliberate, decades-long strategy. This strategy has been built on elements such as creating economies of scale, providing subsidies to state-owned enterprises, and historically lower environmental compliance costs compared to Western standards.²
@@ -33,7 +31,7 @@ An analysis of global supply dynamics reveals that the most significant strategi
 | :---- | :---- | :---- |
 | China | 240,000 | 44,000,000 |
 | USA | 43,000 | 2,400,000 |
-| Myanmar | 38,000 | Bilinmiyor |
+| Myanmar | 38,000 | Unknown |
 | Australia | 18,000 | 4,200,000 |
 | Brazil | Unknown | 21,000,000 |
 | India | Unknown | 7,230,000 (within Monazite) |
