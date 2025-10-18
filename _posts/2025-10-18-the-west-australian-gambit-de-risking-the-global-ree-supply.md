@@ -5,7 +5,7 @@ author: 'Cagatay Jay Guley'
 layout: post
 permalink: /the-west-australian-gambit-de-risking-the-global-ree-supply/
 tags: [Rare Earth Elements, Critical Minerals, Supply Chain Security, Mining Industry, Sustainable Mining, Geopolitics, Mine-to-Magnet, Downstream Processing, ESG, Strategic Partnership, China Supply Chain, Geopolitical Risk, Lynas Rare Earths, Northern Minerals, Iluka Resources, Mount Weld, Browns Range, Neodymium-Praseodymium (NdPr), Dysprosium (Dy), Terbium (Tb), Light Rare Earths (LREE), Heavy Rare Earths (HREE), Xenotime, Monazite, Western Australia, Australia]
-image: rare-earth-elements.jpg
+image: rare-earth-elements.png
 mathjax: true
 ---
 
