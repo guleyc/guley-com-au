@@ -1,23 +1,5 @@
 <script src="/assets/js/custom.js?v={{ site.github.build_revision }}" data-cfasync="false"></script>
-	<nav class="post-navigation" aria-label="Post navigation">
-		{% if page.previous %}
-		<div class="nav-item nav-previous">
-			<a href="{{ page.previous.url | relative_url }}" rel="prev">
-			<span class="meta-nav" aria-hidden="true">&larr; Previous Post</span>
-			<span class="post-title">{{ page.previous.title }}</span>
-			</a>
-		</div>
-		{% endif %}
 
-		{% if page.next %}
-		<div class="nav-item nav-next">
-			<a href="{{ page.next.url | relative_url }}" rel="next">
-			<span class="meta-nav" aria-hidden="true">Next Post &rarr;</span>
-			<span class="post-title">{{ page.next.title }}</span>
-			</a>
-		</div>
-		{% endif %}
-	</nav>
 {% include lazyload.html %}
 {% include table.html %}
 </body>
