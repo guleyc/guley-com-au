@@ -38,7 +38,9 @@ layout: default
     </script>
     <script type="text/javascript" id="MathJax-script" async
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js">
-    </script>	{% endif %}
+    </script>	
+	{% endif %}
+	
 	{% if page.image %}
 		{%- assign post_image_url = page.image | prepend: '/upload/' | relative_url -%}
 		<div class="hero-image" style="background-image: url('{{ post_image_url }}');" data-echo-background="{{ post_image_url }}">
@@ -61,7 +63,10 @@ layout: default
 	<div class="blog-post-content" itemprop="articleBody">
 		{{ content }}
 	</div>
-	
+</article>
+
+{% include sticky-sidebar.html reading_time=reading_time %}
+
 	<nav class="post-navigation" aria-label="Post navigation">
 		{% if page.previous %}
 		<div class="nav-item nav-previous">
@@ -81,7 +86,3 @@ layout: default
 		</div>
 		{% endif %}
 	</nav>
-
-</article>
-
-{% include sticky-sidebar.html reading_time=reading_time %}
