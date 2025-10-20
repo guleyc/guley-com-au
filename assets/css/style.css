@@ -501,8 +501,8 @@ code {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+	max-width: 100%;
     position: relative;
-    max-width: 960px;
     box-sizing: border-box;
     margin: 3rem auto;
     padding: 1.5rem 25px;
@@ -555,9 +555,6 @@ code {
     padding: 0 1rem
 }
 
-.post-container {
-    width: 100%;
-}
 
 /* TOC */
 .left-sidebar {
