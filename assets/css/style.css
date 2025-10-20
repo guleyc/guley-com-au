@@ -501,17 +501,14 @@ code {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     max-width: 960px;
     box-sizing: border-box;
     margin: 3rem auto;
     padding: 1.5rem 25px;
     border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color)
-}
+    border-bottom: 1px solid var(--border-color);}
 
 .nav-item {
     flex-basis: 48%;
