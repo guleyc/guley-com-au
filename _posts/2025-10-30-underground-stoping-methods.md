@@ -7,7 +7,6 @@ permalink: /underground-stoping-methods/
 tags: [Underground, Stoping, Room and Pillar, Shrinkage Stoping, Sublevel Open Stoping, Cut-and-Fill, Longwall Mining, Sublevel Caving, Block Caving]
 image: underground-methods.png
 mathjax: true
-youtubeId: Oaxs7EEIp4k
 ---
 
 The selection of an appropriate stoping method is arguably the most critical strategic decision in the development and operation of an underground mine. This choice profoundly influences the project's entire lifecycle, dictating capital investment, operational costs, production rates, ore recovery, dilution, and, most importantly, the safety of the workforce and the long-term environmental legacy of the operation. The decision is a complex, multi-faceted engineering challenge that must balance the unique geological and geotechnical characteristics of an orebody with demanding economic, safety, and environmental constraints.
