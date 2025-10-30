@@ -346,6 +346,8 @@ The preceding chapters have detailed the operational principles, applicability, 
 
 The following table provides a consolidated, at-a-glance summary of the key attributes of each mining method. This allows for a rapid assessment of their relative strengths, weaknesses, and suitability for different geological and economic conditions.
 
+<div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1em;">
+
 | Method | Classification | Ideal Orebody Geometry (Dip, Shape, Thickness) | Required Rock Mass Strength (Ore & Host Rock) | Ore Recovery (Typical %) | Dilution (Typical %) | Relative Capital Cost | Relative Operating Cost | Productivity / Mechanisation | Selectivity |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
 | **Room and Pillar** | Unsupported | Flat to gentle dip (\<20°), tabular, uniform thickness | Competent ore and host rock | 40–70% (advance), >85% (retreat) | Low (\~5%) | Low-Medium | Medium | High | Low |
@@ -356,6 +358,8 @@ The following table provides a consolidated, at-a-glance summary of the key attr
 | **Longwall Mining** | Caving | Flat to gentle dip, tabular, very continuous | (Not primary constraint; must allow goaf collapse) | Very High (>80%) | Low | Very High | Low | Very High | Very Low |
 | **Sublevel Caving (SLC)** | Caving | Steep dip (>60°), massive, large vertical extent | Competent ore, weak/caveable host rock | 85–90% | High (20–30%) | High | Low-Medium | High | Low |
 | **Block Caving** | Caving | Steep dip, massive, very large vertical & horizontal extent | Caveable ore, competent host rock for infrastructure | Very High (~95%) | Medium (\~15%) | Very High | Very Low | Very High | Very Low |
+
+</div>
 
 ### **4.2 Analysis of Key Dichotomies**
 
