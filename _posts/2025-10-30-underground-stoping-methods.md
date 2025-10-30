@@ -4,7 +4,7 @@ date: '2025-10-30'
 author: 'Cagatay Jay Guley'
 layout: post
 permalink: /underground-stoping-methods/
-tags: [Underground, Stoping, Room and Pillar, Shrinkage Stoping, Sublevel Open Stoping, Vertical Crater Retreat, Cut-and-Fill, Longwall Mining, Sublevel Caving, Block Caving]
+tags: [Underground, Stoping, Room and Pillar, Shrinkage Stoping, Sublevel Open Stoping, Cut-and-Fill, Longwall Mining, Sublevel Caving, Block Caving]
 image: rare-earth-elements.png
 mathjax: true
 ---
@@ -429,7 +429,7 @@ The field of underground mining is in a state of continuous evolution, driven by
 #### **Works cited**
 
 1. A Review of Approaches used for the Selection of Optimum Stoping Method in Hard Rock Underground Mine \ ResearchGate, accessed October 30, 2025, [https://www.researchgate.net/publication/306080280\_A\_Review\_of\_Approaches\_used\_for\_the\_Selection\_of\_Optimum\_Stoping\_Method\_in\_Hard\_Rock\_Underground\_Mine](https://www.researchgate.net/publication/306080280_A_Review_of_Approaches_used_for_the_Selection_of_Optimum_Stoping_Method_in_Hard_Rock_Underground_Mine)  
-2. 4.3.2: Underground Mining Methods | MNG 230: Introduction to ..., accessed October 30, 2025, [https://www.e-education.psu.edu/mng230/node/827](https://www.e-education.psu.edu/mng230/node/827)  
+2. 4.3.2: Underground Mining Methods - MNG 230: Introduction to ..., accessed October 30, 2025, [https://www.e-education.psu.edu/mng230/node/827](https://www.e-education.psu.edu/mng230/node/827)  
 3. ilmineswiki.web.illinois.edu, accessed October 30, 2025, [https://ilmineswiki.web.illinois.edu/wiki/Mining\_Method\#:\~:text=(1984).-,Room%20and%20pillar,from%2040%25%20to%2070%25.](https://ilmineswiki.web.illinois.edu/wiki/Mining_Method#:~:text=\(1984\).-,Room%20and%20pillar,from%2040%25%20to%2070%25.)  
 4. (PDF) Room and Pillar Mining with case studies \ ResearchGate, accessed October 30, 2025, [https://www.researchgate.net/publication/392264103\_Room\_and\_Pillar\_Mining\_with\_case\_studies](https://www.researchgate.net/publication/392264103_Room_and_Pillar_Mining_with_case_studies)  
 5. Toward Pillar Design to Prevent Collapse of Room-and-Pillar Mines \ CDC Stacks, accessed October 30, 2025, [https://stacks.cdc.gov/view/cdc/9341/cdc\_9341\_DS1.pdf?](https://stacks.cdc.gov/view/cdc/9341/cdc_9341_DS1.pdf)  
@@ -437,6 +437,6 @@ The field of underground mining is in a state of continuous evolution, driven by
 7. Failures in Backfilled Stopes and Barricades in Underground Mines \ ResearchGate, accessed October 30, 2025, [https://www.researchgate.net/publication/272174977\_Failures\_in\_Backfilled\_Stopes\_and\_Barricades\_in\_Underground\_Mines](https://www.researchgate.net/publication/272174977_Failures_in_Backfilled_Stopes_and_Barricades_in_Underground_Mines)  
 8. A global review of recovery, dilution and draw control in sublevel caving mines \ Australian Centre for Geomechanics, accessed October 30, 2025, [https://papers.acg.uwa.edu.au/d/2205\_62\_Campbell/62\_Campbell.pdf](https://papers.acg.uwa.edu.au/d/2205_62_Campbell/62_Campbell.pdf)  
 9. What every mining professional needs to know about block caving ..., accessed October 30, 2025, [https://www.ausimm.com/bulletin/bulletin-articles/what-every-mining-professional-needs-to-know-about-block-caving--the-deep-mining-method-of-the-future/](https://www.ausimm.com/bulletin/bulletin-articles/what-every-mining-professional-needs-to-know-about-block-caving--the-deep-mining-method-of-the-future/)  
-10. Underground mining equipment | Leading drill rigs, loaders and trucks, accessed October 30, 2025, [https://www.mining.sandvik/en/landing-page/underground-mining-equipment/](https://www.mining.sandvik/en/landing-page/underground-mining-equipment/)  
+10. Underground mining equipment - Leading drill rigs, loaders and trucks, accessed October 30, 2025, [https://www.mining.sandvik/en/landing-page/underground-mining-equipment/](https://www.mining.sandvik/en/landing-page/underground-mining-equipment/)
 11. BLOCK-CAVING COPPER MINING METHODS AND COSTS AT THE MIAMI MINE, MIAMI COPPER COMPANY, GILA COUNTY, ARIZ., accessed October 30, 2025, [https://data.azgs.arizona.edu/api/v1/collections/BMIC-1552428897604-814/usbmic8271blockcavingmiamiminegilacounty.pdf](https://data.azgs.arizona.edu/api/v1/collections/BMIC-1552428897604-814/usbmic8271blockcavingmiamiminegilacounty.pdf)  
 12. Block Caving Mining Systems – Strategies for Caveability Prediction and Hazard Management Using Next Generation Technologies \ Nazarbayev University, accessed October 30, 2025, [https://research.nu.edu.kz/en/projects/block-caving-mining-systems-strategies-for-caveability-prediction](https://research.nu.edu.kz/en/projects/block-caving-mining-systems-strategies-for-caveability-prediction)
