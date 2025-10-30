@@ -35,6 +35,9 @@ Unsupported methods are applicable where the rock mass possesses sufficient inhe
 
 https://www.youtube.com/watch?v=Oaxs7EEIp4k
 
+<iframe width="420" height="315" src="http://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+
+
 #### **Principles of Operation**
 
 Room and Pillar mining is one of the oldest and most widely utilised underground mining methods. The system involves excavating ore in a network of "rooms," while leaving behind "pillars" of intact ore to support the roof, or overburden. The layout typically resembles a grid or checkerboard pattern when viewed in plan. The dimensions of the rooms and the size and spacing of the pillars are critical design parameters, engineered to ensure the stability of the mine workings. Depending on these dimensions, the amount of ore extracted from a given panel can range from 40% to as high as 70% during the initial, or "advance," phase of mining.
