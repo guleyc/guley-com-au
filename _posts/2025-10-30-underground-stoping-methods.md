@@ -5,7 +5,7 @@ author: 'Cagatay Jay Guley'
 layout: post
 permalink: /underground-stoping-methods/
 tags: [Underground, Stoping, Room and Pillar, Shrinkage Stoping, Sublevel Open Stoping, Cut-and-Fill, Longwall Mining, Sublevel Caving, Block Caving]
-image: underground-methods.png
+image: underground-methods.jpg
 mathjax: true
 ---
 
@@ -75,7 +75,7 @@ Ore recovery during the advance phase typically ranges from 40% to 70%. If pilla
 
 ### **1.2 Shrinkage Stoping**
 
-https://www.youtube.com/watch?v=9qHAOXV-hMI
+{% include youtube.html id="9qHAOXV-hMI" %}
 
 #### **Principles of Operation**
 
@@ -109,7 +109,7 @@ While now largely obsolete in its original form, shrinkage stoping serves as a c
 
 ### **1.3 Sublevel Open Stoping (SLOS)**
 
-https://www.youtube.com/watch?v=BdU6-DvnpVU
+{% include youtube.html id="BdU6-DvnpVU" %}
 
 #### **Principles of Operation**
 
@@ -159,7 +159,8 @@ Supported stoping methods are employed when the rock mass is not competent enoug
 
 ### **2.1 Cut-and-Fill Stoping**
 
-https://www.youtube.com/watch?v=XKCDevDl7qE
+{% include youtube.html id="XKCDevDl7qE" %}
+
 
 #### **Principles of Operation**
 
@@ -213,7 +214,7 @@ Caving methods represent a fundamentally different approach to underground minin
 
 ### **3.1 Longwall Mining**
 
-https://www.youtube.com/watch?v=HHaUypSqdzM
+{% include youtube.html id="HHaUypSqdzM" %}
 
 #### **Principles of Operation**
 
@@ -259,7 +260,7 @@ Ore recovery within the mined panel is excellent, typically around 80% or higher
 
 ### **3.2 Sublevel Caving (SLC)**
 
-https://www.youtube.com/watch?v=ZmKwdtFkoxo
+{% include youtube.html id="ZmKwdtFkoxo" %}
 
 #### **Principles of Operation**
 
@@ -299,7 +300,7 @@ Ore recovery is moderate, typically in the range of 85-90%, but this comes at th
 
 ### **3.3 Block Caving**
 
-https://www.youtube.com/watch?v=MWqMD85MVO4
+{% include youtube.html id="MWqMD85MVO4" %}
 
 #### **Principles of Operation**
 
