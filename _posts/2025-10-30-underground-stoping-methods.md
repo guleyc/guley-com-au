@@ -33,6 +33,8 @@ Unsupported methods are applicable where the rock mass possesses sufficient inhe
 
 ### **1.1 Room and Pillar Mining**
 
+https://www.youtube.com/watch?v=Oaxs7EEIp4k
+
 #### **Principles of Operation**
 
 Room and Pillar mining is one of the oldest and most widely utilised underground mining methods. The system involves excavating ore in a network of "rooms," while leaving behind "pillars" of intact ore to support the roof, or overburden. The layout typically resembles a grid or checkerboard pattern when viewed in plan. The dimensions of the rooms and the size and spacing of the pillars are critical design parameters, engineered to ensure the stability of the mine workings. Depending on these dimensions, the amount of ore extracted from a given panel can range from 40% to as high as 70% during the initial, or "advance," phase of mining.
@@ -73,6 +75,8 @@ Ore recovery during the advance phase typically ranges from 40% to 70%. If pilla
 
 ### **1.2 Shrinkage Stoping**
 
+https://www.youtube.com/watch?v=9qHAOXV-hMI
+
 #### **Principles of Operation**
 
 Shrinkage stoping is a vertical, overhand mining method where the ore is mined in horizontal, upward-advancing slices. A defining characteristic is that the majority of the broken ore (muck) is intentionally left in the excavated area, known as the stope. This accumulated muck serves two primary purposes: it provides temporary support to the stope walls (the hanging wall and footwall), and it acts as a working platform for miners to access the next slice of ore at the back (roof) of the stope. When rock is blasted, it increases in volume due to the creation of voids, a phenomenon known as "swell." This swell, typically around 30-40%, means that a portion of the broken ore must be drawn off from chutes at the bottom of the stope after each blast. This drawing-off process, or "shrinking" of the muck pile, creates sufficient headroom for the miners and equipment to work on the next cycle. The bulk of the ore, however, remains in the stope until the entire block has been mined from bottom to top, at which point the remaining ore is drawn down and emptied.
@@ -104,6 +108,8 @@ Under ideal geological conditions, shrinkage stoping can achieve high ore recove
 While now largely obsolete in its original form, shrinkage stoping serves as a crucial case study in the evolution of mining methods. Its fundamental principles have been adapted and refined, but its inherent safety flaws and productivity limitations represent a technological and safety dead-end. The core concept of upward slicing was retained, but its implementation had to be radically altered through technological advancements, such as long-hole drilling, to eliminate the key safety and productivity bottlenecks. This evolutionary pressure directly led to the development of safer and more productive bulk stoping methods like Vertical Crater Retreat (VCR), which removes miners from the stope entirely by conducting all drilling and blasting from separate, stable development drifts.
 
 ### **1.3 Sublevel Open Stoping (SLOS)**
+
+https://www.youtube.com/watch?v=BdU6-DvnpVU
 
 #### **Principles of Operation**
 
@@ -152,6 +158,8 @@ Typical ore recovery for SLOS is in the range of 85%, with dilution around 15%. 
 Supported stoping methods are employed when the rock mass is not competent enough to be self-supporting. These methods are defined by the requirement for substantial, engineered artificial support to maintain the stability of the excavation. The support, typically in the form of backfill, is not merely an auxiliary measure but an integral and cyclical component of the production process itself.
 
 ### **2.1 Cut-and-Fill Stoping**
+
+https://www.youtube.com/watch?v=XKCDevDl7qE
 
 #### **Principles of Operation**
 
@@ -205,6 +213,8 @@ Caving methods represent a fundamentally different approach to underground minin
 
 ### **3.1 Longwall Mining**
 
+https://www.youtube.com/watch?v=HHaUypSqdzM
+
 #### **Principles of Operation**
 
 Longwall mining is a highly productive and highly mechanised underground system designed for the complete extraction of tabular deposits, predominantly coal seams. The method involves mining a large rectangular block or "panel" of coal, which can be up to 400 metres wide and several kilometres long. A sophisticated, integrated system of machinery operates along the long face of the panel. A cutting machine, typically a shearer with two rotating drums, traverses the coal face, cutting a slice of coal that falls onto an armoured face conveyor (AFC) running parallel to the face. Immediately behind the conveyor, a line of powerful hydraulic roof supports, known as shields or chocks, protects the machinery and personnel by holding up the immediate roof. As the shearer cuts the coal, the entire system—shields, conveyor, and shearer—advances forward into the seam. The roof behind the shields is then allowed to collapse in a controlled and predictable manner into the void, or "goaf".
@@ -249,6 +259,8 @@ Ore recovery within the mined panel is excellent, typically around 80% or higher
 
 ### **3.2 Sublevel Caving (SLC)**
 
+https://www.youtube.com/watch?v=ZmKwdtFkoxo
+
 #### **Principles of Operation**
 
 Sublevel Caving is a mass mining method that proceeds in a top-down sequence. The orebody is divided into a series of sublevels at regular vertical intervals (typically 8-15 metres). On each sublevel, a network of parallel drifts is developed through the orebody. From these drifts, long blast holes are drilled in a fan-shaped pattern into the ore block above. The ore is blasted one ring or slice at a time. The broken ore flows by gravity into the production drift, where it is loaded by LHDs. As the ore is drawn out, the overlying waste rock (the hanging wall and previously caved material) is induced to cave and follow the production front downwards, filling the void created by the extracted ore.
@@ -286,6 +298,8 @@ SLC is fundamentally a method of calculated compromise. It is employed in ground
 Ore recovery is moderate, typically in the range of 85-90%, but this comes at the cost of high dilution, which is generally between 20% and 30%.
 
 ### **3.3 Block Caving**
+
+https://www.youtube.com/watch?v=MWqMD85MVO4
 
 #### **Principles of Operation**
 
