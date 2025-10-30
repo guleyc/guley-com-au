@@ -34,7 +34,7 @@ Unsupported methods are applicable where the rock mass possesses sufficient inhe
 
 ### **1.1 Room and Pillar Mining**
 
-{% include youtube.html id=page.youtubeId %}
+{% include youtube.html id="Oaxs7EEIp4k" %}
 
 #### **Principles of Operation**
 
