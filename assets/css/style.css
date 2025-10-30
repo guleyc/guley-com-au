@@ -1146,21 +1146,10 @@ code {
 table {
     border: 1px solid var(--border-color);
     border-collapse: collapse;
-    margin: 1.5rem 0;
+    margin: 0;
     padding: 0;
-    width: auto; /* 100% yerine auto */
-    max-width: 100%;
-    table-layout: auto;
-    display: block;
-    overflow-x: auto;
-}
-
-table thead,
-table tbody,
-table tr {
-    display: table;
     width: 100%;
-    table-layout: fixed;
+    table-layout: fixed
 }
 
 table caption {
@@ -1190,16 +1179,7 @@ table th {
 
 @media screen and (max-width:600px) {
     table {
-        display: table;
-        width: 100%;
-        table-layout: auto;
-    }
-
-    table thead,
-    table tbody,
-    table tr {
-        display: table-row-group;
-        width: auto;
+        border: 0
     }
 
     table caption {
@@ -1214,24 +1194,20 @@ table th {
         overflow: hidden;
         padding: 0;
         position: absolute;
+        width: 1px
     }
 
     table tr {
         border-bottom: 3px solid var(--border-color);
-        display: table-row;
+        display: block;
         margin-bottom: .625em;
         border-radius: 8px;
         border: 1px solid var(--border-color)
     }
-    
-    table td,
-    table th {
-        display: table-cell;
-    }
 
     table td {
         border-bottom: 1px solid var(--bg-hover-color);
-        display: table-cell;
+        display: block;
         font-size: .8em;
         text-align: right;
         position: relative;
