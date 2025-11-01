@@ -117,7 +117,7 @@ body {
 }
 
 .post-header {
-    width: 100%;
+    width: auto;
     display: flex;
     font-size: 1rem;
     flex-direction: row;
