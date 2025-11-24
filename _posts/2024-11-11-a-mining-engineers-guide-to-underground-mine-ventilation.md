@@ -78,9 +78,9 @@ To calculate precise density, we use the derived formula:
 
 $$\rho = \frac{P - 0.378e}{0.2871 \cdot (t_d + 273.15)}$$
 
-* **$P$**: Barometric Pressure ($kPa$) [cite: 1021]
-* **$e$**: Partial pressure of water vapor ($kPa$) [cite: 1024]
-* **$t_d$**: Dry Bulb Temperature ($^\circ C$) [cite: 1023]
+* **$P$**: Barometric Pressure ($kPa$)
+* **$e$**: Partial pressure of water vapor ($kPa$)
+* **$t_d$**: Dry Bulb Temperature ($^\circ C$)
 
 **Calculating Vapor Pressure ($e$):**
 
@@ -127,14 +127,14 @@ Historically, miners grouped gases into "Damps" (from the German *Dampf* for vap
 
 | Gas | Formula | "Damp" Name | SG (Air=1) | WA TWA (8hr) | WA STEL (15min) | Critical Field Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Oxygen** | $O_2$ | - | 1.10 | **> 19.5%** | - | **Life Support.** <19.5% is oxygen deficiency. <6% leads to rapid loss of consciousness and death[cite: 1627]. |
-| **Methane** | $CH_4$ | Firedamp | 0.55 | - | - | **Explosive.** Range: 5-15%. Peak violence at ~9.8%. Layers at the **roof**[cite: 1676]. |
-| **Carbon Monoxide** | $CO$ | Whitedamp | 0.97 | **30 ppm** | - | **Toxic.** Binds to hemoglobin 300x stronger than $O_2$. Colorless/Odorless. Product of fire/diesel[cite: 1650]. |
-| **Carbon Dioxide** | $CO_2$ | Blackdamp | 1.53 | **5,000 ppm** | **30,000 ppm** | **Asphyxiant.** Acid taste. Settles in **sumps/floors**. Increases breathing rate[cite: 1638, 1644]. |
-| **Hydrogen Sulfide** | $H_2S$ | Stinkdamp | 1.19 | **10 ppm** | **15 ppm** | **Highly Toxic.** Rotten egg smell, but desensitizes nose rapidly (olfactory fatigue)[cite: 1718]. |
-| **Nitrogen Dioxide** | $NO_2$ | - | 1.58 | **3 ppm** | **5 ppm** | **Toxic.** Reddish-brown. Causes pulmonary edema (fluid in lungs). Common after blasting[cite: 1704]. |
-| **Hydrogen** | $H_2$ | - | 0.07 | - | - | **Explosive.** Wide range (4-74%). Found in battery charging bays. Layers aggressively at the roof[cite: 1726]. |
-| **Sulfur Dioxide** | $SO_2$ | - | 2.26 | **2 ppm** | **5 ppm** | **Toxic.** Pungent acid smell. Byproduct of sulphide ore dust explosions or diesel[cite: 1709]. |
+| **Oxygen** | $O_2$ | - | 1.10 | **> 19.5%** | - | **Life Support.** <19.5% is oxygen deficiency. <6% leads to rapid loss of consciousness and death. |
+| **Methane** | $CH_4$ | Firedamp | 0.55 | - | - | **Explosive.** Range: 5-15%. Peak violence at ~9.8%. Layers at the **roof**. |
+| **Carbon Monoxide** | $CO$ | Whitedamp | 0.97 | **30 ppm** | - | **Toxic.** Binds to hemoglobin 300x stronger than $O_2$. Colorless/Odorless. Product of fire/diesel. |
+| **Carbon Dioxide** | $CO_2$ | Blackdamp | 1.53 | **5,000 ppm** | **30,000 ppm** | **Asphyxiant.** Acid taste. Settles in **sumps/floors**. Increases breathing rate. |
+| **Hydrogen Sulfide** | $H_2S$ | Stinkdamp | 1.19 | **10 ppm** | **15 ppm** | **Highly Toxic.** Rotten egg smell, but desensitizes nose rapidly (olfactory fatigue). |
+| **Nitrogen Dioxide** | $NO_2$ | - | 1.58 | **3 ppm** | **5 ppm** | **Toxic.** Reddish-brown. Causes pulmonary edema (fluid in lungs). Common after blasting. |
+| **Hydrogen** | $H_2$ | - | 0.07 | - | - | **Explosive.** Wide range (4-74%). Found in battery charging bays. Layers aggressively at the roof. |
+| **Sulfur Dioxide** | $SO_2$ | - | 2.26 | **2 ppm** | **5 ppm** | **Toxic.** Pungent acid smell. Byproduct of sulphide ore dust explosions or diesel. |
 
 **Field Rule:**
 
@@ -148,10 +148,10 @@ Dust is not just a nuisance; it is a chronic killer. In WA mining, strict adhere
 
 #### A. Classification
 
-**Fibrogenic:** Causes scar tissue in lungs (e.g., Silica/Quartz $\to$ Silicosis, Asbestos $\to$ Asbestosis)[cite: 1160].
-**Carcinogenic:** Causes cancer (e.g., Radon daughters, Diesel Particulate Matter, Arsenic)[cite: 1157].
-**Explosive:** Coal dust, sulphide dusts[cite: 1164].
-**Nuisance:** Reduces visibility and irritates eyes (e.g., Limestone)[cite: 1167].
+**Fibrogenic:** Causes scar tissue in lungs (e.g., Silica/Quartz $\to$ Silicosis, Asbestos $\to$ Asbestosis).
+**Carcinogenic:** Causes cancer (e.g., Radon daughters, Diesel Particulate Matter, Arsenic).
+**Explosive:** Coal dust, sulphide dusts.
+**Nuisance:** Reduces visibility and irritates eyes (e.g., Limestone).
 
 #### B. Critical Limits (WA)
 
@@ -172,33 +172,34 @@ Understanding fire chemistry allows an engineer to detect a heating event *weeks
 
 #### A. The Fire Triangle
 
-Three elements are required: **Fuel**, **Oxygen**, and **Heat**[cite: 1316].
+Three elements are required: **Fuel**, **Oxygen**, and **Heat**.
 
 * **Direct Fire Fighting:** Removes Heat (water) or Oxygen (foam/extinguishers).
-* **Sealing:** Cuts off Oxygen. Seals in gassy mines must be explosion-proof (rated to withstand overpressure)[cite: 1460].
+* **Sealing:** Cuts off Oxygen. Seals in gassy mines must be explosion-proof (rated to withstand overpressure).
 
 #### B. Spontaneous Combustion ("Spon Com")
 
-Coal and sulphide ores naturally oxidize. If airflow is "sluggish" (enough to supply $O_2$ but too slow to carry away heat), the rock temperature rises until it auto-ignites[cite: 1411].
+Coal and sulphide ores naturally oxidize. If airflow is "sluggish" (enough to supply $O_2$ but too slow to carry away heat), the rock temperature rises until it auto-ignites.
 
 **Detection: Graham's Ratio ($ICO$)**
 
 This is the gold standard for early detection. It measures the efficiency of oxygen consumption.
+
 $$ICO = \frac{CO \text{ produced}}{O_2 \text{ consumed}} = \frac{CO \%}{0.265 \cdot N_2 \% - O_2 \%} \times 100$$
 
 * **Normal:** $< 0.5$ (typically).
 * **Heating suspected:** $> 0.5$ rising to $1.0$.
-* **Active Fire:** $> 2.0$[cite: 1502].
+* **Active Fire:** $> 2.0$.
 
 #### C. Explosion Dynamics: The Coward Triangle
 
 Explosions require a specific mixture of gas and oxygen.
 
-* **Methane Explosive Range:** 5% (LEL) to 15% (UEL)[cite: 1676].
+* **Methane Explosive Range:** 5% (LEL) to 15% (UEL).
 
-* **The "Nose" of the Curve:** As oxygen decreases, the explosive range of methane shrinks. Below ~12% Oxygen, a methane explosion is impossible regardless of methane concentration[cite: 1680].
+* **The "Nose" of the Curve:** As oxygen decreases, the explosive range of methane shrinks. Below ~12% Oxygen, a methane explosion is impossible regardless of methane concentration.
 
-* **Coal Dust:** A small methane "pop" often raises coal dust into the air, which then ignites, causing the devastating secondary explosion that travels through the mine[cite: 1532]. **Stone dusting** (adding inert limestone dust) prevents this propagation.
+* **Coal Dust:** A small methane "pop" often raises coal dust into the air, which then ignites, causing the devastating secondary explosion that travels through the mine. **Stone dusting** (adding inert limestone dust) prevents this propagation.
 
 ### 2.4. Field Checklist for Gas/Dust Control
 
@@ -206,9 +207,9 @@ Explosions require a specific mixture of gas and oxygen.
 
 **Auxiliary Fans:** Ensure the ducting is close enough to the face to capture dust (exhausting) or dilute gas (forcing).
 
-**Diesel Maintenance:** High DPM readings often indicate poor engine maintenance or clogged scrubbers, not just poor airflow[cite: 1341].
+**Diesel Maintenance:** High DPM readings often indicate poor engine maintenance or clogged scrubbers, not just poor airflow.
 
-**Bleeder Roads:** In longwall mining, ensure bleeder roads are open to drain methane from the goaf (gob) away from the face[cite: 881].
+**Bleeder Roads:** In longwall mining, ensure bleeder roads are open to drain methane from the goaf (gob) away from the face.
 
 ## Part 3: Ventilation Systems, Circuits & Network Analysis
 
@@ -218,7 +219,7 @@ This section covers the fluid mechanics of ventilation, circuit design, and the 
 
 ### 3.1. The Fundamental Law: Atkinson’s Equation
 
-In electrical engineering, Ohm's Law ($V=IR$) is the foundation. In mine ventilation, the equivalent is the **Square Law** (often attributed to J.J. Atkinson). It states that the pressure required to move air is proportional to the square of the quantity [cite: 696-697].
+In electrical engineering, Ohm's Law ($V=IR$) is the foundation. In mine ventilation, the equivalent is the **Square Law** (often attributed to J.J. Atkinson). It states that the pressure required to move air is proportional to the square of the quantity.
 
 $$P = R \times Q^2$$
 
@@ -230,13 +231,13 @@ Where:
 
 #### Calculating Resistance ($R$)
 
-Resistance is a physical property of the airway, independent of the airflow (in fully developed turbulent flow). It is calculated using the physical dimensions of the tunnel [cite: 703-704]:
+Resistance is a physical property of the airway, independent of the airflow (in fully developed turbulent flow). It is calculated using the physical dimensions of the tunnel:
 
 $$R = \frac{k \cdot L \cdot Per}{A^3}$$
 
 * **$k$:** Friction Factor ($kg/m^3$ or $Ns^2/m^4$) – A coefficient representing the roughness of the airway walls.
 * **$L$:** Length of the airway ($m$).
-* **$Per$:** Perimeter of the airway ($m$) – The "rubbing surface" [cite: 709-710].
+* **$Per$:** Perimeter of the airway ($m$) – The "rubbing surface".
 * **$A$:** Cross-sectional Area ($m^2$).
 
 **Field Insight:** Notice that Area ($A$) is cubed in the denominator. This means a small increase in tunnel size results in a **massive** reduction in resistance.
@@ -246,10 +247,12 @@ $$R = \frac{k \cdot L \cdot Per}{A^3}$$
 
 ### 3.2. Shock Losses ($X$)
 
-Friction isn't the only thief of energy. Whenever airflow changes direction (bends) or changes area (expansions/contractions), flow separation occurs, creating **Shock Losses** [cite: 723-724].
+Friction isn't the only thief of energy. Whenever airflow changes direction (bends) or changes area (expansions/contractions), flow separation occurs, creating **Shock Losses**.
 
 In network analysis, shock losses are either added as an "Equivalent Length" to the friction calculation or calculated as velocity pressure heads ($P_v$):
+
 $$P_{shock} = X \cdot P_v$$
+
 *(Where $X$ is a shock factor based on the geometry of the bend/junction).*
 
 ### 3.3. Basic Ventilation Circuits
@@ -260,11 +263,13 @@ Just like electrical circuits, mine airways are arranged in **Series** or **Para
 
 Air flows through one airway, then the next.
 
-[Image of Series ventilation circuit diagram]
+![Series ventilation circuit diagram](https://guley.com.au/upload/series-airway-circuits.png)
 
-* **Airflow ($Q$):** Constant throughout all branches. ($Q_{total} = Q_1 = Q_2$) [cite: 212].
-* **Pressure ($P$):** Cumulative. ($P_{total} = P_1 + P_2 + P_3$) [cite: 214].
-* **Resistance ($R$):** Cumulative. ($R_{eq} = R_1 + R_2 + R_3$) [cite: 216].
+![Series ventilation circuit diagram](https://guley.com.au/upload/series-airway-circuits2.png)
+
+* **Airflow ($Q$):** Constant throughout all branches. ($Q_{total} = Q_1 = Q_2$).
+* **Pressure ($P$):** Cumulative. ($P_{total} = P_1 + P_2 + P_3$).
+* **Resistance ($R$):** Cumulative. ($R_{eq} = R_1 + R_2 + R_3$).
 
 **Warning:** Series circuits have high resistance. Avoid putting high-volume airways in series if possible, as the fan pressure required will skyrocket.
 
@@ -272,21 +277,24 @@ Air flows through one airway, then the next.
 
 The airflow splits at a node, travels through multiple branches, and rejoins.
 
-[Image of Parallel ventilation circuit diagram]
+![Parallel ventilation circuit diagram](https://guley.com.au/upload/parallel-airway-circuits.png)
 
-* **Pressure ($P$):** The pressure drop across all parallel branches is **equal**. ($P_1 = P_2$) [cite: 227-228].
-* **Airflow ($Q$):** Splits naturally. The path of least resistance gets the most air. ($Q_{total} = Q_1 + Q_2$) [cite: 229].
+![Parallel ventilation circuit diagram](https://guley.com.au/upload/parallel-airway-circuits2.png)
+
+* **Pressure ($P$):** The pressure drop across all parallel branches is **equal**. ($P_1 = P_2$).
+* **Airflow ($Q$):** Splits naturally. The path of least resistance gets the most air. ($Q_{total} = Q_1 + Q_2$).
 * **Equivalent Resistance:** The total resistance decreases as you add more parallel paths.
-    $$\frac{1}{\sqrt{R_{eq}}} = \frac{1}{\sqrt{R_1}} + \frac{1}{\sqrt{R_2}} + \dots$$[cite: 229].
+
+$$\frac{1}{\sqrt{R_{eq}}} = \frac{1}{\sqrt{R_1}} + \frac{1}{\sqrt{R_2}} + \dots$$.
 
 ### 3.4. The Equivalent Orifice ($A_{eq}$)
 
-How do you compare the "tightness" of two different mines? We use the **Equivalent Orifice**. It represents the area of a sharp-edged hole in a thin plate that would offer the same resistance as the entire mine[cite: 410].
+How do you compare the "tightness" of two different mines? We use the **Equivalent Orifice**. It represents the area of a sharp-edged hole in a thin plate that would offer the same resistance as the entire mine.
 
 $$A_{eq} \approx 0.38 \frac{Q}{\sqrt{P}}$$
 *(Note: The constant 0.38 is derived when P is in $kg/m^2$ or mmWG. In metric SI units with Pascals, standard approximations are often used).*
 
-**Mine Classification based on $A_{eq}$:** [cite: 417-419]
+**Mine Classification based on $A_{eq}$:**
 
 * **$< 1 \, m^2$:** Narrow/Tight Mine (High Resistance – Requires high pressure fans).
 * **$1 - 2 \, m^2$:** Moderate Mine.
@@ -294,26 +302,28 @@ $$A_{eq} \approx 0.38 \frac{Q}{\sqrt{P}}$$
 
 ### 3.5. Network Analysis: Kirchhoff's Laws
 
-When circuits become complex (meshes), we use Kirchhoff's laws to balance the network, exactly as is done in electrical grids [cite: 241-246].
+When circuits become complex (meshes), we use Kirchhoff's laws to balance the network, exactly as is done in electrical grids.
 
 **Kirchhoff's 1st Law (Junctions):** The algebraic sum of air quantities at any junction is zero.
 
 $$\sum Q_{in} = \sum Q_{out}$$
 
-*(Mass is conserved; air doesn't disappear)*[cite: 250].
+*(Mass is conserved; air doesn't disappear)*.
 
 **Kirchhoff's 2nd Law (Meshes):** The algebraic sum of pressure drops around any closed loop (mesh) is zero.
 
 $$\sum P = 0$$
 
-*(Or, the sum of pressure drops equals the pressure added by the fan in that mesh)* [cite: 256-257].
+*(Or, the sum of pressure drops equals the pressure added by the fan in that mesh)*.
 
 **The Hardy Cross Method:**
-Solving these equations manually for a large mine is impossible. We use the **Hardy Cross** iterative numerical method [cite: 388-392]. This is the mathematical engine behind software like **Ventsim** or **Deswik.Vent**. It guesses an airflow, calculates the error based on Kirchhoff's laws, applies a correction, and repeats until the error is zero.
+
+Solving these equations manually for a large mine is impossible. We use the **Hardy Cross** iterative numerical method. This is the mathematical engine behind software like **Ventsim** or **Deswik.Vent**. It guesses an airflow, calculates the error based on Kirchhoff's laws, applies a correction, and repeats until the error is zero.
 
 ### 3.6. Regulator & Booster Fan Strategies
 
-* **Regulators (Passive):** Artificial resistance (like a sliding door) added to a low-resistance branch in a parallel circuit. It forces air into the *other* (higher resistance) branch to balance flows [cite: 795-796].
+* **Regulators (Passive):** Artificial resistance (like a sliding door) added to a low-resistance branch in a parallel circuit. It forces air into the *other* (higher resistance) branch to balance flows.
+
 * **Booster Fans (Active):** Adds pressure to a specific branch to overcome high resistance without raising the main fan pressure for the whole mine.
 
 ## Part 4: Mechanical Ventilation & System Design
@@ -329,17 +339,17 @@ Fans convert rotational mechanical energy into aerodynamic energy (pressure and 
 * **Mechanism:** Air passes through the fan parallel to the shaft. The impeller blades act like an aircraft propeller.
 * **Characteristics:** High volume, relatively lower pressure capabilities compared to centrifugal.
 * **Application:** Most main surface fans and auxiliary booster fans.
-* **Advantage:** Can be made **reversible** (critical for emergency fire procedures) and usually have adjustable blade pitches to vary performance [cite: 813-814].
+* **Advantage:** Can be made **reversible** (critical for emergency fire procedures) and usually have adjustable blade pitches to vary performance.
 
 #### B. Centrifugal (Radial) Fans
 
 * **Mechanism:** Air enters axially but is discharged radially (90 degrees) by centrifugal force.
 * **Characteristics:** Can generate very high pressures. Rugged and quieter.
-* **Application:** High-resistance mines, scrubber fans, or forcing auxiliary fans with long duct runs[cite: 814].
+* **Application:** High-resistance mines, scrubber fans, or forcing auxiliary fans with long duct runs.
 
 ### 4.2. The Fan Laws (Affinity Laws)
 
-These are the most useful formulas for a field engineer. They predict how a fan's performance changes when you alter its rotational speed (RPM) or the air density [cite: 832-833].
+These are the most useful formulas for a field engineer. They predict how a fan's performance changes when you alter its rotational speed (RPM) or the air density.
 
 **Scenario:** You have a fan running at Speed $N_1$. You change the sheaves/VSD to run at $N_2$.
 
@@ -367,7 +377,7 @@ $$\frac{W_2}{W_1} = \left(\frac{N_2}{N_1}\right)^3$$
 
 A fan does not have a single "pressure". It has a **Characteristic Curve** (Pressure vs. Quantity). The fan will operate only at the point where this curve intersects the **Mine System Resistance Curve** ($P = R Q^2$).
 
-* **The Operating Point:** The unique combination of $P$ and $Q$ where the fan capability matches the mine's demand [cite: 817-819].
+* **The Operating Point:** The unique combination of $P$ and $Q$ where the fan capability matches the mine's demand.
 * **Stall Zone:** The unstable area on the left side of the fan curve (dip). Operating here causes aerodynamic stall (like an airplane), severe vibration, and potential catastrophic failure. **Always operate on the steep, right-hand side of the curve.**
 
 **Fan Efficiency ($\eta$):**
@@ -376,7 +386,7 @@ $$Air Power (kW) = \frac{Q (m^3/s) \times P (Pa)}{1000}$$
 
 $$\eta = \frac{Air Power}{Shaft Power (Input)}$$
 
-*Efficient fans save millions in electricity over the life of a mine.* [cite: 881-894]
+*Efficient fans save millions in electricity over the life of a mine.*
 
 ### 4.4. Primary Ventilation Systems
 
@@ -386,13 +396,13 @@ How do we arrange the main airways?
 
 * Air flows towards the workings and returns via a parallel airway separated by stoppings.
 * *Common in:* Room and pillar, advancing longwalls.
-* *Risk:* High leakage through the gob/waste area; difficult to control spontaneous combustion [cite: 1336-1338].
+* *Risk:* High leakage through the gob/waste area; difficult to control spontaneous combustion.
 
 **Through-Flow System:**
 
 * Intake and Return shafts are geographically separated (e.g., Intake at one end of the lease, Exhaust at the other).
 * *Common in:* Modern metalliferous mines, retreat mining.
-* *Benefit:* Reduces leakage paths, lowers overall resistance, and separates transport from return air [cite: 1339-1341].
+* *Benefit:* Reduces leakage paths, lowers overall resistance, and separates transport from return air.
 
 ### 4.5. Auxiliary Ventilation (Development Headings)
 
@@ -402,18 +412,18 @@ When driving a dead-end heading (blind heading), the main airflow passes by the 
 
 * **Setup:** Fan is in the fresh airway, pushing air through flexible (layflat) duct to the face.
 * **Pros:** Delivers high-velocity cool air directly to the face; effective at sweeping heavy gases ($CO_2$) and diluting methane. Cheaper ducting.
-* **Cons:** Dust and fumes travel back over the operator/machine in the heading [cite: 1393-1396].
+* **Cons:** Dust and fumes travel back over the operator/machine in the heading.
 
 #### B. Exhausting System
 
 * **Setup:** Fan sucks air from the face through rigid (spiral/wire-reinforced) duct.
 * **Pros:** Captures dust and fumes at the source; fresh air enters via the drive, keeping the operator in clean air.
-* **Cons:** Requires expensive rigid ducting (to prevent collapse under negative pressure); poor at scouring the face for gas; creates dead zones at the face corners [cite: 1397-1399].
+* **Cons:** Requires expensive rigid ducting (to prevent collapse under negative pressure); poor at scouring the face for gas; creates dead zones at the face corners.
 
 #### C. Overlap System (The Hybrid)
 
 * **Setup:** Uses a primary duct (usually forcing) to bring air near the face, and a smaller secondary fan (exhausting with a dust scrubber) mounted on the miner/header to clean the air.
-* **Goal:** Combines the cooling/dilution of forcing with the dust control of exhausting [cite: 1402-1403].
+* **Goal:** Combines the cooling/dilution of forcing with the dust control of exhausting.
 
 **Field Rule for Ducts:**
 
@@ -433,25 +443,25 @@ These are the physical structures used to manage the airflow network.
 Walls built to separate intake airways from return airways to prevent short-circuiting.
 
 * **Construction:** Concrete blocks, masonry, or monolithic pumped cement.
-* **Field Note:** Leaking stoppings are the #1 cause of low volumetric efficiency. If air leaks through a stopping, you are paying electricity to recirculate air that never reaches the face [cite: 1317-1318].
+* **Field Note:** Leaking stoppings are the #1 cause of low volumetric efficiency. If air leaks through a stopping, you are paying electricity to recirculate air that never reaches the face.
 
 #### B. Ventilation Doors & Airlocks
 
 Used where men or machinery must travel between intake and return.
 
 * **Airlock:** Two doors in series. **Rule #1:** Never open both doors at the same time. This creates a direct short circuit, potentially stalling the main fan or reversing airflow in other parts of the mine.
-* **Pressure Direction:** Doors should always open *towards* the higher pressure so that the air pressure helps keep them sealed [cite: 1326-1327].
+* **Pressure Direction:** Doors should always open *towards* the higher pressure so that the air pressure helps keep them sealed.
 
 #### C. Regulators
 
-An artificial restriction (usually a sliding door in a stopping) used to reduce flow in a low-resistance branch (e.g., a split close to the shaft bottom) to force air to higher-resistance branches deeper in the mine [cite: 1329-1330].
+An artificial restriction (usually a sliding door in a stopping) used to reduce flow in a low-resistance branch (e.g., a split close to the shaft bottom) to force air to higher-resistance branches deeper in the mine.
 
 #### D. Air Crossings (Overcasts/Undercasts)
 
 Structures that allow intake and return airways to cross each other without mixing.
 
 * **Construction:** Steel ducts or concrete bridges.
-* **Risk:** A leakage here reinjects exhaust gas directly into the fresh air stream. They must be robust and well-sealed [cite: 1333-1335].
+* **Risk:** A leakage here reinjects exhaust gas directly into the fresh air stream. They must be robust and well-sealed.
 
 ### 5.2. Emergency Sealing Strategies
 
@@ -462,14 +472,14 @@ When a fire cannot be extinguished directly (e.g., a goaf fire or deep-seated sp
 In gassy mines (coal/methane), there is a danger that sealing a fire will create an explosive gas mixture behind the seal before the oxygen drops below 12% (The Coward Triangle "Nose"). Therefore, seals must be built to withstand the overpressure of an explosion.
 
 * **Rating:** Typically designed to withstand 140 kPa (20 psi) to 345 kPa (50 psi) depending on local regulations (e.g., WA Mines Safety standards).
-* **Construction:** Two bulkheads 5-10m apart, filled with sand, fly ash, or pumped gypsum[cite: 1320, 1616].
+* **Construction:** Two bulkheads 5-10m apart, filled with sand, fly ash, or pumped gypsum.
 
 #### B. Sampling Behind Seals
 
 You cannot manage what you cannot see. Seals must be fitted with sampling pipes to monitor the atmosphere inside.
 
-* **Design:** The pipe should extend at least **30 meters inby** (into the sealed area) to avoid sampling "breathing" air near the wall[cite: 1624].
-* **Stratification:** Ideally, sample from the roof (methane), floor ($CO_2$), and middle for a representative analysis[cite: 1625].
+* **Design:** The pipe should extend at least **30 meters inby** (into the sealed area) to avoid sampling "breathing" air near the wall.
+* **Stratification:** Ideally, sample from the roof (methane), floor ($CO_2$), and middle for a representative analysis.
 
 ### 5.3. Explosion Suppression (Barriers)
 
@@ -477,11 +487,11 @@ In coal mines, a small methane explosion can lift coal dust into the air, trigge
 
 #### A. Stone Dust Barriers
 
-Shelves loaded with inert limestone dust. The shockwave of the explosion tips the shelves, creating a cloud of inert dust that absorbs the heat and quenches the flame before it arrives [cite: 1746-1747].
+Shelves loaded with inert limestone dust. The shockwave of the explosion tips the shelves, creating a cloud of inert dust that absorbs the heat and quenches the flame before it arrives.
 
 #### B. Water Barriers
 
-Troughs filled with water suspended from the roof. The shockwave shatters the troughs, creating a dense water curtain that cools the flame [cite: 1749-1752].
+Troughs filled with water suspended from the roof. The shockwave shatters the troughs, creating a dense water curtain that cools the flame.
 
 ### 5.4. Managing Spontaneous Combustion ("Spon Com")
 
@@ -489,18 +499,19 @@ Prevention is better than cure. Once a heating starts in a goaf, it is incredibl
 
 * **Prevention:** Minimize leakage! Air flowing slowly through broken coal provides oxygen for oxidation but doesn't remove the heat.
 * **Pressure Balancing:** Adjusting regulators to equalize the pressure across a goaf area so that no air flows through it.
-* **Grouting:** Injecting sealants into pillar cracks to stop oxygen ingress[cite: 1609].
+* **Grouting:** Injecting sealants into pillar cracks to stop oxygen ingress.
 
 ### 5.5. Routine Management ( The Ventilation Officer)
 
 In Western Australia, the **Ventilation Officer (VO)** is a statutory position. Routine duties include:
 
-1.  **Pressure/Quantity Surveys:** Measuring $P$ and $Q$ to calculate Resistance ($R$) and update the network model [cite: 554-556].
-2.  **Gas Monitoring:** Calibration of detectors and recording trends.
-3.  **Fan Testing:** Checking operating points against the fan curve.
-4.  **VCP Maintenance:** Updating the *Ventilation Control Plan* as the mine develops.
+**Pressure/Quantity Surveys:** Measuring $P$ and $Q$ to calculate Resistance ($R$) and update the network model.
 
----
+**Gas Monitoring:** Calibration of detectors and recording trends.
+
+**Fan Testing:** Checking operating points against the fan curve.
+
+**VCP Maintenance:** Updating the *Ventilation Control Plan* as the mine develops.
 
 ## The Engineer's Responsibility
 
