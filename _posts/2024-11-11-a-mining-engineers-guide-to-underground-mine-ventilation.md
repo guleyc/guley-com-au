@@ -159,10 +159,10 @@ Dust is not just a nuisance; it is a chronic killer. In WA mining, strict adhere
 
 #### A. Classification
 
-**Fibrogenic:** Causes scar tissue in lungs (e.g., Silica/Quartz $\to$ Silicosis, Asbestos $\to$ Asbestosis).
-**Carcinogenic:** Causes cancer (e.g., Radon daughters, Diesel Particulate Matter, Arsenic).
-**Explosive:** Coal dust, sulphide dusts.
-**Nuisance:** Reduces visibility and irritates eyes (e.g., Limestone).
+* **Fibrogenic:** Causes scar tissue in lungs (e.g., Silica/Quartz $\to$ Silicosis, Asbestos $\to$ Asbestosis).
+* **Carcinogenic:** Causes cancer (e.g., Radon daughters, Diesel Particulate Matter, Arsenic).
+* **Explosive:** Coal dust, sulphide dusts.
+* **Nuisance:** Reduces visibility and irritates eyes (e.g., Limestone).
 
 #### B. Critical Limits (WA)
 
