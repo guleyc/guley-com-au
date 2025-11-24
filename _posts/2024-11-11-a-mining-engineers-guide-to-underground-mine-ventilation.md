@@ -137,14 +137,15 @@ Historically, miners grouped gases into "Damps" (from the German *Dampf* for vap
 | **Sulfur Dioxide** | $SO_2$ | - | 2.26 | **2 ppm** | **5 ppm** |
 
 **Critical Notes**
-**Oxygen:** **Life Support.** <19.5% is oxygen deficiency. <6% leads to rapid loss of consciousness and death. 
-**Methane:** **Explosive.** Range: 5-15%. Peak violence at ~9.8%. Layers at the **roof**.
-**Carbon Monoxide:** **Toxic.** Binds to hemoglobin 300x stronger than $O_2$. Colorless/Odorless. Product of fire/diesel.
-**Carbon Dioxide:** **Asphyxiant.** Acid taste. Settles in **sumps/floors**. Increases breathing rate.
-**Hydrogen Sulfide:** **Highly Toxic.** Rotten egg smell, but desensitizes nose rapidly (olfactory fatigue). 
-**Nitrogen Dioxide:** **Toxic.** Reddish-brown. Causes pulmonary edema (fluid in lungs). Common after blasting.
-**Hydrogen:** **Explosive.** Wide range (4-74%). Found in battery charging bays. Layers aggressively at the roof.
-**Sulfur Dioxide:** **Toxic.** Pungent acid smell. Byproduct of sulphide ore dust explosions or diesel.
+
+* **Oxygen:** **Life Support.** <19.5% is oxygen deficiency. <6% leads to rapid loss of consciousness and death.
+* **Methane:** **Explosive.** Range: 5-15%. Peak violence at ~9.8%. Layers at the **roof**.
+* **Carbon Monoxide:** **Toxic.** Binds to hemoglobin 300x stronger than $O_2$. Colorless/Odorless. Product of fire/diesel.
+* **Carbon Dioxide:** **Asphyxiant.** Acid taste. Settles in **sumps/floors**. Increases breathing rate.
+* **Hydrogen Sulfide:** **Highly Toxic.** Rotten egg smell, but desensitizes nose rapidly (olfactory fatigue).
+* **Nitrogen Dioxide:** **Toxic.** Reddish-brown. Causes pulmonary edema (fluid in lungs). Common after blasting.
+* **Hydrogen:** **Explosive.** Wide range (4-74%). Found in battery charging bays. Layers aggressively at the roof.
+* **Sulfur Dioxide:** **Toxic.** Pungent acid smell. Byproduct of sulphide ore dust explosions or diesel.
 
 **Field Rule:**
 
