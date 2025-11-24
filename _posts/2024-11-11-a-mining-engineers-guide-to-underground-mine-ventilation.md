@@ -125,24 +125,24 @@ Historically, miners grouped gases into "Damps" (from the German *Dampf* for vap
 * **WA Limits:** Based on Work Health and Safety (Mines) Regulations 2022 (Safe Work Australia standards).
 * **Source Data:** Specific Gravities and descriptions derived from lecture notes.
 
-| Gas | Formula | "Damp" Name | SG (Air=1) | WA TWA (8hr) | WA STEL (15min) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| Gas | Formula | SG (Air=1) | WA TWA (8hr) | WA STEL (15min) |
+| :--- | :--- | :--- | :--- | :--- |
 | **Oxygen** | $O_2$ | - | 1.10 | **> 19.5%** | - |
-| **Methane** | $CH_4$ | Firedamp | 0.55 | - | - |
-| **Carbon Monoxide** | $CO$ | Whitedamp | 0.97 | **30 ppm** | - |
-| **Carbon Dioxide** | $CO_2$ | Blackdamp | 1.53 | **5,000 ppm** | **30,000 ppm**  |
-| **Hydrogen Sulfide** | $H_2S$ | Stinkdamp | 1.19 | **10 ppm** | **15 ppm** |
-| **Nitrogen Dioxide** | $NO_2$ | - | 1.58 | **3 ppm** | **5 ppm** |
-| **Hydrogen** | $H_2$ | - | 0.07 | - | -  |
-| **Sulfur Dioxide** | $SO_2$ | - | 2.26 | **2 ppm** | **5 ppm** |
+| **Methane** | $CH_4$ | 0.55 | - | - |
+| **Carbon Monoxide** | $CO$ | 0.97 | **30 ppm** | - |
+| **Carbon Dioxide** | $CO_2$ | 1.53 | **5,000 ppm** | **30,000 ppm**  |
+| **Hydrogen Sulfide** | $H_2S$ | 1.19 | **10 ppm** | **15 ppm** |
+| **Nitrogen Dioxide** | $NO_2$ | 1.58 | **3 ppm** | **5 ppm** |
+| **Hydrogen** | $H_2$ | 0.07 | - | -  |
+| **Sulfur Dioxide** | $SO_2$ | 2.26 | **2 ppm** | **5 ppm** |
 
 **Critical Notes**
 
 * **Oxygen:** **Life Support.** <19.5% is oxygen deficiency. <6% leads to rapid loss of consciousness and death.
-* **Methane:** **Explosive.** Range: 5-15%. Peak violence at ~9.8%. Layers at the **roof**.
-* **Carbon Monoxide:** **Toxic.** Binds to hemoglobin 300x stronger than $O_2$. Colorless/Odorless. Product of fire/diesel.
-* **Carbon Dioxide:** **Asphyxiant.** Acid taste. Settles in **sumps/floors**. Increases breathing rate.
-* **Hydrogen Sulfide:** **Highly Toxic.** Rotten egg smell, but desensitizes nose rapidly (olfactory fatigue).
+* **Methane (Firedamp):** **Explosive.** Range: 5-15%. Peak violence at ~9.8%. Layers at the **roof**.
+* **Carbon Monoxide (Whitedamp):** **Toxic.** Binds to hemoglobin 300x stronger than $O_2$. Colorless/Odorless. Product of fire/diesel.
+* **Carbon Dioxide (Blackdamp):** **Asphyxiant.** Acid taste. Settles in **sumps/floors**. Increases breathing rate.
+* **Hydrogen Sulfide (Stinkdamp):** **Highly Toxic.** Rotten egg smell, but desensitizes nose rapidly (olfactory fatigue).
 * **Nitrogen Dioxide:** **Toxic.** Reddish-brown. Causes pulmonary edema (fluid in lungs). Common after blasting.
 * **Hydrogen:** **Explosive.** Wide range (4-74%). Found in battery charging bays. Layers aggressively at the roof.
 * **Sulfur Dioxide:** **Toxic.** Pungent acid smell. Byproduct of sulphide ore dust explosions or diesel.
