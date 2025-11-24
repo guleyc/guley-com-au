@@ -127,7 +127,7 @@ Historically, miners grouped gases into "Damps" (from the German *Dampf* for vap
 
 | Gas | Formula | SG (Air=1) | WA TWA (8hr) | WA STEL (15min) |
 | :--- | :--- | :--- | :--- | :--- |
-| **Oxygen** | $O_2$ | - | 1.10 | **> 19.5%** | - |
+| **Oxygen** | $O_2$ | 1.10 | **> 19.5%** | - |
 | **Methane** | $CH_4$ | 0.55 | - | - |
 | **Carbon Monoxide** | $CO$ | 0.97 | **30 ppm** | - |
 | **Carbon Dioxide** | $CO_2$ | 1.53 | **5,000 ppm** | **30,000 ppm**  |
