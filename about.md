@@ -2,12 +2,9 @@
 layout: page
 title: "About Me"
 permalink: /about/
-tr_url: /hakkimda/
 redirect_from:
- - /hakkimda
- - /hakkimda/
  - /about
-author: Cagatay Guley
+author: Jay Guley
 ---
 
 Hello! I'm a Mining Engineer graduate from Istanbul Technical University. Over the past seven years, I've had the opportunity to work in different corners of the mining world - both underground and at the desk.
